@@ -47,8 +47,8 @@
 #define MAXIMUM_MARKINGS_PER_LIMB 3
 
 #define BODY_SIZE_NORMAL 1.00
-#define BODY_SIZE_MAX 1.5
-#define BODY_SIZE_MIN 0.8
+#define BODY_SIZE_MAX 1.1
+#define BODY_SIZE_MIN 0.9
 
 //In inches
 #define PENIS_MAX_GIRTH 15
