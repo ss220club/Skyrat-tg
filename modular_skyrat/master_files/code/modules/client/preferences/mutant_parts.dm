@@ -987,7 +987,7 @@
 	return TRUE // we dont actually want this to do anything
 
 /datum/preference/toggle/taur/is_accessible(datum/preferences/preferences)
-    return FALSE
+	return FALSE
 	var/passed_initial_check = ..(preferences)
 	var/allowed = preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts)
 	return passed_initial_check || allowed
@@ -999,7 +999,7 @@
 	relevant_mutant_bodypart = "taur"
 
 /datum/preference/choiced/taur/is_accessible(datum/preferences/preferences)
-    return FALSE
+	return FALSE
 	var/passed_initial_check = ..(preferences)
 	var/allowed = preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts)
 	var/part_enabled = preferences.read_preference(/datum/preference/toggle/taur)
