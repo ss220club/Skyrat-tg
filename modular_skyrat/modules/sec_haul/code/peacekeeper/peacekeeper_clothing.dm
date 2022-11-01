@@ -27,7 +27,7 @@
 
 
 
-/obj/item/clothing/head/sec/peacekeeper/sergeant
+/obj/item/clothing/head/hats/sec/peacekeeper/sergeant
 	name = "peacekeeper sergeant hat"
 	desc = "A drill sergeants cap, wearing this increases your loudness. So they say."
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
@@ -82,7 +82,6 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/security.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/security.dmi'
 	icon_state = "peacekeeper_warden"
-	inhand_icon_state = "peacekeeper_warden"
 
 /obj/item/clothing/under/rank/security/warden
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/security.dmi'
@@ -94,7 +93,6 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/security.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/security.dmi'
 	icon_state = "peacekeeper_hos"
-	inhand_icon_state = "peacekeeper_hos"
 
 //PEACEKEEPER ARMOR
 /obj/item/clothing/suit/armor/vest/peacekeeper
@@ -110,6 +108,16 @@
 	name = "black peacekeeper vest"
 	icon_state = "peacekeeper_black"
 	worn_icon_state = "peacekeeper_black"
+
+/obj/item/clothing/suit/armor/vest/peacekeeper/brit
+	name = "high vis armored vest"
+	desc = "Oi bruv, you got a loicence for that?"
+	icon_state = "hazardbg"
+	worn_icon_state = "hazardbg"
+
+/obj/item/clothing/suit/armor/vest/peacekeeper/brit/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon, "zipper")
 
 /obj/item/clothing/suit/armor/hos/trenchcoat/peacekeeper
 	name = "armored peacekeeper trenchcoat"
@@ -132,7 +140,7 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
 	icon_state = "coatpeacekeeper"
-	inhand_icon_state = "coatpeacekeeper"
+	inhand_icon_state = null
 	desc = "A greyish-blue, armour-padded winter coat. It glitters with a mild ablative coating and a robust air of authority.  The zipper tab is a pair of jingly little handcuffs that get annoying after the first ten seconds."
 	hoodtype = /obj/item/clothing/head/hooded/winterhood/security/peacekeeper
 
@@ -192,50 +200,11 @@
 	icon_state = "peacekeeperbelt"
 	worn_icon_state = "peacekeeperbelt"
 	content_overlays = FALSE
-	component_type = /datum/component/storage/concrete/peacekeeper
 
-/datum/component/storage/concrete/peacekeeper/open_storage(mob/user)
-	if(!isliving(user) || !user.CanReach(parent) || user.incapacitated())
-		return FALSE
-	if(locked)
-		to_chat(user, span_warning("[parent] seems to be locked!"))
-		return
-
-	var/atom/A = parent
-
-	var/obj/item/gun/ballistic/automatic/pistol/gun_to_draw = locate() in real_location()
-	if(!gun_to_draw)
-		return ..()
-	A.add_fingerprint(user)
-	remove_from_storage(gun_to_draw, get_turf(user))
-	playsound(parent, 'modular_skyrat/modules/sec_haul/sound/holsterout.ogg', 50, TRUE, -5)
-	INVOKE_ASYNC(user, /mob/.proc/put_in_hands, gun_to_draw)
-	user.visible_message(span_warning("[user] draws [gun_to_draw] from [parent]!"), span_notice("You draw [gun_to_draw] from [parent]."))
-
-
-/datum/component/storage/concrete/peacekeeper/mob_item_insertion_feedback(mob/user, mob/M, obj/item/I, override = FALSE)
-	if(silent && !override)
-		return
-	if(rustle_sound)
-		if(istype(I, /obj/item/gun/ballistic/automatic/pistol))
-			playsound(parent, 'modular_skyrat/modules/sec_haul/sound/holsterin.ogg', 50, TRUE, -5)
-		else
-			playsound(parent, SFX_RUSTLE, 50, TRUE, -5)
-
-	for(var/mob/viewing in viewers(user, null))
-		if(M == viewing)
-			to_chat(usr, span_notice("You put [I] [insert_preposition]to [parent]."))
-		else if(in_range(M, viewing)) //If someone is standing close enough, they can tell what it is...
-			viewing.show_message(span_notice("[M] puts [I] [insert_preposition]to [parent]."), MSG_VISUAL)
-		else if(I && I.w_class >= 3) //Otherwise they can only see large or normal items from a distance...
-			viewing.show_message(span_notice("[M] puts [I] [insert_preposition]to [parent]."), MSG_VISUAL)
-
-/obj/item/storage/belt/security/peacekeeper/ComponentInitialize()
+/obj/item/storage/belt/security/peacekeeper/Initialize(mapload)
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 5
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.set_holdable(list(
+	atom_storage.max_slots = 5
+	atom_storage.set_holdable(list(
 		/obj/item/gun/ballistic/automatic/pistol,
 		/obj/item/gun/ballistic/revolver,
 		/obj/item/gun/energy/disabler,
@@ -274,14 +243,11 @@
 	worn_icon_state = "peacekeeper_webbing"
 	content_overlays = FALSE
 	custom_premium_price = PAYCHECK_CREW * 3
-	component_type = /datum/component/storage/concrete/peacekeeper
 
-/obj/item/storage/belt/security/webbing/peacekeeper/ComponentInitialize()
+/obj/item/storage/belt/security/webbing/peacekeeper/Initialize(mapload)
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 7
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.set_holdable(list(
+	atom_storage.max_slots = 7
+	atom_storage.set_holdable(list(
 		/obj/item/gun/ballistic/automatic/pistol,
 		/obj/item/gun/ballistic/revolver,
 		/obj/item/melee/baton,
@@ -304,7 +270,7 @@
 		))
 
 //BOOTS
-/obj/item/clothing/shoes/combat/peacekeeper
+/obj/item/clothing/shoes/jackboots/peacekeeper
 	name = "peacekeeper boots"
 	desc = "High speed, low drag combat boots."
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/shoes.dmi'
@@ -312,12 +278,6 @@
 	icon_state = "peacekeeper_boots"
 	inhand_icon_state = "jackboots"
 	worn_icon_state = "peacekeeper"
-	armor = null
-	strip_delay = 30
-	equip_delay_other = 50
-	resistance_flags = NONE
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
-	can_be_tied = FALSE
 
 /obj/item/clothing/suit/armor/riot/peacekeeper
 	name = "peacekeeper riotsuit"

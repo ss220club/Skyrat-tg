@@ -233,6 +233,17 @@
 
 			if (surgery_needs_exposure(surgery, surgery_target))
 				surgery_info["blocked"] = TRUE
+				surgery_info["blocked_reason"] = "Their body is covered!" // SKYRAT EDIT ADDITION - Surgically unremovable bodyparts
+
+			// SKYRAT EDIT START - Surgically unremovable bodyparts
+			if (surgery.removes_target_bodypart)
+				if (iscarbon(surgery_target))
+					var/mob/living/carbon/carbon_target = surgery_target
+					var/obj/item/bodypart/affecting_limb = carbon_target.get_bodypart(check_zone(user.zone_selected))
+					if(!affecting_limb.can_be_surgically_removed)
+						surgery_info["blocked"] = TRUE
+						surgery_info["blocked_reason"] = "That limb cannot be surgically removed!"
+			// SKYRAT EDIT END
 
 			surgeries += list(surgery_info)
 
@@ -304,6 +315,12 @@
 		target.balloon_alert(user, "not the right type of limb!")
 		return
 
+	// SKYRAT EDIT START - Limbs that can't be surgically removed
+	if (surgery.removes_target_bodypart && !isnull(affecting_limb) && !affecting_limb.can_be_surgically_removed)
+		target.balloon_alert(user, "limb can't be surgically removed!")
+		return
+	// SKYRAT EDIT END
+
 	if (surgery.lying_required && target.body_position != LYING_DOWN)
 		target.balloon_alert(user, "patient is not lying down!")
 		return
@@ -328,6 +345,9 @@
 		span_notice("You drape [parent] over [target]'s [parse_zone(selected_zone)] to prepare for \an [procedure.name]."),
 	)
 
+	if(!(HAS_TRAIT(target, TRAIT_NUMBED) || target.stat >= UNCONSCIOUS)) ///skyrat add start - warning for unanesthetized surgery
+		target.balloon_alert(user, "not numbed!") ///skyrat add end
+	
 	log_combat(user, target, "operated on", null, "(OPERATION TYPE: [procedure.name]) (TARGET AREA: [selected_zone])")
 
 /datum/component/surgery_initiator/proc/surgery_needs_exposure(datum/surgery/surgery, mob/living/target)

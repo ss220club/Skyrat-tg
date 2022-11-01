@@ -1,3 +1,107 @@
+/obj/vehicle/sealed/mecha/mob_try_enter(mob/M)
+	if(!ishuman(M)) // no silicons or drones in mechas.
+		return
+	if(HAS_TRAIT(M, TRAIT_PRIMITIVE)) //no lavalizards either.
+		to_chat(M, span_warning("The knowledge to use this device eludes you!"))
+		return
+	log_message("[M] tried to move into [src].", LOG_MECHA)
+	if(dna_lock && M.has_dna())
+		var/mob/living/carbon/entering_carbon = M
+		if(entering_carbon.dna.unique_enzymes != dna_lock)
+			to_chat(M, span_warning("Access denied. [name] is secured with a DNA lock."))
+			log_message("Permission denied (DNA LOCK).", LOG_MECHA)
+			return
+	if(!operation_allowed(M))
+		to_chat(M, span_warning("Access denied. Insufficient operation keycodes."))
+		log_message("Permission denied (No keycode).", LOG_MECHA)
+		return
+	. = ..()
+	if(.)
+		moved_inside(M)
+
+/obj/vehicle/sealed/mecha/enter_checks(mob/M)
+	if(atom_integrity <= 0)
+		to_chat(M, span_warning("You cannot get in the [src], it has been destroyed!"))
+		return FALSE
+	if(M.buckled)
+		to_chat(M, span_warning("You can't enter the exosuit while buckled."))
+		log_message("Permission denied (Buckled).", LOG_MECHA)
+		return FALSE
+	if(M.has_buckled_mobs())
+		to_chat(M, span_warning("You can't enter the exosuit with other creatures attached to you!"))
+		log_message("Permission denied (Attached mobs).", LOG_MECHA)
+		return FALSE
+	return ..()
+
+///proc called when a new non-mmi/AI mob enters this mech
+/obj/vehicle/sealed/mecha/proc/moved_inside(mob/living/newoccupant)
+	if(!(newoccupant?.client))
+		return FALSE
+	if(ishuman(newoccupant) && !Adjacent(newoccupant))
+		return FALSE
+	add_occupant(newoccupant)
+	newoccupant.forceMove(src)
+	newoccupant.update_mouse_pointer()
+	add_fingerprint(newoccupant)
+	log_message("[newoccupant] moved in as pilot.", LOG_MECHA)
+	setDir(dir_in)
+	playsound(src, 'sound/machines/windowdoor.ogg', 50, TRUE)
+	set_mouse_pointer()
+	if(!internal_damage)
+		SEND_SOUND(newoccupant, sound('sound/mecha/nominal.ogg',volume=50))
+	return TRUE
+
+///proc called when a new mmi mob tries to enter this mech
+/obj/vehicle/sealed/mecha/proc/mmi_move_inside(obj/item/mmi/brain_obj, mob/user)
+	if(!(mecha_flags & MMI_COMPATIBLE))
+		to_chat(user, span_warning("This mecha is not compatible with MMIs!"))
+		return FALSE
+	if(!brain_obj.brain_check(user))
+		return FALSE
+	var/mob/living/brain/brain_mob = brain_obj.brainmob
+	if(LAZYLEN(occupants) >= max_occupants)
+		to_chat(user, span_warning("It's full!"))
+		return FALSE
+	if(dna_lock && (!brain_mob.stored_dna || (dna_lock != brain_mob.stored_dna.unique_enzymes)))
+		to_chat(user, span_warning("Access denied. [name] is secured with a DNA lock."))
+		return FALSE
+
+	visible_message(span_notice("[user] starts to insert an MMI into [name]."))
+
+	if(!do_after(user, 4 SECONDS, target = src))
+		to_chat(user, span_notice("You stop inserting the MMI."))
+		return FALSE
+	if(LAZYLEN(occupants) < max_occupants)
+		return mmi_moved_inside(brain_obj, user)
+	to_chat(user, span_warning("Maximum occupants exceeded!"))
+	return FALSE
+
+///proc called when a new mmi mob enters this mech
+/obj/vehicle/sealed/mecha/proc/mmi_moved_inside(obj/item/mmi/brain_obj, mob/user)
+	if(!(Adjacent(brain_obj) && Adjacent(user)))
+		return FALSE
+	if(!brain_obj.brain_check(user))
+		return FALSE
+
+	var/mob/living/brain/brain_mob = brain_obj.brainmob
+	if(!user.transferItemToLoc(brain_obj, src))
+		to_chat(user, span_warning("[brain_obj] is stuck to your hand, you cannot put it in [src]!"))
+		return FALSE
+
+	brain_obj.set_mecha(src)
+	add_occupant(brain_mob)//Note this forcemoves the brain into the mech to allow relaymove
+	mecha_flags |= SILICON_PILOT
+	brain_mob.reset_perspective(src)
+	brain_mob.remote_control = src
+	brain_mob.update_mouse_pointer()
+	setDir(dir_in)
+	log_message("[brain_obj] moved in as pilot.", LOG_MECHA)
+	if(!internal_damage)
+		SEND_SOUND(brain_obj, sound('sound/mecha/nominal.ogg',volume=50))
+	user.log_message("has put the MMI/posibrain of [key_name(brain_mob)] into [src]", LOG_GAME)
+	brain_mob.log_message("was put into [src] by [key_name(user)]", LOG_GAME, log_globally = FALSE)
+	return TRUE
+
 /obj/vehicle/sealed/mecha/mob_exit(mob/M, silent, forced)
 	var/atom/movable/mob_container
 	var/turf/newloc = get_turf(src)
@@ -8,6 +112,9 @@
 		mob_container = brain.container
 	else if(isAI(M))
 		var/mob/living/silicon/ai/AI = M
+		//stop listening to this signal, as the static update is now handled by the eyeobj's setLoc
+		AI.eyeobj?.UnregisterSignal(src, COMSIG_MOVABLE_MOVED)
+		AI.eyeobj?.forceMove(newloc) //kick the eye out as well
 		if(forced)//This should only happen if there are multiple AIs in a round, and at least one is Malf.
 			AI.gib()  //If one Malf decides to steal a mech from another AI (even other Malfs!), they are destroyed, as they have nowhere to go when replaced.
 			AI = null
@@ -45,9 +152,9 @@
 	return ..()
 
 /obj/vehicle/sealed/mecha/add_occupant(mob/M, control_flags)
-	RegisterSignal(M, COMSIG_LIVING_DEATH, .proc/mob_exit)
-	RegisterSignal(M, COMSIG_MOB_CLICKON, .proc/on_mouseclick)
-	RegisterSignal(M, COMSIG_MOB_SAY, .proc/display_speech_bubble)
+	RegisterSignal(M, COMSIG_LIVING_DEATH, .proc/mob_exit, TRUE)
+	RegisterSignal(M, COMSIG_MOB_CLICKON, .proc/on_mouseclick, TRUE)
+	RegisterSignal(M, COMSIG_MOB_SAY, .proc/display_speech_bubble, TRUE)
 	. = ..()
 	update_appearance()
 
@@ -78,24 +185,3 @@
 	else
 		to_chat(user, span_notice("You stop exiting the mech. Weapons are enabled again."))
 	is_currently_ejecting = FALSE
-
-/obj/vehicle/sealed/mecha/mob_try_enter(mob/M)
-	if(!ishuman(M)) // no silicons or drones in mechas.
-		return
-	if(HAS_TRAIT(M, TRAIT_PRIMITIVE)) //no lavalizards either.
-		to_chat(M, span_warning("The knowledge to use this device eludes you!"))
-		return
-	log_message("[M] tries to move into [src].", LOG_MECHA)
-	if(dna_lock && M.has_dna())
-		var/mob/living/carbon/entering_carbon = M
-		if(entering_carbon.dna.unique_enzymes != dna_lock)
-			to_chat(M, span_warning("Access denied. [name] is secured with a DNA lock."))
-			log_message("Permission denied (DNA LOCK).", LOG_MECHA)
-			return
-	if(!operation_allowed(M))
-		to_chat(M, span_warning("Access denied. Insufficient operation keycodes."))
-		log_message("Permission denied (No keycode).", LOG_MECHA)
-		return
-	. = ..()
-	if(.)
-		moved_inside(M)

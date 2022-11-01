@@ -10,6 +10,7 @@
 	target_mobtypes = list(/mob/living/carbon/human)
 	possible_locs = list(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG, BODY_ZONE_HEAD)
 	requires_bodypart_type = 0
+	removes_target_bodypart = TRUE // SKYRAT EDIT - Surgically unremovable limbs
 
 
 /datum/surgery_step/sever_limb
@@ -37,7 +38,7 @@
 	display_results(user, target, span_notice("You sever [target]'s [parse_zone(target_zone)]."),
 		span_notice("[user] severs [target]'s [parse_zone(target_zone)]!"),
 		span_notice("[user] severs [target]'s [parse_zone(target_zone)]!"))
-	display_pain(target, "You lose all feeling in your [parse_zone(target_zone)]!")
+	display_pain(target, "You can no longer feel your severed [parse_zone(target_zone)]!")
 	if(surgery.operated_bodypart)
 		var/obj/item/bodypart/target_limb = surgery.operated_bodypart
 		target_limb.drop_limb()

@@ -100,7 +100,7 @@
 	glasses = /obj/item/clothing/glasses/sunglasses
 	r_pocket = /obj/item/storage/wallet/random
 	l_pocket = /obj/item/food/pizzaslice/dank
-	uniform = /obj/item/clothing/under/pants/youngfolksjeans
+	uniform = /obj/item/clothing/under/pants/jeans
 	id = /obj/item/card/id/advanced
 
 /datum/outfit/beachbum/post_equip(mob/living/carbon/human/bum, visualsOnly = FALSE)
@@ -175,7 +175,7 @@
 /obj/structure/ash_walker_eggshell
 	name = "ash walker egg"
 	desc = "A man-sized yellow egg, spawned from some unfathomable creature. A humanoid silhouette lurks within. The egg shell looks resistant to temperature but otherwise rather brittle."
-	icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
+	icon = 'icons/mob/simple/lavaland/lavaland_monsters.dmi'
 	icon_state = "large_egg"
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | FREEZE_PROOF
 	max_integrity = 80
@@ -214,7 +214,7 @@
 	name = "ash walker egg"
 	desc = "A man-sized yellow egg, spawned from some unfathomable creature. A humanoid silhouette lurks within."
 	prompt_name = "necropolis ash walker"
-	icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
+	icon = 'icons/mob/simple/lavaland/lavaland_monsters.dmi'
 	icon_state = "large_egg"
 	mob_species = /datum/species/lizard/ashwalker
 	outfit = /datum/outfit/ashwalker
@@ -244,14 +244,13 @@
 	// SKYRAT EDIT MOVE
 	// Moved lizard name randomizer before parent call (so character names are preserved)
 	spawned_human.fully_replace_character_name(null,random_unique_lizard_name(gender))
-	loadout_enabled = TRUE //SKYRAT EDIT ADDITION
+	quirks_enabled = TRUE //SKYRAT EDIT ADDITION
 	. = ..()
 	// SKYRAT EDIT END
 	to_chat(spawned_human, "<b>Drag the corpses of men and beasts to your nest. It will absorb them to create more of your kind. Invade the strange structure of the outsiders if you must. Do not cause unnecessary destruction, as littering the wastes with ugly wreckage is certain to not gain you favor. Glory to the Necropolis!</b>")
 
 	spawned_human.mind.add_antag_datum(/datum/antagonist/ashwalker, team)
 
-	ADD_TRAIT(spawned_human, TRAIT_PRIMITIVE, ROUNDSTART_TRAIT)
 	spawned_human.remove_language(/datum/language/common)
 	team.players_spawned += (spawned_human.key)
 	eggshell.egg = null
@@ -312,7 +311,7 @@
 	r_pocket = /obj/item/gun/ballistic/automatic/pistol
 	id = /obj/item/card/id/advanced/chameleon
 	implants = list(/obj/item/implant/weapons_auth)
-	id_trim = /datum/id_trim/chameleon/operative
+	id_trim = /datum/id_trim/syndicom/skyrat/interdyne //SKYRAT EDIT
 
 // SKYRAT EDIT REMOVAL BEGIN -- mapping
 /*

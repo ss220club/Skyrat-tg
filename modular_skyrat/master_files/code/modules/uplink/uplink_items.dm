@@ -1,17 +1,11 @@
-/////////////////////////////
-//SKYRAT MODULAR UPLINK ITEMS
-/////////////////////////////
+/*
+*	MODULAR UPLINK ITEMS
+*/
 
-//Place any new uplink items in this file, and explain what they do
+// Place any new uplink items in this file, and explain what they do
+// If you're adding nukeop-available items to the uplink, be sure to add `purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)`, otherwise they'll appear in nukeop/clownop uplinks!
 
-//BUNDLES
-/* /datum/uplink_item/bundles_tc/spaceassassin
-	name = "Space Assassin Bundle"
-	desc = "A unique kit commonly used by military infiltrators and the like to get the drop on unsuspecting crew, perfect for the aspiring covert assassin and stealthy manipulator."
-	item = /obj/item/storage/box/syndie_kit/spaceassassin
-	cost = 30 //40 tc would have been better
-*/ //To be balanced
-//DANGEROUS
+// DANGEROUS
 /datum/uplink_item/dangerous/aps_traitor
 	name = "Stechkin APS Machine Pistol"
 	desc = "An ancient Soviet machine pistol, refurbished for the modern age. Uses 9mm auto rounds in 15-round magazines and is compatible \
@@ -25,6 +19,7 @@
 	desc = "A fully-loaded Donksoft bullpup submachine gun that fires riot grade darts with a 20-round magazine."
 	item = /obj/item/gun/ballistic/automatic/c20r/toy/unrestricted/riot
 	cost = 4
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/dangerous/revolver_alt
 	name = "Unica Six Revolver"
@@ -51,6 +46,7 @@
 	item = /obj/item/gun/ballistic/automatic/c20r/unrestricted
 	cost = 12
 	progression_minimum = 35 MINUTES
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/dangerous/shotgun_traitor
 	name = "Bulldog Shotgun"
@@ -59,6 +55,7 @@
 	item = /obj/item/gun/ballistic/shotgun/bulldog/unrestricted
 	cost = 12
 	progression_minimum = 35 MINUTES
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/dangerous/shield_traitor
 	name = "Energy Shield"
@@ -67,6 +64,7 @@
 	item = /obj/item/shield/energy
 	cost = 5
 	progression_minimum = 20 MINUTES
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/dangerous/katana_traitor
 	name = "Katana"
@@ -82,7 +80,7 @@
 	cost = 20
 	progression_minimum = 25 MINUTES
 
-//STEALTHY WEAPONS
+// STEALTHY WEAPONS
 /datum/uplink_item/stealthy_weapons/cqc_traitor
 	name = "CQC Manual"
 	desc = "A manual that teaches a single user tactical Close-Quarters Combat before self-destructing."
@@ -90,15 +88,8 @@
 	cost = 23
 	surplus = 17
 	progression_minimum = 30 MINUTES
-
-// Removed from the uplink for the time being.
-/*datum/uplink_item/stealthy_weapons/cqcplus
-	name = "CQC+ Manual"
-	desc = "A manual that teaches a single user tactical Close-Quarters Combat and how to deflect projectiles before self-destructing."
-	item = /obj/item/book/granter/martial/cqc/plus
-	cost = 30
-	surplus = 20
-*/
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
+	cant_discount = TRUE
 
 /datum/uplink_item/stealthy_weapons/telescopicbaton
 	name = "Telescopic Baton"
@@ -107,30 +98,15 @@
 	cost = 2
 	surplus = 0
 	progression_minimum = 10 MINUTES
-
-//STEALTHY TOOOLS
-/datum/uplink_item/stealthy_tools/infiltratormask
-	name = "Voice-Muffling Balaclava"
-	desc = "A balaclava that muffles your voice, masking your identity. Also provides flash immunity!"
-	item = /obj/item/clothing/mask/infiltrator
-	cost = 2
-
-/datum/uplink_item/stealthy_tools/deluxe_agent_card
-	name = "Deluxe Agent Identification Card"
-	desc = "Created by Cybersun Industries to be the ultimate for field operations, this upgraded Agent ID \
-	comes with all the fluff of the original, but with an upgraded microchip - allowing for the storage of all \
-	standard Nanotrasen access codes in one conveinent package. Now in glossy olive by default!"
-	item = /obj/item/card/id/advanced/chameleon/black
-	cost = 5 //Since this gives the possibility for All Access, this is a BIGBOY tool. Compared to oldbases' skeleton key, though, you still have to steal it somehow.
-	progression_minimum = 20 MINUTES
+	illegal_tech = FALSE
 
 /datum/uplink_item/stealthy_tools/advanced_cham_headset
-	name = "Advanced Chameleon Headset" //Consider this a standin for the oldbase headset upgrader.
+	name = "Advanced Chameleon Headset" // Consider this a standin for the oldbase headset upgrader.
 	desc = "A premium model Chameleon Headset. All the features you love of the original, but now with flashbang \
 	protection, voice amplification, memory-foam, HD Sound Quality, and extra-wide spectrum dial. Usually reserved \
 	for high-ranking Cybersun officers, a few spares have been reserved for field agents."
 	item = /obj/item/radio/headset/chameleon/advanced
-	cost = 4 //Also a BIGBOY tool. Though inconvienent to wield, this allows the wearer to spy and interact with any one frequency they desire, even without the proper encryption key, along with flashbang protection and loudmode. Cannot breach syndiecomms by itself.
+	cost = 4 // Also a BIGBOY tool. Though inconvienent to wield, this allows the wearer to spy and interact with any one frequency they desire, even without the proper encryption key, along with flashbang protection and loudmode. Cannot breach syndiecomms by itself.
 	progression_minimum = 20 MINUTES
 
 /datum/uplink_item/stealthy_tools/syndieshotglasses
@@ -139,7 +115,7 @@
 	guaranteed to knock someone on their ass with a hearty dose of bacchus blessing. Look for the Snake underneath \
 	to tell these are the real deal. Box of 7."
 	item = /obj/item/storage/box/syndieshotglasses
-	cost = 2 //These are taken nearly exactly from Goon, very fun tool.
+	cost = 2 // These are taken nearly exactly from Goon, very fun tool.
 	restricted_roles = list(JOB_BARTENDER)
 
 /datum/uplink_item/stealthy_tools/announcement
@@ -152,7 +128,7 @@
 	restricted = TRUE
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
-//EXPLOSIVES
+// EXPLOSIVES
 /datum/uplink_item/explosives/buzzkill_traitor
 	name = "Buzzkill Grenade Box"
 	desc = "A box with three grenades that release a swarm of angry bees upon activation. These bees indiscriminately attack friend or foe \
@@ -160,6 +136,7 @@
 	item = /obj/item/storage/box/syndie_kit/bee_grenades
 	cost = 10
 	progression_minimum = 25 MINUTES
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/explosives/viscerators_traitor
 	name = "Viscerator Delivery Grenade"
@@ -169,6 +146,7 @@
 	cost = 7
 	surplus = 35
 	progression_minimum = 25 MINUTES
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/explosives/nukeop_traitor
 	name = "Nuclear Delivery Grenade"
@@ -185,13 +163,14 @@
 	cost = 5
 	progression_minimum = 15 MINUTES
 
-//DEVICE TOOLS
+// DEVICE TOOLS
 /datum/uplink_item/device_tools/syndie_jaws_of_life_traitor
 	name = "Syndicate Jaws of Life"
 	desc = "Based on a Nanotrasen model, this powerful tool can be used as both a crowbar and a pair of wirecutters. \
 	In its crowbar configuration, it can be used to force open airlocks. Very useful for entering the station or its departments."
 	item = /obj/item/crowbar/power/syndicate
 	cost = 3
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/device_tools/medkit_traitor
 	name = "Syndicate Combat Medic Kit"
@@ -201,6 +180,7 @@
 	item = /obj/item/storage/medkit/tactical
 	cost = 4
 	progression_minimum = 15 MINUTES
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/device_tools/guerillagloves_traitor
 	name = "Guerilla Gloves"
@@ -214,6 +194,7 @@
 	desc = "A small yet large enough pouch that can fit in your pocket, and has room for three magazines."
 	item = /obj/item/storage/bag/ammo
 	cost = 1
+	illegal_tech = FALSE
 
 /datum/uplink_item/device_tools/syndie_glue
 	name = "Glue"
@@ -232,7 +213,7 @@
 	surplus = 90
 	progression_minimum = 20 MINUTES
 
-//AMMO
+// AMMO
 /datum/uplink_item/ammo/pistolaps_traitor
 	name = "9mm Stechkin APS Magazine"
 	desc = "An additional 15-round 9mm magazine, compatible with the Stechkin APS machine pistol."
@@ -244,6 +225,7 @@
 	desc = "An additional 24-round .45 magazine suitable for use with the C-20r submachine gun."
 	item = /obj/item/ammo_box/magazine/smgm45
 	cost = 2
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/ammo/smgap_traitor
 	name = ".45 Armor Piercing SMG Magazine"
@@ -251,6 +233,7 @@
 			These rounds are less effective at injuring the target but penetrate protective gear."
 	item = /obj/item/ammo_box/magazine/smgm45/ap
 	cost = 3
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/ammo/smgfire_traitor
 	name = ".45 Incendiary SMG Magazine"
@@ -258,6 +241,7 @@
 			Loaded with incendiary rounds which inflict little damage, but ignite the target."
 	item = /obj/item/ammo_box/magazine/smgm45/incen
 	cost = 2
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/ammo/smgempty_traitor
 	name = "Empty .45 SMG Magazine"
@@ -265,33 +249,34 @@
 			Ammunition not included."
 	item = /obj/item/ammo_box/magazine/smgm45/empty
 	cost = 1
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/ammo/shotgun/buck_traitor
 	name = "12g Buckshot Drum"
 	desc = "An additional 8-round buckshot magazine for use with the Bulldog shotgun. Front towards enemy."
 	item = /obj/item/ammo_box/magazine/m12g
-	purchasable_from = ALL
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/ammo/shotgun/dragon_traitor
 	name = "12g Dragon's Breath Drum"
 	desc = "An alternative 8-round dragon's breath magazine for use in the Bulldog shotgun. \
 			'I'm a fire starter, twisted fire starter!'"
 	item = /obj/item/ammo_box/magazine/m12g/dragon
-	purchasable_from = ALL
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/ammo/shotgun/meteor_traitor
 	name = "12g Meteorslug Shells"
 	desc = "An alternative 8-round meteorslug magazine for use in the Bulldog shotgun. \
 		Great for blasting airlocks off their frames and knocking down enemies."
 	item = /obj/item/ammo_box/magazine/m12g/meteor
-	purchasable_from = ALL
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/ammo/shotgun/slug_traitor
 	name = "12g Slug Drum"
 	desc = "An additional 8-round slug magazine for use with the Bulldog shotgun. \
 			Now 8 times less likely to shoot your pals."
 	item = /obj/item/ammo_box/magazine/m12g/slug
-	purchasable_from = ALL
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/ammo/shotgun/empty_traitor
 	name = "Empty 12g Drum"
@@ -299,9 +284,9 @@
 			Ammunition not included."
 	cost = 1
 	item = /obj/item/ammo_box/magazine/m12g/empty
-	purchasable_from = ALL
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
-//SUITS
+// SUITS
 
 /datum/uplink_item/suits/standard_armor
 	name = "Standard Armor Vest"
@@ -324,8 +309,9 @@
 			Costs 3 complexity to use in a MODsuit."
 	item = /obj/item/mod/module/energy_shield
 	cost = 12
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
-//HELMETS
+// HELMETS
 /datum/uplink_item/suits/swathelmet_traitor
 	name = "Syndicate Helmet"
 	desc = "An extremely robust, space-worthy helmet in a nefarious red and black stripe pattern."
@@ -333,25 +319,26 @@
 	cost = 2
 	progression_minimum = 10 MINUTES
 
-//IMPLANTS
+// IMPLANTS
 /datum/uplink_item/implants/antistun_traitor
 	name = "CNS Rebooter Implant"
 	desc = "This implant will help you get back up on your feet faster after being stunned. Comes with an autosurgeon."
-	item = /obj/item/autosurgeon/organ/syndicate/anti_stun
+	item = /obj/item/autosurgeon/syndicate/anti_stun
 	cost = 6
 	surplus = 0
 	progression_minimum = 15 MINUTES
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
-//JOBS ONLY
-/datum/uplink_item/role_restricted/cultkitsr //Ported from beestation
+// JOBS ONLY
+/datum/uplink_item/role_restricted/cultkitsr // Ported from beestation
 	name = "Cult Construct Kit"
 	desc = "Recovered from an abandoned Nar'sie cult lair, two construct shells and a stash of empty soulstones was found. These were purified to prevent occult contamination and have been put in a belt so they may be used as an accessible source of disposable minions. The construct shells have been packaged into two beacons for rapid and portable deployment."
 	item = /obj/item/storage/box/syndie_kit/cultkitsr
-	cost = 15 //If used correctly, You actually get several servants or just get fucked over because no ghosts want to be a shade.
+	cost = 15 // If used correctly, You actually get several servants or just get fucked over because no ghosts want to be a shade.
 	restricted_roles = list(JOB_CHAPLAIN)
 	progression_minimum = 20 MINUTES
 
-//LOADOUTS
+// LOADOUTS
 /datum/uplink_item/bundles_tc/recon
 	name = "Reconnaisance bundle"
 	desc = "Get in and get out as quickly as you came with this unique kit of gear specialized in infiltration and observation."
@@ -385,7 +372,7 @@
 	desc = "Fight the power with this frontline combatant kit, featuring armor and armaments commonly utilized by assault operative teams."
 	item = /obj/item/storage/backpack/duffelbag/syndie/loadout/metaops
 	cost = 23
-	progression_minimum = 35 MINUTES //+10 minutes because of the bulldog
+	progression_minimum = 35 MINUTES // +10 minutes because of the bulldog
 
 /datum/uplink_item/bundles_tc/bond
 	name = "Classic Spy bundle"
@@ -399,7 +386,7 @@
 	desc = "Wield unlimited power with this extremely effective combative kit, guaranteed to give the user efficient staying potential in any confrontation."
 	item = /obj/item/storage/backpack/duffelbag/syndie/loadout/darklord
 	cost = 20
-	progression_minimum = 30 MINUTES //+5 minutes for the desword
+	progression_minimum = 30 MINUTES // +5 minutes for the desword
 
 /datum/uplink_item/bundles_tc/bee
 	name = "Buzzy bundle"
@@ -427,28 +414,28 @@
 	desc = "Love Donk Pockets? Want to shill Donk Co. Toys? This bundle is for you! Contains some DonkSoft guns, a vending machine, restocking units, and a box of Donk Pockets."
 	item = /obj/item/storage/backpack/duffelbag/syndie/loadout/donkshillkit
 	cost = 10
-	progression_minimum = 15 MINUTES //-10 because it's a weak bundle
+	progression_minimum = 15 MINUTES // -10 because it's a weak bundle
 
 /datum/uplink_item/bundles_tc/downtownspecial
 	name = "Downtown Special bundle"
 	desc = "Ayyy fuggedaboudit! This bundle contains everything to be your own one man mafioso. Including an icon of the Virgin Mary for your own authentic mafia nickname. Gang members not included."
 	item = /obj/item/storage/backpack/duffelbag/syndie/loadout/downtownspecial
 	cost = 25
-	progression_minimum = 30 MINUTES //+5 for the thompson
+	progression_minimum = 30 MINUTES // +5 for the thompson
 
 /datum/uplink_item/bundles_tc/ocelotfoxtrot
 	name = "Snake Eater bundle"
 	desc = "A kit themed around one certain gun spinning cat. Includes his famous colt special, and personalised ammo."
 	item = /obj/item/storage/box/syndie_kit/loadout/ocelotfoxtrot
 	cost = 15
-	progression_minimum = 30 MINUTES //+5 minutes for the .357 peacemaker
+	progression_minimum = 30 MINUTES // +5 minutes for the .357 peacemaker
 
 /datum/uplink_item/bundles_tc/nt_impostor
 	name = "Corporate Deceit bundle"
 	desc = "Don the identities of the most powerful men and women in Nanotrasen, and pull strings from the shadows as you please with this specialized kit."
 	item = /obj/item/storage/box/syndie_kit/loadout/nt_impostor
 	cost = 20
-	progression_minimum = 30 MINUTES //+5 minutes for the .357
+	progression_minimum = 30 MINUTES // +5 minutes for the .357
 
 /datum/uplink_item/bundles_tc/lasermanbundle
 	name = "Laserman bundle"
@@ -456,3 +443,40 @@
 	item = /obj/item/storage/box/syndie_kit/loadout/lasermanbundle
 	cost = 20
 	progression_minimum = 25 MINUTES
+
+// Surplus crates
+/datum/uplink_item/bundles_tc/surplus_crate
+	name = "Surplus Crate"
+	desc = "A dusty crate from the back of the Syndicate warehouse. Rumored to contain a valuable assortment of items, \
+			but you never know. Contents are sorted to always be worth 50 TC."
+	item = /obj/effect/gibspawner/generic
+	cost = 20
+	/// The contents of the surplus crate will be equal to this var in TC
+	var/telecrystal_count = 50
+
+/datum/uplink_item/bundles_tc/surplus_crate/spawn_item(spawn_path, mob/user, datum/uplink_handler/uplink_handler, atom/movable/source)
+	telecrystal_count = initial(telecrystal_count)
+	var/list/uplink_items = list()
+	var/obj/structure/closet/crate/holder_crate = new(get_turf(user))
+	for(var/datum/uplink_item/item_path as anything in SStraitor.uplink_items_by_type)
+		var/datum/uplink_item/item = SStraitor.uplink_items_by_type[item_path]
+		if(item.purchasable_from & UPLINK_TRAITORS)
+			uplink_items += item
+
+	while(telecrystal_count)
+		var/datum/uplink_item/uplink_item = pick(uplink_items)
+		if(!uplink_item.surplus || prob(100 - uplink_item.surplus))
+			continue
+		if(telecrystal_count < uplink_item.cost)
+			continue
+		if(!uplink_item.item)
+			continue
+		telecrystal_count -= uplink_item.cost
+		new uplink_item.item(holder_crate)
+
+/datum/uplink_item/bundles_tc/surplus_crate/super
+	name = "Super Surplus Crate"
+	desc = "A dusty SUPER-SIZED crate from the back of the Syndicate warehouse. Rumored to contain a valuable assortment of items, \
+			but you never know. Contents are sorted to always be worth 125 TC."
+	telecrystal_count = 125
+	cost = 40

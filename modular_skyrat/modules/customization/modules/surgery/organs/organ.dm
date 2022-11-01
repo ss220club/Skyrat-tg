@@ -6,8 +6,10 @@
 	var/drop_when_organ_spilling = TRUE
 	/// Special flags that need to be passed over from the sprite_accessory to the organ (but not the opposite).
 	var/sprite_accessory_flags = NONE
+	/// Relevant layer flags, as set by the organ's associated sprite_accessory, should there be one.
+	var/relevant_layers
 
-/obj/item/organ/Initialize()
+/obj/item/organ/Initialize(mapload)
 	. = ..()
 	if(mutantpart_key)
 		color = mutantpart_info[MUTANT_INDEX_COLOR_LIST][1]

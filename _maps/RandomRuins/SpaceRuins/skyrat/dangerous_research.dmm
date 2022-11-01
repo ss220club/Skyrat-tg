@@ -24,11 +24,11 @@
 /area/ruin/space/has_grav)
 "aB" = (
 /obj/structure/closet/crate,
-/obj/item/reagent_containers/food/drinks/waterbottle/large,
-/obj/item/reagent_containers/food/drinks/waterbottle/large,
-/obj/item/reagent_containers/food/drinks/waterbottle/large,
-/obj/item/reagent_containers/food/drinks/waterbottle/large,
-/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/cup/glass/waterbottle/large,
+/obj/item/reagent_containers/cup/glass/waterbottle/large,
+/obj/item/reagent_containers/cup/glass/waterbottle/large,
+/obj/item/reagent_containers/cup/glass/waterbottle/large,
+/obj/item/reagent_containers/cup/glass/waterbottle/large,
 /obj/item/food/canned/beans,
 /obj/item/food/canned/beans,
 /obj/item/food/canned/beans,
@@ -179,7 +179,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/footprints,
-/obj/item/organ/lungs,
+/obj/item/organ/internal/lungs,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav)
 "dA" = (
@@ -284,9 +284,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
-/obj/machinery/light/broken{
-	dir = 1
-	},
+/obj/machinery/light/broken/directional/north,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav)
 "fE" = (
@@ -370,9 +368,7 @@
 	pixel_x = -8
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/light/broken{
-	dir = 8
-	},
+/obj/machinery/light/broken/directional/west,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav)
 "gN" = (
@@ -567,7 +563,7 @@
 /area/ruin/space/has_grav)
 "jH" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/simple_animal/friendly/kiwi,
+/mob/living/basic/kiwi,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav)
 "jT" = (
@@ -647,9 +643,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/red,
-/obj/machinery/light{
-	dir = 4
-	},
+/obj/machinery/light/directional/east,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav)
 "lX" = (
@@ -665,7 +659,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav)
 "lY" = (
-/obj/machinery/light/broken,
+/obj/machinery/light/broken/directional/south,
 /turf/open/floor/plating/rust,
 /area/ruin/space/has_grav)
 "mo" = (
@@ -702,9 +696,7 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 1
 	},
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/machinery/light/directional/west,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav)
 "mV" = (
@@ -735,9 +727,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/machinery/light/directional/west,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav)
 "nu" = (
@@ -794,9 +784,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
-/obj/machinery/light/broken{
-	dir = 1
-	},
+/obj/machinery/light/broken/directional/north,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav)
 "ob" = (
@@ -824,7 +812,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
-/obj/item/organ/heart,
+/obj/item/organ/internal/heart,
 /obj/effect/decal/cleanable/blood/bubblegum,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav)
@@ -917,9 +905,7 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
-/obj/machinery/light/broken{
-	dir = 1
-	},
+/obj/machinery/light/broken/directional/north,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav)
 "qp" = (
@@ -1019,7 +1005,7 @@
 /obj/effect/decal/cleanable/blood/footprints{
 	dir = 8
 	},
-/obj/item/organ/liver,
+/obj/item/organ/internal/liver,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav)
 "rF" = (
@@ -1282,7 +1268,7 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 8
 	},
-/obj/machinery/light/broken,
+/obj/machinery/light/broken/directional/south,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav)
 "wC" = (
@@ -1313,9 +1299,7 @@
 	},
 /obj/effect/turf_decal/tile/purple,
 /obj/machinery/suit_storage_unit/open,
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/machinery/light/directional/west,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav)
 "xf" = (
@@ -1385,9 +1369,7 @@
 /obj/effect/turf_decal/stripes/end{
 	dir = 4
 	},
-/obj/machinery/shower{
-	dir = 8
-	},
+/obj/machinery/shower/directional/west,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav)
 "yA" = (
@@ -1605,7 +1587,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/bubblegum,
-/obj/item/organ/appendix,
+/obj/item/organ/internal/appendix,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav)
 "Bg" = (
@@ -1630,7 +1612,7 @@
 /obj/effect/decal/cleanable/blood/footprints{
 	dir = 8
 	},
-/obj/item/organ/heart,
+/obj/item/organ/internal/heart,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav)
 "BG" = (
@@ -1648,8 +1630,8 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
-/obj/item/organ/eyes,
-/obj/item/organ/liver,
+/obj/item/organ/internal/eyes,
+/obj/item/organ/internal/liver,
 /obj/effect/decal/cleanable/blood/bubblegum,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav)
@@ -1754,9 +1736,7 @@
 /obj/effect/turf_decal/trimline/purple/line{
 	dir = 8
 	},
-/obj/machinery/light/broken{
-	dir = 4
-	},
+/obj/machinery/light/broken/directional/east,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav)
 "Dt" = (
@@ -1933,9 +1913,7 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 1
 	},
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/machinery/light/directional/west,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav)
 "FG" = (
@@ -1981,8 +1959,8 @@
 "Gu" = (
 /obj/effect/turf_decal/trimline/purple/line,
 /obj/structure/table,
-/obj/item/reagent_containers/glass/beaker/large,
-/obj/item/reagent_containers/glass/beaker{
+/obj/item/reagent_containers/cup/beaker/large,
+/obj/item/reagent_containers/cup/beaker{
 	pixel_x = 8;
 	pixel_y = 2
 	},
@@ -1994,9 +1972,7 @@
 /obj/effect/turf_decal/stripes/end{
 	dir = 8
 	},
-/obj/machinery/shower{
-	dir = 4
-	},
+/obj/machinery/shower/directional/east,
 /obj/structure/barricade/wooden,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav)
@@ -2109,9 +2085,7 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 4
 	},
-/obj/machinery/light{
-	dir = 1
-	},
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav)
 "Ja" = (
@@ -2257,9 +2231,7 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
-/obj/machinery/light/broken{
-	dir = 4
-	},
+/obj/machinery/light/broken/directional/east,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav)
 "KH" = (
@@ -2338,9 +2310,7 @@
 /area/ruin/space/has_grav)
 "Mf" = (
 /obj/effect/turf_decal/tile/purple,
-/obj/machinery/light{
-	dir = 4
-	},
+/obj/machinery/light/directional/east,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav)
 "MI" = (
@@ -2468,7 +2438,7 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 8
 	},
-/obj/machinery/light/broken,
+/obj/machinery/light/broken/directional/south,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav)
 "PM" = (
@@ -2497,7 +2467,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/item/paicard,
+/obj/item/pai_card,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav)
 "Qn" = (
@@ -2551,9 +2521,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/asteroid,
-/obj/structure/sign/warning/biohazard{
-	pixel_y = 32
-	},
+/obj/structure/sign/warning/biohazard/directional/north,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav)
 "QF" = (
@@ -2638,9 +2606,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
-/obj/structure/sink{
-	pixel_y = 22
-	},
+/obj/structure/sink/directional/south,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav)
 "RB" = (
@@ -2691,9 +2657,7 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
-/obj/machinery/light{
-	dir = 1
-	},
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav)
 "Si" = (
@@ -2724,9 +2688,7 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 4
 	},
-/obj/machinery/light{
-	dir = 4
-	},
+/obj/machinery/light/directional/east,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav)
 "SS" = (
@@ -2783,7 +2745,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav)
 "TL" = (
-/obj/machinery/light,
+/obj/machinery/light/directional/south,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav)
@@ -2887,9 +2849,7 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
-/obj/machinery/light/broken{
-	dir = 1
-	},
+/obj/machinery/light/broken/directional/north,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav)
 "Vm" = (
@@ -2959,7 +2919,7 @@
 	dir = 4
 	},
 /obj/structure/table,
-/obj/machinery/light,
+/obj/machinery/light/directional/south,
 /obj/item/clothing/under/rank/rnd/research_director/turtleneck,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav)

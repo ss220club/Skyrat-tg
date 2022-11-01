@@ -1,6 +1,6 @@
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////// Emergency Race Stuff ////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
+/*
+*	EMERGENCY RACIAL EQUIPMENT
+*/
 
 /datum/supply_pack/goody/airsuppliesnitrogen
 	name = "Emergency Air Supplies (Nitrogen)"
@@ -23,9 +23,19 @@
 	contains = list(/obj/item/tank/internals/plasmaman/belt,
                     /obj/item/clothing/mask/breath)
 
-//////////////////////////////////////////////////////////////////////////////
-///////////////////////////// Misc Stuff /////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
+/*
+*	ENGINEERING STUFF
+*/
+
+/datum/supply_pack/goody/improvedrcd
+	name = "Improved RCD"
+	desc = "An upgraded RCD featuring superior material storage. Comes with complimentary frames and circuitry upgrades to boot!"
+	cost = PAYCHECK_CREW * 38
+	contains = list(/obj/item/construction/rcd/improved)
+
+/*
+*	MISC
+*/
 
 /datum/supply_pack/goody/crayons
 	name = "Box of Crayons"
@@ -46,9 +56,15 @@
 	cost = PAYCHECK_CREW * 4
 	contains = list(/obj/item/paper_bin)
 
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////// Weapons or Ammo /////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
+/datum/supply_pack/goody/nri_rations
+	name = "Surplus NRI Combat Ration"
+	desc = "A single surplus ration pack from the NRI Defense Collegium. Comes with a standard-issue selection of food selected and approved by at least one Imperial regiment."
+	cost = PAYCHECK_COMMAND * 2 //Less nourishing than the mothic one but you get cigarettes and wo'oh.
+	contains = list(/obj/item/storage/box/nri_rations)
+
+/*
+*	WEAPONS / AMMO
+*/
 
 /datum/supply_pack/goody/gunmaint
 	name = "Gun Maintenance Kits"
@@ -57,15 +73,9 @@
 	contains = list(/obj/item/gun_maintenance_supplies,
 					/obj/item/gun_maintenance_supplies)
 
-/datum/supply_pack/goody/sabre
-	name = "Authentic Samshir Sabre"
-	desc = "A shamshir sabre that comes tucked inside of a black leather sheath. Provides a stylish way to exert your authority."
-	cost = PAYCHECK_CREW * 30
-	contains = list(/obj/item/storage/belt/sabre/cargo)
-
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////// Carpet Packs ////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
+/*
+*	CARPET PACKS
+*/
 
 /datum/supply_pack/goody/carpet
 	name = "Classic Carpet Single-Pack"
@@ -111,3 +121,13 @@
 	name = "Blue Carpet Single-Pack"
 	contains = list(/obj/item/stack/tile/carpet/blue/fifty)
 
+/*
+*	MEDICAL STUFF
+*/
+
+
+/datum/supply_pack/goody/afad
+	name = "Automated First Aid Device"
+	desc = "Someone mildly hurt and it's too much of a bother to manually handle their burns or cuts? Look no further than the AFAD, a state-of-the-art pain-relief device!"
+	cost = PAYCHECK_CREW * 40
+	contains = list(/obj/item/gun/medbeam/afad)

@@ -6,11 +6,6 @@
 	set category = "IC"
 	set instant = TRUE
 
-	//SKYRAT EDIT ADDITION BEGIN - TYPING_INDICATOR
-	if(typing_indicator)
-		set_typing_indicator(FALSE)
-	//SKYRAT EDIT ADDITION END
-
 	if(GLOB.say_disabled) //This is here to try to identify lag problems
 		to_chat(usr, span_danger("Speech is currently admin-disabled."))
 		return
@@ -18,7 +13,7 @@
 	//queue this message because verbs are scheduled to process after SendMaps in the tick and speech is pretty expensive when it happens.
 	//by queuing this for next tick the mc can compensate for its cost instead of having speech delay the start of the next tick
 	if(message)
-		SSspeech_controller.queue_say_for_mob(src, message, SPEECH_CONTROLLER_QUEUE_SAY_VERB)
+		QUEUE_OR_CALL_VERB_FOR(VERB_CALLBACK(src, /atom/movable/proc/say, message), SSspeech_controller)
 
 ///Whisper verb
 /mob/verb/whisper_verb(message as text)
@@ -31,23 +26,22 @@
 		return
 
 	if(message)
-		SSspeech_controller.queue_say_for_mob(src, message, SPEECH_CONTROLLER_QUEUE_WHISPER_VERB)
+		QUEUE_OR_CALL_VERB_FOR(VERB_CALLBACK(src, /mob/proc/whisper, message), SSspeech_controller)
 
-///whisper a message
-/mob/proc/whisper(message, datum/language/language=null)
+/**
+ * Whisper a message.
+ *
+ * Basic level implementation just speaks the message, nothing else.
+ */
+/mob/proc/whisper(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language, ignore_spam = FALSE, forced, filterproof)
+	if(!message)
+		return
 	say(message, language = language)
 
 ///The me emote verb
-//SKYRAT EDIT CHANGE BEGIN
-// /mob/verb/me_verb(message as text) - SKYRAT EDIT - ORIGINAL
-/mob/verb/me_verb(message as message)
-//SKYRAT EDIT CHANGE END
+/mob/verb/me_verb(message as text)
 	set name = "Me"
 	set category = "IC"
-	//SKYRAT EDIT ADDITION BEGIN - TYPING_INDICATOR
-	if(typing_indicator)
-		set_typing_indicator(FALSE)
-	//SKYRAT EDIT ADDITION END
 
 	if(GLOB.say_disabled) //This is here to try to identify lag problems
 		to_chat(usr, span_danger("Speech is currently admin-disabled."))
@@ -55,7 +49,7 @@
 
 	message = trim(copytext_char(sanitize(message), 1, MAX_MESSAGE_LEN))
 
-	SSspeech_controller.queue_say_for_mob(src, message, SPEECH_CONTROLLER_QUEUE_EMOTE_VERB)
+	QUEUE_OR_CALL_VERB_FOR(VERB_CALLBACK(src, /mob/proc/emote, "me", 1, message, TRUE), SSspeech_controller)
 
 ///Speak as a dead person (ghost etc)
 /mob/proc/say_dead(message)

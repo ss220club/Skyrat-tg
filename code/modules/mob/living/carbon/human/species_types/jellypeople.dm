@@ -6,17 +6,14 @@
 	say_mod = "chirps"
 	species_traits = list(MUTCOLORS,EYECOLOR,NOBLOOD)
 	inherent_traits = list(
-		TRAIT_ADVANCEDTOOLUSER,
-		TRAIT_CAN_STRIP,
 		TRAIT_TOXINLOVER,
 	)
-	mutantlungs = /obj/item/organ/lungs/slime
+	mutantlungs = /obj/item/organ/internal/lungs/slime
 	meat = /obj/item/food/meat/slab/human/mutant/slime
 	exotic_blood = /datum/reagent/toxin/slimejelly
-	damage_overlay_type = ""
 	var/datum/action/innate/regenerate_limbs/regenerate_limbs
-	var/datum/action/innate/slime_change/slime_change //SKYRAT EDIT ADDITION - CUSTOMIZATION
-	liked_food = MEAT
+	var/datum/action/innate/alter_form/alter_form //SKYRAT EDIT ADDITION - CUSTOMIZATION
+	liked_food = MEAT | BUGS
 	toxic_food = NONE
 	coldmod = 6   // = 3x cold damage
 	heatmod = 0.5 // = 1/4x heat damage
@@ -40,8 +37,8 @@
 	if(regenerate_limbs)
 		regenerate_limbs.Remove(old_jellyperson)
 	//SKYRAT EDIT ADDITION BEGIN - CUSTOMIZATION
-	if(slime_change)
-		slime_change.Remove(old_jellyperson)
+	if(alter_form)
+		alter_form.Remove(old_jellyperson)
 	//SKYRAT EDIT ADDITION END
 	old_jellyperson.RemoveElement(/datum/element/soft_landing)
 	..()
@@ -52,8 +49,8 @@
 		regenerate_limbs = new
 		regenerate_limbs.Grant(new_jellyperson)
 		//SKYRAT EDIT ADDITION BEGIN - CUSTOMIZATION
-		slime_change = new
-		slime_change.Grant(new_jellyperson)
+		alter_form = new
+		alter_form.Grant(new_jellyperson)
 		//SKYRAT EDIT ADDITION END
 	new_jellyperson.AddElement(/datum/element/soft_landing)
 
@@ -561,7 +558,7 @@
 /datum/action/innate/integrate_extract/Activate()
 	var/mob/living/carbon/human/H = owner
 	var/datum/species/jelly/luminescent/species = target
-	if(!is_species(H, /datum/species/jelly/luminescent) || !species)
+	if(!isluminescent(H) || !species)
 		return
 	CHECK_DNA_AND_SPECIES(H)
 
@@ -622,7 +619,7 @@
 /datum/action/innate/use_extract/Activate()
 	var/mob/living/carbon/human/H = owner
 	var/datum/species/jelly/luminescent/species = H.dna.species
-	if(!is_species(H, /datum/species/jelly/luminescent) || !species)
+	if(!isluminescent(H) || !species)
 		return
 	CHECK_DNA_AND_SPECIES(H)
 

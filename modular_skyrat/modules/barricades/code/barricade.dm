@@ -26,7 +26,7 @@
 	///is this barriade wired?
 	var/is_wired = FALSE
 
-/obj/structure/deployable_barricade/Initialize()
+/obj/structure/deployable_barricade/Initialize(mapload)
 	. = ..()
 	update_icon()
 	var/static/list/connections = list(
@@ -46,6 +46,8 @@
 
 /obj/structure/deployable_barricade/examine(mob/user)
 	. = ..()
+	if(!is_wired && can_wire)
+		. += span_info("Barbed wire could be added with some <b>cable</b>.")
 	if(is_wired)
 		. += span_info("It has barbed wire along the top.")
 
@@ -95,7 +97,7 @@
 /obj/structure/deployable_barricade/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/stack/cable_coil) && can_wire)
 		var/obj/item/stack/S = I
-		if(S.use(15))
+		if(S.use(5))
 			wire()
 		else
 			return
@@ -267,7 +269,7 @@
 /obj/structure/deployable_barricade/guardrail/update_icon()
 	. = ..()
 	if(dir == NORTH)
-		pixel_y = 12
+		pixel_y = 11
 
 /*----------------------*/
 // WOOD
@@ -655,8 +657,10 @@
 	closed = TRUE
 	can_upgrade = FALSE
 	portable_type = /obj/item/quickdeploy/barricade/plasteel
-	///ehther we react with other cades next to us ie when opening or so
+	///Either we react with other cades next to us ie when opening or so
 	var/linked = FALSE
+	///Open/close delay, for customisation. And because I was asked to - won't customise anything myself.
+	var/toggle_delay = 2 SECONDS
 
 /obj/structure/deployable_barricade/metal/plasteel/crowbar_act(mob/living/user, obj/item/I)
 	switch(build_state)
@@ -688,7 +692,7 @@
 	if(.)
 		return
 
-	if(do_after(user, 50, src))
+	if(do_after(user, toggle_delay, src))
 		toggle_open(null, user)
 
 /obj/structure/deployable_barricade/metal/plasteel/proc/toggle_open(state, mob/living/user)
@@ -808,10 +812,9 @@
 	icon_state = "box_metal"
 	w_class = WEIGHT_CLASS_NORMAL
 
-/obj/item/storage/barricade/ComponentInitialize()
+/obj/item/storage/barricade/Initialize(mapload)
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 21
+	atom_storage.max_total_storage = 21
 
 /obj/item/storage/barricade/PopulateContents()
 	for(var/i = 0, i < 3, i++)

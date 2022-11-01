@@ -2,7 +2,7 @@
 /// !!!!!!!!!!HEY LISTEN!!!!!!!!!!!!!!!!!!!!!!!!
 /// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-// If you modify this file you ALSO need to modify code/modules/goonchat/browserAssets/browserOutput.css and browserOutput_white.css
+// If you modify this file you ALSO need to modify tgui/packages/tgui-panel/styles/goon/chat-light.scss and chat-dark.scss
 // BUT you have to use PX font sizes with are on a x8 scale of these font sizes
 // Sample font-size: DM: 8 CSS: 64px
 
@@ -193,6 +193,12 @@ h1.alert, h2.alert		{color: #000000;}
     text-shadow: 0 0 4px #c51e1e;
   }
 }
+
+.brown					{color: #3d2009;}
+.orange 				{color: #b8761a;}
+.yellow					{color: #c7b72c;}
+.cyan					{color: #0ea1e6;}
+
 // SKYRAT ADDITION END
 
 .phobia			{color: #dd0000;	font-weight: bold;	animation: phobia 750ms infinite;}
@@ -214,10 +220,4 @@ h1.alert, h2.alert		{color: #000000;}
 .swarmer				{color: #2C75FF;}
 .resonate				{color: #298F85;}
 
-.monkeyhive				{color: #774704;}
-.monkeylead				{color: #774704;	font-size: 2;}
-.brown					{color: #3d2009;}
-.orange 				{color: #b8761a;}
-.yellow					{color: #c7b72c;}
-.cyan					{color: #0ea1e6;}
 </style>"}

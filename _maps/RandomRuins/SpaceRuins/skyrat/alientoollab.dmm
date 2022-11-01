@@ -47,9 +47,7 @@
 /obj/effect/turf_decal/stripes{
 	dir = 4
 	},
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/machinery/light/directional/west,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "i" = (
@@ -75,9 +73,7 @@
 /turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/powered)
 "l" = (
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/machinery/light/directional/west,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "m" = (
@@ -101,9 +97,7 @@
 /obj/effect/turf_decal/stripes{
 	dir = 8
 	},
-/obj/machinery/light{
-	dir = 4
-	},
+/obj/machinery/light/directional/east,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "p" = (
@@ -188,10 +182,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "C" = (
-/obj/structure/sink/kitchen{
-	dir = 8;
-	pixel_x = 13
-	},
+/obj/structure/sink/kitchen/directional/west,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered)
@@ -215,9 +206,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered)
 "G" = (
-/obj/machinery/light{
-	dir = 4
-	},
+/obj/machinery/light/directional/east,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "H" = (
@@ -271,7 +260,7 @@
 "P" = (
 /obj/structure/table/glass,
 /obj/item/paper{
-	info = "As of yet, our experiments have seen a fair bit of success. Unfortunately, our business partners have stopped funding us as they realised they utterly hate each other. To whoever finds this place, they are yours. Use them how you will. I leave you with the next generation of greytiding."
+	default_raw_text = "As of yet, our experiments have seen a fair bit of success. Unfortunately, our business partners have stopped funding us as they realised they utterly hate each other. To whoever finds this place, they are yours. Use them how you will. I leave you with the next generation of greytiding."
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,

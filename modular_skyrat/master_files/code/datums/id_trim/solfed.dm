@@ -12,7 +12,9 @@
 	assignment = "SolFed Liasion"
 	sechud_icon_state = SECHUD_SOLFED_LIASON
 
-/datum/id_trim/space_police //Overrides the normal /tg/ ERTSEC Icon, these guys aren't NT!
+/datum/id_trim/space_police // Overrides the normal /tg/ ERTSEC Icon, these guys aren't NT!
 	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
 	trim_state = "trim_spacepolice"
+	department_color = COLOR_CENTCOM_BLUE
+	subdepartment_color = COLOR_SECURITY_RED
 	sechud_icon_state = SECHUD_SPACE_POLICE

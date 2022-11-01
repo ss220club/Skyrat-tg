@@ -53,18 +53,6 @@ GLOBAL_LIST_INIT(loadout_necks, generate_loadout_items(/datum/loadout_item/neck)
 	name = "Red Scarf"
 	item_path = /obj/item/clothing/neck/scarf/red
 
-/datum/loadout_item/neck/scarf_blue_striped
-	name = "Striped Blue Scarf"
-	item_path = /obj/item/clothing/neck/stripedbluescarf
-
-/datum/loadout_item/neck/scarf_green_striped
-	name = "Striped Green Scarf"
-	item_path = /obj/item/clothing/neck/stripedgreenscarf
-
-/datum/loadout_item/neck/scarf_red_striped
-	name = "Striped Red Scarf"
-	item_path = /obj/item/clothing/neck/stripedredscarf
-
 /datum/loadout_item/neck/scarf_orange
 	name = "Orange Scarf"
 	item_path = /obj/item/clothing/neck/scarf/orange
@@ -77,9 +65,25 @@ GLOBAL_LIST_INIT(loadout_necks, generate_loadout_items(/datum/loadout_item/neck)
 	name = "White Scarf"
 	item_path = /obj/item/clothing/neck/scarf
 
+/datum/loadout_item/neck/scarf_red_striped
+	name = "Striped Red Scarf"
+	item_path = /obj/item/clothing/neck/large_scarf/red
+
+/datum/loadout_item/neck/scarf_blue_striped
+	name = "Striped Blue Scarf"
+	item_path = /obj/item/clothing/neck/large_scarf/blue
+
+/datum/loadout_item/neck/scarf_green_striped
+	name = "Striped Green Scarf"
+	item_path = /obj/item/clothing/neck/large_scarf/green
+
 /datum/loadout_item/neck/scarf_zebra
 	name = "Zebra Scarf"
 	item_path = /obj/item/clothing/neck/scarf/zebra
+
+/datum/loadout_item/neck/scarf_infinity
+	name = "Infinity Scarf"
+	item_path = /obj/item/clothing/neck/infinity_scarf
 
 /*
 *	NECKTIES
@@ -149,6 +153,7 @@ GLOBAL_LIST_INIT(loadout_necks, generate_loadout_items(/datum/loadout_item/neck)
 /datum/loadout_item/neck/kinkycollar
 	name = "Kinky Collar"
 	item_path = /obj/item/clothing/neck/kink_collar
+	erp_item = TRUE
 
 /*
 *	PONCHOS
@@ -182,6 +187,10 @@ GLOBAL_LIST_INIT(loadout_necks, generate_loadout_items(/datum/loadout_item/neck)
 	name = "Colourable Boatcloak"
 	item_path = /obj/item/clothing/neck/cloak/colourable/boat
 
+/datum/loadout_item/neck/gags_mantle
+	name = "Colourable Mantle"
+	item_path = /obj/item/clothing/neck/mantle/recolorable
+
 /*
 *	MANTLES
 */
@@ -189,6 +198,11 @@ GLOBAL_LIST_INIT(loadout_necks, generate_loadout_items(/datum/loadout_item/neck)
 /datum/loadout_item/neck/mantle
 	name = "Mantle"
 	item_path = /obj/item/clothing/neck/mantle
+
+/datum/loadout_item/neck/mantle_qm
+	name = "Quartermaster's Mantle"
+	item_path = /obj/item/clothing/neck/mantle/qm
+	restricted_roles = list(JOB_QUARTERMASTER)
 
 /datum/loadout_item/neck/mantle_hop
 	name = "Head of Personnel's Mantle"

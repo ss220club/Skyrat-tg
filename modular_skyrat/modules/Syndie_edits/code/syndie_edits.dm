@@ -4,6 +4,8 @@
 	icon = 'modular_skyrat/modules/syndie_edits/icons/obj.dmi'
 	worn_icon = 'modular_skyrat/modules/syndie_edits/icons/worn.dmi'
 	icon_state = "syndievest"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
 
 /obj/item/clothing/suit/armor/vest/capcarapace/syndicate/Initialize(mapload)
 	. = ..()
@@ -24,12 +26,28 @@
 	. = ..()
 	AddComponent(/datum/component/toggle_icon)
 
+/obj/item/clothing/head/warden/syndicate
+	name = "master at arms' police hat"
+	desc = "A fashionable police cap emblazoned with a golden badge, issued to the Master at Arms. Protects the head from impacts."
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	icon_state = "policehelm_syndie"
+	dog_fashion = null
+
 /obj/item/clothing/head/helmet/swat/ds
 	name = "SWAT helmet"
 	desc = "A robust and spaceworthy helmet with a small cross on it along with 'IP' written across the earpad."
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "swat_ds"
+
+/obj/item/clothing/head/beret/sec/syndicate
+	name = "brig officer's beret"
+	desc = "A stylish and protective beret, produced and manufactured by Interdyne Pharmaceuticals with help from the Gorlex Marauders."
+	greyscale_config = /datum/greyscale_config/beret_badge
+	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
+	icon_state = "beret_badge"
+	greyscale_colors = "#3F3C40#DB2929"
 
 /obj/item/clothing/mask/gas/syndicate/ds
 	name = "balaclava"
@@ -59,6 +77,11 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/hands.dmi'
 	icon_state = "combat"
 
+/obj/item/clothing/gloves/krav_maga/combatglovesplus/maa
+	name = "master at arms' combat gloves"
+	desc = "A set of combat gloves plus emblazoned with red knuckles, showing dedication to the trade while also hiding any blood left after use."
+	icon_state = "maagloves"
+
 /obj/item/storage/belt/security/webbing/ds
 	name = "brig officer webbing"
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/belts.dmi'
@@ -72,8 +95,24 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
 	icon_state = "bulletproof"
 
-/obj/item/clothing/suit/hooded/wintercoat/syndicate/short
-	desc = "A shorter than usual sinister black coat with red accents and a fancy mantle, it feels like it can take a hit. The zipper tab looks like a triple headed snake in the shape of an S, spooky."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
-	icon_state = "coatsyndie_short"
+/obj/item/clothing/under/syndicate/skyrat/overalls
+	name = "utility overalls turtleneck"
+	desc = "A pair of spiffy overalls with a turtleneck underneath, useful for both engineering and botanical work."
+	icon_state = "syndicate_overalls"
+	can_adjust = TRUE
+
+/obj/item/clothing/under/syndicate/skyrat/overalls/skirt
+	name = "utility overalls skirtleneck"
+	desc = "A pair of spiffy overalls with a turtleneck underneath, this one is a skirt instead, breezy."
+	icon_state = "syndicate_overallskirt"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	dying_key = DYE_REGISTRY_JUMPSKIRT
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/head/soft/sec/syndicate
+	name = "engine tech utility cover"
+	desc = "A utility cover for an engine technician, there's a tag that reads 'IP-DS-2'."
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	icon_state = "dssoft"
+	soft_type = "ds"

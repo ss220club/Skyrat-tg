@@ -29,9 +29,9 @@
 		TRAIT_NOCLONELOSS
 		)
 	inherent_biotypes = MOB_UNDEAD | MOB_HUMANOID
-	mutanttongue = /obj/item/organ/tongue/zombie
+	mutanttongue = /obj/item/organ/internal/tongue/zombie
 	disliked_food = NONE
-	liked_food = GROSS | MEAT | RAW
+	liked_food = GROSS | MEAT | RAW | GORE
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | ERT_SPAWN
 	bodytemp_normal = T0C // They have no natural body heat, the environment regulates body temp
 	bodytemp_heat_damage_limit = FIRE_MINIMUM_TEMPERATURE_TO_SPREAD // Take damage at fire temp
@@ -54,7 +54,7 @@
 	)
 
 /datum/species/mutant/check_roundstart_eligible()
-	if(SSevents.holidays && SSevents.holidays[HALLOWEEN])
+	if(check_holidays(HALLOWEEN))
 		return TRUE
 	return ..()
 
@@ -70,7 +70,7 @@
 	mutanthands = /obj/item/mutant_hand
 	speedmod = 1
 	armor = 10
-	mutanteyes = /obj/item/organ/eyes/night_vision/zombie
+	mutanteyes = /obj/item/organ/internal/eyes/night_vision/zombie
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | ERT_SPAWN
 	/// The rate the mutants regenerate at
 	var/heal_rate = 1
@@ -161,7 +161,7 @@
 	sharpness = NONE
 	wound_bonus = -40
 
-/obj/item/mutant_hand/Initialize()
+/obj/item/mutant_hand/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, HAND_REPLACEMENT_TRAIT)
 

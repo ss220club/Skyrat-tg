@@ -52,7 +52,8 @@
 
 ///Override for checkliked in edible component, because all cops LOVE donuts
 /obj/item/food/donut/proc/check_liked(fraction, mob/living/carbon/human/consumer)
-	if(!HAS_TRAIT(consumer, TRAIT_AGEUSIA) && consumer.mind && HAS_TRAIT(consumer.mind, TRAIT_DONUT_LOVER))
+	var/obj/item/organ/internal/liver/liver = consumer.getorganslot(ORGAN_SLOT_LIVER)
+	if(!HAS_TRAIT(consumer, TRAIT_AGEUSIA) && liver && HAS_TRAIT(liver, TRAIT_LAW_ENFORCEMENT_METABOLISM))
 		return FOOD_LIKED
 
 //Use this donut ingame
@@ -78,7 +79,7 @@
 	icon_state = "donut_meat"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/ketchup = 3)
 	tastes = list("meat" = 1)
-	foodtypes = JUNKFOOD | MEAT | GROSS | FRIED | BREAKFAST
+	foodtypes = JUNKFOOD | MEAT | GORE | FRIED | BREAKFAST
 	is_decorated = TRUE
 
 /obj/item/food/donut/berry

@@ -21,18 +21,19 @@ GLOBAL_PROTECT(href_token)
 
 	var/spamcooldown = 0
 
-	var/admincaster_screen = 0 //TODO: remove all these 5 variables, they are completly unacceptable
-	var/datum/feed_message/admincaster_feed_message = new /datum/feed_message
-	var/datum/wanted_message/admincaster_wanted_message = new /datum/wanted_message
-	var/datum/feed_channel/admincaster_feed_channel = new /datum/feed_channel
+	///Randomly generated signature used for security records authorization name.
 	var/admin_signature
 
 	var/href_token
+
+	/// Link from the database pointing to the admin's feedback forum
+	var/cached_feedback_link
 
 	var/deadmined
 
 	var/datum/filter_editor/filteriffic
 	var/datum/colorblind_tester/color_test = new
+	var/datum/plane_master_debug/plane_debug
 
 	/// Whether or not the user tried to connect, but was blocked by 2FA
 	var/blocked_by_2fa = FALSE
@@ -73,6 +74,7 @@ GLOBAL_PROTECT(href_token)
 		activate()
 	else
 		deactivate()
+	plane_debug = new(src)
 
 /datum/admins/Destroy()
 	if(IsAdminAdvancedProcCall())
@@ -91,6 +93,7 @@ GLOBAL_PROTECT(href_token)
 	GLOB.deadmins -= target
 	GLOB.admin_datums[target] = src
 	deadmined = FALSE
+	QDEL_NULL(plane_debug)
 	if (GLOB.directory[target])
 		associate(GLOB.directory[target]) //find the client for a ckey if they are connected and associate them with us
 
@@ -136,7 +139,8 @@ GLOBAL_PROTECT(href_token)
 
 		return
 	else if (blocked_by_2fa)
-		sync_lastadminrank(client.ckey, client.key)
+		//previously blocked by 2fa but has now verified, sync the lastadminrank column on the player table.
+		sync_lastadminrank(client.ckey, client.key, src)
 
 	blocked_by_2fa = FALSE
 
@@ -161,15 +165,42 @@ GLOBAL_PROTECT(href_token)
 	if(owner)
 		GLOB.admins -= owner
 		owner.remove_admin_verbs()
-		owner.init_verbs()
 		owner.holder = null
 		owner = null
+
+/// Returns the feedback forum thread for the admin holder's owner, as according to DB.
+/datum/admins/proc/feedback_link()
+	// This intentionally does not follow the 10-second maximum TTL rule,
+	// as this can be reloaded through the Reload-Admins verb.
+	if (cached_feedback_link == NO_FEEDBACK_LINK)
+		return null
+
+	if (!isnull(cached_feedback_link))
+		return cached_feedback_link
+
+	if (!SSdbcore.IsConnected())
+		return FALSE
+
+	var/datum/db_query/feedback_query = SSdbcore.NewQuery("SELECT feedback FROM [format_table_name("admin")] WHERE ckey = '[owner.ckey]'")
+
+	if(!feedback_query.Execute())
+		log_sql("Error retrieving feedback link for [src]")
+		qdel(feedback_query)
+		return FALSE
+
+	if(!feedback_query.NextRow())
+		qdel(feedback_query)
+		return FALSE // no feedback link exists
+
+	cached_feedback_link = feedback_query.item[1] || NO_FEEDBACK_LINK
+	qdel(feedback_query)
+
+	return cached_feedback_link
 
 /datum/admins/proc/check_for_rights(rights_required)
 	if(rights_required && !(rights_required & rank_flags()))
 		return FALSE
 	return TRUE
-
 
 /datum/admins/proc/check_if_greater_rights_than_holder(datum/admins/other)
 	if(!other)

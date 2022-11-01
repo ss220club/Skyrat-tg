@@ -5,8 +5,8 @@
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 500, /datum/material/gold = 1000)
 	build_path = /obj/item/clothing/head/helmet/monkey_sentience
-	category = list("Equipment")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(RND_CATEGORY_EQUIPMENT)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/plumbing_chem
 	name = "Plumbing Constructor (Chemistry)"
@@ -15,8 +15,8 @@
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/iron = 75000, /datum/material/glass = 10000, /datum/material/gold = 1000)
 	build_path = /obj/item/construction/plumbing
-	category = list("Tools")
-	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+	category = list(RND_CATEGORY_TOOLS)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 
 /datum/design/plumbing_eng
@@ -26,8 +26,8 @@
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/iron = 75000, /datum/material/glass = 10000, /datum/material/gold = 1000)
 	build_path = /obj/item/construction/plumbing/engineering
-	category = list("Tools")
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
+	category = list(RND_CATEGORY_TOOLS)
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/plumbing_sci
 	name = "Plumbing Constructor (Science)"
@@ -36,8 +36,8 @@
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/iron = 75000, /datum/material/glass = 10000, /datum/material/gold = 1000)
 	build_path = /obj/item/construction/plumbing/research
-	category = list("Tools")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(RND_CATEGORY_TOOLS)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/smartdartgun
 	name = "Medical SmartDart Gun"
@@ -46,5 +46,15 @@
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 10000, /datum/material/silver = 4000)
 	build_path = /obj/item/gun/syringe/smartdart
-	category = list("Weapons")
-	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+	category = list(RND_CATEGORY_WEAPONS)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
+
+/datum/design/anesthetic_machine
+	name = "anesthetic machine parts kit"
+	desc = "All-in-one kit containing the parts to create a portable anesthetic stand, tank not included."
+	id = "anesthetic_machine"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/iron = 10000, /datum/material/plastic = 10000, /datum/material/silver = 4000)
+	build_path = /obj/item/anesthetic_machine_kit
+	category = list(RND_CATEGORY_EQUIPMENT)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL

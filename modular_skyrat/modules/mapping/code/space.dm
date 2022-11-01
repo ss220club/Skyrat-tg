@@ -78,10 +78,10 @@
 	name = "Suspicious Cargo Installation"
 	description = "*SCREECH* RDM RDM RDM"
 
-/datum/map_template/ruin/space/skyrat/polychromicfacility
-	id = "polychromicfacility"
-	suffix = "polychromicfacility.dmm"
-	name = "Abandoned Polychromic Facility"
+/datum/map_template/ruin/space/skyrat/clothing_facility
+	id = "clothing_facility"
+	suffix = "clothing_facility.dmm"
+	name = "Abandoned Clothing Facility"
 	description = "A den of bad ideas. Secborgs were made here!"
 
 /datum/map_template/ruin/space/skyrat/luna
@@ -180,3 +180,6 @@
 	id = "escapefromtarkon"
 	description = "An ambitious goal, A step forward, A trial run for the Tarkon drill, ment to implant mining stations within meteors. Decades of disaster have, however, left this one... Unattended for far too long."
 	always_place = TRUE
+
+/obj/modular_map_root/port_tarkon
+	config_file = "strings/modular_maps/skyrat/PortTarkon.toml"

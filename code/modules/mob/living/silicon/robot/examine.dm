@@ -1,7 +1,10 @@
 /mob/living/silicon/robot/examine(mob/user)
-	. = list("<span class='info'>This is [icon2html(src, user)] \a <EM>[src]</EM>!") //SKYRAT EDIT CHANGE
+	. = list("<span class='info'>This is [icon2html(src, user)] <EM>[src]</EM>!")
 	if(desc)
 		. += "[desc]"
+
+	var/model_name = model ? "\improper [model.name]" : "\improper Default"
+	. += "\nIt is currently \a \"[span_bold("[model_name]")]\"-type cyborg.\n"
 
 	var/obj/act_module = get_active_held_item()
 	if(act_module)
@@ -42,7 +45,7 @@
 		if(SOFT_CRIT, UNCONSCIOUS, HARD_CRIT)
 			. += span_warning("It doesn't seem to be responding.")
 		if(DEAD)
-			. += "<span class='deadsay'>It looks like its system is corrupted and requires a reset.</span>"
+			. += span_deadsay("It looks like its system is corrupted and requires a reset.")
 	//SKYRAT EDIT ADDITION BEGIN - CUSTOMIZATION
 	var/flavor_text_link
 	/// The first 1-FLAVOR_PREVIEW_LIMIT characters in the mob's client's silicon_flavor_text preference datum. FLAVOR_PREVIEW_LIMIT is defined in flavor_defines.dm.
@@ -63,6 +66,9 @@
 		else
 			. += span_notice("<b>They look different than usual:</b> [copytext_char(temporary_flavor_text, 1, 37)]... <a href='?src=[REF(src)];temporary_flavor=1'>More...</a>")
 	//SKYRAT EDIT ADDITION END
-	//. += "*---------*</span>"
+	. += "</span>"
 
 	. += ..()
+
+/mob/living/silicon/robot/get_examine_string(mob/user, thats = FALSE)
+	return null

@@ -7,7 +7,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/hatch{
 	name = "EVA Preparation";
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/cruiser/airlock)
@@ -31,7 +31,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/cruiser/engineering)
 "av" = (
-/obj/machinery/shower,
+/obj/machinery/shower/directional/south,
 /obj/structure/curtain,
 /obj/effect/turf_decal/bot_white,
 /obj/structure/drain,
@@ -125,12 +125,12 @@
 "cl" = (
 /obj/structure/table,
 /obj/item/book/manual/chef_recipes,
-/obj/item/reagent_containers/food/condiment/enzyme,
-/obj/item/reagent_containers/food/condiment/saltshaker{
+/obj/item/reagent_containers/condiment/enzyme,
+/obj/item/reagent_containers/condiment/saltshaker{
 	pixel_x = -8;
 	pixel_y = 5
 	},
-/obj/item/reagent_containers/food/condiment/peppermill{
+/obj/item/reagent_containers/condiment/peppermill{
 	pixel_x = 2
 	},
 /obj/item/storage/fancy/egg_box,
@@ -164,7 +164,7 @@
 /obj/effect/turf_decal/delivery/white,
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge";
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/structure/cable,
@@ -186,8 +186,8 @@
 /obj/structure/cable,
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/machinery/door/poddoor/preopen{
-	id = "syndicatecruiserbrig";
-	dir = 4
+	dir = 4;
+	id = "syndicatecruiserbrig"
 	},
 /turf/open/floor/plating,
 /area/shuttle/syndicate/cruiser/brig)
@@ -197,7 +197,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/cruiser/brig)
 "dz" = (
-/obj/structure/shuttle/engine/heater,
+/obj/machinery/power/shuttle_engine/heater,
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/cruiser/engineering)
 "dF" = (
@@ -205,27 +205,27 @@
 /obj/machinery/button/door{
 	id = "syndicatecruiserwindows";
 	name = "Window Blast Doors";
+	pixel_x = -5;
 	pixel_y = 7;
-	req_access_txt = "150";
-	pixel_x = -5
+	req_access = list("syndicate")
 	},
 /obj/machinery/button/door{
 	id = "syndicatecruiserarmory";
 	name = "Armory Blast Doors";
+	pixel_x = -5;
 	pixel_y = -6;
-	req_access_txt = "150";
-	pixel_x = -5
+	req_access = list("syndicate")
 	},
 /obj/machinery/button/door{
 	id = "syndicatecruiserhall";
 	name = "Hall Shutters";
 	pixel_x = 8;
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/cruiser/bridge)
 "dQ" = (
-/obj/machinery/computer/monitor/secret{
+/obj/machinery/computer/monitor{
 	dir = 8
 	},
 /obj/structure/cable,
@@ -303,12 +303,6 @@
 	dir = 1;
 	pixel_y = 24
 	},
-/obj/item/storage/medkit/tactical,
-/obj/item/storage/medkit/tactical,
-/obj/item/storage/medkit/tactical,
-/obj/item/storage/medkit/tactical,
-/obj/item/storage/medkit/tactical,
-/obj/item/storage/medkit/tactical,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/cruiser/medical)
 "eT" = (
@@ -360,7 +354,7 @@
 "ge" = (
 /obj/structure/table,
 /obj/structure/reagent_dispensers/servingdish,
-/obj/item/clothing/head/chefhat,
+/obj/item/clothing/head/utility/chefhat,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/cruiser/brig)
 "gp" = (
@@ -430,12 +424,6 @@
 /area/shuttle/syndicate/cruiser/medical)
 "hk" = (
 /obj/structure/rack/shelf,
-/obj/item/melee/powerfist,
-/obj/item/melee/baton,
-/obj/item/melee/baton,
-/obj/item/melee/baton,
-/obj/item/melee/baton,
-/obj/item/melee/baton,
 /obj/item/melee/baton,
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/airalarm/syndicate{
@@ -463,7 +451,7 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/syndicate/cruiser/hallway)
 "hy" = (
-/obj/structure/shuttle/engine/heater,
+/obj/machinery/power/shuttle_engine/heater,
 /obj/machinery/atmospherics/components/unary/passive_vent/layer2{
 	dir = 1
 	},
@@ -476,10 +464,10 @@
 	id = "syndicatecruiserhatches";
 	name = "hatches";
 	pixel_y = 32;
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /obj/machinery/door/airlock/external/glass{
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/structure/cable,
@@ -495,10 +483,7 @@
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/shuttle/syndicate/cruiser/hallway)
 "hV" = (
-/obj/structure/sink/kitchen{
-	dir = 8;
-	pixel_x = 11
-	},
+/obj/structure/sink/kitchen/directional/west,
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/cruiser/brig)
@@ -562,10 +547,9 @@
 	},
 /obj/machinery/turretid{
 	name = "DANGER: Outer Turret Control";
-	req_access = null;
-	req_access_txt = "150";
-	system_id = "cruiser_turrets_outer";
-	pixel_x = -28
+	pixel_x = -28;
+	req_access = list("syndicate");
+	system_id = "cruiser_turrets_outer"
 	},
 /turf/open/floor/circuit/red,
 /area/shuttle/syndicate/cruiser/hallway)
@@ -622,14 +606,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/syndicate/cruiser/airlock)
-"lt" = (
-/obj/structure/shuttle/engine/large,
-/obj/structure/shuttle/engine/propulsion/in_wall{
-	pixel_y = -32
-	},
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating/airless,
-/area/shuttle/syndicate/cruiser/airlock)
 "lx" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark/end,
 /obj/machinery/light/no_nightlight/directional/south,
@@ -659,11 +635,6 @@
 "mp" = (
 /obj/structure/rack/shelf,
 /obj/item/suppressor,
-/obj/item/suppressor,
-/obj/item/suppressor,
-/obj/item/suppressor,
-/obj/item/suppressor,
-/obj/item/suppressor,
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
@@ -682,10 +653,10 @@
 /area/shuttle/syndicate/cruiser/brig)
 "mW" = (
 /obj/structure/rack,
-/obj/item/reagent_containers/glass/beaker/large{
+/obj/item/reagent_containers/cup/beaker/large{
 	pixel_x = -7
 	},
-/obj/item/reagent_containers/glass/beaker{
+/obj/item/reagent_containers/cup/beaker{
 	pixel_x = 7
 	},
 /obj/item/reagent_containers/dropper,
@@ -709,7 +680,7 @@
 /area/shuttle/syndicate/cruiser/brig)
 "nx" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/cup/bucket,
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/cruiser/brig)
@@ -720,9 +691,9 @@
 "nD" = (
 /mob/living/simple_animal/bot/medbot{
 	faction = list("Syndicate");
+	maints_access_required = list(150);
 	name = "Kahn";
-	radio_channel = "Syndicate";
-	maints_access_required = list(150)
+	radio_channel = "Syndicate"
 	},
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/power/apc/auto_name/directional/east,
@@ -746,13 +717,6 @@
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/syndicate/cruiser/brig)
-"oa" = (
-/obj/structure/shuttle/engine/propulsion/in_wall{
-	dir = 8;
-	pixel_x = -32
-	},
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/shuttle/syndicate/cruiser/brig)
 "oc" = (
 /obj/effect/turf_decal/bot_white,
@@ -793,14 +757,12 @@
 	charge = 5e+006
 	},
 /obj/structure/cable,
-/obj/structure/sign/warning/electric_shock{
-	pixel_y = 32
-	},
+/obj/structure/sign/warning/electric_shock/directional/north,
 /obj/machinery/light/no_nightlight/directional/north,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/cruiser/engineering)
 "oH" = (
-/obj/structure/shuttle/engine/large,
+/obj/machinery/power/shuttle_engine/large,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/cruiser/hallway)
@@ -816,14 +778,14 @@
 	id = "syndicatecruiserbrig";
 	pixel_x = -23;
 	pixel_y = 8;
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /obj/machinery/button/door{
 	id = "syndicatecruiserbrig";
 	name = "Brig Shutters";
 	pixel_x = -24;
-	req_access_txt = "150";
-	pixel_y = -6
+	pixel_y = -6;
+	req_access = list("syndicate")
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/syndicate/cruiser/hallway)
@@ -854,7 +816,7 @@
 	id = "syndicatecruiserhall";
 	name = "Hall Shutters";
 	pixel_x = -22;
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/syndicate/cruiser/hallway)
@@ -870,13 +832,13 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/cruiser/engineering)
 "pX" = (
-/obj/structure/shuttle/engine/heater,
+/obj/machinery/power/shuttle_engine/heater,
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/cruiser/hallway)
 "ql" = (
 /obj/structure/closet/secure_closet{
 	name = "Secure Storage";
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /obj/item/storage/box/handcuffs{
 	pixel_x = -4;
@@ -938,9 +900,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/cruiser/brig)
 "ss" = (
-/obj/structure/sink{
-	dir = 1
-	},
+/obj/structure/sink/directional/north,
 /obj/effect/turf_decal/bot_red,
 /obj/structure/mirror/directional/south,
 /turf/open/floor/iron/dark/textured_large,
@@ -1024,10 +984,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/syndicate/cruiser/hallway)
 "uV" = (
-/obj/structure/shuttle/engine/propulsion,
-/obj/structure/shuttle/engine/propulsion/in_wall{
-	pixel_y = -32
-	},
+/obj/machinery/power/shuttle_engine/propulsion,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/cruiser/hallway)
@@ -1036,7 +993,7 @@
 /obj/structure/cable,
 /obj/machinery/door/airlock/engineering{
 	name = "Engine Bay";
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1049,8 +1006,8 @@
 	dwidth = 7;
 	height = 21;
 	hidden = 1;
-	id = "goldeneye_cruiser";
-	movement_force = list("KNOCKDOWN" = 0, "THROW" = 0);
+	shuttle_id = "goldeneye_cruiser";
+	movement_force = list("KNOCKDOWN"=0,"THROW"=0);
 	name = "goldeneye cruiser";
 	port_direction = 4;
 	width = 31
@@ -1058,7 +1015,7 @@
 /obj/structure/fans/tiny,
 /obj/effect/turf_decal/delivery/white,
 /obj/machinery/door/airlock/external/glass{
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/machinery/door/poddoor{
@@ -1068,7 +1025,7 @@
 	id = "syndicatecruiserhatches";
 	name = "hatches";
 	pixel_y = 32;
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/cruiser/airlock)
@@ -1128,7 +1085,6 @@
 /area/shuttle/syndicate/cruiser/eva)
 "xL" = (
 /obj/structure/table,
-/obj/structure/table,
 /obj/item/paper_bin,
 /obj/item/pen,
 /turf/open/floor/iron/dark/textured_large,
@@ -1149,7 +1105,7 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/syndicate/cruiser/hallway)
 "xX" = (
-/mob/living/simple_animal/mouse/white{
+/mob/living/basic/mouse/white{
 	faction = list("Syndicate")
 	},
 /obj/structure/bed/maint,
@@ -1184,7 +1140,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/airlock/atmos{
 	name = "Atmospherics Storage";
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/cruiser/hallway)
@@ -1219,13 +1175,8 @@
 /area/shuttle/syndicate/cruiser/hallway)
 "Al" = (
 /obj/structure/rack/shelf,
-/obj/item/storage/box/syndie_kit/imp_stealth,
-/obj/item/storage/box/syndie_kit/imp_stealth,
-/obj/item/storage/box/syndie_kit/imp_stealth,
-/obj/item/storage/box/syndie_kit/imp_stealth,
-/obj/item/storage/box/syndie_kit/imp_stealth,
-/obj/item/storage/box/syndie_kit/imp_stealth,
 /obj/effect/turf_decal/bot_white,
+/obj/item/suppressor,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/cruiser/armory)
 "An" = (
@@ -1304,13 +1255,6 @@
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/cruiser/eva)
-"Cx" = (
-/obj/structure/shuttle/engine/propulsion/in_wall{
-	dir = 8;
-	pixel_x = -32
-	},
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
-/area/shuttle/syndicate/cruiser/engineering)
 "CH" = (
 /obj/structure/holohoop,
 /turf/open/floor/iron/dark/textured_large,
@@ -1321,22 +1265,15 @@
 "CK" = (
 /mob/living/simple_animal/bot/medbot{
 	faction = list("Syndicate");
+	maints_access_required = list(150);
 	name = "James T. Kirk";
-	radio_channel = "Syndicate";
-	maints_access_required = list(150)
+	radio_channel = "Syndicate"
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
 /turf/open/floor/iron/freezer,
 /area/shuttle/syndicate/cruiser/medical)
-"CS" = (
-/obj/structure/shuttle/engine/propulsion/in_wall{
-	pixel_y = -32
-	},
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating/airless,
-/area/shuttle/syndicate/cruiser/engineering)
 "CT" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
@@ -1359,16 +1296,6 @@
 "Dq" = (
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/shuttle/syndicate/cruiser/armory)
-"Dy" = (
-/obj/structure/shuttle/engine/large,
-/obj/structure/shuttle/engine/propulsion/in_wall{
-	pixel_y = -32
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 10
-	},
-/turf/open/floor/plating/airless,
-/area/shuttle/syndicate/cruiser/engineering)
 "DB" = (
 /obj/machinery/power/port_gen/pacman{
 	anchored = 1
@@ -1401,7 +1328,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/hatch{
 	name = "General Storage";
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/cruiser/hallway)
@@ -1434,25 +1361,8 @@
 /area/shuttle/syndicate/cruiser/airlock)
 "Eu" = (
 /obj/structure/rack/shelf,
-/obj/item/grenade/syndieminibomb{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/grenade/syndieminibomb{
-	pixel_x = 6;
-	pixel_y = 4
-	},
-/obj/item/grenade/c4,
-/obj/item/grenade/c4,
-/obj/item/grenade/c4,
-/obj/item/grenade/c4,
-/obj/item/grenade/c4,
-/obj/item/grenade/c4,
-/obj/item/grenade/c4,
-/obj/item/grenade/c4,
-/obj/item/grenade/c4,
-/obj/item/grenade/c4,
 /obj/effect/turf_decal/bot_white,
+/obj/item/melee/baton,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/cruiser/armory)
 "EL" = (
@@ -1514,13 +1424,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/smooth,
 /area/shuttle/syndicate/cruiser/brig)
-"FI" = (
-/obj/structure/shuttle/engine/propulsion/in_wall{
-	dir = 4;
-	pixel_x = 32
-	},
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
-/area/shuttle/syndicate/cruiser/airlock)
 "FJ" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
@@ -1530,7 +1433,7 @@
 	id = "syndicatecruiserhall";
 	name = "Hall Shutters";
 	pixel_x = -22;
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /obj/machinery/door/poddoor/shutters{
 	id = "syndicatecruiserhall";
@@ -1542,7 +1445,7 @@
 /obj/effect/turf_decal/delivery/white,
 /obj/machinery/door/airlock/security{
 	name = "Brig";
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/structure/cable,
@@ -1596,7 +1499,7 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/syndicate/cruiser/hallway)
 "GN" = (
-/obj/structure/shuttle/engine/heater{
+/obj/machinery/power/shuttle_engine/heater{
 	dir = 4
 	},
 /turf/open/floor/plating/airless,
@@ -1607,8 +1510,7 @@
 /obj/machinery/turretid{
 	name = "Internal Turret Control";
 	pixel_y = 30;
-	req_access = null;
-	req_access_txt = "150";
+	req_access = list("syndicate");
 	system_id = "cruiser_turrets_internal"
 	},
 /turf/open/floor/iron/dark/textured_large,
@@ -1717,7 +1619,7 @@
 "Jt" = (
 /obj/structure/closet/secure_closet{
 	name = "Prisoner Locker";
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /obj/item/clothing/shoes/sneakers/crimson,
 /obj/item/clothing/shoes/sneakers/crimson,
@@ -1820,7 +1722,7 @@
 /turf/open/floor/iron/dark,
 /area/shuttle/syndicate/cruiser/hallway)
 "Kr" = (
-/obj/machinery/shower,
+/obj/machinery/shower/directional/south,
 /obj/structure/curtain,
 /obj/effect/turf_decal/bot_white,
 /obj/structure/drain,
@@ -1852,7 +1754,7 @@
 /turf/closed/wall/r_wall/syndicate,
 /area/shuttle/syndicate/cruiser/brig)
 "Lr" = (
-/obj/structure/shuttle/engine/heater{
+/obj/machinery/power/shuttle_engine/heater{
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
@@ -1890,7 +1792,7 @@
 /obj/effect/turf_decal/delivery/white,
 /obj/machinery/door/airlock/medical{
 	name = "Medbay";
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1978,7 +1880,7 @@
 /turf/open/floor/iron/smooth,
 /area/shuttle/syndicate/cruiser/brig)
 "ND" = (
-/obj/machinery/computer/monitor/secret{
+/obj/machinery/computer/monitor{
 	dir = 4
 	},
 /obj/effect/turf_decal/bot_white,
@@ -1999,7 +1901,7 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/cruiser/engineering)
 "Or" = (
-/obj/structure/shuttle/engine/large,
+/obj/machinery/power/shuttle_engine/large,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/cruiser/airlock)
@@ -2122,7 +2024,7 @@
 /obj/structure/janitorialcart{
 	dir = 4
 	},
-/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/cup/bucket,
 /obj/item/mop,
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/textured_large,
@@ -2188,13 +2090,6 @@
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/cruiser/hallway)
-"SZ" = (
-/obj/structure/shuttle/engine/propulsion/in_wall{
-	dir = 4;
-	pixel_x = 32
-	},
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
-/area/shuttle/syndicate/cruiser/eva)
 "Tq" = (
 /obj/effect/turf_decal/bot_white,
 /obj/structure/cable,
@@ -2212,7 +2107,7 @@
 /obj/effect/turf_decal/delivery/white,
 /obj/machinery/door/airlock/hatch{
 	name = "Armory";
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/structure/cable,
@@ -2223,15 +2118,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/cruiser/eva)
-"TF" = (
-/obj/structure/shuttle/engine/propulsion/in_wall{
-	pixel_y = -32
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 6
-	},
-/turf/open/floor/plating/airless,
-/area/shuttle/syndicate/cruiser/airlock)
 "TJ" = (
 /obj/structure/rack/gunrack,
 /obj/item/gun/energy/ionrifle,
@@ -2239,7 +2125,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/cruiser/armory)
 "TL" = (
-/obj/structure/shuttle/engine/heater,
+/obj/machinery/power/shuttle_engine/heater,
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/cruiser/airlock)
 "TW" = (
@@ -2301,7 +2187,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/cruiser/hallway)
 "UL" = (
-/obj/structure/shuttle/engine/propulsion,
+/obj/machinery/power/shuttle_engine/propulsion,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/cruiser/engineering)
@@ -2380,7 +2266,7 @@
 /obj/effect/turf_decal/delivery/white,
 /obj/machinery/door/airlock/hatch{
 	name = "EVA Storage";
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/structure/cable,
@@ -2401,7 +2287,7 @@
 /obj/effect/turf_decal/delivery/white,
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge";
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/structure/cable,
@@ -2419,14 +2305,14 @@
 /turf/open/floor/iron/smooth,
 /area/shuttle/syndicate/cruiser/brig)
 "WF" = (
-/obj/structure/shuttle/engine/large,
+/obj/machinery/power/shuttle_engine/large,
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/cruiser/engineering)
 "Xm" = (
-/obj/structure/shuttle/engine/propulsion,
+/obj/machinery/power/shuttle_engine/propulsion,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/cruiser/airlock)
@@ -2489,15 +2375,15 @@
 /area/shuttle/syndicate/cruiser/brig)
 "Ym" = (
 /obj/structure/closet/crate,
-/obj/item/reagent_containers/glass/bowl,
+/obj/item/reagent_containers/cup/bowl,
 /obj/effect/spawner/random/contraband/prison,
-/obj/item/reagent_containers/glass/bowl,
-/obj/item/reagent_containers/glass/bowl,
-/obj/item/reagent_containers/glass/bowl,
-/obj/item/reagent_containers/glass/bowl,
-/obj/item/reagent_containers/glass/bowl,
-/obj/item/reagent_containers/glass/bowl,
-/obj/item/reagent_containers/glass/bowl,
+/obj/item/reagent_containers/cup/bowl,
+/obj/item/reagent_containers/cup/bowl,
+/obj/item/reagent_containers/cup/bowl,
+/obj/item/reagent_containers/cup/bowl,
+/obj/item/reagent_containers/cup/bowl,
+/obj/item/reagent_containers/cup/bowl,
+/obj/item/reagent_containers/cup/bowl,
 /obj/item/kitchen/fork/plastic,
 /obj/item/kitchen/fork/plastic,
 /obj/item/kitchen/fork/plastic,
@@ -2568,7 +2454,7 @@
 /obj/effect/turf_decal/delivery/white,
 /obj/machinery/door/airlock/medical{
 	name = "Medbay";
-	req_access_txt = "150"
+	req_access = list("syndicate")
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/structure/cable,
@@ -2671,8 +2557,8 @@ Zy
 Zy
 Zy
 Zy
-Cx
-Cx
+Zy
+Zy
 Zy
 ru
 Fv
@@ -2728,8 +2614,8 @@ qU
 ss
 Vm
 Vm
-oa
-oa
+Vm
+Vm
 Vm
 Zy
 Zy
@@ -2740,7 +2626,7 @@ Zy
 Zy
 Zy
 pE
-Dy
+WF
 Fv
 "}
 (4,1,1) = {"
@@ -2773,7 +2659,7 @@ an
 iY
 Zy
 Oy
-CS
+Om
 Fv
 "}
 (5,1,1) = {"
@@ -3235,7 +3121,7 @@ sU
 Gd
 gv
 Hm
-lt
+Or
 Fv
 "}
 (19,1,1) = {"
@@ -3256,8 +3142,8 @@ Dq
 xq
 xq
 xq
-SZ
-SZ
+xq
+xq
 xq
 gv
 gv
@@ -3268,7 +3154,7 @@ gv
 gv
 gv
 xO
-TF
+AQ
 Fv
 "}
 (20,1,1) = {"
@@ -3331,8 +3217,8 @@ gv
 vo
 gv
 gv
-FI
-FI
+gv
+gv
 gv
 Vb
 Fv

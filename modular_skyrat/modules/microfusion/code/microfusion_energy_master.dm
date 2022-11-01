@@ -8,13 +8,13 @@
 	desc = "The coders have obviously failed to realise this is broken."
 	icon = 'modular_skyrat/modules/microfusion/icons/microfusion_gun40x32.dmi'
 	icon_state = "mcr01"
+	inhand_icon_state = "mcr01"
 	bayonet_icon = 'modular_skyrat/modules/microfusion/icons/microfusion_gun40x32.dmi'
-	gunlight_icon = 'modular_skyrat/modules/microfusion/icons/microfusion_gun40x32.dmi'
 	lefthand_file = 'modular_skyrat/modules/microfusion/icons/guns_lefthand.dmi'
 	righthand_file = 'modular_skyrat/modules/microfusion/icons/guns_righthand.dmi'
 	has_gun_safety = TRUE
-	can_flashlight = FALSE
 	can_bayonet = FALSE
+	weapon_weight = WEAPON_HEAVY
 	w_class = WEIGHT_CLASS_BULKY
 	obj_flags = UNIQUE_RENAME
 	ammo_x_offset = 2
@@ -45,9 +45,9 @@
 	/// The microfusion lens used for generating the beams.
 	var/obj/item/ammo_casing/energy/laser/microfusion/microfusion_lens
 	/// The time it takes for someone to (tactically) reload this gun. In deciseconds.
-	var/reload_time = 6 SECONDS
+	var/reload_time = 4 SECONDS
 	/// The time it takes for someone to normally reload this gun. In deciseconds.
-	var/reload_time_slow = 4 SECONDS
+	var/reload_time_slow = 2 SECONDS
 	/// The sound played when you insert a cell.
 	var/sound_cell_insert = 'modular_skyrat/modules/microfusion/sound/mag_insert.ogg'
 	/// Should the insertion sound played vary?
@@ -97,6 +97,7 @@
 	else
 		cell = new(src)
 	cell.parent_gun = src
+	cell.chargerate = 300
 	if(!dead_cell)
 		cell.give(cell.maxcharge)
 	if(phase_emitter_type)
@@ -106,17 +107,17 @@
 	phase_emitter.parent_gun = src
 	update_microfusion_lens()
 	recharge_newshot(TRUE)
+	AddElement(/datum/element/update_icon_updates_onmob)
 	update_appearance()
 	AddComponent(/datum/component/ammo_hud)
 	RegisterSignal(src, COMSIG_ITEM_RECHARGED, .proc/instant_recharge)
 	base_fire_delay = fire_delay
 
-/obj/item/gun/microfusion/ComponentInitialize()
-	. = ..()
-	AddElement(/datum/element/update_icon_updates_onmob)
-
 /obj/item/gun/microfusion/add_weapon_description()
 	AddElement(/datum/element/weapon_description, attached_proc = .proc/add_notes_energy)
+
+/obj/item/gun/microfusion/add_seclight_point()
+	return
 
 /obj/item/gun/microfusion/Destroy()
 	if(microfusion_lens)
@@ -296,7 +297,7 @@
 /obj/item/gun/microfusion/suicide_act(mob/living/user)
 	if (istype(user) && can_shoot() && can_trigger_gun(user) && user.get_bodypart(BODY_ZONE_HEAD))
 		user.visible_message(span_suicide("[user] is putting the barrel of [src] in [user.p_their()] mouth. It looks like [user.p_theyre()] trying to commit suicide!"))
-		sleep(25)
+		sleep(2.5 SECONDS)
 		if(user.is_holding(src))
 			user.visible_message(span_suicide("[user] melts [user.p_their()] face off with [src]!"))
 			playsound(loc, fire_sound, 50, TRUE, -1)
@@ -434,7 +435,7 @@
 		addtimer(CALLBACK(src, .proc/reset_semicd), fire_delay + fire_delay_to_add)
 
 	if(user)
-		user.update_inv_hands()
+		user.update_held_items()
 	SSblackbox.record_feedback("tally", "gun_fired", 1, type)
 
 	SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
@@ -619,6 +620,9 @@
 	reload_time = inserting_cell.reloading_time_tactical
 	if(cell)
 		if(reload_time && !HAS_TRAIT(user, TRAIT_INSTANT_RELOAD)) //This only happens when you're attempting a tactical reload, e.g. there's a mag already inserted.
+			if(inserting_cell.charge)
+				to_chat(user, span_warning("It would be far too dangerous to insert [inserting_cell] into [src] without <b>discharging it first</b>."))
+				return FALSE
 			if(display_message)
 				to_chat(user, span_notice("You start to insert [inserting_cell] into [src]!"))
 			if(!do_after(user, reload_time, src))
@@ -630,6 +634,9 @@
 		tactical_reload = TRUE
 		eject_cell(user, FALSE, FALSE)
 	else
+		if(inserting_cell.charge)
+			to_chat(user, span_warning("It would be far too dangerous to insert [inserting_cell] into [src] without <b>discharging it first</b>."))
+			return FALSE
 		if(display_message)
 			to_chat(user, span_notice("You start to insert [inserting_cell] into [src]!"))
 		if(!do_after(user, reload_time_slow, src))
@@ -642,6 +649,7 @@
 		playsound(src, sound_cell_insert, sound_cell_insert_volume, sound_cell_insert_vary)
 	cell = inserting_cell
 	inserting_cell.forceMove(src)
+	inserting_cell.inserted_into_weapon()
 	cell.parent_gun = src
 	if(tactical_reload)
 		user.put_in_hands(old_cell)
@@ -657,6 +665,7 @@
 /obj/item/gun/microfusion/proc/eject_cell(mob/user, display_message = TRUE, put_in_hands = TRUE)
 	var/obj/item/stock_parts/cell/microfusion/old_cell = cell
 	old_cell.forceMove(get_turf(src))
+	old_cell.cell_removal_discharge()
 	if(user)
 		if(put_in_hands)
 			user.put_in_hands(old_cell)

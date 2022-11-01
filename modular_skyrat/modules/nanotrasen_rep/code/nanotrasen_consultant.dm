@@ -12,6 +12,7 @@
 	exp_required_type = EXP_TYPE_CREW
 	exp_required_type_department = EXP_TYPE_COMMAND
 	exp_granted_type = EXP_TYPE_CREW
+	config_tag = "NANOTRASEN_CONSULTANT"
 
 	department_for_prefs = /datum/job_department/captain
 
@@ -34,17 +35,11 @@
 	mail_goodies = list(
 		/obj/item/clothing/mask/cigarette/cigar/havana = 20,
 		/obj/item/storage/fancy/cigarettes/cigars/havana = 15,
-		/obj/item/reagent_containers/food/drinks/bottle/champagne = 10
+		/obj/item/reagent_containers/cup/glass/bottle/champagne = 10
 	)
 
 	veteran_only = TRUE
 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_BOLD_SELECT_TEXT | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS
-
-/datum/job/nanotrasen_consultant/after_spawn(mob/living/H, mob/M, latejoin)
-	. = ..()
-	to_chat(H, span_boldannounce("As the Nanotrasen Consultant, you are required to follow the following placeholder policy and SOP: https://paradisestation.org/wiki/index.php/Nanotrasen_Representative"))
-	//REMOVE THIS AFTER FAX MACHINES ARE ADDED!!!!
-	to_chat(H, span_boldannounce("If you require IC admin intervention, send an admin help until the fax machine is added."))
 
 /datum/outfit/job/nanotrasen_consultant
 	name = "Nanotrasen Consultant"
@@ -88,9 +83,8 @@
 	name = "\proper the nanotrasen consultant's bowman headset"
 	desc = "An official Central Command headset. Protects ears from flashbangs."
 	icon_state = "cent_headset_alt"
-	inhand_icon_state = "cent_headset_alt"
 
-/obj/item/radio/headset/heads/nanotrasen_consultant/alt/ComponentInitialize()
+/obj/item/radio/headset/heads/nanotrasen_consultant/alt/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
 
@@ -113,12 +107,12 @@
 
 /obj/item/modular_computer/tablet/pda/nanotrasen_consultant
 	name = "nanotrasen consultant's PDA"
-	loaded_cartridge = /obj/item/computer_hardware/hard_drive/portable/command/captain
+	inserted_disk = /obj/item/computer_disk/command/captain
 	inserted_item = /obj/item/pen/fountain/captain
 	greyscale_colors = "#017941#0060b8"
 
 /obj/item/storage/box/gunset/nanotrasen_consultant
-	name = "M45A5 Gunset"
+	name = "M45A5 gunset"
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/gun/ballistic/automatic/pistol/m45a5/nomag
@@ -147,7 +141,7 @@
 	new /obj/item/pet_carrier(src)
 	new /obj/item/clothing/shoes/sneakers/brown(src)
 	new /obj/item/clothing/suit/armor/vest(src)
-	new /obj/item/computer_hardware/hard_drive/portable/command/captain(src)
+	new /obj/item/computer_disk/command/captain(src)
 	new /obj/item/radio/headset/heads/nanotrasen_consultant/alt(src)
 	new /obj/item/radio/headset/heads/nanotrasen_consultant(src)
 	new /obj/item/clothing/glasses/sunglasses/gar/giga(src)

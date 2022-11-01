@@ -1,6 +1,6 @@
-//////////////////////
-//		Walls		//
-//////////////////////
+/*
+*	WALLS
+*/
 
 /turf/closed/indestructible/dungeon
 	name = "stone wall"
@@ -14,9 +14,9 @@
 	icon_state = "wall-corner"
 	base_icon_state = "wall-corner"
 
-//////////////////////
-//       Turfs       //
-//////////////////////
+/*
+*	TURFS
+*/
 
 /turf/open/floor/plating/cobblestone
 	gender = PLURAL
@@ -45,9 +45,9 @@
 	baseturfs = /turf/open/floor/plating/cobblestone/sparse/planet
 	planetary_atmos = TRUE
 
-//////////////////////
-//    Fake Walls    //
-//////////////////////
+/*
+*	FAKE WALLS
+*/
 
 /obj/structure/dungeon
 	name = "stone wall with a hole in it!"
@@ -69,7 +69,7 @@
 	density = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
-/obj/structure/railing/stone/Initialize()
+/obj/structure/railing/stone/Initialize(mapload)
 	.=..()
 	if(dir == 2)
 		layer = ABOVE_MOB_LAYER

@@ -5,41 +5,35 @@
 	theme = /datum/mod_theme/contractor
 	applied_cell = /obj/item/stock_parts/cell/hyper
 	initial_modules = list(
+		/obj/item/mod/module/dna_lock,
+		/obj/item/mod/module/emp_shield,
+		/obj/item/mod/module/flashlight,
+		/obj/item/mod/module/magnetic_harness,
 		/obj/item/mod/module/storage/syndicate,
 		/obj/item/mod/module/tether,
-		/obj/item/mod/module/flashlight,
-		/obj/item/mod/module/dna_lock,
-		/obj/item/mod/module/magnetic_harness,
 	)
 
 /obj/item/mod/control/pre_equipped/contractor/upgraded
 	applied_cell = /obj/item/stock_parts/cell/bluespace
 	initial_modules = list(
-		/obj/item/mod/module/storage/syndicate,
-		/obj/item/mod/module/jetpack,
+		/obj/item/mod/module/baton_holster,
 		/obj/item/mod/module/dna_lock,
+		/obj/item/mod/module/emp_shield,
+		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/magnetic_harness,
-		/obj/item/mod/module/baton_holster/preloaded,
+		/obj/item/mod/module/storage/syndicate,
 	)
 
 /obj/item/mod/control/pre_equipped/contractor/upgraded/adminbus
 	initial_modules = list(
-		/obj/item/mod/module/storage/syndicate,
-		/obj/item/mod/module/jetpack/advanced,
-		/obj/item/mod/module/springlock/contractor,
 		/obj/item/mod/module/baton_holster/preloaded,
+		/obj/item/mod/module/emp_shield,
+		/obj/item/mod/module/jetpack/advanced,
+		/obj/item/mod/module/scorpion_hook,
+		/obj/item/mod/module/springlock/contractor/no_complexity,
+		/obj/item/mod/module/storage/syndicate,
 	)
 
-/obj/item/mod/control/update_appearance(updates)
-	for(var/obj/item/mod/module/chameleon/module as anything in modules)
-		if(!istype(module))
-			continue
-		if(!module)
-			return ..()
-		if(module.on)
-			return
-	return ..()
-
 // For the prefs menu
-/obj/item/mod/control/pre_equipped/syndicate_empty/contractor
+/obj/item/mod/control/pre_equipped/empty/contractor
 	theme = /datum/mod_theme/contractor

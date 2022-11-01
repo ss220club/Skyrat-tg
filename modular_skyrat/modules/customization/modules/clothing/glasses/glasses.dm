@@ -10,7 +10,7 @@
 	. = ..()
 	if(.)
 		return
-	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
+	if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = TRUE, floor_okay = !iscyborg(user)))
 		return
 	else
 		switcheye()
@@ -40,7 +40,7 @@
 		to_chat(usr, span_notice("You adjust the eyepatch to wear it over your left eye."))
 	else if(current_eye == "_R")
 		to_chat(usr, span_notice("You adjust the eyepatch to wear it over your right eye."))
-	usr.update_inv_glasses()
+	usr.update_worn_glasses()
 	usr.update_overlays()
 
 /obj/item/clothing/glasses/proc/eyepatch_do_switch()
@@ -50,7 +50,7 @@
 		current_eye = "_L"
 	src.icon_state = current_sprite_state + current_eye
 
-/obj/item/clothing/glasses/Initialize()
+/obj/item/clothing/glasses/Initialize(mapload)
 	. = ..()
 	current_sprite_state = icon_state //Stores the standard sprite state.
 	if(!can_switch_eye)	//Just runs the normal code for any item that we havent manually set this as TRUE for
@@ -96,7 +96,7 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/eyes.dmi'
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/glasses.dmi'
 	icon_state = "glasses_alt"
-	inhand_icon_state = "glasses_rimless"
+	inhand_icon_state = "glasses"
 	vision_correction = TRUE
 
 /obj/item/clothing/glasses/kim
@@ -105,7 +105,7 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/eyes.dmi'
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/glasses.dmi'
 	icon_state = "binoclard_lenses"
-	inhand_icon_state = "glasses_rimless"
+	inhand_icon_state = "glasses"
 	vision_correction = TRUE
 
 /obj/item/clothing/glasses/trickblindfold/hamburg

@@ -13,7 +13,7 @@
 	/// The current color of the condom, can be changed and affects sprite
 	var/current_color = "pink"
 
-/obj/item/condom_pack/Initialize()
+/obj/item/condom_pack/Initialize(mapload)
 	. = ..()
 	//color chosen randomly when item spawned
 	current_color = "pink"
@@ -31,16 +31,16 @@
 	if(!do_after(user, 1.5 SECONDS, target = user))
 		return
 	playsound(src.loc, 'sound/items/poster_ripped.ogg', 50, TRUE)
-	var/obj/item/clothing/sextoy/condom/C = new /obj/item/clothing/sextoy/condom
+	var/obj/item/clothing/sextoy/condom/removed_condom = new /obj/item/clothing/sextoy/condom
 
-	user.put_in_hands(C)
+	user.put_in_hands(removed_condom)
 	switch(current_color)
 		if("pink")
-			C.current_color = "pink"
+			removed_condom.current_color = "pink"
 		if("teal")
-			C.current_color = "teal"
-	C.update_icon_state()
-	C.update_icon()
+			removed_condom.current_color = "teal"
+	removed_condom.update_icon_state()
+	removed_condom.update_icon()
 	qdel(src)
 
 //Opened condom
@@ -53,9 +53,9 @@
 	w_class = WEIGHT_CLASS_TINY
 	var/current_color = "pink"
 	var/condom_state = "unused"
-	slot_flags = ITEM_SLOT_PENIS
+	lewd_slot_flags = LEWD_SLOT_PENIS
 
-/obj/item/clothing/sextoy/condom/Initialize()
+/obj/item/clothing/sextoy/condom/Initialize(mapload)
 	. = ..()
 	update_icon_state()
 	update_icon()
@@ -72,20 +72,20 @@
 			condom_state = "dirty"
 			if(prob(10)) //chance of condom to break on first time.
 				name = "broken condom"
-				condom_state = "broken"
+				condom_state = CONDOM_BROKEN
 			update_icon_state()
 			update_icon()
 
 		if("dirty")
 			name = "broken condom"
-			condom_state = "broken"
+			condom_state = CONDOM_BROKEN
 			update_icon_state()
 			update_icon()
 
 //When condom equipped we doing stuff
 /obj/item/clothing/sextoy/condom/equipped(mob/user, slot, initial)
 	. = ..()
-	if(slot == ITEM_SLOT_PENIS && condom_state == "unused")
+	if((slot == LEWD_SLOT_PENIS) && condom_state == "unused")
 		condom_state = "used"
 		update_icon_state()
 		update_icon()

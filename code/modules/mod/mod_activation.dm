@@ -26,6 +26,7 @@
 	var/parts_to_check = mod_parts - part
 	if(part.loc == src)
 		deploy(user, part)
+		on_mod_deployed(user)
 		for(var/obj/item/checking_part as anything in parts_to_check)
 			if(checking_part.loc != src)
 				continue
@@ -33,6 +34,7 @@
 			break
 	else
 		retract(user, part)
+		on_mod_retracted(user)
 		for(var/obj/item/checking_part as anything in parts_to_check)
 			if(checking_part.loc == src)
 				continue
@@ -45,11 +47,12 @@
 		balloon_alert(user, "deactivate the suit first!")
 		playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return FALSE
-	var/deploy = FALSE
+	var/deploy = TRUE
 	for(var/obj/item/part as anything in mod_parts)
-		if(part.loc != src)
+		if(part.loc == src)
 			continue
-		deploy = TRUE
+		deploy = FALSE
+		break
 	for(var/obj/item/part as anything in mod_parts)
 		if(deploy && part.loc == src)
 			deploy(null, part)
@@ -59,6 +62,10 @@
 		span_notice("[src] [deploy ? "deploys" : "retracts"] its' parts with a mechanical hiss."),
 		span_hear("You hear a mechanical hiss."))
 	playsound(src, 'sound/mecha/mechmove03.ogg', 25, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+	if(deploy)
+		on_mod_deployed(user)
+	else
+		on_mod_retracted(user)
 	return TRUE
 
 /// Deploys a part of the suit onto the user.
@@ -105,6 +112,11 @@
 		if(!wearer.equip_to_slot_if_possible(overslot, overslot.slot_flags, qdel_on_fail = FALSE, disable_warning = TRUE))
 			wearer.dropItemToGround(overslot, force = TRUE, silent = TRUE)
 		overslotting_parts[part] = null
+	// SKYRAT EDIT START - Avoiding exploits with the modules staying active when any of the parts are retracted.
+	for(var/obj/item/mod/module/module as anything in modules)
+		if(module.active)
+			module.on_deactivation(display_message = !!user)
+	// SKYRAT EDIT END
 	if(!user)
 		return
 	wearer.visible_message(span_notice("[wearer]'s [part.name] retract[part.p_s()] back into [src] with a mechanical hiss."),
@@ -145,7 +157,7 @@
 			playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return FALSE
 	for(var/obj/item/mod/module/module as anything in modules)
-		if(!module.active)
+		if(!module.active || module.allowed_inactive)
 			continue
 		module.on_deactivation(display_message = FALSE)
 	activating = TRUE
@@ -185,6 +197,7 @@
 		else
 			playsound(src, 'sound/machines/synth_no.ogg', 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, frequency = 6000)
 	activating = FALSE
+	SEND_SIGNAL(src, COMSIG_MOD_TOGGLED, user)
 	return TRUE
 
 ///Seals or unseals the given part
@@ -205,20 +218,20 @@
 		part.alternate_worn_layer = mod_parts[part]
 	if(part == boots)
 		boots.icon_state = "[skin]-boots[seal ? "-sealed" : ""]"
-		wearer.update_inv_shoes()
+		wearer.update_worn_shoes()
 	if(part == gauntlets)
 		gauntlets.icon_state = "[skin]-gauntlets[seal ? "-sealed" : ""]"
-		wearer.update_inv_gloves()
+		wearer.update_worn_gloves()
 	if(part == chestplate)
 		chestplate.icon_state = "[skin]-chestplate[seal ? "-sealed" : ""]"
-		wearer.update_inv_wear_suit()
-		wearer.update_inv_w_uniform()
+		wearer.update_worn_oversuit()
+		wearer.update_worn_undersuit()
 	if(part == helmet)
 		helmet.icon_state = "[skin]-helmet[seal ? "-sealed" : ""]"
-		wearer.update_inv_head()
-		wearer.update_inv_wear_mask()
-		wearer.update_inv_glasses()
-		wearer.update_hair()
+		wearer.update_worn_head()
+		wearer.update_worn_mask()
+		wearer.update_worn_glasses()
+		wearer.update_body_parts()
 
 /// Finishes the suit's activation, starts processing
 /obj/item/mod/control/proc/finish_activation(on)
@@ -249,5 +262,11 @@
 
 /obj/item/mod/control/proc/has_wearer()
 	return wearer
+
+/obj/item/mod/control/proc/on_mod_deployed(mob/user)
+	SEND_SIGNAL(src, COMSIG_MOD_DEPLOYED, user)
+
+/obj/item/mod/control/proc/on_mod_retracted(mob/user)
+	SEND_SIGNAL(src, COMSIG_MOD_RETRACTED, user)
 
 #undef MOD_ACTIVATION_STEP_FLAGS

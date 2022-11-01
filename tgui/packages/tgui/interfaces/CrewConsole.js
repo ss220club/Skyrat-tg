@@ -1,31 +1,21 @@
 import { sortBy } from 'common/collections';
 import { useBackend } from '../backend';
-import { Box, Button, Section, Table, Icon } from '../components'; // SKYRAT EDIT - ORIGINAL: import { Box, Button, Section, Colorbox Table }
+import { Box, Button, ColorBox, Section, Table } from '../components';
 import { COLORS } from '../constants';
 import { Window } from '../layouts';
 
-
 const HEALTH_COLOR_BY_LEVEL = [
   '#17d568',
-  '#c4cf2d', // SKYRAT EDIT - Original'#2ecc71' - moved to make it visually different,
+  '#2ecc71',
   '#e67e22',
   '#ed5100',
   '#e74c3c',
-  '#801308', // SKYRAT EDIT - Original'#ed2814' - darker to help distinguish better,
+  '#ed2814',
 ];
-// SKYRAT ADDITION  - Icon status list
-const HEALTH_ICON_BY_LEVEL = [
-  'heart',
-  'heart',
-  'heart',
-  'heart',
-  'heartbeat',
-  'skull',
-];
-// SKRAY ADDITION - END:
-const jobIsHead = jobId => jobId % 10 === 0;
 
-const jobToColor = jobId => {
+const jobIsHead = (jobId) => jobId % 10 === 0;
+
+const jobToColor = (jobId) => {
   if (jobId === 0) {
     return COLORS.department.captain;
   }
@@ -44,34 +34,22 @@ const jobToColor = jobId => {
   if (jobId >= 50 && jobId < 60) {
     return COLORS.department.cargo;
   }
-  // SKYRAT EDIT - Crew Monitor Updates to add Service Dept
-  if (jobId >= 60 && jobId < 80) {
-    return COLORS.department.service;
-  }
-  // SKYRAT EDIT - ORIGINAL: if (jobId >= 200 && jobId < 230) {
-  if (jobId >= 200 && jobId < 240) {
+  if (jobId >= 200 && jobId < 230) {
     return COLORS.department.centcom;
   }
   return COLORS.department.other;
 };
 
-// SKYRAT EDIT - START:
-const healthToAttribute = (oxy, tox, burn, brute, attributeList) => {
+const healthToColor = (oxy, tox, burn, brute) => {
   const healthSum = oxy + tox + burn + brute;
-  const level = Math.min(Math.max(Math.ceil(healthSum / 31), 0), 5);
-  // SKYRAT EDIT END: Health bump from 25 to 31 for SR's health pool
-  return attributeList[level];
+  const level = Math.min(Math.max(Math.ceil(healthSum / 25), 0), 5);
+  return HEALTH_COLOR_BY_LEVEL[level];
 };
 
-
-const HealthStat = props => {
+const HealthStat = (props) => {
   const { type, value } = props;
   return (
-    <Box
-      inline
-      width={2}
-      color={COLORS.damageType[type]}
-      textAlign="center">
+    <Box inline width={2} color={COLORS.damageType[type]} textAlign="center">
       {value}
     </Box>
   );
@@ -79,10 +57,7 @@ const HealthStat = props => {
 
 export const CrewConsole = () => {
   return (
-    <Window
-      title="Crew Monitor"
-      width={600}
-      height={600}>
+    <Window title="Crew Monitor" width={600} height={600}>
       <Window.Content scrollable>
         <Section minHeight="540px">
           <CrewTable />
@@ -94,32 +69,26 @@ export const CrewConsole = () => {
 
 const CrewTable = (props, context) => {
   const { act, data } = useBackend(context);
-  const sensors = sortBy(
-    s => s.ijob
-  )(data.sensors ?? []);
+  const sensors = sortBy((s) => s.ijob)(data.sensors ?? []);
   return (
-  // SKYRAT EDIT START - Various adjustments to re-align columns
-    <Table cellpadding="3" >{/* SKYRAT EDIT - gives a buffer to flush text*/}
+    <Table>
       <Table.Row>
-        <Table.Cell bold colspan="2" > {/* SKYRAT EDIT - Expands the first column to account for robotic wrench*/}
-          Name
-        </Table.Cell>
-        <Table.Cell bold collapsing textAlign="center"> {/* SKYRAT EDIT - Removal of false column and changes to alignment*/}
-          Status
-        </Table.Cell>
+        <Table.Cell bold>Name</Table.Cell>
+        <Table.Cell bold collapsing />
         <Table.Cell bold collapsing textAlign="center">
           Vitals
         </Table.Cell>
-        <Table.Cell bold width="180px" collapsing textAlign="center">{/* SKYRAT EDIT - Centers the text*/}
-          Position
-        </Table.Cell>
+        <Table.Cell bold>Position</Table.Cell>
+        {!!data.link_allowed && (
+          <Table.Cell bold collapsing>
+            Tracking
+          </Table.Cell>
+        )}
       </Table.Row>
-      {sensors.map(sensor => (
+      {sensors.map((sensor) => (
         <CrewTableEntry sensor_data={sensor} key={sensor.ref} />
       ))}
-
     </Table>
-  // SKYRAT EDIT START - Various adjustments to re-align columns
   );
 };
 
@@ -131,7 +100,6 @@ const CrewTableEntry = (props, context) => {
     name,
     assignment,
     ijob,
-    is_robot, // SKYRAT EDIT ADDITION - Displaying robotic species Icon
     life_status,
     oxydam,
     toxdam,
@@ -143,40 +111,16 @@ const CrewTableEntry = (props, context) => {
 
   return (
     <Table.Row>
-      <Table.Cell
-        bold={jobIsHead(ijob)}
-        color={jobToColor(ijob)}>
-        {name}{assignment !== undefined ? ` (${assignment})` : ""}
+      <Table.Cell bold={jobIsHead(ijob)} color={jobToColor(ijob)}>
+        {name}
+        {assignment !== undefined ? ` (${assignment})` : ''}
       </Table.Cell>
-      {/* SKYRAT EDIT START - Displaying robotic species Icon */}
       <Table.Cell collapsing textAlign="center">
-        {is_robot ? <Icon name="wrench" color="#B7410E" size={1} /> : ""}
-      </Table.Cell>
-      {/* SKYRAT EDIT END */}
-      <Table.Cell collapsing textAlign="center">
-        {/* SKYRAT EDIT START - Displaying status Icons */}
-        {oxydam !== undefined ? (
-          <Icon
-            name={healthToAttribute(
-              oxydam,
-              toxdam,
-              burndam,
-              brutedam,
-              HEALTH_ICON_BY_LEVEL)}
-            color={healthToAttribute(
-              oxydam,
-              toxdam,
-              burndam,
-              brutedam,
-              HEALTH_COLOR_BY_LEVEL)}
-            size={1} />
+        {life_status ? (
+          <ColorBox color={healthToColor(oxydam, toxdam, burndam, brutedam)} />
         ) : (
-          life_status ? (
-            <Icon name="heart" color="#17d568" size={1} />
-          ) : (
-            <Icon name="skull" color="#B7410E" size={1} />
-          ))}
-        {/* SKYRAT EDIT END */}
+          <ColorBox color={'#ed2814'} />
+        )}
       </Table.Cell>
       <Table.Cell collapsing textAlign="center">
         {oxydam !== undefined ? (
@@ -189,21 +133,24 @@ const CrewTableEntry = (props, context) => {
             {'/'}
             <HealthStat type="brute" value={brutedam} />
           </Box>
+        ) : life_status ? (
+          'Alive'
         ) : (
-          life_status ? 'Alive' : 'Dead'
+          'Dead'
         )}
       </Table.Cell>
-      <Table.Cell>
-        {area !== undefined ? area : <Icon name="question" color="#ffffff" size={1} /> } {/* SKYRAT EDIT - Icon from text 'N/A'*/}
-      </Table.Cell>
+      <Table.Cell>{area !== undefined ? area : 'N/A'}</Table.Cell>
       {!!link_allowed && (
         <Table.Cell collapsing>
           <Button
             content="Track"
             disabled={!can_track}
-            onClick={() => act('select_person', {
-              name: name,
-            })} />
+            onClick={() =>
+              act('select_person', {
+                name: name,
+              })
+            }
+          />
         </Table.Cell>
       )}
     </Table.Row>

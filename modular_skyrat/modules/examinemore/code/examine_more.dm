@@ -6,6 +6,10 @@ like syndicate items having information in their description that
 would only be recognisable with someone that had the syndicate trait.
 */
 
+// Give the detective the ability to see this stuff.
+/datum/job/detective
+	mind_traits = list(TRAIT_DETECTIVE)
+
 /obj/item
 	//The special description that is triggered when special_desc_requirements are met. Make sure you set the correct EXAMINE_CHECK!
 	var/special_desc = ""
@@ -117,9 +121,9 @@ would only be recognisable with someone that had the syndicate trait.
 					composed_message += special_desc
 					. += composed_message
 
-//////////
-//Examples:
-//////////
+/*
+*	EXAMPLES
+*/
 
 /obj/item/storage/backpack/duffelbag/syndie
 	name = "duffel bag"

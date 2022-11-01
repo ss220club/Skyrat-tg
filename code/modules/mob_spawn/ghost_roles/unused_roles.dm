@@ -39,24 +39,6 @@
 //spawners for the space hotel, which isn't currently in the code but heyoo secret away missions or something
 
 //Space Hotel Staff
-
-// SKYRAT EDIT ADD - BEGIN
-/obj/effect/mob_spawn/ghost_role/human/hotel_staff/manager
-	name = "staff manager sleeper"
-	mob_name = "hotel staff manager"
-	outfit = /datum/outfit/hotelstaff/manager
-	you_are_text = "You are the manager of a top-of-the-line space hotel!"
-	flavour_text = "You are the manager of a top-of-the-line space hotel! Make sure the guests are looked after, the hotel is advertised, and your employees aren't slacking off!"
-
-/datum/outfit/hotelstaff/manager
-	name = "Hotel Staff Manager"
-	uniform = /obj/item/clothing/under/suit/red
-	shoes = /obj/item/clothing/shoes/laceup
-	r_pocket = /obj/item/radio/off
-	back = /obj/item/storage/backpack
-	implants = list(/obj/item/implant/mindshield, /obj/item/implant/exile/noteleport)
-// SKYRAT EDIT ADD - END
-
 /obj/effect/mob_spawn/ghost_role/human/hotel_staff //not free antag u little shits
 	name = "staff sleeper"
 	desc = "A sleeper designed for long-term stasis between guest visits."
@@ -68,7 +50,6 @@
 	flavour_text = "Cater to visiting guests with your fellow staff, advertise the hotel, and make sure the manager doesn't fire you. Remember, the customer is always right!"
 	important_text = "Do NOT leave the hotel, as that is grounds for contract termination."
 	spawner_job_path = /datum/job/hotel_staff
-	random_appearance = FALSE // SKYRAT EDIT ADDITION
 
 /datum/outfit/hotelstaff
 	name = "Hotel Staff"
@@ -95,7 +76,6 @@
 	head = /obj/item/clothing/head/helmet/blueshirt
 	back = /obj/item/storage/backpack/security
 	belt = /obj/item/storage/belt/security/full
-	r_hand = /obj/item/gun/energy/laser/scatter/shotty // SKYRAT EDIT ADD - SPAWNS IN HAND INSTEAD OF ON MAP
 
 /obj/effect/mob_spawn/ghost_role/human/hotel_staff/Destroy()
 	new/obj/structure/fluff/empty_sleeper/syndicate(get_turf(src))
@@ -224,7 +204,7 @@
 
 /obj/effect/mob_spawn/ghost_role/mouse
 	name = "sleeper"
-	mob_type = /mob/living/simple_animal/mouse
+	mob_type = /mob/living/basic/mouse
 	prompt_name = "a mouse"
 	you_are_text = "You're a mouse!"
 	flavour_text = "Uh... yep! Squeak squeak, motherfucker."
@@ -283,9 +263,6 @@
 	outfit = /datum/outfit/syndicatespace/syndicrew
 	spawner_job_path = /datum/job/syndicate_cybersun
 
-/datum/outfit/syndicatespace/syndicrew/post_equip(mob/living/carbon/human/H)
-	H.faction |= ROLE_SYNDICATE
-
 /obj/effect/mob_spawn/ghost_role/human/syndicatespace/special(mob/living/new_spawn)
 	. = ..()
 	new_spawn.grant_language(/datum/language/codespeak, TRUE, TRUE, LANGUAGE_MIND)
@@ -303,27 +280,30 @@
 	outfit = /datum/outfit/syndicatespace/syndicaptain
 	spawner_job_path = /datum/job/syndicate_cybersun_captain
 
-/datum/outfit/syndicatespace/syndicaptain/post_equip(mob/living/carbon/human/H)
-	H.faction |= ROLE_SYNDICATE
-
 /obj/effect/mob_spawn/ghost_role/human/syndicatespace/captain/Destroy()
 	new /obj/structure/fluff/empty_sleeper/syndicate/captain(get_turf(src))
 	return ..()
 
-/datum/outfit/syndicatespace/syndicrew
-	name = "Syndicate Ship Crew Member"
+/datum/outfit/syndicatespace
+	name = "Syndicate Ship Base"
 	uniform = /obj/item/clothing/under/syndicate/combat
-	glasses = /obj/item/clothing/glasses/night
-	mask = /obj/item/clothing/mask/gas/syndicate
 	ears = /obj/item/radio/headset/syndicate/alt
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat
 	back = /obj/item/storage/backpack
-	l_pocket = /obj/item/gun/ballistic/automatic/pistol
-	r_pocket = /obj/item/knife/combat/survival
 	belt = /obj/item/storage/belt/military/assault
 	id = /obj/item/card/id/advanced/black/syndicate_command/crew_id
 	implants = list(/obj/item/implant/weapons_auth)
+
+/datum/outfit/syndicatespace/post_equip(mob/living/carbon/human/syndie_scum)
+	syndie_scum.faction |= ROLE_SYNDICATE
+
+/datum/outfit/syndicatespace/syndicrew
+	name = "Syndicate Ship Crew Member"
+	glasses = /obj/item/clothing/glasses/night
+	mask = /obj/item/clothing/mask/gas/syndicate
+	l_pocket = /obj/item/gun/ballistic/automatic/pistol
+	r_pocket = /obj/item/knife/combat/survival
 
 /datum/outfit/syndicatespace/syndicaptain
 	name = "Syndicate Ship Captain"
@@ -331,11 +311,6 @@
 	suit = /obj/item/clothing/suit/armor/vest/capcarapace/syndicate
 	head = /obj/item/clothing/head/hos/beret/syndicate
 	ears = /obj/item/radio/headset/syndicate/alt/leader
-	shoes = /obj/item/clothing/shoes/combat
-	gloves = /obj/item/clothing/gloves/combat
-	back = /obj/item/storage/backpack
 	r_pocket = /obj/item/knife/combat/survival
-	belt = /obj/item/storage/belt/military/assault
 	id = /obj/item/card/id/advanced/black/syndicate_command/captain_id
-	implants = list(/obj/item/implant/weapons_auth)
 	backpack_contents = list(/obj/item/documents/syndicate/red, /obj/item/paper/fluff/ruins/forgottenship/password, /obj/item/gun/ballistic/automatic/pistol/aps)

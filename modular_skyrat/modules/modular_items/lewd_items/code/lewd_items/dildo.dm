@@ -1,13 +1,14 @@
 #define AROUSAL_REGULAR_THRESHOLD 25
-//////////////////
-///NORMAL DILDO///
-//////////////////
+
+/*
+*	NORMAL DILDO
+*/
 
 /obj/item/clothing/sextoy/dildo
 	name = "dildo"
 	desc = "A large plastic penis, much like the one in your mother's bedside drawer."
 	icon_state = "dildo"
-	inhand_icon_state = "dildo"
+	inhand_icon_state = "dildo_canine"
 	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	lefthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
 	righthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
@@ -26,8 +27,8 @@
 	/// If the toy can have its sprite changed
 	var/change_sprite = TRUE
 	w_class = WEIGHT_CLASS_TINY
-	slot_flags = ITEM_SLOT_ANUS|ITEM_SLOT_VAGINA
-	moth_edible = FALSE
+	lewd_slot_flags = LEWD_SLOT_ANUS | LEWD_SLOT_VAGINA
+	clothing_flags = INEDIBLE_CLOTHING
 
 /// Create an assoc list of designs for the radial color/design menu
 /obj/item/clothing/sextoy/dildo/proc/populate_dildo_designs()
@@ -39,20 +40,20 @@
 		"human" = image(icon = src.icon, icon_state = "[initial(icon_state)]_human"),
 		"tentacle" = image(icon = src.icon, icon_state = "[initial(icon_state)]_tentacle"))
 
-/obj/item/clothing/sextoy/dildo/AltClick(mob/user, obj/item/object)
+/obj/item/clothing/sextoy/dildo/AltClick(mob/user)
 	if(color_changed)
 		return
 	. = ..()
 	if(.)
 		return
-	var/choice = show_radial_menu(user,src, dildo_designs, custom_check = CALLBACK(src, .proc/check_menu, user, object), radius = 36, require_near = TRUE)
+	var/choice = show_radial_menu(user, src, dildo_designs, custom_check = CALLBACK(src, .proc/check_menu, user), radius = 36, require_near = TRUE)
 	if(!choice)
 		return FALSE
 	current_color = choice
 	update_icon()
 	color_changed = TRUE
 
-/obj/item/clothing/sextoy/dildo/Initialize()
+/obj/item/clothing/sextoy/dildo/Initialize(mapload)
 	. = ..()
 	update_icon_state()
 	update_icon()
@@ -80,14 +81,14 @@
 	if(!istype(user))
 		return
 	if(poly_size == "small" && user.arousal < (AROUSAL_REGULAR_THRESHOLD * 0.8))
-		user.adjustArousal(0.6 * delta_time)
-		user.adjustPleasure(0.6 * delta_time)
+		user.adjust_arousal(0.6 * delta_time)
+		user.adjust_pleasure(0.6 * delta_time)
 	else if(poly_size == "medium" && user.arousal < AROUSAL_REGULAR_THRESHOLD)
-		user.adjustArousal(0.8 * delta_time)
-		user.adjustPleasure(0.8 * delta_time)
+		user.adjust_arousal(0.8 * delta_time)
+		user.adjust_pleasure(0.8 * delta_time)
 	else if(poly_size == "big" && user.arousal < (AROUSAL_REGULAR_THRESHOLD * 1.2))
-		user.adjustArousal(1 * delta_time)
-		user.adjustPleasure(1 * delta_time)
+		user.adjust_arousal(1 * delta_time)
+		user.adjust_pleasure(1 * delta_time)
 
 /obj/item/clothing/sextoy/dildo/attack(mob/living/carbon/human/target, mob/living/carbon/human/user)
 	. = ..()
@@ -95,7 +96,7 @@
 		return
 
 	var/message = ""
-	var/obj/item/organ/genital/vagina = target.getorganslot(ORGAN_SLOT_VAGINA)
+	var/obj/item/organ/external/genital/vagina = target.getorganslot(ORGAN_SLOT_VAGINA)
 	if(!target.client?.prefs?.read_preference(/datum/preference/toggle/erp/sex_toy))
 		to_chat(user, span_danger("[target] doesn't want you to do that."))
 		return
@@ -107,47 +108,47 @@
 			if(!(target.is_bottomless() || vagina.visibility_preference == GENITAL_ALWAYS_SHOW))
 				to_chat(user, span_danger("[target]'s groin is covered!"))
 				return
-			message = (user == target) ? pick("rubs [target.p_their()] vagina with [src]","gently jams [target.p_their()] pussy with [src]","fucks [target.p_their()] vagina with a [src]") : pick("delicately rubs [target]'s vagina with [src]", "uses [src] to fuck [target]'s vagina","jams [target]'s pussy with [src]", "teasing [target]'s pussy with [src]")
+			message = (user == target) ? pick("rubs [target.p_their()] vagina with [src]", "gently jams [target.p_their()] pussy with [src]", "fucks [target.p_their()] vagina with a [src]") : pick("delicately rubs [target]'s vagina with [src]", "uses [src] to fuck [target]'s vagina", "jams [target]'s pussy with [src]", "teasing [target]'s pussy with [src]")
 			if(poly_size == "small")
-				target.adjustArousal(4)
-				target.adjustPleasure(5)
+				target.adjust_arousal(4)
+				target.adjust_pleasure(5)
 				if(prob(20) && (target.stat != DEAD))
-					target.emote("moan")
+					target.try_lewd_autoemote("moan")
 			else if(poly_size == "medium")
-				target.adjustArousal(6)
-				target.adjustPleasure(8)
+				target.adjust_arousal(6)
+				target.adjust_pleasure(8)
 				if(prob(40) && (target.stat != DEAD))
-					target.emote(pick("twitch_s","moan"))
+					target.try_lewd_autoemote(pick("twitch_s", "moan"))
 			else if(poly_size == "big")
-				target.adjustArousal(8)
-				target.adjustPleasure(10)
-				target.adjustPain(2)
+				target.adjust_arousal(8)
+				target.adjust_pleasure(10)
+				target.adjust_pain(2)
 				if(prob(60) && (target.stat != DEAD))
-					target.emote(pick("twitch_s","moan","gasp"))
+					target.try_lewd_autoemote(pick("twitch_s", "moan", "gasp"))
 			if(side_double)
-				user.adjustArousal(6)
-				user.adjustPleasure(8)
+				user.adjust_arousal(6)
+				user.adjust_pleasure(8)
 
 		if(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_PRECISE_EYES) //Mouth only. Sorry, perverts. No eye/ear penetration for you today.
 			if(!target.is_mouth_covered())
 				to_chat(user, span_danger("Looks like [target]'s mouth is covered!"))
 				return
-			message = (user == target) ? pick("licks [src] erotically","sucks on [src], slowly inserting it into [target.p_their()] throat") : pick("fucks [target]'s mouth with [src]", "inserts [src] into [target]'s throat, choking [target.p_them()]", "forces [target] to suck [src]", "inserts [src] into [target]'s throat")
-			target.adjustArousal(4)
-			target.adjustPleasure(1)
+			message = (user == target) ? pick("licks [src] erotically", "sucks on [src], slowly inserting it into [target.p_their()] throat") : pick("fucks [target]'s mouth with [src]", "inserts [src] into [target]'s throat, choking [target.p_them()]", "forces [target] to suck [src]", "inserts [src] into [target]'s throat")
+			target.adjust_arousal(4)
+			target.adjust_pleasure(1)
 			if(prob(70) && (target.stat != DEAD))
-				target.emote(pick("gasp","moan"))
+				target.try_lewd_autoemote(pick("gasp", "moan"))
 
 
 		else
 			if(!target.is_bottomless())
 				to_chat(user, span_danger("[target]'s anus is covered!"))
 				return
-			message = (user == target) ? pick("puts [src] into [target.p_their()] anus","slowly inserts [src] into [target.p_their()] ass") : pick("fucks [target]'s ass with [src]", "uses [src] to fuck [target]'s anus", "jams [target]'s ass with [src]", "roughly fucks [target]'s ass with [src], making [target.p_their()] eyes roll back")
-			target.adjustArousal(5)
-			target.adjustPleasure(5)
+			message = (user == target) ? pick("puts [src] into [target.p_their()] anus", "slowly inserts [src] into [target.p_their()] ass") : pick("fucks [target]'s ass with [src]", "uses [src] to fuck [target]'s anus", "jams [target]'s ass with [src]", "roughly fucks [target]'s ass with [src], making [target.p_their()] eyes roll back")
+			target.adjust_arousal(5)
+			target.adjust_pleasure(5)
 			if(prob(60) && (target.stat != DEAD))
-				target.emote(pick("twitch_s","moan","shiver"))
+				target.try_lewd_autoemote(pick("twitch_s", "moan", "shiver"))
 
 	user.visible_message(span_purple("[user] [message]!"))
 	playsound(loc, pick('modular_skyrat/modules/modular_items/lewd_items/sounds/bang1.ogg',
@@ -157,29 +158,29 @@
 						'modular_skyrat/modules/modular_items/lewd_items/sounds/bang5.ogg',
 						'modular_skyrat/modules/modular_items/lewd_items/sounds/bang6.ogg'), 100, TRUE, ignore_walls = FALSE)
 
-///////////////////////
-///POLYCHROMIC DILDO///
-///////////////////////
+/*
+*	COLOUR CHANGING
+*/
 
 GLOBAL_LIST_INIT(dildo_colors, list(//mostly neon colors
-		"Cyan"		= "#00f9ff",//cyan
-		"Green"		= "#49ff00",//green
-		"Pink"		= "#ff4adc",//pink
-		"Yellow"	= "#fdff00",//yellow
-		"Blue"		= "#00d2ff",//blue
-		"Lime"		= "#89ff00",//lime
-		"Black"		= "#101010",//black
-		"Red"		= "#ff0000",//red
-		"Orange"	= "#ff9a00",//orange
-		"Purple"	= "#e300ff",//purple
-		"White"		= "#c0c0c0",//white
+		"Cyan"		= "#00f9ff", //cyan
+		"Green"		= "#49ff00", //green
+		"Pink"		= "#ff4adc", //pink
+		"Yellow"	= "#fdff00", //yellow
+		"Blue"		= "#00d2ff", //blue
+		"Lime"		= "#89ff00", //lime
+		"Black"		= "#101010", //black
+		"Red"		= "#ff0000", //red
+		"Orange"	= "#ff9a00", //orange
+		"Purple"	= "#e300ff", //purple
+		"White"		= "#c0c0c0", //white
 		))
 
 /obj/item/clothing/sextoy/dildo/custom_dildo
 	name = "custom dildo"
 	desc = "A dildo that can be customized to your specification."
 	icon_state = "polydildo"
-	inhand_icon_state = "polydildo"
+	inhand_icon_state = "polydildo_small"
 	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	lefthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
 	righthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
@@ -189,8 +190,7 @@ GLOBAL_LIST_INIT(dildo_colors, list(//mostly neon colors
 
 	var/static/list/dildo_sizes = list()
 	w_class = WEIGHT_CLASS_TINY
-	slot_flags = ITEM_SLOT_ANUS|ITEM_SLOT_VAGINA
-	moth_edible = FALSE
+	lewd_slot_flags = LEWD_SLOT_ANUS | LEWD_SLOT_VAGINA
 
 /obj/item/clothing/sextoy/dildo/custom_dildo/populate_dildo_designs()
 	dildo_sizes = list(
@@ -198,9 +198,9 @@ GLOBAL_LIST_INIT(dildo_colors, list(//mostly neon colors
 		"medium" = image(icon = src.icon, icon_state = "[initial(icon_state)]_medium"),
 		"big" = image(icon = src.icon, icon_state = "[initial(icon_state)]_big"))
 
-/obj/item/clothing/sextoy/dildo/custom_dildo/AltClick(mob/living/user, obj/item/I)
+/obj/item/clothing/sextoy/dildo/custom_dildo/AltClick(mob/living/user)
 	if(!size_changed)
-		var/choice = show_radial_menu(user, src, dildo_sizes, custom_check = CALLBACK(src, .proc/check_menu, user, I), radius = 36, require_near = TRUE)
+		var/choice = show_radial_menu(user, src, dildo_sizes, custom_check = CALLBACK(src, .proc/check_menu, user), radius = 36, require_near = TRUE)
 		if(!choice)
 			return FALSE
 		poly_size = choice
@@ -210,7 +210,7 @@ GLOBAL_LIST_INIT(dildo_colors, list(//mostly neon colors
 	else
 		if(color_changed)
 			return
-		if(!istype(user) || !user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
+		if(!istype(user) || !user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
 			return
 		customize(user)
 		color_changed = TRUE
@@ -218,15 +218,15 @@ GLOBAL_LIST_INIT(dildo_colors, list(//mostly neon colors
 
 /// Choose a color and transparency level for the toy
 /obj/item/clothing/sextoy/dildo/custom_dildo/proc/customize(mob/living/user)
-	if(src && !user.incapacitated() && in_range(user,src))
+	if(src && !user.incapacitated() && in_range(user, src))
 		var/color_choice = tgui_input_list(user, "Choose a color for your dildo.", "Dildo Color", GLOB.dildo_colors)
-		if(src && color_choice && !user.incapacitated() && in_range(user,src))
+		if(src && color_choice && !user.incapacitated() && in_range(user, src))
 			sanitize_inlist(color_choice, GLOB.dildo_colors, "Red")
 			color = GLOB.dildo_colors[color_choice]
 	update_icon_state()
-	if(src && !user.incapacitated() && in_range(user,src))
+	if(src && !user.incapacitated() && in_range(user, src))
 		var/transparency_choice = tgui_input_number(user, "Choose the transparency of your dildo. Lower is more transparent! (192-255)", "Dildo Transparency", 255, 255, 192)
-		if(src && transparency_choice && !user.incapacitated() && in_range(user,src))
+		if(src && transparency_choice && !user.incapacitated() && in_range(user, src))
 			sanitize_integer(transparency_choice, 191, 255, 192)
 			alpha = transparency_choice
 	update_icon_state()
@@ -241,10 +241,9 @@ GLOBAL_LIST_INIT(dildo_colors, list(//mostly neon colors
 	icon_state = "[initial(icon_state)]_[poly_size]"
 	inhand_icon_state = "[initial(icon_state)]_[poly_size]"
 
-
-//////////////////
-///DOUBLE DILDO///
-//////////////////
+/*
+*	DOUBLE DILDO
+*/
 
 /obj/item/clothing/sextoy/dildo/double_dildo
 	name = "double dildo"
@@ -257,27 +256,23 @@ GLOBAL_LIST_INIT(dildo_colors, list(//mostly neon colors
 	lefthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
 	righthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
 	w_class = WEIGHT_CLASS_TINY
-	slot_flags = ITEM_SLOT_ANUS|ITEM_SLOT_VAGINA
+	lewd_slot_flags = LEWD_SLOT_ANUS | LEWD_SLOT_VAGINA
 	actions_types = list(/datum/action/item_action/take_dildo)
 	/// If one end of the toy is in your hand
 	var/in_hands = FALSE
 	/// Reference to the end of the toy that you can hold when the other end is inserted in you
 	var/obj/item/clothing/sextoy/dildo_side/the_toy
 	change_sprite = FALSE
-	moth_edible = FALSE
 
-/obj/item/clothing/sextoy/dildo/double_dildo/Initialize()
-	. = ..()
-	update_action_buttons_icons()
-
-/obj/item/clothing/sextoy/dildo/double_dildo/ComponentInitialize()
+/obj/item/clothing/sextoy/dildo/double_dildo/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
+	update_action_buttons_icons()
 
 /obj/item/clothing/sextoy/dildo/double_dildo/populate_dildo_designs()
 	return
 
-/obj/item/clothing/sextoy/dildo/double_dildo/AltClick(mob/user, obj/item/object)
+/obj/item/clothing/sextoy/dildo/double_dildo/AltClick(mob/user)
 	return
 
 /// Proc to update the actionbutton icon
@@ -307,8 +302,6 @@ GLOBAL_LIST_INIT(dildo_colors, list(//mostly neon colors
 		to_chat(user, span_warning("You can't use [src] from this angle!"))
 	else
 		to_chat(user, span_warning("You need to equip [src] before you can use it!"))
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /// Code for taking out/putting away the other end of the toy when one end is in you
 /obj/item/clothing/sextoy/dildo/double_dildo/proc/toggle(mob/living/carbon/human/user)
@@ -348,10 +341,10 @@ GLOBAL_LIST_INIT(dildo_colors, list(//mostly neon colors
 	. = ..()
 	if(!istype(user))
 		return
-	var/obj/item/organ/genital/vagina/vagina = user.getorganslot(ORGAN_SLOT_VAGINA)
-	var/obj/item/organ/genital/womb/womb = user.getorganslot(ORGAN_SLOT_WOMB)
-	var/obj/item/organ/genital/penis/penis = user.getorganslot(ORGAN_SLOT_PENIS)
-	var/obj/item/organ/genital/testicles/testicles = user.getorganslot(ORGAN_SLOT_TESTICLES)
+	var/obj/item/organ/external/genital/vagina/vagina = user.getorganslot(ORGAN_SLOT_VAGINA)
+	var/obj/item/organ/external/genital/womb/womb = user.getorganslot(ORGAN_SLOT_WOMB)
+	var/obj/item/organ/external/genital/penis/penis = user.getorganslot(ORGAN_SLOT_PENIS)
+	var/obj/item/organ/external/genital/testicles/testicles = user.getorganslot(ORGAN_SLOT_TESTICLES)
 
 
 	if(src == user.vagina)
@@ -377,17 +370,17 @@ GLOBAL_LIST_INIT(dildo_colors, list(//mostly neon colors
 	if(!istype(user))
 		return
 	if(user.arousal < AROUSAL_REGULAR_THRESHOLD)
-		user.adjustArousal(0.8 * delta_time)
-		user.adjustPleasure(0.8 * delta_time)
+		user.adjust_arousal(0.8 * delta_time)
+		user.adjust_pleasure(0.8 * delta_time)
 
 /obj/item/clothing/sextoy/dildo/double_dildo/dropped(mob/living/carbon/human/user)
 	. = ..()
 	if(!istype(user))
 		return
-	var/obj/item/organ/genital/vagina/vagina = user.getorganslot(ORGAN_SLOT_VAGINA)
-	var/obj/item/organ/genital/womb/womb = user.getorganslot(ORGAN_SLOT_WOMB)
-	var/obj/item/organ/genital/penis/penis = user.getorganslot(ORGAN_SLOT_PENIS)
-	var/obj/item/organ/genital/testicles/testicles = user.getorganslot(ORGAN_SLOT_TESTICLES)
+	var/obj/item/organ/external/genital/vagina/vagina = user.getorganslot(ORGAN_SLOT_VAGINA)
+	var/obj/item/organ/external/genital/womb/womb = user.getorganslot(ORGAN_SLOT_WOMB)
+	var/obj/item/organ/external/genital/penis/penis = user.getorganslot(ORGAN_SLOT_PENIS)
+	var/obj/item/organ/external/genital/testicles/testicles = user.getorganslot(ORGAN_SLOT_TESTICLES)
 
 	if(!(src == user.vagina))
 		return
@@ -404,10 +397,9 @@ GLOBAL_LIST_INIT(dildo_colors, list(//mostly neon colors
 	icon_state = "dildo_side"
 	inhand_icon_state = "nothing"
 	item_flags = ABSTRACT | HAND_ITEM
-	moth_edible = FALSE
 	side_double = TRUE
 
-/obj/item/clothing/sextoy/dildo_side/dildo/Initialize()
+/obj/item/clothing/sextoy/dildo_side/dildo/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, STRAPON_TRAIT)
 

@@ -72,13 +72,17 @@ And then you'll want to establish your core folder that you'll be working out of
 
 ### Maps
 
-The major station maps have their equivalents in the same folder as the originals, but with their filename having a `_skyrat` suffix.
+IMPORTANT: MAP CONTRIBUTION GUIDELINES HAVE BEEN UPDATED
+When you are adding a new item to the map you MUST follow this procedure:
+Start by deciding how big of a change it is going to be, if it is a small 1 item change, you should use the simple area automapper. If it is an entire room, you should use the template automapper.
 
-If you wanted to add some location to the CentCom z-level, a'la whatever off-station location that isn't meant to be reachable or escapable through normal means, we have our own separate z-level, in `_maps/map_files/generic/Offstation_skyrat.dmm`. That z-level, by design, has the same traits as the CentCom z-level, meaning that teleporters and a lot of other things will simply refuse to work there.
+We will no longer have _skyrat map versions.
 
-If you plan to edit space ruins and so on, currently, it should be discussed with a maintainer and likely should be PRed upstream, to tgstation repository.
+DO NOT CHANGE TG MAPS, THEY ARE HELD TO THE SAME STANDARD AS ICONS. USE THE ABOVE TO MAKE MAP EDITS.
 
-Put any skyrat specific maps into the _maps/ folder, and then into the skyrat folder inside the type. E.g. an ice ruin map would go into_maps/RandomRuins/IceRuins/skyrat/whatever.dmm.
+The automapper uses prebaked templates to override sections of a map using coordinates to plot the starting location. See entries in automapper_config.toml for examples.
+
+The simple area automapper uses datum entries to place down a single item in an area of a map that makes vauge sense.
 
 ### Assets: images, sounds, icons and binaries
 
@@ -116,7 +120,7 @@ In short, most of the modular code will be placed in the subfolders of your main
 In case of new content, however, there's a bit more freedom allowed, and it is heavily encouraged to put thematic feature groups under **`modular_skyrat/modules/yourmodule/code`** in their own separate folder, to ensure they're easy to find, manage and maintain.
 For example, `modular_skyrat/modules/xenoarcheaology/code` containing all the code, tools, items and machinery related to it.
 
-Such modules, unless _very_ simple, **need** to have a `readme.dm` in their folder, containing the following:
+Such modules, unless _very_ simple, **need** to have a `readme.md` in their folder, containing the following:
 
 - links to the PRs that implemented this module or made any significant changes to it
 - short description of the module
@@ -199,7 +203,7 @@ And that wraps the basics of it up.
 
 Every once in a while, there comes a time, where editing the core files becomes inevitable.
 
-Please be sure to log these in the module readme.dm. Any file changes.
+Please be sure to log these in the module readme.md. Any file changes.
 
 In those cases, we've decided to apply the following convention, with examples:
 

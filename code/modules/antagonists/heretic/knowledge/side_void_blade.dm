@@ -68,7 +68,8 @@
 
 /// Make [victim] into a shattered risen ghoul.
 /datum/heretic_knowledge/limited_amount/risen_corpse/proc/make_risen(mob/living/user, mob/living/carbon/human/victim)
-	log_game("[key_name(user)] created a shattered risen out of [key_name(victim)].")
+	user.log_message("created a shattered risen out of [key_name(victim)].", LOG_GAME)
+	victim.log_message("became a shattered risen of [key_name(user)]'s.", LOG_VICTIM, log_globally = FALSE)
 	message_admins("[ADMIN_LOOKUPFLW(user)] created a shattered risen, [ADMIN_LOOKUPFLW(victim)].")
 
 	victim.apply_status_effect(
@@ -112,6 +113,7 @@
 	sharpness = SHARP_EDGED
 	wound_bonus = -30
 	bare_wound_bonus = 15
+	demolition_mod = 1.5
 
 /obj/item/risen_hand/Initialize(mapload)
 	. = ..()
@@ -128,19 +130,6 @@
 		icon_state = "[base_icon_state]_right"
 	else
 		icon_state = "[base_icon_state]_left"
-
-/obj/item/risen_hand/pre_attack(atom/hit, mob/living/user, params)
-	. = ..()
-	if(.)
-		return
-
-	// If it's a structure or machine, we get a damage bonus (allowing us to break down doors)
-	if(isstructure(hit) || ismachinery(hit))
-		force = initial(force) * 1.5
-
-	// If it's another other item make sure we're at normal force
-	else
-		force = initial(force)
 
 /datum/heretic_knowledge/rune_carver
 	name = "Carving Knife"
@@ -177,7 +166,7 @@
 		/obj/item/stack/sheet/mineral/titanium = 5,
 		/obj/item/clothing/suit/armor = 1,
 		/obj/item/assembly/flash = 1,
-		/obj/item/organ/lungs = 1,
+		/obj/item/organ/internal/lungs = 1,
 	)
 	cost = 1
 	route = PATH_SIDE

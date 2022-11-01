@@ -295,7 +295,7 @@
 		new /obj/item/hnz_cure(get_turf(src))
 		new /obj/item/hnz_cure(get_turf(src))
 	else
-		new /obj/item/reagent_containers/glass/bottle/hnz/one(get_turf(src))
+		new /obj/item/reagent_containers/cup/bottle/hnz/one(get_turf(src))
 	flick("h_lathe_leave", src)
 	use_power(3000)
 	playsound(loc, 'sound/machines/ding.ogg', 60, 1)
@@ -322,8 +322,11 @@
 #undef RECOMBINATION_STEP_TIME
 #undef RECOMBINATION_STEP_AMOUNT
 
+/*
+*	Infection stuff
+*	You didn't think I wouldn't include this did you?
+*/
 
-//////////////////////////////Infection stuff - You didn't think I wouldn't include this did you?
 /datum/reagent/hnz
 	name = "HNZ-1"
 	description = "HNZ-1 is a highly experimental viral bioterror agent \
@@ -340,7 +343,7 @@
 	. = ..()
 	try_to_mutant_infect(exposed_mob, TRUE)
 
-/obj/item/reagent_containers/glass/bottle/hnz
+/obj/item/reagent_containers/cup/bottle/hnz
 	name = "HNZ-1 bottle"
 	desc = "A small bottle of the HNZ-1 pathogen. Nanotrasen Bioweapons inc."
 	icon = 'modular_skyrat/modules/mutants/icons/extractor.dmi'
@@ -348,19 +351,19 @@
 	list_reagents = list(/datum/reagent/hnz = 30)
 	custom_materials = list(/datum/material/glass=500)
 
-/obj/item/reagent_containers/glass/bottle/hnz/one
+/obj/item/reagent_containers/cup/bottle/hnz/one
 	list_reagents = list(/datum/reagent/hnz = 1)
 
 
 /obj/item/storage/briefcase/virology/hnz
-	name = "\improper HNZ-1 Biocontainer"
+	name = "\improper HNZ-1 biocontainer"
 	desc = "An airtight biosealed box containing the highly reactive substance, HNZ1. Authorised personnel only."
 	w_class = WEIGHT_CLASS_SMALL
 	max_integrity = 500
 
 /obj/item/storage/briefcase/virology/hnz/PopulateContents()
-	new /obj/item/reagent_containers/glass/bottle/hnz/one(src)
-	new /obj/item/reagent_containers/glass/bottle/hnz/one(src)
+	new /obj/item/reagent_containers/cup/bottle/hnz/one(src)
+	new /obj/item/reagent_containers/cup/bottle/hnz/one(src)
 	new /obj/item/circuitboard/machine/rna_recombinator(src)
 	new /obj/item/rna_extractor(src)
 	new /obj/item/rna_vial(src)

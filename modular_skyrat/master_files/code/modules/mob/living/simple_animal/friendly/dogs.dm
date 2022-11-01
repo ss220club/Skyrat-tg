@@ -14,7 +14,7 @@
 	gold_core_spawnable = FRIENDLY_SPAWN
 
 /mob/living/simple_animal/pet/dog/markus/treat_message(message)
-	return client ? pick(speak) : message //markus only talks business
+	return client ? pick(speak) : message // markus only talks business
 
 /datum/chemical_reaction/mark_reaction
 	results = list(/datum/reagent/liquidgibs = 15)
@@ -37,7 +37,7 @@
 
 /mob/living/simple_animal/pet/dog/corgi/borgi
 	name = "E-N"
-	real_name = "E-N" //Intended to hold the name without altering it.
+	real_name = "E-N" // Intended to hold the name without altering it.
 	gender = NEUTER
 	desc = "It's a borgi."
 	icon = 'modular_skyrat/master_files/icons/mob/pets.dmi'
@@ -55,7 +55,7 @@
 	minbodytemp = 0
 	loot = list(/obj/effect/decal/cleanable/oil/slippery)
 	butcher_results = list(/obj/item/clothing/head/corgi/en = 1, /obj/item/clothing/suit/corgisuit/en = 1)
-	deathmessage = "beeps, its mechanical parts hissing before the chassis collapses in a loud thud."
+	death_message = "beeps, its mechanical parts hissing before the chassis collapses in a loud thud."
 	gold_core_spawnable = NO_SPAWN
 	animal_species = /mob/living/simple_animal/pet/dog/corgi
 	nofur = TRUE
@@ -66,17 +66,17 @@
 	light_power = 0.8
 	light_on = FALSE
 
-/mob/living/simple_animal/pet/dog/corgi/borgi/Initialize()
+/mob/living/simple_animal/pet/dog/corgi/borgi/Initialize(mapload)
 	. = ..()
 	var/datum/component/overlay_lighting/lighting_object = src.GetComponent(/datum/component/overlay_lighting)
 	var/image/cone = lighting_object.cone
 	cone.transform = cone.transform.Translate(0, -8)
 
-	//Defense protocol
+	// Defense protocol
 	RegisterSignal(src, COMSIG_ATOM_ATTACK_HAND, .proc/on_attack_hand)
 	RegisterSignal(src, COMSIG_PARENT_ATTACKBY, .proc/on_attackby)
 	RegisterSignal(src, COMSIG_ATOM_HITBY, .proc/on_hitby)
-	//For traitor objectives
+	// For traitor objectives
 	RegisterSignal(src, COMSIG_ATOM_EMAG_ACT, .proc/on_emag_act)
 
 /mob/living/simple_animal/pet/dog/corgi/borgi/proc/on_attack_hand(datum/source, mob/living/target)
@@ -147,7 +147,7 @@
 	if(!source_turf || !target_turf)
 		return
 	var/obj/projectile/bullet/reusable/foam_dart/fired_dart = new /obj/projectile/bullet/reusable/foam_dart(loc)
-	fired_dart.icon = 'icons/obj/guns/toy.dmi'
+	fired_dart.icon = 'icons/obj/weapons/guns/toy.dmi'
 	fired_dart.icon_state = "foamdart_proj"
 	playsound(loc, 'sound/items/syringeproj.ogg', 75, 1)
 	fired_dart.preparePixelProjectile(target, source_turf)
@@ -157,7 +157,7 @@
 
 /mob/living/simple_animal/pet/dog/corgi/borgi/Life(seconds, times_fired)
 	..()
-	//spark for no reason
+	// spark for no reason
 	if(prob(5))
 		do_sparks(3, 1, src)
 

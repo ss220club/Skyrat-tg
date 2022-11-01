@@ -3,7 +3,7 @@
  * You can't really use the non-modular version, least you eventually want asinine merge
  * conflicts and/or potentially disastrous issues to arise, so here's your own.
  */
-#define MODULAR_SAVEFILE_VERSION_MAX 1
+#define MODULAR_SAVEFILE_VERSION_MAX 2
 
 #define MODULAR_SAVEFILE_UP_TO_DATE -1
 
@@ -30,13 +30,13 @@
 	READ_FILE(save["augment_limb_styles"] , augment_limb_styles)
 
 	augments = SANITIZE_LIST(augments)
-	//validating augments
+	// validating augments
 	for(var/aug_slot in augments)
 		var/datum/augment_item/aug = GLOB.augment_items[augments[aug_slot]]
 		if(!aug)
 			augments -= aug_slot
 	augment_limb_styles = SANITIZE_LIST(augment_limb_styles)
-	//validating limb styles
+	// validating limb styles
 	for(var/key in augment_limb_styles)
 		if(!GLOB.robotic_styles_list[augment_limb_styles[key]])
 			augment_limb_styles -= key
@@ -49,13 +49,13 @@
 	READ_FILE(save["mismatched_customization"], mismatched_customization)
 	READ_FILE(save["allow_advanced_colors"], allow_advanced_colors)
 
-//SKYRAT EDIT REMOVAL BEGIN -- RECORDS REJUVINATION
+// SKYRAT EDIT REMOVAL BEGIN -- RECORDS REJUVINATION
 /*	READ_FILE(save["general_record"], general_record)
 	READ_FILE(save["security_record"], security_record)
 	READ_FILE(save["medical_record"], medical_record)
 	READ_FILE(save["background_info"], background_info)
 	READ_FILE(save["exploitable_info"], exploitable_info) */
-//SKYRAT EDIT REMOVAL END
+// SKYRAT EDIT REMOVAL END
 
 	READ_FILE(save["alt_job_titles"], alt_job_titles)
 
@@ -81,7 +81,7 @@
 	READ_FILE(save["headshot"], headshot)
 
 	if(needs_update >= 0)
-		update_character_skyrat(needs_update, save) //needs_update == savefile_version if we need an update (positive integer)
+		update_character_skyrat(needs_update, save) // needs_update == savefile_version if we need an update (positive integer)
 
 /// Brings a savefile up to date with modular preferences. Called if savefile_needs_update_skyrat() returned a value higher than 0
 /datum/preferences/proc/update_character_skyrat(current_version, savefile/save)
@@ -110,6 +110,13 @@
 			for(var/pref_type in subtypesof(/datum/preference/toggle/genital_skin_tone))
 				write_preference(GLOB.preference_entries[pref_type], TRUE)
 
+	if(current_version < 2)
+		var/list/old_breast_prefs
+		READ_FILE(save["breasts_size"], old_breast_prefs)
+		if(isnum(old_breast_prefs)) // Can't be too careful
+			// You weren't meant to be able to pick sizes over this anyways.
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/breasts_size], GLOB.breast_size_translation["[min(old_breast_prefs, 10)]"])
+
 /datum/preferences/proc/check_migration()
 	if(!tgui_prefs_migration)
 		to_chat(parent, examine_block(span_redtext("CRITICAL FAILURE IN PREFERENCE MIGRATION, REPORT THIS IMMEDIATELY.")))
@@ -128,13 +135,13 @@
 	WRITE_FILE(save["mismatched_customization"], mismatched_customization)
 	WRITE_FILE(save["allow_advanced_colors"], allow_advanced_colors)
 
-//SKYRAT EDIT REMOVAL BEGIN -- RECORDS REJUVINATION
+// SKYRAT EDIT REMOVAL BEGIN -- RECORDS REJUVINATION
 /*	WRITE_FILE(save["general_record"] , general_record)
 	WRITE_FILE(save["security_record"] , security_record)
 	WRITE_FILE(save["medical_record"] , medical_record)
 	WRITE_FILE(save["background_info"] , background_info)
 	WRITE_FILE(save["exploitable_info"] , exploitable_info) */
-//SKYRAT EDIT REMOVAL END
+// SKYRAT EDIT REMOVAL END
 	WRITE_FILE(save["alt_job_titles"], alt_job_titles)
 	WRITE_FILE(save["languages"] , languages)
 	WRITE_FILE(save["headshot"], headshot)

@@ -51,7 +51,7 @@
 	item_type = /obj/item/suppressor
 
 /datum/opposing_force_equipment/gear/extendedrag
-	item_type = /obj/item/reagent_containers/glass/rag/large
+	item_type = /obj/item/reagent_containers/cup/rag/large
 	description = "A damp rag made with extra absorbant materials. The perfectly innocent tool to kidnap your local assistant. \
 			Apply up to 30u liquids and use combat mode to smother anyone not covering their mouth."
 
@@ -76,9 +76,6 @@
 /datum/opposing_force_equipment/gear/borer_egg/on_issue(mob/living/target)
 	new /obj/effect/mob_spawn/ghost_role/borer_egg/opfor(get_turf(target))
 
-/datum/opposing_force_equipment/gear/ventcrawl_book
-	item_type = /obj/item/book/granter/traitsr/ventcrawl_book
-	admin_note = "WARNING: Incredibly powerful, use discretion when handing this out."
 
 /datum/opposing_force_equipment/gear/holoparasite
 	item_type = /obj/item/guardiancreator/tech/choose/traitor
@@ -122,14 +119,6 @@
 	item_type = /obj/item/card/id/advanced/chameleon
 	description = "A highly advanced chameleon ID card. Touch this card on another ID card or player to choose which accesses to copy. Has special magnetic properties which force it to the front of wallets."
 
-/datum/opposing_force_equipment/gear/agentcarddeluxe
-	name = "Deluxe Agent Identification Card"
-	item_type = /obj/item/card/id/advanced/chameleon/black
-	description = "Created by Cybersun Industries to be the ultimate for field operations, this upgraded Agent ID \
-	comes with all the fluff of the original, but with an upgraded microchip - allowing for the storage of all \
-	standard Nanotrasen access codes in one conveinent package. Now in glossy olive by default!"
-	admin_note = "Has no limit on how many accesses it can store."
-
 /datum/opposing_force_equipment/gear/chameleonheadsetdeluxe
 	name = "Advanced Chameleon Headset"
 	item_type = /obj/item/radio/headset/chameleon/advanced
@@ -150,9 +139,38 @@
 			for rapid healing, a medical night vision HUD for quick identification of injured personnel, \
 			and other supplies helpful for a field medic."
 
+/datum/opposing_force_equipment/gear/ai_module
+	name = "Syndicate AI Law Module"
+	item_type = /obj/item/ai_module/syndicate
+	description = "When used with an upload console, this module allows you to upload priority laws to an artificial intelligence. \
+			Be careful with wording, as artificial intelligences may look for loopholes to exploit."
+
+/datum/opposing_force_equipment/gear/powersink
+	name = "Power Sink"
+	item_type = /obj/item/powersink
+	description = "When screwed to wiring attached to a power grid and activated, this large device lights up and places excessive \
+			load on the grid, causing a station-wide blackout. The sink is large and cannot be stored in most \
+			traditional bags and boxes. Caution: Will explode if the powernet contains sufficient amounts of energy."
+	admin_note = "Drains power from the station, explodes if overloaded."
+
+/datum/opposing_force_equipment/gear/gorilla_cubes
+	name = "Box of Gorilla Cubes"
+	item_type = /obj/item/storage/box/gorillacubes
+	description = "A box with three Waffle Co. brand gorilla cubes. Eat big to get big. \
+			Caution: Product may rehydrate when exposed to water."
+
+/datum/opposing_force_equipment/gear/sentry_gun
+	name = "Toolbox Sentry Gun"
+	item_type = /obj/item/storage/toolbox/emergency/turret
+	description = "A disposable sentry gun deployment system cleverly disguised as a toolbox, apply wrench for functionality."
+
 /datum/opposing_force_equipment/gear/cloak_mod
 	item_type = /obj/item/mod/module/stealth/ninja
 	description = "An upgraded MODsuit cloaking module stolen from the Spider Clan's finest. Consumes less power than the standard, but is obviously illegal."
+
+/datum/opposing_force_equipment/gear/chameleon
+	item_type = /obj/item/mod/module/chameleon
+	description = "A module that enables the user to disguise their MODsuit as any other type. Only works while undeployed."
 
 /datum/opposing_force_equipment/gear/thermal_mod
 	item_type = /obj/item/mod/module/visor/thermal

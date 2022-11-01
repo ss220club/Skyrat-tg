@@ -19,7 +19,6 @@
 	name = "Bright Cosmos cigar"
 	desc = "A fancy cigar created using holodeck technology. They look like they have a \"Bright Cosmos\" branding on their wrap."
 	icon_state = "cigar2off"
-	inhand_icon_state = "cigar2off"
 	icon_on = "cigar2on"
 	icon_off = "cigar2off"
 
@@ -41,4 +40,4 @@
 		smoked.lit = FALSE
 		smoked.name = copytext_char(smoked.name, 5) //5 == length_char("lit ") + 1
 	smoked.update_icon()
-	smoker.update_inv_wear_mask()
+	smoker.update_worn_mask()

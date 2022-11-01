@@ -2,15 +2,15 @@
 
 //ITEM INVENTORY WEIGHT, FOR w_class
 /// Usually items smaller then a human hand, (e.g. playing cards, lighter, scalpel, coins/holochips)
-#define WEIGHT_CLASS_TINY     1
+#define WEIGHT_CLASS_TINY 1
 /// Pockets can hold small and tiny items, (e.g. flashlight, multitool, grenades, GPS device)
-#define WEIGHT_CLASS_SMALL    2
+#define WEIGHT_CLASS_SMALL 2
 /// Standard backpacks can carry tiny, small & normal items, (e.g. fire extinguisher, stun baton, gas mask, metal sheets)
-#define WEIGHT_CLASS_NORMAL   3
+#define WEIGHT_CLASS_NORMAL 3
 /// Items that can be weilded or equipped but not stored in an inventory, (e.g. defibrillator, backpack, space suits)
-#define WEIGHT_CLASS_BULKY    4
+#define WEIGHT_CLASS_BULKY 4
 /// Usually represents objects that require two hands to operate, (e.g. shotgun, two-handed melee weapons)
-#define WEIGHT_CLASS_HUGE     5
+#define WEIGHT_CLASS_HUGE 5
 /// Essentially means it cannot be picked up or placed in an inventory, (e.g. mech parts, safe)
 #define WEIGHT_CLASS_GIGANTIC 6
 
@@ -61,22 +61,8 @@
 /// Legcuff slot (bolas, beartraps)
 #define ITEM_SLOT_LEGCUFFED (1<<19)
 
-//SKYRAT EDIT ADDITION BEGIN - ERP UPDATE
-/// Penis slot
-#define ITEM_SLOT_PENIS (1<<20)
-/// Vagina slot
-#define ITEM_SLOT_VAGINA (1<<21)
-/// Anus slot
-#define ITEM_SLOT_ANUS (1<<22)
-/// Nipples slot
-#define ITEM_SLOT_NIPPLES (1<<23)
-//SKYRATE EDIT ADDITION END
-
 /// Total amount of slots
-//SKYRAT EDIT CHANGE BEGIN
-// #define SLOTS_AMT 20 // Keep this up to date! - SKYRAT EDIT - ORIGINAL
-#define SLOTS_AMT 24 // Keep this up to date!
-//SKYRAT EDIT CHANGE END
+#define SLOTS_AMT 20 // Keep this up to date!
 
 //SLOT GROUP HELPERS
 #define ITEM_SLOT_POCKETS (ITEM_SLOT_LPOCKET|ITEM_SLOT_RPOCKET)
@@ -103,11 +89,13 @@
 
 //SKYRAT EDIT ADDITION: CUSTOM EAR TOGGLE FOR ANTHRO/ETC EAR SHOWING -
 /// Manually set this on items you want anthro ears to show on!
-#define SHOWSPRITEEARS (1<<13)
+#define SHOWSPRITEEARS (1<<14)
+/// Does this sprite hide the tail?
+#define HIDETAIL (1<<15)
 /// Does this sprite also hide the spine on tails? Realistically only useful for the clothes that have a special tail overlay, like MODsuits
-#define HIDESPINE (1<<14)
+#define HIDESPINE (1<<16)
 /// Does this sprite hide devious devices?
-#define HIDESEXTOY (1<<15)
+#define HIDESEXTOY (1<<17)
 //SKYRAT EDIT ADDITION END
 
 //bitflags for clothing coverage - also used for limbs
@@ -155,15 +143,21 @@
 #define CLOTHING_DIGITIGRADE_VARIATION (1<<1)
 ///The sprite works fine for digitigrade legs as-is.
 #define CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON (1<<2)
+///has a sprite for monkeys
+#define CLOTHING_MONKEY_VARIATION (1<<3)
 // SKYRAT EDIT ADDITION
 /// The sprite works fine for snouts.
-#define CLOTHING_SNOUTED_VARIATION (1<<3)
+#define CLOTHING_SNOUTED_VARIATION (1<<4)
 /// The sprite works fine for snouts as-is.
-#define CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON (1<<4)
+#define CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON (1<<5)
 /// The sprite works fine for vox snouts.
-#define CLOTHING_SNOUTED_VOX_VARIATION (1<<5)
+#define CLOTHING_SNOUTED_VOX_VARIATION (1<<6)
 /// The sprite works fine for vox snouts as is.
-#define CLOTHING_SNOUTED_VOX_VARIATION_NO_NEW_ICON (1<<6)
+#define CLOTHING_SNOUTED_VOX_VARIATION_NO_NEW_ICON (1<<7)
+/// The sprite works fine for vox snouts.
+#define CLOTHING_SNOUTED_BETTER_VOX_VARIATION (1<<8)
+/// The sprite works fine for vox snouts as is.
+#define CLOTHING_SNOUTED_BETTER_VOX_VARIATION_NO_NEW_ICON (1<<9)
 // SKYRAT EDIT END
 
 //flags for covering body parts

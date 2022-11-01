@@ -17,8 +17,7 @@
 		if(holder)
 			if(holder.active_program)
 				holder.active_program.event_idremoved(0)
-			for(var/p in holder.idle_threads)
-				var/datum/computer_file/program/computer_program = p
+			for(var/datum/computer_file/program/computer_program as anything in holder.idle_threads)
 				computer_program.event_idremoved(1)
 
 			holder.update_slot_icon()
@@ -59,7 +58,7 @@
 	if(!holder)
 		return FALSE
 
-	if(!istype(I, /obj/item/card/id))
+	if(!isidcard(I))
 		return FALSE
 
 	if(stored_card)
@@ -98,11 +97,14 @@
 		to_chat(user, span_warning("There are no cards in \the [src]."))
 		return FALSE
 
+	SpinAnimation()
+
 	if(user && !issilicon(user) && in_range(src, user))
 		user.put_in_hands(stored_card)
 	else
 		stored_card.forceMove(drop_location())
 
+	balloon_alert(user, "removed ID")
 	to_chat(user, span_notice("You remove the card from \the [src]."))
 	playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 	holder.update_appearance()

@@ -21,6 +21,8 @@
 	Or perhaps more exotic customers are in local space...?"
 	important_text = "You are not an antagonist."
 	outfit = /datum/outfit/black_market
+	quirks_enabled = TRUE
+	random_appearance = FALSE
 
 /datum/outfit/black_market
 	name = "Black Market Trader"
@@ -35,6 +37,7 @@
 	flavour_text = "Unfortunately, your hated enemy, Nanotrasen, has begun mining in this sector. Continue operating as best you can, and try to keep a low profile."
 	quirks_enabled = TRUE
 	random_appearance = FALSE
+	computer_area = /area/ruin/space/has_grav/skyrat/interdynefob/service/dorms
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/prisoner
 	name = "Syndicate Prisoner"
@@ -82,6 +85,20 @@
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate/admiral
 	outfit = /datum/outfit/ds2/syndicate/admiral
 
+/obj/effect/mob_spawn/ghost_role/human/hotel_staff
+	random_appearance = FALSE
+
+/obj/effect/mob_spawn/ghost_role/human/hotel_staff/manager
+	name = "staff manager sleeper"
+	mob_name = "hotel staff manager"
+	outfit = /datum/outfit/hotelstaff/manager
+	you_are_text = "You are the manager of a top-of-the-line space hotel!"
+	flavour_text = "You are the manager of a top-of-the-line space hotel! Make sure the guests are looked after, the hotel is advertised, and your employees aren't slacking off!"
+
+/obj/effect/mob_spawn/corpse/human/damaged/ashwalker
+	mob_type = /mob/living/carbon/human/species/lizard/ashwalker;
+	outfit = /datum/outfit/consumed_ashwalker
+
 //OUTFITS//
 /datum/outfit/syndicatespace/syndicrew
 	ears = /obj/item/radio/headset/cybersun
@@ -90,6 +107,9 @@
 /datum/outfit/syndicatespace/syndicaptain
 	ears = /obj/item/radio/headset/cybersun/captain
 	id_trim = /datum/id_trim/syndicom/skyrat/captain
+
+/datum/outfit/ds2
+	name = "default ds2 outfit"
 
 /datum/outfit/ds2/post_equip(mob/living/carbon/human/syndicate, visualsOnly = FALSE)
 	var/obj/item/card/id/id_card = syndicate.wear_id
@@ -108,7 +128,7 @@
 
 /datum/outfit/ds2/syndicate
 	name = "DS-2 Operative"
-	uniform = /obj/item/clothing/under/syndicate
+	uniform = /obj/item/clothing/under/syndicate/skyrat/tactical
 	shoes = /obj/item/clothing/shoes/combat
 	ears = /obj/item/radio/headset/interdyne
 	back = /obj/item/storage/backpack
@@ -118,12 +138,13 @@
 
 /datum/outfit/ds2/syndicate/service
 	name = "DS-2 Staff"
-	uniform = /obj/item/clothing/under/utility/syndicate
+	uniform = /obj/item/clothing/under/syndicate/skyrat/overalls
 	id_trim = /datum/id_trim/syndicom/skyrat/assault/syndicatestaff
 
 /datum/outfit/ds2/syndicate/enginetech
 	name = "DS-2 Engine Technician"
-	uniform = /obj/item/clothing/under/rank/engineering/engineer/skyrat/utility/syndicate
+	uniform = /obj/item/clothing/under/syndicate/skyrat/overalls
+	head = /obj/item/clothing/head/soft/sec/syndicate
 	id_trim = /datum/id_trim/syndicom/skyratnoicon/enginetechnician
 	gloves = /obj/item/clothing/gloves/combat
 
@@ -139,13 +160,13 @@
 
 /datum/outfit/ds2/syndicate/masteratarms
 	name = "DS-2 Master At Arms"
-	uniform = /obj/item/clothing/under/utility/sec/old/syndicate
+	uniform = /obj/item/clothing/under/syndicate/combat
 	id_trim = /datum/id_trim/syndicom/skyrat/assault/masteratarms
 	belt = /obj/item/storage/belt/security/full
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	suit = /obj/item/clothing/suit/armor/vest/warden/syndicate
-	head = /obj/item/clothing/head/sec/navywarden/syndicate
-	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
+	head = /obj/item/clothing/head/warden/syndicate
+	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/redsec
 	ears = /obj/item/radio/headset/interdyne
 
 	backpack_contents = list(
@@ -155,13 +176,13 @@
 
 /datum/outfit/ds2/syndicate/brigoff
 	name = "DS-2 Brig Officer"
-	uniform = /obj/item/clothing/under/utility/sec/old/syndicate
+	uniform = /obj/item/clothing/under/syndicate/combat
 	id_trim = /datum/id_trim/syndicom/skyrat/assault/brigofficer
 	belt = /obj/item/storage/belt/security/full
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	suit = /obj/item/clothing/suit/armor/bulletproof/old
 	head = /obj/item/clothing/head/helmet/swat/ds
-	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
+	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/redsec
 	mask = /obj/item/clothing/mask/gas/syndicate/ds
 	ears = /obj/item/radio/headset/interdyne
 
@@ -172,7 +193,7 @@
 
 /datum/outfit/ds2/syndicate/admiral
 	name = "DS-2 Station Admiral"
-	uniform = /obj/item/clothing/under/utility/com/syndicate
+	uniform = /obj/item/clothing/under/syndicate/combat
 	suit = /obj/item/clothing/suit/armor/vest/capcarapace/syndicate
 	head = /obj/item/clothing/head/hos/beret/syndicate
 	back = /obj/item/storage/backpack
@@ -184,6 +205,31 @@
 /datum/outfit/ds2/syndicate/post_equip(mob/living/carbon/human/syndicate)
 	syndicate.faction |= ROLE_SYNDICATE
 	return ..()
+
+/datum/outfit/hotelstaff
+	id = /obj/item/card/id/away/hotel
+
+/datum/outfit/hotelstaff/post_equip(mob/living/carbon/human/staff, visualsOnly = FALSE)
+	var/obj/item/card/id/id_card = staff.wear_id
+	if(istype(id_card))
+		id_card.registered_name = staff.real_name
+		id_card.update_label()
+		id_card.update_icon()
+
+	return ..()
+
+/datum/outfit/hotelstaff/manager
+	name = "Hotel Staff Manager"
+	uniform = /obj/item/clothing/under/suit/red
+	shoes = /obj/item/clothing/shoes/laceup
+	r_pocket = /obj/item/radio/off
+	back = /obj/item/storage/backpack
+	implants = list(/obj/item/implant/mindshield, /obj/item/implant/exile/noteleport)
+	id = /obj/item/card/id/away/hotel/manager
+
+/datum/outfit/hotelstaff/security
+	r_hand = /obj/item/gun/energy/laser/scatter/shotty // SKYRAT EDIT ADD - SPAWNS IN HAND INSTEAD OF ON MAP
+	id = /obj/item/card/id/away/hotel/security
 
 //Lost Space Truckers: Six people stranded in deep space aboard a cargo freighter. They must survive their marooning and cooperate.
 
@@ -259,12 +305,12 @@
 	neck = /obj/item/clothing/neck/cloak/qm
 	back = /obj/item/storage/backpack
 	backpack_contents = list(
-    	/obj/item/armament_token/energy=1,
-    	/obj/item/megaphone/cargo=1,
-    	)
-	id = /obj/item/card/id/away/freightqm
+		/obj/item/armament_token/energy=1,
+		/obj/item/megaphone/cargo=1,
+		)
+	id = /obj/item/card/id/away/silver/freightqm
 
-//Port Tarkon, 5 people trapped in a revamped charlie-station like ghost role. Survive the aliens and threats, Fix the port and/or finish construction
+//Port Tarkon, 6 people trapped in a revamped charlie-station like ghost role. Survive the aliens and threats, Fix the port and/or finish construction
 
 /obj/effect/mob_spawn/ghost_role/human/tarkon
 	name = "P-T Abandoned Crew"
@@ -278,9 +324,12 @@
 	loadout_enabled = TRUE
 	quirks_enabled = TRUE
 	random_appearance = FALSE
+	computer_area = /area/ruin/space/has_grav/port_tarkon/centerhall
 
 /datum/outfit/tarkon
+	name = "default port tarkon outfit"
 	uniform = /obj/item/clothing/under/rank/cargo/tech/skyrat/utility
+	back = /obj/item/storage/backpack
 	shoes = /obj/item/clothing/shoes/winterboots
 	gloves = /obj/item/clothing/gloves/fingerless
 	glasses = /obj/item/clothing/glasses/sunglasses
@@ -306,6 +355,7 @@
 	outfit = /datum/outfit/tarkon/sci
 
 /datum/outfit/tarkon/sci
+	name = "Port Tarkon Science Outfit"
 	uniform = /obj/item/clothing/under/rank/rnd/scientist/skyrat/utility
 	glasses = /obj/item/clothing/glasses/hud/diagnostic
 	id = /obj/item/card/id/away/tarkon/sci
@@ -318,6 +368,7 @@
 	outfit = /datum/outfit/tarkon/med
 
 /datum/outfit/tarkon/med
+	name = "Port Tarkon Medical Outfit"
 	uniform = /obj/item/clothing/under/rank/medical/doctor/skyrat/utility
 	glasses = /obj/item/clothing/glasses/hud/health
 	id = /obj/item/card/id/away/tarkon/med
@@ -330,6 +381,7 @@
 	outfit = /datum/outfit/tarkon/engi
 
 /datum/outfit/tarkon/engi
+	name = "Port Tarkon Engineering Outfit"
 	uniform = /obj/item/clothing/under/rank/engineering/engineer/skyrat/utility
 	glasses = /obj/item/clothing/glasses/meson/engine/tray
 	id = /obj/item/card/id/away/tarkon/engi
@@ -342,8 +394,9 @@
 	outfit = /datum/outfit/tarkon/sec
 
 /datum/outfit/tarkon/sec
-	uniform = /obj/item/clothing/under/utility/sec
-	glasses = /obj/item/clothing/glasses/hud/security
+	name = "Port Tarkon Security Outfit"
+	uniform = /obj/item/clothing/under/rank/security/skyrat/utility/redsec
+	glasses = /obj/item/clothing/glasses/hud/security/redsec
 	gloves = /obj/item/clothing/gloves/tackler/combat
 	id = /obj/item/card/id/away/tarkon/sec
 	l_pocket = /obj/item/melee/baton/telescopic
@@ -361,7 +414,8 @@
 	outfit = /datum/outfit/tarkon/ensign
 
 /datum/outfit/tarkon/ensign //jack of all trades, master of none, spent all his credits, every last one
-	uniform = /obj/item/clothing/under/utility
+	name = "Port Tarkon Ensigns Outfit"
+	uniform = /obj/item/clothing/under/misc/skyrat/utility
 	ears = /obj/item/radio/headset/tarkon/ensign
 	id = /obj/item/card/id/away/tarkon/ensign
 	neck = /obj/item/clothing/neck/security_cape/armplate
@@ -372,7 +426,7 @@
 
 //ITEMS//
 /obj/item/radio/headset/cybersun
-	keyslot = new /obj/item/encryptionkey/headset_cybersun
+	keyslot = new /obj/item/encryptionkey/headset_syndicate/cybersun
 
 /obj/item/radio/headset/cybersun/captain
 	name = "cybersun captain headset"
@@ -383,7 +437,7 @@
 	name = "tarkon headset"
 	freerange = TRUE
 	freqlock = TRUE
-	keyslot = new /obj/item/encryptionkey/headset_tarkon
+	keyslot = new /obj/item/encryptionkey/headset_cargo/tarkon
 
 /obj/item/radio/headset/tarkon/ensign //spoiler for upcoming update
 	name = "tarkon ensign headset"
@@ -396,6 +450,12 @@
 	icon_state = "cryopod-open"
 
 //IDS//
+
+/obj/item/card/id/away/silver
+	name = "old silver identification card"
+	desc = "A perfectly generic identification card. Looks like it could use some flavor. This one looks like it belonged to someone important."
+	wildcard_slots = WILDCARD_LIMIT_SILVER
+
 /obj/item/card/id/away/blackmarket
 	name = "scuffed ID card"
 	desc = "A faded, scuffed, plastic ID card. You can make out the rank \"Deck Crewman\"."
@@ -406,77 +466,94 @@
 	assignment = "Deck Crewman"
 
 /obj/item/card/id/away/freightcrew
-    name = "Freighter ID"
-    desc = "An ID card marked with the rank of Freight Hauler."
-    trim = /datum/id_trim/job/cargo_technician
+	name = "Freighter ID"
+	desc = "An ID card marked with the rank of Freight Hauler."
+	trim = /datum/id_trim/job/cargo_technician
 
 /obj/item/card/id/away/freightmine
-    name = "Freighter ID"
-    desc = "An ID card marked with the rank of Freight Ship Excavator."
-    trim = /datum/id_trim/job/shaft_miner
+	name = "Freighter ID"
+	desc = "An ID card marked with the rank of Freight Ship Excavator."
+	trim = /datum/id_trim/job/shaft_miner
 
-/obj/item/card/id/away/freightqm
-    name = "Freighter Deck Chief ID"
-    desc = "An ID card marked with the rank of Freight Deck Chief."
-    trim = /datum/id_trim/job/quartermaster
+/obj/item/card/id/away/silver/freightqm
+	name = "Freighter Deck Chief ID"
+	desc = "An ID card marked with the rank of Freight Deck Chief."
+	trim = /datum/id_trim/job/quartermaster
 
+/obj/item/card/id/away/hotel/manager
+	name = "Manager ID"
+	trim = /datum/id_trim/away/hotel/manager
+
+/datum/id_trim/away/hotel
+	assignment = "Hotel Staff"
+
+/datum/id_trim/away/hotel/manager
+	assignment = "Hotel Manager"
+
+/datum/id_trim/away/hotel/security
+	assignment = "Hotel Security"
 
 /datum/id_trim/away/tarkon
 	assignment = "P-T Cargo Personell"
-	access = list(66, ACCESS_AWAY_GENERAL)
+	access = list(ACCESS_AWAY_GENERAL, ACCESS_WEAPONS, ACCESS_TARKON)
 
 /datum/id_trim/away/tarkon/sec
 	assignment = "P-T Port Guard"
-	access = list(66, ACCESS_AWAY_GENERAL, 210)
+	access = list(ACCESS_AWAY_GENERAL, ACCESS_WEAPONS, ACCESS_TARKON)
 
 /datum/id_trim/away/tarkon/med
 	assignment = "P-T Trauma Medic"
-	access = list(5, 66, ACCESS_AWAY_GENERAL)
+	access = list(ACCESS_MEDICAL, ACCESS_AWAY_GENERAL, ACCESS_WEAPONS, ACCESS_TARKON)
 
 /datum/id_trim/away/tarkon/eng
 	assignment = "P-T Maintenance Crew"
 
 /datum/id_trim/away/tarkon/sci
 	assignment = "P-T Field Researcher"
-	access = list(29, 66, ACCESS_AWAY_GENERAL)
+	access = list(ACCESS_ROBOTICS, ACCESS_AWAY_GENERAL, ACCESS_WEAPONS, ACCESS_TARKON)
 
 /datum/id_trim/away/tarkon/ensign
 	assignment = "Tarkon Ensign"
-	access = list(5, 29, 66, ACCESS_AWAY_GENERAL, 210)
+	access = list(ACCESS_MEDICAL, ACCESS_ROBOTICS, ACCESS_AWAY_GENERAL, ACCESS_TARKON, ACCESS_WEAPONS)
 
 /obj/item/card/id/away/tarkon/sci  //original tarkon ID is defined in fluff
-	name = "P-T Field Researcher's Access Card"
-	desc = "An access card designated for \"The Science Team\". You are forgotten basically immediately when it comes to the lab."
+	name = "P-T field researcher's access card"
+	desc = "An access card designated for \"the science team\". You are forgotten basically immediately when it comes to the lab."
 	trim = /datum/id_trim/away/tarkon/sci
 
 /obj/item/card/id/away/tarkon/med
-	name = "P-T Trauma Medic's Access Card"
-	desc = "An access card designated for \"Medical Staff\". You provide the medic bags."
+	name = "P-T trauma medic's access card"
+	desc = "An access card designated for \"medical staff\". You provide the medic bags."
 	trim = /datum/id_trim/away/tarkon/med
 
 /obj/item/card/id/away/tarkon/sec
-	name = "P-T Resident Deputy's Access Card"
-	desc = "An access card designated for \"Security Members\". Everyone wants your guns, partner. Yee-haw."
+	name = "P-T resident deputy's access card"
+	desc = "An access card designated for \"security members\". Everyone wants your guns, partner. Yee-haw."
 	trim = /datum/id_trim/away/tarkon/sec
 
 /obj/item/card/id/away/tarkon/cargo
-	name = "P-T Cargo Hauler's Access Card"
-	desc = "An access card designated for \"Cargo's Finest\". You're also a part time space miner, when cargonia is quiet."
+	name = "P-T cargo hauler's access card"
+	desc = "An access card designated for \"cargo's finest\". You're also a part time space miner, when cargonia is quiet."
 	trim = /datum/id_trim/away/tarkon
 
 
 /obj/item/card/id/away/tarkon/engi
-	name = "P-T Maintenance Engineer's Access Card"
-	desc = "An access card designated for \"Engineering Staff\". You're going to be the one everyone points at to fix stuff, lets be honest."
+	name = "P-T maintenance engineer's access card"
+	desc = "An access card designated for \"engineering staff\". You're going to be the one everyone points at to fix stuff, lets be honest."
 	trim = /datum/id_trim/away/tarkon/eng
 
 /obj/item/card/id/away/tarkon/ensign
-	name = "Tarkon Ensign's Access Card"
-	desc = "An access card designated for \"Tarkon Ensign\". No one has to listen to you... But you're the closest there is for command around here."
+	name = "Tarkon ensign's access card"
+	desc = "An access card designated for \"Tarkon ensign\". No one has to listen to you... But you're the closest there is for command around here."
 	trim = /datum/id_trim/away/tarkon/ensign
 
-//AREAS//
-/area/ruin/space/has_grav/deepstorage/lostcargo
-	name = "Freighter Ship"
-	icon_state = "yellow"
+//CRYO CONSOLES
+/obj/machinery/computer/cryopod/interdyne
+	radio = /obj/item/radio/headset/interdyne
+	announcement_channel = RADIO_CHANNEL_INTERDYNE
+	req_one_access = list("syndicate_leader")
 
+/obj/machinery/computer/cryopod/tarkon
+	radio = /obj/item/radio/headset/tarkon
+	announcement_channel = RADIO_CHANNEL_TARKON
+	req_one_access = list("tarkon")

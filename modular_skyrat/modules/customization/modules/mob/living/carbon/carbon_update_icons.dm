@@ -1,7 +1,7 @@
 
 
 /*
-/mob/living/carbon/update_inv_head()
+/mob/living/carbon/update_worn_head()
 	remove_overlay(HEAD_LAYER)
 
 	if(!get_bodypart(BODY_ZONE_HEAD)) //Decapitated
@@ -35,12 +35,12 @@
 					if((head.worn_icon_state || head.icon_state) in tesh_icon_states)
 						desired_icon = TESHARI_HEAD_ICON
 
-		overlays_standing[HEAD_LAYER] = head.build_worn_icon(default_layer = HEAD_LAYER, default_icon_file = 'icons/mob/clothing/head.dmi', override_file = desired_icon, mutant_styles = used_style)
+		overlays_standing[HEAD_LAYER] = head.build_worn_icon(default_layer = HEAD_LAYER, default_icon_file = 'icons/mob/clothing/head/hats.dmi', override_file = desired_icon, mutant_styles = used_style)
 		update_hud_head(head)
 
 	apply_overlay(HEAD_LAYER)
 
-/mob/living/carbon/update_inv_wear_mask()
+/mob/living/carbon/update_worn_mask()
 	remove_overlay(FACEMASK_LAYER)
 
 	if(!get_bodypart(BODY_ZONE_HEAD)) //Decapitated
@@ -101,7 +101,7 @@
 
 	apply_overlay(NECK_LAYER)
 
-/mob/living/carbon/update_inv_back()
+/mob/living/carbon/update_worn_back()
 	remove_overlay(BACK_LAYER)
 
 	if(client && hud_used?.inv_slots[TOBITSHIFT(ITEM_SLOT_BACK) + 1])

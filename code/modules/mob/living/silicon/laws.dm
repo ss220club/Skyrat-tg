@@ -18,11 +18,18 @@
 /mob/living/silicon/proc/post_lawchange(announce = TRUE)
 	throw_alert(ALERT_NEW_LAW, /atom/movable/screen/alert/newlaw)
 	if(announce && last_lawchange_announce != world.time)
-		to_chat(src, "<b>Your laws have been changed.</b>")
+		to_chat(src, span_boldannounce("Your laws have been changed."))
 		// lawset modules cause this function to be executed multiple times in a tick, so we wait for the next tick in order to be able to see the entire lawset
 		addtimer(CALLBACK(src, .proc/show_laws), 0)
 		addtimer(CALLBACK(src, .proc/deadchat_lawchange), 0)
 		last_lawchange_announce = world.time
+	//SKYRAT ADDITION START: AI LAWSYNC
+	if(isAI(src))
+		var/mob/living/silicon/ai/ai = src
+		for(var/mob/living/silicon/robot/cyborg as anything in ai.connected_robots)
+			if(cyborg.connected_ai && cyborg.lawupdate)
+				cyborg.lawsync()
+	//SKYRAT ADDITON END
 
 /mob/living/silicon/proc/set_zeroth_law(law, law_borg, announce = TRUE)
 	laws_sanity_check()
@@ -69,9 +76,9 @@
 	hackedcheck += law
 	post_lawchange(announce)
 
-/mob/living/silicon/proc/replace_random_law(law, groups, announce = TRUE)
+/mob/living/silicon/proc/replace_random_law(law, remove_law_groups, insert_law_group, announce = TRUE)
 	laws_sanity_check()
-	. = laws.replace_random_law(law,groups)
+	. = laws.replace_random_law(law, remove_law_groups, insert_law_group)
 	post_lawchange(announce)
 
 /mob/living/silicon/proc/shuffle_laws(list/groups, announce = TRUE)

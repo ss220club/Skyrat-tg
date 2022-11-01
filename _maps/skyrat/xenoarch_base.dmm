@@ -135,7 +135,7 @@
 /area/mine/xenoarch/engineering/hfr)
 "bN" = (
 /obj/structure/flora/tree/jungle,
-/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/flora/bush/flowers_br,
 /turf/open/floor/grass,
 /area/mine/xenoarch/living)
 "bT" = (
@@ -271,7 +271,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/bush/flowers_pp,
 /turf/open/floor/grass,
 /area/mine/xenoarch/living)
 "dn" = (
@@ -927,7 +927,7 @@
 /area/mine/xenoarch/engineering)
 "mE" = (
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_access_txt = "47"
+	req_access = list("research")
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -1008,7 +1008,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/obj/structure/flora/ausbushes/ywflowers,
+/obj/structure/flora/bush/flowers_yw,
 /turf/open/floor/grass,
 /area/mine/xenoarch/living)
 "nF" = (
@@ -1018,7 +1018,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/flora/bush/flowers_br,
 /turf/open/floor/grass,
 /area/mine/xenoarch/living)
 "nI" = (
@@ -1111,9 +1111,7 @@
 /turf/open/floor/plating,
 /area/mine/xenoarch/maintenance/west)
 "oV" = (
-/obj/machinery/shower{
-	dir = 4
-	},
+/obj/machinery/shower/directional/east,
 /obj/effect/turf_decal/stripes/end{
 	dir = 4
 	},
@@ -1135,7 +1133,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_access_txt = "47"
+	req_access = list("research")
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment{
@@ -1164,7 +1162,7 @@
 "pC" = (
 /obj/machinery/door/airlock/research{
 	name = "Xenoarchaeology Science";
-	req_access_txt = "47"
+	req_access = list("research")
 	},
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -1233,7 +1231,7 @@
 "qy" = (
 /obj/machinery/door/airlock/research{
 	name = "Xenoarchaeology Science";
-	req_access_txt = "47"
+	req_access = list("research")
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -1296,7 +1294,7 @@
 "rM" = (
 /obj/machinery/door/airlock/research{
 	name = "Xenoarchaeology Science";
-	req_access_txt = "47"
+	req_access = list("research")
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -1889,7 +1887,7 @@
 	dir = 8;
 	dwidth = 3;
 	height = 7;
-	id = "lavaland_common_away";
+	shuttle_id = "lavaland_common_away";
 	name = "Xenoarch base public dock";
 	width = 7
 	},
@@ -2180,7 +2178,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/ywflowers,
+/obj/structure/flora/bush/flowers_yw,
 /turf/open/floor/grass,
 /area/mine/xenoarch/living)
 "Fv" = (
@@ -2645,9 +2643,7 @@
 /turf/open/floor/iron,
 /area/mine/xenoarch/science/cytology)
 "Mc" = (
-/obj/structure/sink{
-	pixel_y = 22
-	},
+/obj/structure/sink/directional/south,
 /obj/effect/turf_decal/tile/green/half{
 	dir = 1
 	},
@@ -2776,17 +2772,6 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/engine,
 /area/mine/xenoarch/maintenance/west)
-"OC" = (
-/obj/structure/statue{
-	desc = "A lifelike statue of a horrifying monster.";
-	dir = 8;
-	icon = 'icons/mob/lavaland/lavaland_monsters.dmi';
-	icon_state = "goliath";
-	name = "goliath"
-	},
-/obj/effect/turf_decal/tile/brown/anticorner,
-/turf/open/floor/iron,
-/area/mine/xenoarch/living)
 "OE" = (
 /obj/machinery/firealarm/directional/south,
 /obj/structure/table,
@@ -3041,7 +3026,6 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/airlock/maintenance_hatch,
-/obj/machinery/door/firedoor,
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/mine/xenoarch/maintenance/west)
@@ -3305,7 +3289,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/bush/flowers_pp,
 /turf/open/floor/grass,
 /area/mine/xenoarch/living)
 "Vl" = (

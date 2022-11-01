@@ -1,4 +1,7 @@
-///////////////////HECU
+/*
+*	HECU
+*/
+
 /mob/living/simple_animal/hostile/blackmesa/hecu
 	name = "HECU Grunt"
 	desc = "I didn't sign on for this shit. Monsters, sure, but civilians? Who ordered this operation anyway?"
@@ -62,7 +65,7 @@
 	rapid = 3
 	icon_state = "hecu_ranged_smg"
 	icon_living = "hecu_ranged_smg"
-	casingtype = /obj/item/ammo_casing/c32
+	casingtype = /obj/item/ammo_casing/c34
 	projectilesound = 'sound/weapons/gun/smg/shot.ogg'
 	loot = list(/obj/effect/gibspawner/human, /obj/effect/spawner/random/hecu_smg)
 

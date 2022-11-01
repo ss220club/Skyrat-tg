@@ -41,6 +41,9 @@
 //The color list that is passed to color matrixed things when a person is husked
 #define HUSK_COLOR_LIST list(list(0.64, 0.64, 0.64, 0), list(0.64, 0.64, 0.64, 0), list(0.64, 0.64, 0.64, 0), list(0, 0, 0, 1))
 
+/// Organ slot external
+#define ORGAN_SLOT_EXTERNAL_TAUR "taur"
+
 //Defines for an accessory to be randomed
 #define ACC_RANDOM		"random"
 
@@ -60,7 +63,31 @@
 #define SHEATH_SLIT	"Slit"
 #define SHEATH_MODES list(SHEATH_NONE, SHEATH_NORMAL, SHEATH_SLIT)
 
-#define MANDATORY_FEATURE_LIST list("mcolor" = "#FFFFBB","mcolor2" = "#FFFFBB","mcolor3" = "#FFFFBB","ethcolor" = "#FFCCCC","skin_color" = "#FFEEDD","flavor_text" = "","breasts_size" = 1,"breasts_lactation" = FALSE,"penis_size" = 13,"penis_girth" = 9,"penis_taur_mode" = TRUE,"penis_sheath" = SHEATH_NONE ,"balls_size" = 1, "body_size" = BODY_SIZE_NORMAL, "custom_species" = null, penis_uses_skintones = TRUE, penis_uses_skincolor = TRUE, testicles_uses_skintones = TRUE, testicles_uses_skincolor = TRUE, vagina_uses_skintones = TRUE, vagina_uses_skincolor = TRUE, breasts_uses_skintones = TRUE, breasts_uses_skincolor = TRUE)
+#define MANDATORY_FEATURE_LIST list(\
+	"mcolor" = "#FFFFBB",\
+	"mcolor2" = "#FFFFBB",\
+	"mcolor3" = "#FFFFBB",\
+	"ethcolor" = "#FFCCCC",\
+	"skin_color" = "#FFEEDD",\
+	"flavor_text" = "",\
+	"breasts_size" = 1,\
+	"breasts_lactation" = FALSE,\
+	"penis_size" = 13,\
+	"penis_girth" = 9,\
+	"penis_taur_mode" = TRUE,\
+	"penis_sheath" = SHEATH_NONE,\
+	"balls_size" = 1,\
+	"body_size" = BODY_SIZE_NORMAL,\
+	"custom_species" = null,\
+	"penis_uses_skintones" = TRUE,\
+	"penis_uses_skincolor" = TRUE,\
+	"testicles_uses_skintones" = TRUE,\
+	"testicles_uses_skincolor" = TRUE,\
+	"vagina_uses_skintones" = TRUE,\
+	"vagina_uses_skincolor" = TRUE,\
+	"breasts_uses_skintones" = TRUE,\
+	"breasts_uses_skincolor" = TRUE,\
+)
 
 #define AROUSAL_CANT 0
 #define AROUSAL_NONE 1
@@ -84,6 +111,7 @@
 #define SPECIES_TAJARAN "tajaran"
 #define SPECIES_UNATHI "unathi"
 #define SPECIES_VOX "vox"
+#define SPECIES_VOX_PRIMALIS "vox_primalis"
 #define SPECIES_VULP "vulpkanin"
 #define SPECIES_XENO "xeno"
 #define SPECIES_GHOUL "ghoul"
@@ -94,3 +122,6 @@
 #define SPECIES_MUTANT_INFECTIOUS "infectious_mutant"
 #define SPECIES_MUTANT_SLOW "slow_mutant"
 #define SPECIES_MUTANT_FAST "fast_mutant"
+
+// Leaving this here because it's used for bodyparts, like SPECIES_X are, but since taurs aren't a species... Named it LIMBS instead.
+#define LIMBS_TAUR "taur"

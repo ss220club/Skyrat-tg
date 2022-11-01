@@ -1,7 +1,7 @@
 /datum/species/ghoul
 	name = "Ghoul"
 	id = SPECIES_GHOUL
-	examine_limb_id = "ghoul"
+	examine_limb_id = SPECIES_GHOUL
 	say_mod = "rasps"
 	species_traits = list(NOEYESPRITES, DYNCOLORS, HAS_FLESH, HAS_BONE, HAIR, FACEHAIR)
 	can_have_genitals = FALSE //WHY WOULD YOU WANT TO FUCK ONE OF THESE THINGS?
@@ -16,6 +16,7 @@
 		TRAIT_CAN_STRIP,
 		TRAIT_EASYDISMEMBER,
 		TRAIT_EASILY_WOUNDED, //theyre like fuckin skin and bones
+		TRAIT_LITERATE,
 	)
 	offset_features = list(
 		OFFSET_UNIFORM = list(0,0),
@@ -133,9 +134,9 @@
 	C.part_default_r_leg = /obj/item/bodypart/r_leg
 	C.ReassignForeignBodyparts()
 
-//////////////////
-// ATTACK PROCS //
-//////////////////
+/*
+*	ATTACK PROCS
+*/
 
 /datum/species/ghoul/disarm(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 	// Targeting Self? With "DISARM"
@@ -199,7 +200,7 @@
 					// Attach the part!
 					var/obj/item/bodypart/newBP = H.newBodyPart(target_zone, FALSE)
 					H.visible_message("The meat sprouts digits and becomes [H]'s new [newBP.name]!", span_notice("The meat sprouts digits and becomes your new [newBP.name]!"))
-					newBP.attach_limb(H)
+					newBP.try_attach_limb(H)
 					qdel(I)
 					playsound(get_turf(H), 'sound/effects/meatslap.ogg', 50, 1)
 
@@ -221,3 +222,7 @@
 
 /datum/species/ghoul/get_species_lore()
 	return list(placeholder_lore)
+
+/datum/species/ghoul/prepare_human_for_preview(mob/living/carbon/human/human)
+	human.update_mutant_bodyparts(TRUE)
+	human.update_body(TRUE)

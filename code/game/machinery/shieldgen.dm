@@ -115,7 +115,7 @@
 	opacity = FALSE
 	anchored = FALSE
 	pressure_resistance = 2*ONE_ATMOSPHERE
-	req_access = list(ACCESS_ENGINE)
+	req_access = list(ACCESS_ENGINEERING)
 	max_integrity = 100
 	var/active = FALSE
 	var/list/deployed_shields
@@ -201,11 +201,11 @@
 		return
 	if(!anchored && !isinspace())
 		tool.play_tool_sound(src, 100)
-		to_chat(user, span_notice("You secure \the [src] to the floor!"))
+		balloon_alert(user, "secured")
 		set_anchored(TRUE)
 	else if(anchored)
 		tool.play_tool_sound(src, 100)
-		to_chat(user, span_notice("You unsecure \the [src] from the floor!"))
+		balloon_alert(user, "unsecured")
 		if(active)
 			to_chat(user, span_notice("\The [src] shuts off!"))
 			shields_down()
@@ -433,13 +433,13 @@
 			span_notice("You turn off \the [src]."), \
 			span_hear("You hear heavy droning fade out."))
 		active = FALSE
-		log_game("[src] was deactivated by [key_name(user)] at [AREACOORD(src)]")
+		user.log_message("deactivated [src].", LOG_GAME)
 	else
 		user.visible_message(span_notice("[user] turned \the [src] on."), \
 			span_notice("You turn on \the [src]."), \
 			span_hear("You hear heavy droning."))
 		active = ACTIVE_SETUPFIELDS
-		log_game("[src] was activated by [key_name(user)] at [AREACOORD(src)]")
+		user.log_message("activated [src].", LOG_GAME)
 	add_fingerprint(user)
 
 /obj/machinery/power/shieldwallgen/emag_act(mob/user)
@@ -519,5 +519,5 @@
 	if(istype(mover) && (mover.pass_flags & PASSGLASS))
 		return prob(20)
 	else
-		if(istype(mover, /obj/projectile))
+		if(isprojectile(mover))
 			return prob(10)

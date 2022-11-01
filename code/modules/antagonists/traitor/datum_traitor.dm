@@ -47,10 +47,10 @@
 			uplink.uplink_handler = uplink_handler
 		else
 			uplink_handler = uplink.uplink_handler
-		uplink_handler.has_progression = TRUE
+		uplink_handler.has_progression = progression_enabled //SKYRAT EDIT
 		SStraitor.register_uplink_handler(uplink_handler)
 
-		uplink_handler.has_objectives = TRUE
+		uplink_handler.has_objectives = progression_enabled //SKYRAT EDIT
 		uplink_handler.generate_objectives()
 
 		if(uplink_handler.progression_points < SStraitor.current_global_progression)
@@ -66,8 +66,7 @@
 					uplink_items += item
 					continue
 		uplink_handler.extra_purchasable += create_uplink_sales(uplink_sale_count, /datum/uplink_category/discounts, -1, uplink_items)
-
-	if(give_objectives)
+	if(give_objectives && progression_enabled) //SKYRAT EDIT - progression_enabled
 		forge_traitor_objectives()
 
 	pick_employer()
@@ -156,8 +155,8 @@
 
 /datum/objective/traitor_progression/New(text)
 	. = ..()
-	required_total_progression_points = round(rand(possible_range[1], possible_range[2]) / 60)
-	explanation_text = replacetext(explanation_text, "%REPUTATION%", required_total_progression_points)
+	required_total_progression_points = round(rand(possible_range[1], possible_range[2]))
+	explanation_text = replacetext(explanation_text, "%REPUTATION%", DISPLAY_PROGRESSION(required_total_progression_points))
 
 /datum/objective/traitor_progression/check_completion()
 	if(!owner)
@@ -180,8 +179,8 @@
 
 /datum/objective/traitor_objectives/New(text)
 	. = ..()
-	required_progression_in_objectives = round(rand(possible_range[1], possible_range[2]) / 60)
-	explanation_text = replacetext(explanation_text, "%REPUTATION%", required_progression_in_objectives)
+	required_progression_in_objectives = round(rand(possible_range[1], possible_range[2]))
+	explanation_text = replacetext(explanation_text, "%REPUTATION%", DISPLAY_PROGRESSION(required_progression_in_objectives))
 
 /datum/objective/traitor_objectives/check_completion()
 	if(!owner)
@@ -204,8 +203,7 @@
 /datum/antagonist/traitor/proc/forge_traitor_objectives()
 	objectives.Cut()
 
-	//SKYRAT EDIT START - OBJECTIVE REMOVAL
-	/*
+
 	var/datum/objective/traitor_progression/final_objective = new /datum/objective/traitor_progression()
 	final_objective.owner = owner
 	objectives += final_objective
@@ -213,8 +211,6 @@
 	var/datum/objective/traitor_objectives/objective_completion = new /datum/objective/traitor_objectives()
 	objective_completion.owner = owner
 	objectives += objective_completion
-	*/
-	//SKYRAT EDIT END
 
 /datum/antagonist/traitor/apply_innate_effects(mob/living/mob_override)
 	. = ..()
@@ -276,11 +272,16 @@
 	if(objectives.len) //If the traitor had no objectives, don't need to process this.
 		var/count = 1
 		for(var/datum/objective/objective in objectives)
+			// SKYRAT EDIT START - No greentext
+			/*
 			if(objective.check_completion())
 				objectives_text += "<br><B>Objective #[count]</B>: [objective.explanation_text] [span_greentext("Success!")]"
 			else
 				objectives_text += "<br><B>Objective #[count]</B>: [objective.explanation_text] [span_redtext("Fail.")]"
 				traitor_won = FALSE
+			*/
+			objectives_text += "<br><B>Objective #[count]</B>: [objective.explanation_text]"
+			// SKYRAT EDIT END - No greentext
 			count++
 
 	result += "<br>[owner.name] <B>[traitor_flavor["roundend_report"]]</B>"
@@ -298,9 +299,11 @@
 		var/completed_objectives_text = "Completed Uplink Objectives: "
 		for(var/datum/traitor_objective/objective as anything in uplink_handler.completed_objectives)
 			if(objective.objective_state == OBJECTIVE_STATE_COMPLETED)
-				completed_objectives_text += "<br><B>[objective.name]</B> - ([objective.telecrystal_reward] TC, [round(objective.progression_reward/600, 0.1)] Reputation)"
+				completed_objectives_text += "<br><B>[objective.name]</B> - ([objective.telecrystal_reward] TC, [DISPLAY_PROGRESSION(objective.progression_reward)] Reputation)"
 		result += completed_objectives_text
 
+	// SKYRAT EDIT REMOVAL
+	/*
 	var/special_role_text = lowertext(name)
 
 	if(traitor_won)
@@ -308,6 +311,7 @@
 	else
 		result += span_redtext("The [special_role_text] has failed!")
 		SEND_SOUND(owner.current, 'sound/ambience/ambifailure.ogg')
+	*/
 
 	return result.Join("<br>")
 
@@ -332,7 +336,12 @@
 
 /datum/outfit/traitor/post_equip(mob/living/carbon/human/H, visualsOnly)
 	var/obj/item/melee/energy/sword/sword = locate() in H.held_items
-	sword.icon_state = "e_sword_on_red"
-	sword.worn_icon_state = "e_sword_on_red"
+	if(sword.flags_1 & INITIALIZED_1)
+		sword.attack_self()
+	else //Atoms aren't initialized during the screenshots unit test, so we can't call attack_self for it as the sword doesn't have the transforming weapon component to handle the icon changes. The below part is ONLY for the antag screenshots unit test.
+		sword.icon_state = "e_sword_on_red"
+		sword.inhand_icon_state = "e_sword_on_red"
+		sword.worn_icon_state = "e_sword_on_red"
 
-	H.update_inv_hands()
+		H.update_held_items()
+

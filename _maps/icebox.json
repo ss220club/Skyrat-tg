@@ -2,7 +2,7 @@
 	"version": 1,
 	"map_name": "Ice Box Station",
 	"map_path": "map_files/IceBoxStation",
-	"map_file": "IceBoxStation_skyrat.dmm",
+	"map_file": "IceBoxStation.dmm",
 	"space_ruin_levels": 0,
 	"space_empty_levels": 0,
 	"shuttles": {
@@ -44,10 +44,10 @@
 	],
 	"minetype": "none",
 	"job_changes": {
-		"cook": {
-			"additional_cqc_areas": ["/area/service/kitchen/diner"]
+		"Cook": {
+			"additional_cqc_areas": ["/area/station/service/kitchen/diner"]
 		},
-		"captain": {
+		"Captain": {
 			"special_charter": "moon"
 		}
 	}

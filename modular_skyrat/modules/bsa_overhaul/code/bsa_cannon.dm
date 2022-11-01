@@ -1,7 +1,9 @@
-// Crew has to build a bluespace cannon
-// Cargo orders part for high price
-// Requires high amount of power
-// Requires high level stock parts
+/*
+*	Crew has to build a bluespace cannon
+*	Cargo orders part for high price
+*	Requires high amount of power
+*	Requires high level stock parts
+*/
 
 #define SYSTEM_OFFLINE "SYSTEM OFFLINE"
 #define SYSTEM_READY "SYSTEM READY"
@@ -16,11 +18,13 @@
 	name = "Bluespace Artillery"
 
 /datum/station_goal/bluespace_cannon/get_report()
-	return {"Our military presence is inadequate in your sector.
-		We need you to construct BSA-[rand(1,99)] Artillery position aboard your station.
-
-		Base parts are available for shipping via cargo.
-		-Nanotrasen Naval Command"}
+	return list(
+		"<blockquote>Our military presence is inadequate in your sector.",
+		"We need you to construct BSA-[rand(1,99)] Artillery position aboard your station.",
+		"",
+		"Base parts are available for shipping via cargo.",
+		"-Nanotrasen Naval Command</blockquote>",
+	).Join("\n")
 
 /datum/station_goal/bluespace_cannon/on_report()
 	//Unlock BSA parts

@@ -6,7 +6,7 @@
 	desc = "A heavy jacket made from wool originally stolen from the chef's goat. This new design is made to fit the classic suit-and-tie aesthetic, but without the hypothermia."
 	icon_state = "coatbar"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/toy, /obj/item/storage/fancy/cigarettes, /obj/item/lighter, /obj/item/reagent_containers/food/drinks/shaker, /obj/item/reagent_containers/food/drinks/flask, /obj/item/reagent_containers/glass/rag)
+	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/toy, /obj/item/storage/fancy/cigarettes, /obj/item/lighter, /obj/item/reagent_containers/cup/glass/shaker, /obj/item/reagent_containers/cup/glass/flask, /obj/item/reagent_containers/cup/rag)
 	hoodtype = /obj/item/clothing/head/hooded/winterhood/bartender
 
 /obj/item/clothing/head/hooded/winterhood/bartender
@@ -52,6 +52,11 @@
 	name = "cargo jacket"
 	desc = "A comfortable jacket in supply brown."
 	icon_state = "supply_dep_jacket"
+
+/obj/item/clothing/suit/toggle/jacket/assistant
+	name = "non-departmental jacket"
+	desc = "A comfortable jacket in a neutral black"
+	icon_state = "off_dep_jacket"
 
 /obj/item/clothing/suit/gorka	//THIS WILL BE MOVED IN THE NEXT PR ADDING PROPER GORKAS (not cargo related so not in this PR), BUT FOR NOW ITS HERE FOR THE SUBTYPE'S FILE LINKS
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
@@ -117,7 +122,7 @@
 	icon_state = "labcoat_pmedred"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/suit/toggle/labcoat/para_red/Initialize()
+/obj/item/clothing/suit/toggle/labcoat/para_red/Initialize(mapload)
 	. = ..()
 	allowed += list(
 		/obj/item/storage/medkit,

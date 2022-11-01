@@ -133,7 +133,7 @@
 
 	else if(entered.resistance_flags & ON_FIRE)
 		start_burning()
-		visible_message(span_notice("[entered]'s fire speads to [src], setting it ablaze!"))
+		visible_message(span_notice("[entered]'s fire spreads to [src], setting it ablaze!"))
 
 /obj/structure/bonfire/proc/bonfire_burn(delta_time = 2)
 	var/turf/current_location = get_turf(src)
@@ -160,8 +160,8 @@
 		return
 	//SKYRAT EDIT ADDITION
 	var/turf/open/my_turf = get_turf(src)
-	if(istype(my_turf) && !my_turf.planetary_atmos) //Pollute, but only when we're not on planetary atmos
-		my_turf.PolluteListTurf(list(/datum/pollutant/smoke = 15, /datum/pollutant/carbon_air_pollution = 5), POLLUTION_ACTIVE_EMITTER_CAP)
+	if(istype(my_turf) && !my_turf.planetary_atmos && !is_centcom_level(my_turf.z)) //Pollute, but only when we're not on planetary atmos or on CentCom
+		my_turf.pollute_turf_list(list(/datum/pollutant/smoke = 15, /datum/pollutant/carbon_air_pollution = 5), POLLUTION_ACTIVE_EMITTER_CAP)
 	//SKYRAT EDIT END
 	bonfire_burn(delta_time)
 

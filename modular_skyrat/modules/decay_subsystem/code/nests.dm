@@ -36,7 +36,7 @@
 	/// Does this nest passively spawn mobs too?
 	var/passive_spawning = FALSE
 
-/obj/structure/mob_spawner/Initialize()
+/obj/structure/mob_spawner/Initialize(mapload)
 	. = ..()
 	calculate_trigger_turfs()
 	if(passive_spawning)
@@ -131,7 +131,9 @@
 	retaliated = FALSE
 	visible_message(span_danger("[src] calms down."))
 
-///////////// CUSTOM SPAWNERS
+/*
+*	CUSTOM SPAWNERS
+*/
 
 /obj/structure/mob_spawner/spiders
 	name = "sticky cobwebs"
@@ -209,7 +211,7 @@
 	light_color = LIGHT_COLOR_GREEN
 	max_mobs = 8
 	spawn_cooldown = 15 SECONDS
-	monster_types = list(/mob/living/simple_animal/hostile/rat)
+	monster_types = list(/mob/living/basic/mouse/rat)
 	loot = list(/obj/item/seeds/replicapod = 2)
 
 /obj/structure/mob_spawner/grapes

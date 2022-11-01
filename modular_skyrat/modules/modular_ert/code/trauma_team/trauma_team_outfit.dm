@@ -32,9 +32,9 @@
 		/obj/item/roller,\
 		)
 
-////////////////////
-/// UNIQUE ITEMS ///
-////////////////////
+/*
+*	UNIQUE ITEMS
+*/
 
 //A box of VeyGun cells, because storage is hell and these take up a LOT more than they're worth.
 /obj/item/storage/box/plastic/medicells
@@ -90,7 +90,6 @@
 	new /obj/item/reagent_containers/pill/patch/aiuri(src)
 	new /obj/item/reagent_containers/pill/patch/aiuri(src)
 	new	/obj/item/holosign_creator/medical (src)
-	new /obj/item/pinpointer/crew/prox (src)
 
 /obj/item/clothing/gloves/color/latex/nitrile/ntrauma
 	name = "trauma specialist gloves"

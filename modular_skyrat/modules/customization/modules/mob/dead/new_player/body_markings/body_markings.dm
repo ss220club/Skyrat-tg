@@ -61,6 +61,28 @@
 	affected_bodyparts = CHEST
 	gendered = FALSE
 
+/datum/body_marking/other/flushed_cheeks
+	name = "Flushed Cheeks"
+	icon_state = "flushed_cheeks"
+	default_color = "#CCCCCC"
+	affected_bodyparts = HEAD
+
+/datum/body_marking/other/nose_blemish
+	name = "Nose Blemish"
+	icon_state = "nose_blemish"
+	default_color = "#CCCCCC"
+	affected_bodyparts = HEAD
+
+/datum/body_marking/other/brows
+	name = "Brows"
+	icon_state = "brows"
+	affected_bodyparts = HEAD
+
+/datum/body_marking/other/eyeliner
+	name = "Eyeliner"
+	icon_state = "eyeliner"
+	affected_bodyparts = HEAD
+
 /datum/body_marking/other/weight
 	name = "Body Weight"
 	icon_state = "weight"
@@ -472,7 +494,6 @@
 	affected_bodyparts = HEAD
 	recommended_species = list(SPECIES_XENO)
 
-//TODO: Make these markings associated with their assigned bodyparts rather than mob dna.
 /datum/body_marking/tattoo
 	icon = 'modular_skyrat/master_files/icons/mob/body_markings/tattoo_markings.dmi'
 	recommended_species = null
@@ -526,3 +547,13 @@
 	name = "Tattoo - Tiger (Foot)"
 	icon_state = "tat_tiger_foot"
 	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/tattoo/infinity
+	name = "Tattoo - Infinity"
+	icon_state = "tat_infinity"
+	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/tattoo/butterfly
+	name = "Tattoo - Butterfly"
+	icon_state = "tat_butterfly"
+	affected_bodyparts = CHEST

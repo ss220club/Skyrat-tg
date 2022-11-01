@@ -5,10 +5,10 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/gold = 3000, /datum/material/diamond = 1500, /datum/material/uranium = 250, /datum/material/bluespace = 2000)
 	build_path = /obj/item/satchel_of_holding_inert
-	category = list("Bluespace Designs")
+	category = list(RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_BLUESPACE)
 	dangerous_construction = TRUE
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
-	
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
+
 /datum/design/duffel_holding
 	name = "Inert Duffel Bag of Holding"
 	desc = "A block of metal ready to be transformed into a duffel bag of holding with a bluespace anomaly core."
@@ -16,6 +16,6 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/gold = 3000, /datum/material/diamond = 1500, /datum/material/uranium = 250, /datum/material/bluespace = 2000)
 	build_path = /obj/item/duffel_of_holding_inert
-	category = list("Bluespace Designs")
+	category = list(RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_BLUESPACE)
 	dangerous_construction = TRUE
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE

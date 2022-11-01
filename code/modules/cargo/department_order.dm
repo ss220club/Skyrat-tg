@@ -70,7 +70,7 @@ GLOBAL_LIST_INIT(department_order_cooldowns, list(
 			)
 			supply_data += list(target_group)
 		//skip packs we should not show, even if we should show the group
-		if((pack.hidden && !(obj_flags & EMAGGED)) || (pack.special && !pack.special_enabled) || pack.DropPodOnly || pack.goody)
+		if((pack.hidden && !(obj_flags & EMAGGED)) || (pack.special && !pack.special_enabled) || pack.drop_pod_only || pack.goody)
 			continue
 		//finally the pack data itself
 		target_group["packs"] += list(list(
@@ -119,7 +119,7 @@ GLOBAL_LIST_INIT(department_order_cooldowns, list(
 	if(!pack)
 		say("Something went wrong!")
 		CRASH("requested supply pack id \"[id]\" not found!")
-	if(pack.hidden || pack.DropPodOnly || pack.special)
+	if((pack.hidden && !(obj_flags & EMAGGED)) || (pack.special && !pack.special_enabled) || pack.drop_pod_only || pack.goody)
 		return
 	var/name = "*None Provided*"
 	var/rank = "*None Provided*"
@@ -167,7 +167,7 @@ GLOBAL_LIST_INIT(department_order_cooldowns, list(
 	circuit = /obj/item/circuitboard/computer/service_orders
 	department_delivery_areas = list(/area/station/hallway/secondary/service, /area/station/service/bar/atrium)
 	override_access = ACCESS_HOP
-	req_one_access = ACCESS_SERVICE
+	req_one_access = list(ACCESS_SERVICE)
 	dep_groups = list("Service", "Food & Hydroponics", "Livestock", "Costumes & Toys")
 
 /obj/machinery/computer/department_orders/engineering
@@ -189,7 +189,10 @@ GLOBAL_LIST_INIT(department_order_cooldowns, list(
 /obj/machinery/computer/department_orders/security
 	name = "security order console"
 	circuit = /obj/item/circuitboard/computer/security_orders
-	department_delivery_areas = list(/area/station/security/brig)
+	department_delivery_areas = list(
+		/area/station/security/brig,
+		/area/station/security/brig/upper,
+	)
 	override_access = ACCESS_HOS
 	req_one_access = REGION_ACCESS_SECURITY
 	dep_groups = list("Security", "Armory")
@@ -197,7 +200,12 @@ GLOBAL_LIST_INIT(department_order_cooldowns, list(
 /obj/machinery/computer/department_orders/medical
 	name = "medical order console"
 	circuit = /obj/item/circuitboard/computer/medical_orders
-	department_delivery_areas = list(/area/station/medical/medbay/central)
+	department_delivery_areas = list(
+		/area/station/medical/medbay/central,
+		/area/station/medical/medbay,
+		/area/station/medical/treatment_center,
+		/area/station/medical/storage,
+	)
 	override_access = ACCESS_CMO
 	req_one_access = REGION_ACCESS_MEDBAY
 	dep_groups = list("Medical")

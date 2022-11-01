@@ -3,7 +3,7 @@
 	invisibility = INVISIBILITY_ABSTRACT
 	density = FALSE
 	stat = DEAD
-	hud_type = /datum/hud/new_player
+	//hud_type = /datum/hud/new_player SKYRAT EDIT REMOVAL
 	hud_possible = list()
 
 	var/ready = FALSE
@@ -26,8 +26,6 @@
 	else
 		forceMove(locate(1,1,1))
 
-	ComponentInitialize()
-
 	. = ..()
 
 	GLOB.new_player_list += src
@@ -40,6 +38,7 @@
 /mob/dead/new_player/prepare_huds()
 	return
 
+/* SKYRAT EDIT REMOVAL - MOVED TO MODULAR
 /mob/dead/new_player/Topic(href, href_list[])
 	if(src != usr)
 		return
@@ -70,6 +69,9 @@
 					if(IsJobUnavailable(job_datum.title, TRUE) != JOB_AVAILABLE)
 						continue
 					dept_data += job_datum.title
+			if(dept_data.len <= 0) //Congratufuckinglations
+				tgui_alert(src, "There are literally no random jobs available for you on this server, ahelp for assistance.")
+				return
 			var/random = pick(dept_data)
 			var/randomjob = "<p><center><a href='byond://?src=[REF(src)];SelectedJob=[random]'>[random]</a></center><center><a href='byond://?src=[REF(src)];SelectedJob=Random'>Reroll</a></center><center><a href='byond://?src=[REF(src)];cancrand=[1]'>Cancel</a></center></p>"
 			var/datum/browser/popup = new(src, "randjob", "<div align='center'>Random Job</div>", 200, 150)
@@ -111,7 +113,7 @@
 	if(href_list["votepollref"])
 		var/datum/poll_question/poll = locate(href_list["votepollref"]) in GLOB.polls
 		vote_on_poll_handler(poll, href_list)
-
+*/
 
 //When you cop out of the round (NB: this HAS A SLEEP FOR PLAYER INPUT IN IT)
 /mob/dead/new_player/proc/make_me_an_observer()
@@ -126,6 +128,7 @@
 	var/this_is_like_playing_right = alert(usr, "Are you sure you wish to observe?[less_input_message]", "Observe", "Yes", "No") //SKYRAT EDIT CHANGE
 	if(QDELETED(src) || !src.client || this_is_like_playing_right != "Yes")
 		ready = PLAYER_NOT_READY
+		show_title_screen() // SKYRAT EDIT ADDITION
 		return FALSE
 
 	var/mob/dead/observer/observer = new()
@@ -226,7 +229,7 @@
 	if(SSshuttle.arrivals)
 		close_spawn_windows() //In case we get held up
 		if(SSshuttle.arrivals.damaged && CONFIG_GET(flag/arrivals_shuttle_require_safe_latejoin))
-			src << tgui_alert(usr,"The arrivals shuttle is currently malfunctioning! You cannot join.")
+			tgui_alert(usr,"The arrivals shuttle is currently malfunctioning! You cannot join.")
 			return FALSE
 
 		if(CONFIG_GET(flag/arrivals_shuttle_require_undocked))
@@ -333,7 +336,7 @@
 	if(SSlag_switch.measures[DISABLE_NON_OBSJOBS])
 		dat += "<div class='notice red' style='font-size: 125%'>Only Observers may join at this time.</div><br>"
 	dat += "<div class='notice'>Round Duration: [DisplayTimeText(world.time - SSticker.round_start_time)]</div>"
-	dat += "<div class='notice'>Alert Level: [capitalize(num2seclevel(SSsecurity_level.current_level))]</div>"
+	dat += "<div class='notice'>Alert Level: [capitalize(SSsecurity_level.get_current_level_as_text())]</div>" // SKYRAT EDIT ADDITION
 	if(SSshuttle.emergency)
 		switch(SSshuttle.emergency.mode)
 			if(SHUTTLE_ESCAPE)
@@ -412,9 +415,9 @@
 	var/area/joined_area = get_area(new_character.loc)
 	if(joined_area)
 		joined_area.on_joining_game(new_character)
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CREWMEMBER_JOINED, new_character, new_character.mind.assigned_role.title)
 	new_character = null
 	qdel(src)
-
 
 /mob/dead/new_player/proc/ViewManifest()
 	if(!client)
@@ -434,6 +437,7 @@
 
 
 /mob/dead/new_player/proc/close_spawn_windows()
+	hide_title_screen() // SKYRAT EDIT ADDITION
 	src << browse(null, "window=latechoices") //closes late choices window (Hey numbnuts go make this tgui)
 	src << browse(null, "window=randjob") //closes the random job window
 
@@ -472,19 +476,18 @@
 	// First we detain them by removing all the verbs they have on client
 	for (var/v in client.verbs)
 		var/procpath/verb_path = v
-		if (!(verb_path in GLOB.stat_panel_verbs))
-			remove_verb(client, verb_path)
+		remove_verb(client, verb_path)
 
 	// Then remove those on their mob as well
 	for (var/v in verbs)
 		var/procpath/verb_path = v
-		if (!(verb_path in GLOB.stat_panel_verbs))
-			remove_verb(src, verb_path)
+		remove_verb(src, verb_path)
 
 	// Then we create the interview form and show it to the client
 	var/datum/interview/I = GLOB.interviews.interview_for_client(client)
 	if (I)
 		I.ui_interact(src)
 
-	// Add verb for re-opening the interview panel, and re-init the verbs for the stat panel
+	// Add verb for re-opening the interview panel, fixing chat and re-init the verbs for the stat panel
 	add_verb(src, /mob/dead/new_player/proc/open_interview)
+	add_verb(client, /client/verb/fix_tgui_panel)

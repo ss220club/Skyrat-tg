@@ -37,6 +37,7 @@
 	name = "Robot Tears"
 	description = "An oily substance that an IPC could technically consider a 'drink'."
 	color = "#363636"
+	quality = DRINK_GOOD
 	boozepwr = 25
 	glass_icon_state = "robottearsglass"
 	glass_name = "glass of robot tears"
@@ -47,6 +48,7 @@
 	name = "Trinary"
 	description = "A fruit drink meant only for synthetics, however that works."
 	color = "#ADB21f"
+	quality = DRINK_GOOD
 	boozepwr = 20
 	glass_icon_state = "trinaryglass"
 	glass_name = "glass of trinary"
@@ -57,6 +59,7 @@
 	name = "Servo"
 	description = "A drink containing some organic ingredients, but meant only for synthetics."
 	color = "#5B3210"
+	quality = DRINK_GOOD
 	boozepwr = 25
 	glass_icon_state = "servoglass"
 	glass_name = "glass of servo"
@@ -67,6 +70,7 @@
 	name = "Uplink"
 	description = "A potent mix of alcohol and synthanol. Will only work on synthetics."
 	color = "#E7AE04"
+	quality = DRINK_GOOD
 	boozepwr = 15
 	glass_icon_state = "uplinkglass"
 	glass_name = "glass of uplink"
@@ -77,6 +81,7 @@
 	name = "Synth 'n Coke"
 	description = "The classic drink adjusted for a robot's tastes."
 	color = "#7204E7"
+	quality = DRINK_GOOD
 	boozepwr = 25
 	glass_icon_state = "synthncokeglass"
 	glass_name = "glass of synth 'n coke"
@@ -87,6 +92,7 @@
 	name = "Synthignon"
 	description = "Someone mixed wine and alcohol for robots. Hope you're proud of yourself."
 	color = "#D004E7"
+	quality = DRINK_GOOD
 	boozepwr = 25
 	glass_icon_state = "synthignonglass"
 	glass_name = "glass of synthignon"
@@ -157,6 +163,7 @@
 	description = "Triple citrus layered with some ice and cream."
 	boozepwr = 0
 	color = "#D8FF59"
+	quality = DRINK_NICE
 	taste_description = "brain freezing sourness"
 	glass_icon = 'modular_skyrat/master_files/icons/obj/drinks.dmi'
 	glass_icon_state = "liz_fizz"
@@ -180,7 +187,7 @@
 	description = "A drink consisting of creme de coconut and tropical juices"
 	boozepwr = 20
 	color = "#FF9473"
-	quality = DRINK_NICE
+	quality = DRINK_VERYGOOD
 	taste_description = "coconut, with orange and grenadine accents"
 	glass_icon = 'modular_skyrat/master_files/icons/obj/drinks.dmi'
 	glass_icon_state = "malibu_sunset"
@@ -200,7 +207,7 @@
 	glass_desc = "This looks very aesthetically pleasing."
 
 /datum/reagent/consumable/ethanol/hotlime_miami/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	M.set_timed_status_effect(1.5 MINUTES * REM * delta_time, /datum/status_effect/drugginess)
+	M.set_drugginess(1.5 MINUTES * REM * delta_time)
 	M.adjustStaminaLoss(-2)
 	return ..()
 
@@ -297,7 +304,7 @@
 	if(islizard(M))
 		quality = RACE_DRINK
 	else
-		M.adjust_disgust(25)
+		quality = DRINK_GOOD
 	return ..()
 
 /datum/reagent/consumable/ethanol/oil_drum
@@ -315,7 +322,7 @@
 	if(MOB_ROBOTIC)
 		quality = RACE_DRINK
 	else
-		M.adjust_disgust(25)
+		quality = DRINK_GOOD
 	return ..()
 
 /datum/reagent/consumable/ethanol/nord_king
@@ -333,7 +340,7 @@
 	if(ishumanbasic(M) || isdwarf(M))
 		quality = RACE_DRINK
 	else
-		M.adjust_disgust(25)
+		quality = DRINK_GOOD
 	return ..()
 
 /datum/reagent/consumable/ethanol/velvet_kiss
@@ -351,7 +358,7 @@
 	if(iszombie(M) || isvampire(M) || isdullahan(M) || ishemophage(M)) //Rare races!
 		quality = RACE_DRINK
 	else
-		M.adjust_disgust(25)
+		quality = DRINK_GOOD
 	return ..()
 
 /datum/reagent/consumable/ethanol/abduction_fruit
@@ -366,10 +373,10 @@
 	glass_desc = "Mixed fruits that were never meant to be mixed..."
 
 /datum/reagent/consumable/ethanol/abduction_fruit/on_mob_life(mob/living/carbon/M)
-	if(isabductor(M)) //add xenohyrids to this at some point
+	if(isabductor(M) || isxenohybrid(M))
 		quality = RACE_DRINK
 	else
-		M.adjust_disgust(25)
+		quality = DRINK_GOOD
 	return ..()
 
 /datum/reagent/consumable/ethanol/bug_zapper
@@ -387,7 +394,7 @@
 	if(isinsect(M) || isflyperson(M) || ismoth(M))
 		quality = RACE_DRINK
 	else
-		M.adjust_disgust(25)
+		quality = DRINK_GOOD
 	return ..()
 
 /datum/reagent/consumable/ethanol/mush_crush
@@ -402,10 +409,10 @@
 	glass_desc = "Popular among people that want to grow their own food rather than drink the soil."
 
 /datum/reagent/consumable/ethanol/mush_crush/on_mob_life(mob/living/carbon/M)
-	if(ispodperson(M))
+	if(ispodperson(M) || issnail(M))
 		quality = RACE_DRINK
 	else
-		M.adjust_disgust(25)
+		quality = DRINK_GOOD
 	return ..()
 
 /datum/reagent/consumable/ethanol/hollow_bone
@@ -423,7 +430,7 @@
 	if(isplasmaman(M) || isskeleton(M))
 		quality = RACE_DRINK
 	else
-		M.adjust_disgust(25)
+		quality = DRINK_GOOD
 	return ..()
 
 /datum/reagent/consumable/ethanol/jell_wyrm
@@ -440,9 +447,12 @@
 /datum/reagent/consumable/ethanol/jell_wyrm/on_mob_life(mob/living/carbon/M)
 	if(isjellyperson(M) || isslimeperson(M) || isluminescent(M))
 		quality = RACE_DRINK
+		if(prob(20))
+			M.adjustToxLoss(-1, 0)
 	else
-		M.adjust_disgust(25)
-		M.adjustToxLoss(1, 0) //Low tox due to being carp + jell toxins.
+		quality = DRINK_GOOD
+		if(prob(20))
+			M.adjustToxLoss(1, 0)
 	return ..()
 
 /datum/reagent/consumable/ethanol/laval_spit //Yes Laval
@@ -460,7 +470,7 @@
 	if(isgolem(M))
 		quality = RACE_DRINK
 	else
-		M.adjust_disgust(25)
+		quality = DRINK_GOOD
 	return ..()
 
 /datum/reagent/consumable/ethanol/frisky_kitty
@@ -475,10 +485,10 @@
 	glass_desc = "Warm milk and some catnip."
 
 /datum/reagent/consumable/ethanol/frisky_kitty/on_mob_life(mob/living/carbon/M)
-	if(ismammal(M) || isfelinid(M))
+	if(isfeline(M))
 		quality = RACE_DRINK
 	else
-		M.adjust_disgust(25)
+		quality = DRINK_GOOD
 	return ..()
 
 /datum/reagent/consumable/ethanol/appletini
@@ -491,6 +501,7 @@
 	glass_icon_state = "appletini"
 	glass_name = "glass of appletini"
 	glass_desc = "An appley beverage in a martini glass"
+	quality = DRINK_GOOD
 
 /datum/reagent/consumable/ethanol/quadruple_sec/cityofsin //making this a subtype was some REAL JANK, but it saves me a headache, and it looks good!
 	name = "City of Sin"
@@ -502,4 +513,54 @@
 	glass_icon_state = "cityofsin"
 	glass_name = "glass of city of sin"
 	glass_desc = "Looking at it makes you recall every mistake you’ve made."
+	quality = DRINK_VERYGOOD //takes extra effort
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/reagent/consumable/ethanol/shakiri
+	name = "Shakiri"
+	description = "A sweet, fragrant red drink made from fermented kiri fruits. It seems to gently sparkle when exposed to light."
+	boozepwr = 45
+	color = "#cf3c3c"
+	quality = DRINK_GOOD
+	taste_description = "delicious liquified jelly"
+	glass_icon = 'modular_skyrat/master_files/icons/obj/drinks.dmi'
+	glass_icon_state = "shakiri"
+	glass_name = "glass of shakiri"
+	glass_desc = "A sweet, fragrant red drink made from fermented kiri fruits. It seems to gently sparkle when exposed to light."
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/reagent/consumable/ethanol/shakiri_spritz
+	name = "Shakiri Spritz"
+	description = "A carbonated cocktail made from shakiri and orange juice with soda water."
+	color = "#cf863c"
+	quality = DRINK_GOOD
+	boozepwr = 45
+	glass_icon = 'modular_skyrat/master_files/icons/obj/drinks.dmi'
+	glass_icon_state = "shakiri_spritz"
+	glass_name = "glass of shakiri spritz"
+	glass_desc = "A carbonated cocktail made from shakiri and orange juice with soda water."
+	taste_description = "tangy, carbonated sweetness"
+
+/datum/reagent/consumable/ethanol/crimson_hurricane
+	name = "Crimson Hurricane"
+	description = "A strong, citrusy cocktail of human origin, now made with shakiri and kiri jelly for a delightfully sweet drink."
+	color = "#b86637"
+	quality = DRINK_VERYGOOD
+	boozepwr = 60
+	glass_icon = 'modular_skyrat/master_files/icons/obj/drinks.dmi'
+	glass_icon_state = "crimson_hurricane"
+	glass_name = "glass of crimson hurricane"
+	glass_desc = "A strong, citrusy cocktail of human origin, now with shakiri and kiri jelly for a delightfully sweet drink."
+	taste_description = "thick, fruity sweetness with a punch"
+
+/datum/reagent/consumable/ethanol/shakiri_rogers
+	name = "Shakiri Rogers"
+	description = "A take on the classic Roy Rogers, with shakiri instead of grenadine. Sweet and refreshing."
+	color = "#6F2B1A"
+	quality = DRINK_GOOD
+	boozepwr = 45
+	glass_icon = 'modular_skyrat/master_files/icons/obj/drinks.dmi'
+	glass_icon_state = "shakiri_rogers"
+	glass_name = "glass of shakiri rogers"
+	glass_desc = "A take on the classic Roy Rogers, with shakiri instead of grenadine. Sweet and refreshing."
+	taste_description = "fruity, carbonated soda with a slight kick"

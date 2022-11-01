@@ -4,8 +4,6 @@
 #define HEV_COLOR_BLUE "#00aeff"
 #define HEV_COLOR_ORANGE "#f88f04"
 
-#define HEV_ARMOR_POWERON_BONUS 60
-
 #define HEV_DAMAGE_POWER_USE_THRESHOLD 10
 
 #define HEV_ARMOR_POWEROFF list(20, 20, 20, 20, 30, 40, 40, 40, 40, 10)
@@ -43,7 +41,6 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "hev"
-	inhand_icon_state = "sec_helm"
 	armor = list(MELEE = 20, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 30, BIO = 40, FIRE = 40, ACID = 40, WOUND = 10)
 	obj_flags = NO_MAT_REDEMPTION
 	resistance_flags = LAVA_PROOF|FIRE_PROOF|UNACIDABLE|ACID_PROOF|INDESTRUCTIBLE|FREEZE_PROOF
@@ -151,13 +148,12 @@
 	var/health_near_death_alarm = FALSE
 	var/health_critical_alarm = FALSE
 	var/health_dropping_alarm = FALSE
-	var/seek_medical_attention_alarm = FALSE
 
 	///Notification modes and current playing voicelines.
 	var/send_notifications = HEV_NOTIFICATION_TEXT_AND_VOICE
 	var/playing_voice_line
 
-	///Used only for differentiating of HEV and PCV
+	///Used only for differentiating of different (obviously) suits.
 	var/armor_poweroff = HEV_ARMOR_POWEROFF
 	var/armor_poweron = HEV_ARMOR_POWERON
 	var/heal_amount = HEV_HEAL_AMOUNT
@@ -169,16 +165,13 @@
 	/// On first activation, we play the user a nice song!
 	var/first_use = TRUE
 
-/obj/item/clothing/suit/space/hev_suit/Initialize()
+/obj/item/clothing/suit/space/hev_suit/Initialize(mapload)
 	. = ..()
 	internal_radio = new(src)
 	internal_radio.subspace_transmission = TRUE
 	internal_radio.canhear_range = 0 // anything greater will have the bot broadcast the channel as if it were saying it out loud.
 	internal_radio.recalculateChannels()
-
-/obj/item/clothing/suit/space/hev_suit/ComponentInitialize()
-	. = ..()
-	AddComponent(/datum/component/cell, cell_override = cell, _has_cell_overlays = FALSE)
+	AddComponent(/datum/component/cell, cell_override = initial(cell), _has_cell_overlays = FALSE)
 
 /obj/item/clothing/suit/space/hev_suit/equipped(mob/user, slot)
 	. = ..()
@@ -765,7 +758,6 @@
 	worn_icon = 'modular_skyrat/modules/awaymissions_skyrat/icons/hecumob.dmi'
 	worn_icon_digi = 'modular_skyrat/modules/awaymissions_skyrat/icons/hecumob_muzzled.dmi'
 	icon_state = "hecu_helm"
-	inhand_icon_state = "sec_helm"
 	armor = list(MELEE = 30, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 30, BIO = 20, FIRE = 20, ACID = 20, WOUND = 10)
 	flags_inv = HIDEHAIR
 	obj_flags = NO_MAT_REDEMPTION
@@ -887,7 +879,6 @@
 #undef HEV_COLOR_RED
 #undef HEV_COLOR_BLUE
 #undef HEV_COLOR_ORANGE
-#undef HEV_ARMOR_POWERON_BONUS
 #undef HEV_DAMAGE_POWER_USE_THRESHOLD
 #undef HEV_ARMOR_POWEROFF
 #undef PCV_ARMOR_POWEROFF

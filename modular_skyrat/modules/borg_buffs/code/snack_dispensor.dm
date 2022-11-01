@@ -5,7 +5,7 @@
 	build_path = /obj/item/borg/upgrade/snack_dispenser
 	materials = list(/datum/material/iron = 700, /datum/material/glass = 500)
 	construction_time = 1 SECONDS
-	category = list("Cyborg Upgrade Modules")
+	category = list(RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ALL)
 
 /obj/item/borg/upgrade/snack_dispenser
 	name = "Cyborg Upgrade (Snack Dispenser)"
@@ -130,14 +130,14 @@
 	user.visible_message(span_notice("[src] launches [snack] at [target]!"))
 
 /obj/item/food/cookie/bacon
-	name = "Strip of Bacon"
+	name = "strip of bacon"
 	desc = "BACON!!!"
 	icon = 'modular_skyrat/master_files/icons/obj/food/snacks.dmi'
 	icon_state = "bacon_strip"
 	foodtypes = MEAT
 
 /obj/item/food/cookie/cloth
-	name = "Odd Cookie"
+	name = "odd cookie"
 	desc = "A cookie that appears to be made out of... some form of cloth?"
 	icon = 'modular_skyrat/master_files/icons/obj/food/snacks.dmi'
 	icon_state = "cookie_cloth"

@@ -41,7 +41,7 @@
 		/obj/item/stock_parts/micro_laser = 2
 		)
 
-/obj/machinery/ammo_workbench/Initialize()
+/obj/machinery/ammo_workbench/Initialize(mapload)
 	AddComponent(/datum/component/material_container, SSmaterials.materials_by_category[MAT_CATEGORY_ITEM_MATERIAL], 0, MATCONTAINER_EXAMINE, allowed_items = /obj/item/stack, _after_insert = CALLBACK(src, .proc/AfterMaterialInsert))
 	. = ..()
 	wires = new /datum/wires/ammo_workbench(src)
@@ -335,8 +335,8 @@
 	desc = "A machine, somewhat akin to a lathe, made specifically for manufacturing ammunition. It has a slot for magazines."
 	id = "ammo_workbench"
 	build_path = /obj/item/circuitboard/machine/ammo_workbench
-	category = list("Weapons Machinery")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	category = list(RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_FAB)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 
 //MISC MACHINE PROCS

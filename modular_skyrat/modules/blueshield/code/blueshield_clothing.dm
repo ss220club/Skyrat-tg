@@ -1,32 +1,6 @@
 //Blueshield
-/obj/item/clothing/under/rank/security/blueshield
-	desc = "An expensive designer shirt with snazzy suit pants, complete with a blue tie."
-	name = "blueshield's suit"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/uniforms.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/uniform.dmi'
-	worn_icon_digi = 'modular_skyrat/master_files/icons/mob/clothing/uniform_digi.dmi'
-	icon_state = "blueshield"
-	armor = list("melee" = 10, "bullet" = 5, "laser" = 5,"energy" = 10, "bomb" =10, "bio" = 0, "fire" = 50, "acid" = 50)
-	can_adjust = FALSE
-	sensor_mode = SENSOR_COORDS
-	random_sensor = FALSE
 
-/obj/item/clothing/under/rank/security/blueshield/turtleneck
-	name = "blueshield's skivvy"
-	desc = "A cozier alternative to the normal blueshield's suit. It's made out of an expensive, all-natural wool."
-	icon_state = "bs_turtleneck"
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-
-/obj/item/clothing/under/rank/security/blueshield/turtleneck/skirt
-	name = "blueshield's skirtleneck"
-	desc = "An alternative to the normal turtleneck with the pants replaced with a high-cut skirt. It's still made out of an expensive, all-natural wool."
-	icon_state = "bs_skirtleneck"
-
-/obj/item/clothing/under/rank/security/blueshield/skirt
-	desc = "A \"tactical\" skirt seemingly outfitted in Nanotrasen's standard corporate-chic."
-	name = "blueshield's skirt"
-	icon_state = "blueshieldskirt"
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+//Uniform items are in command.dm
 
 /obj/item/clothing/gloves/tackler/combat/insulated/blueshield
     name = "combat gloves"
@@ -48,7 +22,7 @@
 /obj/item/radio/headset/headset_bs/alt
 	icon_state = "bshield_headset_alt"
 
-/obj/item/radio/headset/headset_bs/alt/ComponentInitialize()
+/obj/item/radio/headset/headset_bs/alt/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
 
@@ -102,7 +76,7 @@
 	icon_state = "satchel-blueshield"
 	inhand_icon_state = "satchel-sec"
 
-/obj/item/storage/backpack/duffel/blueshield
+/obj/item/storage/backpack/duffelbag/blueshield
 	name = "blueshield duffelbag"
 	desc = "A robust duffelbag issued to Nanotrasen's finest."
 	icon = 'modular_skyrat/modules/blueshield/icons/blueshieldpacks.dmi'
@@ -113,7 +87,7 @@
 //blueshield armor
 /obj/item/clothing/suit/armor/vest/blueshield
 	name = "blueshield's jacket"
-	desc = "An expensive kevlar-lined jacket with a golden badge on the chest and \"NT\" emblazoned on the back. It weighs surprisingly little, despite how heavy it looks. There's a tight-fitting vest tucked in underneath."
+	desc = "An expensive kevlar-lined jacket with a golden badge on the chest and \"NT\" emblazoned on the back. It weighs surprisingly little, despite how heavy it looks."
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
 	//alternate_worn_icon_digi = 'modular_skyrat/icons/mob/suit_digi.dmi'
@@ -121,9 +95,13 @@
 	body_parts_covered = CHEST|ARMS
 	armor = list("melee" = 35, "bullet" = 25, "laser" = 25,"energy" = 25, "bomb" = 30, "bio" = 0, "fire" = 75, "acid" = 75)
 
+/obj/item/clothing/suit/armor/vest/blueshield/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
+
 /obj/item/clothing/suit/armor/vest/blueshieldarmor
 	name = "blueshield's armor"
-	desc = "A tight-fitting kevlar-lined vest with a golden badge on the chest and \"NT\" emblazoned on the back. It weighs surprisingly little, despite how heavy it looks."
+	desc = "A tight-fitting kevlar-lined vest with a blue badge on the chest of it."
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
 	icon_state = "blueshieldarmor"
@@ -135,13 +113,12 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
 	icon_state = "coatblueshield"
-	inhand_icon_state = "coatblueshield"
-	desc = "A comfy kevlar-lined coat with \"NT\" emblazoned on the back."
+	desc = "A comfy kevlar-lined coat with blue highlights, for the blueshield."
 	hoodtype = /obj/item/clothing/head/hooded/winterhood/blueshield
 	allowed = list(/obj/item/melee/baton/security/loaded)
 	armor = list("melee" = 35, "bullet" = 25, "laser" = 25,"energy" = 25, "bomb" = 30, "bio" = 0, "fire" = 75, "acid" = 75)
 
-/obj/item/clothing/suit/hooded/wintercoat/blueshield/Initialize()
+/obj/item/clothing/suit/hooded/wintercoat/blueshield/Initialize(mapload)
 	. = ..()
 	allowed += GLOB.security_vest_allowed
 

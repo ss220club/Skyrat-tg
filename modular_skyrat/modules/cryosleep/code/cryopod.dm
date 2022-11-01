@@ -9,6 +9,11 @@
  */
 GLOBAL_LIST_EMPTY(cryopod_computers)
 
+GLOBAL_LIST_EMPTY(ghost_records)
+
+/// A list of all cryopods that aren't quiet, to be used by the "Send to Cryogenic Storage" VV action.
+GLOBAL_LIST_EMPTY(valid_cryopods)
+
 //Main cryopod console.
 
 /obj/machinery/computer/cryopod
@@ -17,27 +22,33 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 	icon = 'modular_skyrat/modules/cryosleep/icons/cryogenics.dmi'
 	icon_state = "cellconsole_1"
 	icon_keyboard = null
-	// circuit = /obj/item/circuitboard/cryopodcontrol
+	use_power = FALSE
 	density = FALSE
 	interaction_flags_machine = INTERACT_MACHINE_OFFLINE
-	req_one_access = list(ACCESS_HEADS, ACCESS_ARMORY) // Heads of staff or the warden can go here to claim recover items from their department that people went were cryodormed with.
-	var/mode = null
+	req_one_access = list(ACCESS_COMMAND, ACCESS_ARMORY) // Heads of staff or the warden can go here to claim recover items from their department that people went were cryodormed with.
+	verb_say = "coldly states"
+	verb_ask = "queries"
+	verb_exclaim = "alarms"
 
 	/// Used for logging people entering cryosleep and important items they are carrying.
 	var/list/frozen_crew = list()
 	/// The items currently stored in the cryopod control panel.
 	var/list/frozen_item = list()
 
-	var/storage_type = "crewmembers"
-	var/storage_name = "Cryogenic Oversight Control"
+	/// This is what the announcement system uses to make announcements. Make sure to set a radio that has the channel you want to broadcast on.
+	var/obj/item/radio/headset/radio = /obj/item/radio/headset/silicon/pai
+	/// The channel to be broadcast on, valid values are the values of any of the "RADIO_CHANNEL_" defines.
+	var/announcement_channel = null // RADIO_CHANNEL_COMMON doesn't work here.
 
 
 /obj/machinery/computer/cryopod/Initialize(mapload)
 	. = ..()
 	GLOB.cryopod_computers += src
+	radio = new radio(src)
 
 /obj/machinery/computer/cryopod/Destroy()
 	GLOB.cryopod_computers -= src
+	QDEL_NULL(radio)
 	return ..()
 
 /obj/machinery/computer/cryopod/update_icon_state()
@@ -110,12 +121,20 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 		else
 			CRASH("Illegal action for ui_act: '[action]'")
 
+/obj/machinery/computer/cryopod/proc/announce(message_type, user, rank)
+	switch(message_type)
+		if("CRYO_JOIN")
+			radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has woken up from cryo storage.", announcement_channel)
+		if("CRYO_LEAVE")
+			radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has been moved to cryo storage.", announcement_channel)
+
 // Cryopods themselves.
 /obj/machinery/cryopod
 	name = "cryogenic freezer"
 	desc = "Suited for Cyborgs and Humanoids, the pod is a safe place for personnel affected by the Space Sleep Disorder to get some rest."
 	icon = 'modular_skyrat/modules/cryosleep/icons/cryogenics.dmi'
 	icon_state = "cryopod-open"
+	use_power = FALSE
 	density = TRUE
 	anchored = TRUE
 	state_open = TRUE
@@ -138,12 +157,16 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 	/// if false, plays announcement on cryo
 	var/quiet = FALSE
 
+	/// Has the occupant been tucked in?
+	var/tucked = FALSE
 
 /obj/machinery/cryopod/quiet
 	quiet = TRUE
 
 /obj/machinery/cryopod/Initialize(mapload)
 	..()
+	if(!quiet)
+		GLOB.valid_cryopods += src
 	return INITIALIZE_HINT_LATELOAD //Gotta populate the cryopod computer GLOB first
 
 /obj/machinery/cryopod/LateInitialize()
@@ -152,6 +175,7 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 
 // This is not a good situation
 /obj/machinery/cryopod/Destroy()
+	GLOB.valid_cryopods -= src
 	control_computer_weakref = null
 	return ..()
 
@@ -188,6 +212,7 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 	icon_state = "cryopod-open"
 	set_density(TRUE)
 	name = initial(name)
+	tucked = FALSE
 
 /obj/machinery/cryopod/container_resist_act(mob/living/user)
 	visible_message(span_notice("[occupant] emerges from [src]!"),
@@ -292,8 +317,15 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 	else
 		crew_member["job"] = "N/A"
 
-	// Delete them from datacore.
+	// Delete them from datacore and ghost records.
 	var/announce_rank = null
+
+	for(var/datum/data/record/record as anything in GLOB.ghost_records)
+		if(record.fields["name"] == mob_occupant.real_name)
+			announce_rank = record.fields["rank"]
+			GLOB.ghost_records.Remove(record)
+			qdel(record)
+
 	for(var/datum/data/record/medical_record as anything in GLOB.data_core.medical)
 		if(medical_record.fields["name"] == mob_occupant.real_name)
 			qdel(medical_record)
@@ -312,9 +344,8 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 		control_computer.frozen_crew += list(crew_member)
 
 	// Make an announcement and log the person entering storage. If set to quiet, does not make an announcement.
-	if(GLOB.announcement_systems.len && !quiet)
-		var/obj/machinery/announcement_system/announcer = pick(GLOB.announcement_systems)
-		announcer.announce("CRYOSTORAGE", mob_occupant.real_name, announce_rank, list())
+	if(!quiet)
+		control_computer.announce("CRYO_LEAVE", mob_occupant.real_name, announce_rank)
 
 	visible_message(span_notice("[src] hums and hisses as it moves [mob_occupant.real_name] into storage."))
 
@@ -326,7 +357,8 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 		if(control_computer)
 			if(istype(item_content, /obj/item/modular_computer))
 				var/obj/item/modular_computer/computer = item_content
-				computer.invisible = TRUE
+				for(var/datum/computer_file/program/messenger/message_app in computer.stored_files)
+					message_app.invisible = TRUE
 			item_content.dropped(mob_occupant)
 			mob_occupant.transferItemToLoc(item_content, control_computer, force = TRUE, silent = TRUE)
 			control_computer.frozen_item += item_content
@@ -363,11 +395,11 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 
 // Allows players to cryo others. Checks if they have been AFK for 30 minutes.
 	if(target.key && user != target)
-		if (target.getorgan(/obj/item/organ/brain) ) //Target the Brain
+		if (target.getorgan(/obj/item/organ/internal/brain) ) //Target the Brain
 			if(!target.mind || target.ssd_indicator ) // Is the character empty / AI Controlled
 				if(target.lastclienttime + ssd_time >= world.time)
-					to_chat(user, span_notice("You can't put [target] into [src] for another [ssd_time - round(((world.time - target.lastclienttime) / (1 MINUTES)), 1)] minutes."))
-					log_admin("[key_name(user)] has attempted to put [key_name(target)] into a stasis pod, but they were only disconnected for [round(((world.time - target.lastclienttime) / (1 MINUTES)), 1)] minutes..")
+					to_chat(user, span_notice("You can't put [target] into [src] for another [round(((ssd_time - (world.time - target.lastclienttime)) / (1 MINUTES)), 1)] minutes."))
+					log_admin("[key_name(user)] has attempted to put [key_name(target)] into a stasis pod, but they were only disconnected for [round(((world.time - target.lastclienttime) / (1 MINUTES)), 1)] minutes.")
 					message_admins("[key_name(user)] has attempted to put [key_name(target)] into a stasis pod. [ADMIN_JMP(src)]")
 					return
 				else if(tgui_alert(user, "Would you like to place [target] into [src]?", "Place into Cryopod?", list("Yes", "No")) == "Yes")
@@ -398,6 +430,13 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 		if(antag)
 			tgui_alert(target, "You're \a [antag.name]! [AHELP_FIRST_MESSAGE]")
 
+	if(LAZYLEN(target.buckled_mobs) > 0)
+		if(target == user)
+			to_chat(user, span_danger("You can't fit into the cryopod while someone is buckled to you."))
+		else
+			to_chat(user, span_danger("You can't fit [target] into the cryopod while someone is buckled to them."))
+		return
+
 	if(!istype(target) || !can_interact(user) || !target.Adjacent(user) || !ismob(target) || isanimal(target) || !istype(user.loc, /turf) || target.buckled)
 		return
 		// rerun the checks in case of shenanigans
@@ -423,5 +462,48 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 // Attacks/effects.
 /obj/machinery/cryopod/blob_act()
 	return // Sorta gamey, but we don't really want these to be destroyed.
+
+/obj/machinery/cryopod/attackby(obj/item/weapon, mob/living/carbon/human/user, params)
+	. = ..()
+	if(istype(weapon, /obj/item/bedsheet))
+		if(!occupant || !istype(occupant, /mob/living))
+			return
+		if(tucked)
+			to_chat(user, span_warning("[occupant.name] already looks pretty comfortable!"))
+			return
+		to_chat(user, span_notice("You tuck [occupant.name] into their pod!"))
+		qdel(weapon)
+		user.add_mood_event("tucked", /datum/mood_event/tucked_in, occupant)
+		tucked = TRUE
+
+// Wake-up notifications
+
+/obj/effect/mob_spawn/ghost_role
+	/// For figuring out where the local cryopod computer is. Must be set for cryo computer announcements.
+	var/area/computer_area
+
+/obj/effect/mob_spawn/ghost_role/special(mob/living/spawned_mob, mob/mob_possessor)
+	. = ..()
+	var/obj/machinery/computer/cryopod/control_computer = find_control_computer()
+	var/datum/data/record/record = new
+	record.fields["name"] = spawned_mob.real_name
+	record.fields["rank"] = name
+	GLOB.ghost_records.Add(record)
+	if(control_computer)
+		control_computer.announce("CRYO_JOIN", spawned_mob.real_name, name)
+
+/obj/effect/mob_spawn/ghost_role/proc/find_control_computer()
+	if(!computer_area)
+		return
+	for(var/cryo_console as anything in GLOB.cryopod_computers)
+		var/obj/machinery/computer/cryopod/console = cryo_console
+		var/area/area = get_area(cryo_console) // Define moment
+		if(area.type == computer_area)
+			return console
+
+	return
+
+/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate
+	computer_area = /area/ruin/syndicate_lava_base/dormitories
 
 #undef AHELP_FIRST_MESSAGE

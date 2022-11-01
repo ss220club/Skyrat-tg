@@ -20,6 +20,10 @@
 	/// The icon to show in the preferences menu.
 	/// This references a tgui icon, so it can be FontAwesome or a tgfont (with a tg- prefix).
 	var/icon = "bug" //SKYRAT EDIT CHANGE
+	/// A list of items people can receive from mail who have this quirk enabled
+	/// The base weight for the each quirk's mail goodies list to be selected is 5
+	/// then the item selected is determined by pick(selected_quirk.mail_goodies)
+	var/mail_goodies = list()
 
 /datum/quirk/Destroy()
 	if(quirk_holder)
@@ -161,7 +165,7 @@
 		var/mob/living/carbon/human/human_holder = quirk_holder
 		// post_add() can be called via delayed callback. Check they still have a backpack equipped before trying to open it.
 		if(human_holder.back)
-			SEND_SIGNAL(human_holder.back, COMSIG_TRY_STORAGE_SHOW, human_holder)
+			human_holder.back.atom_storage.show_contents(human_holder)
 
 	for(var/chat_string in where_items_spawned)
 		to_chat(quirk_holder, chat_string)
@@ -177,26 +181,37 @@
  */
 /mob/living/proc/get_quirk_string(medical, category = CAT_QUIRK_ALL) //helper string. gets a string of all the quirks the mob has
 	var/list/dat = list()
+
+	// SKYRAT EDIT START
+	// The health analyzer will first check if the target is a changeling, and if they are, load the quirks of the person they're disguising as.
+
+	var/target_quirks = quirks
+	var/datum/antagonist/changeling/target_changeling = mind?.has_antag_datum(/datum/antagonist/changeling)
+	if(target_changeling)
+		target_quirks = target_changeling.current_profile.quirks
+
+	// SKYRAT EDIT END
+
 	switch(category)
 		if(CAT_QUIRK_ALL)
-			for(var/V in quirks)
+			for(var/V in target_quirks)		// SKYRAT EDIT
 				var/datum/quirk/T = V
 				dat += medical ? T.medical_record_text : T.name
 		//Major Disabilities
 		if(CAT_QUIRK_MAJOR_DISABILITY)
-			for(var/V in quirks)
+			for(var/V in target_quirks)		// SKYRAT EDIT
 				var/datum/quirk/T = V
 				if(T.value < -4)
 					dat += medical ? T.medical_record_text : T.name
 		//Minor Disabilities
 		if(CAT_QUIRK_MINOR_DISABILITY)
-			for(var/V in quirks)
+			for(var/V in target_quirks)		// SKYRAT EDIT
 				var/datum/quirk/T = V
 				if(T.value >= -4 && T.value < 0)
 					dat += medical ? T.medical_record_text : T.name
 		//Neutral and Positive quirks
 		if(CAT_QUIRK_NOTES)
-			for(var/V in quirks)
+			for(var/V in target_quirks)		// SKYRAT EDIT
 				var/datum/quirk/T = V
 				if(T.value > -1)
 					dat += medical ? T.medical_record_text : T.name

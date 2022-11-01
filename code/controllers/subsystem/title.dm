@@ -1,3 +1,4 @@
+/* SKYRAT EDIT REMOVAL
 SUBSYSTEM_DEF(title)
 	name = "Title Screen"
 	flags = SS_NO_FIRE
@@ -11,7 +12,7 @@ SUBSYSTEM_DEF(title)
 
 /datum/controller/subsystem/title/Initialize()
 	if(file_path && icon)
-		return
+		return SS_INIT_SUCCESS
 
 	if(fexists("data/previous_title.dat"))
 		var/previous_path = file2text("data/previous_title.dat")
@@ -42,7 +43,7 @@ SUBSYSTEM_DEF(title)
 		splash_turf.icon = icon
 		splash_turf.handle_generic_titlescreen_sizes()
 
-	return ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/title/vv_edit_var(var_name, var_value)
 	. = ..()
@@ -68,3 +69,4 @@ SUBSYSTEM_DEF(title)
 	splash_turf = SStitle.splash_turf
 	file_path = SStitle.file_path
 	previous_icon = SStitle.previous_icon
+*/

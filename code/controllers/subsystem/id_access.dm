@@ -36,7 +36,7 @@ SUBSYSTEM_DEF(id_access)
 	/// The roundstart generated code for the spare ID safe. This is given to the Captain on shift start. If there's no Captain, it's given to the HoP. If there's no HoP
 	var/spare_id_safe_code = ""
 
-/datum/controller/subsystem/id_access/Initialize(timeofday)
+/datum/controller/subsystem/id_access/Initialize()
 	// We use this because creating the trim singletons requires the config to be loaded.
 	setup_access_flags()
 	setup_region_lists()
@@ -47,7 +47,7 @@ SUBSYSTEM_DEF(id_access)
 
 	spare_id_safe_code = "[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
 
-	return ..()
+	return SS_INIT_SUCCESS
 
 /**
  * Called by [/datum/controller/subsystem/ticker/proc/setup]
@@ -188,17 +188,13 @@ SUBSYSTEM_DEF(id_access)
 			"templates" = list(),
 			"pdas" = list(),
 		),
+		"[ACCESS_QM]" = list(
+			"regions" = list(REGION_SUPPLY),
+			"head" = JOB_QUARTERMASTER,
+			"templates" = list(),
+			"pdas" = list(),
+		),
 	)
-
-	// SKYRAT EDIT START - QMs are heads too
-	sub_department_managers_tgui["[ACCESS_QM]"] = list(
-		"regions" = list(REGION_SUPPLY),
-		"head" = JOB_QUARTERMASTER,
-		"templates" = list(),
-		"pdas" = list(),
-	)
-	// SKYRAT EDIT END
-
 	var/list/station_job_trims = subtypesof(/datum/id_trim/job)
 	for(var/trim_path in station_job_trims)
 		var/datum/id_trim/job/trim = trim_singletons_by_path[trim_path]
@@ -257,18 +253,18 @@ SUBSYSTEM_DEF(id_access)
 	desc_by_access["[ACCESS_SECURITY]"] = "Security"
 	desc_by_access["[ACCESS_BRIG]"] = "Holding Cells"
 	desc_by_access["[ACCESS_COURT]"] = "Courtroom"
-	desc_by_access["[ACCESS_FORENSICS]"] = "Forensics"
+	desc_by_access["[ACCESS_DETECTIVE]"] = "Detective Office"
 	desc_by_access["[ACCESS_MEDICAL]"] = "Medical"
 	desc_by_access["[ACCESS_GENETICS]"] = "Genetics Lab"
 	desc_by_access["[ACCESS_MORGUE]"] = "Morgue"
-	desc_by_access["[ACCESS_RND]"] = "R&D Lab"
+	desc_by_access["[ACCESS_SCIENCE]"] = "R&D Lab"
 	desc_by_access["[ACCESS_ORDNANCE]"] = "Ordnance Lab"
 	desc_by_access["[ACCESS_ORDNANCE_STORAGE]"] = "Ordnance Storage"
-	desc_by_access["[ACCESS_CHEMISTRY]"] = "Chemistry Lab"
+	desc_by_access["[ACCESS_PLUMBING]"] = "Chemistry Lab"
 	desc_by_access["[ACCESS_RD]"] = "RD Office"
 	desc_by_access["[ACCESS_BAR]"] = "Bar"
 	desc_by_access["[ACCESS_JANITOR]"] = "Custodial Closet"
-	desc_by_access["[ACCESS_ENGINE]"] = "Engineering"
+	desc_by_access["[ACCESS_ENGINEERING]"] = "Engineering"
 	desc_by_access["[ACCESS_ENGINE_EQUIP]"] = "Power and Engineering Equipment"
 	desc_by_access["[ACCESS_MAINT_TUNNELS]"] = "Maintenance"
 	desc_by_access["[ACCESS_EXTERNAL_AIRLOCKS]"] = "External Airlocks"
@@ -276,7 +272,7 @@ SUBSYSTEM_DEF(id_access)
 	desc_by_access["[ACCESS_AI_UPLOAD]"] = "AI Chambers"
 	desc_by_access["[ACCESS_TELEPORTER]"] = "Teleporter"
 	desc_by_access["[ACCESS_EVA]"] = "EVA"
-	desc_by_access["[ACCESS_HEADS]"] = "Bridge"
+	desc_by_access["[ACCESS_COMMAND]"] = "Command"
 	desc_by_access["[ACCESS_CAPTAIN]"] = "Captain"
 	desc_by_access["[ACCESS_ALL_PERSONAL_LOCKERS]"] = "Personal Lockers"
 	desc_by_access["[ACCESS_CHAPEL_OFFICE]"] = "Chapel Office"
@@ -297,10 +293,10 @@ SUBSYSTEM_DEF(id_access)
 	desc_by_access["[ACCESS_SURGERY]"] = "Surgery"
 	desc_by_access["[ACCESS_THEATRE]"] = "Theatre"
 	desc_by_access["[ACCESS_RESEARCH]"] = "Science"
-	desc_by_access["[ACCESS_MINING]"] = "Mining"
-	desc_by_access["[ACCESS_MAILSORTING]"] = "Cargo Office"
+	desc_by_access["[ACCESS_MINING]"] = "Mining Dock"
+	desc_by_access["[ACCESS_SHIPPING]"] = "Cargo Shipping"
 	desc_by_access["[ACCESS_VAULT]"] = "Main Vault"
-	desc_by_access["[ACCESS_MINING_STATION]"] = "Mining EVA"
+	desc_by_access["[ACCESS_MINING_STATION]"] = "Mining Outpost"
 	desc_by_access["[ACCESS_XENOBIOLOGY]"] = "Xenobiology Lab"
 	desc_by_access["[ACCESS_HOP]"] = "HoP Office"
 	desc_by_access["[ACCESS_HOS]"] = "HoS Office"
@@ -308,7 +304,7 @@ SUBSYSTEM_DEF(id_access)
 	desc_by_access["[ACCESS_PHARMACY]"] = "Pharmacy"
 	desc_by_access["[ACCESS_RC_ANNOUNCE]"] = "RC Announcements"
 	desc_by_access["[ACCESS_KEYCARD_AUTH]"] = "Keycode Auth."
-	desc_by_access["[ACCESS_TCOMSAT]"] = "Telecommunications"
+	desc_by_access["[ACCESS_TCOMMS]"] = "Telecommunications"
 	desc_by_access["[ACCESS_GATEWAY]"] = "Gateway"
 	desc_by_access["[ACCESS_BRIG_ENTRANCE]"] = "Brig"
 	desc_by_access["[ACCESS_MINERAL_STOREROOM]"] = "Mineral Storage"
@@ -440,6 +436,9 @@ SUBSYSTEM_DEF(id_access)
 	id_card.trim_state_override = trim.trim_state
 	id_card.trim_assignment_override = trim.assignment
 	id_card.sechud_icon_state_override = trim.sechud_icon_state
+	id_card.department_color_override = trim.department_color
+	id_card.department_state_override = trim.department_state
+	id_card.subdepartment_color_override = trim.subdepartment_color
 
 	if(!check_forged || !id_card.forged)
 		id_card.assignment = trim.assignment
@@ -457,6 +456,9 @@ SUBSYSTEM_DEF(id_access)
 	id_card.trim_state_override = null
 	id_card.trim_assignment_override = null
 	id_card.sechud_icon_state_override = null
+	id_card.department_color_override = null
+	id_card.department_state_override = null
+	id_card.subdepartment_color_override = null
 
 /**
  * Adds the accesses associated with a trim to an ID card.

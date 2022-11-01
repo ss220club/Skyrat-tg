@@ -3,16 +3,14 @@
 	id = SPECIES_ABDUCTOR
 	say_mod = "gibbers"
 	sexes = FALSE
-	species_traits = list(NOBLOOD,NOEYESPRITES)
+	species_traits = list(NOBLOOD, NOEYESPRITES, NOSTOMACH)
 	inherent_traits = list(
-		TRAIT_ADVANCEDTOOLUSER,
-		TRAIT_CAN_STRIP,
-		TRAIT_VIRUSIMMUNE,
 		TRAIT_CHUNKYFINGERS,
-		TRAIT_NOHUNGER,
 		TRAIT_NOBREATH,
+		TRAIT_NOHUNGER,
+		TRAIT_VIRUSIMMUNE,
 	)
-	mutanttongue = /obj/item/organ/tongue/abductor
+	mutanttongue = /obj/item/organ/internal/tongue/abductor
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT
 	ass_image = 'icons/ass/assgrey.png'
 

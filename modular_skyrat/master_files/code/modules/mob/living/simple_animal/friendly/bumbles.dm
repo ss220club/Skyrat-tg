@@ -31,7 +31,7 @@
 	speak_chance = 1
 	unique_name = TRUE
 
-/mob/living/simple_animal/pet/bumbles/Initialize()
+/mob/living/simple_animal/pet/bumbles/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/simple_flying)
 	add_verb(src, /mob/living/proc/toggle_resting)
@@ -47,7 +47,7 @@
 	regenerate_icons()
 
 /mob/living/simple_animal/pet/bumbles/bee_friendly()
-	return TRUE //treaty signed at the Beeneeva convention
+	return TRUE // treaty signed at the Beeneeva convention
 
 /mob/living/simple_animal/pet/bumbles/Life(delta_time = SSMOBS_DT, times_fired)
 	if(buckled || client || !DT_PROB(0.5, delta_time))

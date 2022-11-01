@@ -11,13 +11,13 @@
 	var/sent_romerol = FALSE
 
 /datum/traitor_objective/final/romerol/generate_objective(datum/mind/generating_for, list/possible_duplicates)
-	if(!can_take_final_objective())
-		return
 	var/list/possible_areas = GLOB.the_station_areas.Copy()
 	for(var/area/possible_area as anything in possible_areas)
 		//remove areas too close to the destination, too obvious for our poor shmuck, or just unfair
 		if(istype(possible_area, /area/station/hallway) || istype(possible_area, /area/station/security))
 			possible_areas -= possible_area
+	if(length(possible_areas) == 0)
+		return FALSE
 	romerol_spawnarea_type = pick(possible_areas)
 	replace_in_name("%AREA%", initial(romerol_spawnarea_type.name))
 	return TRUE
@@ -44,4 +44,3 @@
 				"style" = STYLE_SYNDICATE,
 				"spawn" = /obj/item/storage/box/syndie_kit/romerol,
 			))
-			priority_announce("Attention crew: sensors just detected an unregistered drop pod on final approach to your station. The pod appears to have decloaked and engaged thrusters after a remote activation signal likely sent from your vessel. Long-range scans suggest it may contain a highly-secured biohazardous agent. Estimated impact site: [initial(romerol_spawnarea_type.name)].", "[command_name()] High-Priority Update") //skyrat add: comm announcement on romerol call
