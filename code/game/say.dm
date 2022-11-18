@@ -13,6 +13,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	"[FREQ_COMMAND]" = "comradio",
 	"[FREQ_AI_PRIVATE]" = "aiprivradio",
 	"[FREQ_SYNDICATE]" = "syndradio",
+	"[FREQ_UPLINK]" = "syndradio",  // this probably shouldnt appear ingame
 	"[FREQ_CENTCOM]" = "centcomradio",
 	"[FREQ_FACTION]" = "suppradio", //SKYRAT EDIT ADDITIION - FACTION
 	"[FREQ_CYBERSUN]" = "syndradio", //SKYRAT EDIT ADDITION - MAPPING
@@ -45,8 +46,8 @@ GLOBAL_LIST_INIT(freqtospan, list(
  * Attempts to / checks if our movable can speak the passed message.
  * CAN include feedback messages about why someone can or can't speak
  *
- * Used in [proc/say] and other methods of speech (radios) after a movable has inputted some message.
- * If you just want to check if the movable is able to speak in character, use [proc/can_speak] instead.
+ * Used in [proc/say] and other methods of speech (radios)) after a movable has inputted some message.
+ * If you just want to check if the movable is able to speak in character, use [proc/can_speak] instead.)
  */
 /atom/movable/proc/try_speak(message, ignore_spam = FALSE, forced = FALSE)
 	return TRUE
