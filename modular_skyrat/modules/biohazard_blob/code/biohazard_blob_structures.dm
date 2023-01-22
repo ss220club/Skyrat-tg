@@ -42,7 +42,7 @@
 	mid_sounds = list('modular_skyrat/master_files/sound/effects/heart_beat_loop3.ogg'=1)
 	volume = 20
 
-#define CORE_RETALIATION_COOLDOWN 5 SECONDS
+#define CORE_RETALIATION_COOLDOWN (5 SECONDS)
 
 /obj/structure/biohazard_blob/structure/core
 	name = "glowing core"
@@ -381,8 +381,8 @@
 	base_icon_state = "resin_wall"
 	opacity = TRUE
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_ALIEN_RESIN)
-	canSmoothWith = list(SMOOTH_GROUP_ALIEN_RESIN)
+	smoothing_groups = SMOOTH_GROUP_ALIEN_RESIN
+	canSmoothWith = SMOOTH_GROUP_ALIEN_RESIN
 	max_integrity = 200
 	can_atmos_pass = ATMOS_PASS_DENSITY
 

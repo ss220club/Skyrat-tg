@@ -15,7 +15,7 @@
 
 #define RECT_TURFS(H_RADIUS, V_RADIUS, CENTER) \
 	block( \
-	locate(max(CENTER.x-(H_RADIUS),1),          max(CENTER.y-(V_RADIUS),1),          CENTER.z), \
+	locate(max(CENTER.x-(H_RADIUS),1), max(CENTER.y-(V_RADIUS),1), CENTER.z), \
 	locate(min(CENTER.x+(H_RADIUS),world.maxx), min(CENTER.y+(V_RADIUS),world.maxy), CENTER.z) \
 	)
 
@@ -52,7 +52,7 @@
 #define IS_WET_OPEN_TURF(O) O.GetComponent(/datum/component/wet_floor)
 
 /// Maximum amount of time, (in deciseconds) a tile can be wet for.
-#define MAXIMUM_WET_TIME 5 MINUTES
+#define MAXIMUM_WET_TIME (5 MINUTES)
 
 /**
  * Get the turf that `A` resides in, regardless of any containers.

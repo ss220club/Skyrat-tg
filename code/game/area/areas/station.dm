@@ -340,6 +340,7 @@
 /area/station/hallway/secondary/entry
 	name = "\improper Arrival Shuttle Hallway"
 	icon_state = "entry"
+	area_flags = EVENT_PROTECTED
 
 /area/station/hallway/secondary/service
 	name = "\improper Service Hallway"
@@ -1085,6 +1086,10 @@
 	name = "\improper Brig Overlook"
 	icon_state = "upperbrig"
 
+/area/station/security/brig/entrance
+	name = "\improper Brig Entrance"
+	icon_state = "brigentry"
+
 /area/station/security/courtroom
 	name = "\improper Courtroom"
 	icon_state = "courtroom"
@@ -1189,11 +1194,13 @@
 	name = "\improper Security Checkpoint"
 	icon_state = "checkpoint"
 
-/area/station/security/checkpoint/auxiliary
-	icon_state = "checkpoint_aux"
-
 /area/station/security/checkpoint/escape
+	name = "\improper Departures Security Checkpoint"
 	icon_state = "checkpoint_esc"
+
+/area/station/security/checkpoint/arrivals
+	name = "\improper Arrivals Security Checkpoint"
+	icon_state = "checkpoint_arr"
 
 /area/station/security/checkpoint/supply
 	name = "Security Post - Cargo Bay"
@@ -1447,3 +1454,19 @@
 
 /area/station/maintenance/external/port/bow
 	name = "\improper Port Bow External Hull Access"
+
+//Tramstation - External
+/area/misc/asteroid
+	name = "\improper Asteroid"
+	icon = 'icons/area/areas_station.dmi'
+	icon_state = "asteroid"
+	has_gravity = STANDARD_GRAVITY
+	sound_environment = SOUND_AREA_ASTEROID
+	ambient_buzz = 'sound/ambience/ambiatmos.ogg'
+	outdoors = TRUE
+	always_unpowered = TRUE
+	power_environ = FALSE
+	power_equip = FALSE
+	power_light = FALSE
+	requires_power = TRUE
+	ambience_index = AMBIENCE_MINING

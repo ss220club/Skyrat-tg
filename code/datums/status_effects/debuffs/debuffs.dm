@@ -4,6 +4,8 @@
 	tick_interval = 0
 	status_type = STATUS_EFFECT_REPLACE
 	alert_type = null
+	remove_on_fullheal = TRUE
+	heal_flag_necessary = HEAL_CC_STATUS
 	var/needs_update_stat = FALSE
 
 /datum/status_effect/incapacitating/on_creation(mob/living/new_owner, set_duration)
@@ -211,9 +213,9 @@
 			break //Only count the first bedsheet
 
 		if(healing > 0 && health_ratio > 0.8)
-			owner.adjustBruteLoss(-1 * healing)
-			owner.adjustFireLoss(-1 * healing)
-			owner.adjustToxLoss(-1 * healing * 0.5, TRUE, TRUE)
+			owner.adjustBruteLoss(-1 * healing, required_bodytype = BODYTYPE_ORGANIC)
+			owner.adjustFireLoss(-1 * healing, required_bodytype = BODYTYPE_ORGANIC)
+			owner.adjustToxLoss(-1 * healing * 0.5, TRUE, TRUE, required_biotype = MOB_ORGANIC)
 		owner.adjustStaminaLoss(min(-1 * healing, -1 * HEALING_SLEEP_DEFAULT))
 	// Drunkenness gets reduced by 0.3% per tick (6% per 2 seconds)
 	owner.set_drunk_effect(owner.get_drunk_amount() * 0.997)
@@ -415,23 +417,33 @@
 	alert_type = null
 	duration = -1
 
+/datum/status_effect/neck_slice/on_apply()
+	if(!ishuman(owner))
+		return FALSE
+	if(!owner.get_bodypart(BODY_ZONE_HEAD))
+		return FALSE
+	return TRUE
+
 /datum/status_effect/neck_slice/tick()
-	var/mob/living/carbon/human/H = owner
-	var/obj/item/bodypart/throat = H.get_bodypart(BODY_ZONE_HEAD)
-	if(H.stat == DEAD || !throat)
-		H.remove_status_effect(/datum/status_effect/neck_slice)
+	var/obj/item/bodypart/throat = owner.get_bodypart(BODY_ZONE_HEAD)
+	if(owner.stat == DEAD || !throat) // they can lose their head while it's going.
+		qdel(src)
+		return
 
 	var/still_bleeding = FALSE
-	for(var/thing in throat.wounds)
-		var/datum/wound/W = thing
-		if(W.wound_type == WOUND_SLASH && W.severity > WOUND_SEVERITY_MODERATE)
+	for(var/datum/wound/bleeding_thing as anything in throat.wounds)
+		if(bleeding_thing.wound_type == WOUND_SLASH && bleeding_thing.severity > WOUND_SEVERITY_MODERATE)
 			still_bleeding = TRUE
 			break
 	if(!still_bleeding)
-		H.remove_status_effect(/datum/status_effect/neck_slice)
+		qdel(src)
+		return
 
 	if(prob(10))
-		H.emote(pick("gasp", "gag", "choke"))
+		owner.emote(pick("gasp", "gag", "choke"))
+
+/datum/status_effect/neck_slice/get_examine_text()
+	return span_warning("[owner.p_their(TRUE)] neck is cut and is bleeding profusely!")
 
 /mob/living/proc/apply_necropolis_curse(set_curse)
 	var/datum/status_effect/necropolis_curse/C = has_status_effect(/datum/status_effect/necropolis_curse)
@@ -588,11 +600,10 @@
 /datum/status_effect/trance/proc/hypnotize(datum/source, list/hearing_args)
 	SIGNAL_HANDLER
 
-	if(!owner.can_hear())
+	if(!owner.can_hear() || owner == hearing_args[HEARING_SPEAKER])
 		return
+
 	var/mob/hearing_speaker = hearing_args[HEARING_SPEAKER]
-	if(hearing_speaker == owner)
-		return
 	var/mob/living/carbon/C = owner
 	C.cure_trauma_type(/datum/brain_trauma/hypnosis, TRAUMA_RESILIENCE_SURGERY) //clear previous hypnosis
 	// The brain trauma itself does its own set of logging, but this is the only place the source of the hypnosis phrase can be found.
@@ -798,7 +809,7 @@
 
 /datum/status_effect/ants/on_creation(mob/living/new_owner, amount_left)
 	if(isnum(amount_left) && new_owner.stat < HARD_CRIT)
-		if(new_owner.stat < UNCONSCIOUS) // Unconcious people won't get messages
+		if(new_owner.stat < UNCONSCIOUS) // Unconscious people won't get messages
 			to_chat(new_owner, span_userdanger("You're covered in ants!"))
 		ants_remaining += amount_left
 		RegisterSignal(new_owner, COMSIG_COMPONENT_CLEAN_ACT, PROC_REF(ants_washed))
@@ -807,7 +818,7 @@
 /datum/status_effect/ants/refresh(effect, amount_left)
 	var/mob/living/carbon/human/victim = owner
 	if(isnum(amount_left) && ants_remaining >= 1 && victim.stat < HARD_CRIT)
-		if(victim.stat < UNCONSCIOUS) // Unconcious people won't get messages
+		if(victim.stat < UNCONSCIOUS) // Unconscious people won't get messages
 			if(!prob(1)) // 99%
 				to_chat(victim, span_userdanger("You're covered in MORE ants!"))
 			else // 1%
@@ -818,7 +829,7 @@
 /datum/status_effect/ants/on_remove()
 	ants_remaining = 0
 	to_chat(owner, span_notice("All of the ants are off of your body!"))
-	UnregisterSignal(owner, COMSIG_COMPONENT_CLEAN_ACT, PROC_REF(ants_washed))
+	UnregisterSignal(owner, COMSIG_COMPONENT_CLEAN_ACT)
 	. = ..()
 
 /datum/status_effect/ants/proc/ants_washed()
@@ -855,7 +866,7 @@
 					leg.receive_damage(3,0)
 				if(50) // 2% chance
 					to_chat(victim, span_danger("You rub some ants away from your eyes!"))
-					victim.blur_eyes(3)
+					victim.set_eye_blur_if_lower(6 SECONDS)
 					ants_remaining -= 5 // To balance out the blindness, it'll be a little shorter.
 	ants_remaining--
 	if(ants_remaining <= 0 || victim.stat >= HARD_CRIT)

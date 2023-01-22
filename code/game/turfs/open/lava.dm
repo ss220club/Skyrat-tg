@@ -7,6 +7,7 @@
 /turf/open/lava
 	name = "lava"
 	icon_state = "lava"
+	desc = "Looks painful to step in. Don't mine down."
 	gender = PLURAL //"That's some lava."
 	baseturfs = /turf/open/lava //lava all the way down
 	slowdown = 2
@@ -228,8 +229,8 @@
 			burn_obj.resistance_flags |= FLAMMABLE //Even fireproof things burn up in lava
 		if(burn_obj.resistance_flags & FIRE_PROOF)
 			burn_obj.resistance_flags &= ~FIRE_PROOF
-		if(burn_obj.armor.fire > 50) //obj with 100% fire armor still get slowly burned away.
-			burn_obj.armor = burn_obj.armor.setRating(fire = 50)
+		if(burn_obj.get_armor_rating(FIRE) > 50) //obj with 100% fire armor still get slowly burned away.
+			burn_obj.set_armor_rating(FIRE, 50)
 		burn_obj.fire_act(temperature_damage, 1000 * delta_time)
 		if(istype(burn_obj, /obj/structure/closet))
 			var/obj/structure/closet/burn_closet = burn_obj
@@ -253,8 +254,8 @@
 	icon_state = "lava-255"
 	base_icon_state = "lava"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
-	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_FLOOR_LAVA)
-	canSmoothWith = list(SMOOTH_GROUP_FLOOR_LAVA)
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_FLOOR_LAVA
+	canSmoothWith = SMOOTH_GROUP_FLOOR_LAVA
 	underfloor_accessibility = 2 //This avoids strangeness when routing pipes / wires along catwalks over lava
 
 /turf/open/lava/smooth/lava_land_surface
@@ -322,7 +323,21 @@
 	if(plasma_parts.len)
 		var/obj/item/bodypart/burn_limb = pick(plasma_parts) //using the above-mentioned list to get a choice of limbs
 		burn_human.emote("scream")
-		ADD_TRAIT(burn_limb, TRAIT_PLASMABURNT, name)
+		var/obj/item/bodypart/plasmalimb
+		switch(burn_limb.body_zone) //get plasmaman limb to swap in
+			if(BODY_ZONE_L_ARM)
+				plasmalimb = new /obj/item/bodypart/arm/left/plasmaman
+			if(BODY_ZONE_R_ARM)
+				plasmalimb = new /obj/item/bodypart/arm/right/plasmaman
+			if(BODY_ZONE_L_LEG)
+				plasmalimb = new /obj/item/bodypart/leg/left/plasmaman
+			if(BODY_ZONE_R_LEG)
+				plasmalimb = new /obj/item/bodypart/leg/right/plasmaman
+			if(BODY_ZONE_CHEST)
+				plasmalimb = new /obj/item/bodypart/chest/plasmaman
+			if(BODY_ZONE_HEAD)
+				plasmalimb = new /obj/item/bodypart/head/plasmaman
+		burn_human.del_and_replace_bodypart(plasmalimb)
 		burn_human.update_body_parts()
 		burn_human.emote("scream")
 		burn_human.visible_message(span_warning("[burn_human]'s [burn_limb.plaintext_zone] melts down to the bone!"), \

@@ -13,7 +13,7 @@
 	///Which bodyparts does the marking affect in BITFLAGS!! (HEAD, CHEST, ARM_LEFT, ARM_RIGHT, HAND_LEFT, HAND_RIGHT, LEG_RIGHT, LEG_LEFT)
 	var/affected_bodyparts
 	///Which species is this marking recommended to. Important for randomisations.
-	var/recommended_species = list(SPECIES_SYNTHMAMMAL, SPECIES_MAMMAL)
+	var/recommended_species = list(SPECIES_MAMMAL)
 	///If this is on the color customization will show up despite the pref settings, it will also cause the marking to not reset colors to match the defaults
 	var/always_color_customizable
 	///Whether the body marking sprite is the same for both sexes or not. Only relevant for chest right now.
@@ -66,13 +66,13 @@
 	icon_state = "flushed_cheeks"
 	default_color = "#CCCCCC"
 	affected_bodyparts = HEAD
-	
+
 /datum/body_marking/other/blank_face
 	name = "Blank round face (use with monster mouth)"
 	icon_state = "blankface"
 	default_color = "#CCCCCC"
 	affected_bodyparts = HEAD
-	
+
 /datum/body_marking/other/monster_mouth
 	name = "Monster Mouth"
 	icon_state = "monster"
@@ -144,6 +144,42 @@
 	icon_state = "teshari"
 	recommended_species = list(SPECIES_TESHARI)
 	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT
+
+/datum/body_marking/secondary/teshari_plain
+	name = "Teshari Plain"
+	icon_state = "teshari_plain"
+	recommended_species = list(SPECIES_TESHARI)
+	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/secondary/teshari_coat
+	name = "Teshari Coat"
+	icon_state = "teshari_coat"
+	recommended_species = list(SPECIES_TESHARI)
+	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/secondary/teshari_underfluff
+	name = "Teshari Underfluff"
+	icon_state = "teshari_underfluff"
+	recommended_species = list(SPECIES_TESHARI)
+	affected_bodyparts = HEAD | CHEST | LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/secondary/teshari_short
+	name = "Teshari Short"
+	icon_state = "teshari_short"
+	recommended_species = list(SPECIES_TESHARI)
+	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/secondary/teshari_feathers_male
+	name = "Teshari Feathers (Male)"
+	icon_state = "teshari_feathers_male"
+	recommended_species = list(SPECIES_TESHARI)
+	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/secondary/teshari_feathers_female
+	name = "Teshari Feathers (Female)"
+	icon_state = "teshari_feathers_female"
+	recommended_species = list(SPECIES_TESHARI)
+	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
 /datum/body_marking/secondary/tajaran
 	name = "Tajaran"
