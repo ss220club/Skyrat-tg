@@ -114,6 +114,7 @@
 #define rustg_file_read(fname) RUSTG_CALL(RUST_G, "file_read")(fname)
 #define rustg_file_exists(fname) RUSTG_CALL(RUST_G, "file_exists")(fname)
 #define rustg_file_write(text, fname) RUSTG_CALL(RUST_G, "file_write")(text, fname)
+#define rustg_file_write_b64decode(text, fname) RUSTG_CALL(RUST_G, "file_write")(text, fname, "true")
 #define rustg_file_append(text, fname) RUSTG_CALL(RUST_G, "file_append")(text, fname)
 #define rustg_file_get_line_count(fname) text2num(RUSTG_CALL(RUST_G, "file_get_line_count")(fname))
 #define rustg_file_seek_line(fname, line) RUSTG_CALL(RUST_G, "file_seek_line")(fname, "[line]")
@@ -125,6 +126,16 @@
 
 #define rustg_git_revparse(rev) RUSTG_CALL(RUST_G, "rg_git_revparse")(rev)
 #define rustg_git_commit_date(rev) RUSTG_CALL(RUST_G, "rg_git_commit_date")(rev)
+
+// Hashing Operations //
+#define rustg_hash_string(algorithm, text) RUSTG_CALL(RUST_G, "hash_string")(algorithm, text)
+#define rustg_hash_file(algorithm, fname) RUSTG_CALL(RUST_G, "hash_file")(algorithm, fname)
+
+#define RUSTG_HASH_MD5 "md5"
+
+#ifdef RUSTG_OVERRIDE_BUILTINS
+	#define md5(thing) (isfile(thing) ? rustg_hash_file(RUSTG_HASH_MD5, "[thing]") : rustg_hash_string(RUSTG_HASH_MD5, thing))
+#endif
 
 #define RUSTG_HTTP_METHOD_GET "get"
 #define RUSTG_HTTP_METHOD_PUT "put"
@@ -187,3 +198,6 @@
 	#define url_decode(text) rustg_url_decode(text)
 #endif
 
+// Text Operations //
+#define rustg_cyrillic_to_latin(text) RUSTG_CALL(RUST_G, "cyrillic_to_latin")("[text]")
+#define rustg_latin_to_cyrillic(text) RUSTG_CALL(RUST_G, "latin_to_cyrillic")("[text]")
