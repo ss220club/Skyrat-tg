@@ -99,7 +99,7 @@ DISABLE_LEWD_ITEMS
 ERP_EMOTES_TO_DISABLE cum
 
 ## Disables mismatched parts for codebases that don't want it.
-#DISABLE_MISMATCHED_PARTS
+DISABLE_MISMATCHED_PARTS
 
 ## Do we allow consecutive catastrophic events?
 ALLOW_CONSECUTIVE_CATASTROPIC_EVENTS
