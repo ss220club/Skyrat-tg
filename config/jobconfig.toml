@@ -277,8 +277,8 @@
 [VANGUARD_OPERATIVE]
 "Playtime Requirements" = 0
 "Required Account Age" = 40
-"Spawn Positions" = 0
-"Total Positions" = 0
+"Spawn Positions" = 2
+"Total Positions" = 2
 
 [VIROLOGIST]
 "Playtime Requirements" = 0
