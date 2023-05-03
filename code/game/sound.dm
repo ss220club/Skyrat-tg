@@ -82,14 +82,14 @@
 			listening_mob.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, 1, use_reverb)
 			. += listening_mob
 
-/mob/proc/playsound_local(turf/turf_source, soundin, vol as num, vary, frequency, falloff_exponent = SOUND_FALLOFF_EXPONENT, channel = 0, pressure_affected = TRUE, sound/sound_to_use, max_distance, falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE, distance_multiplier = 1, use_reverb = TRUE)
+/mob/proc/playsound_local(turf/turf_source, soundin, vol as num, vary, frequency, falloff_exponent = SOUND_FALLOFF_EXPONENT, channel = 0, pressure_affected = TRUE, sound/sound_to_use, max_distance, falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE, distance_multiplier = 1, use_reverb = TRUE, wait = FALSE)
 	if(!client || !can_hear())
 		return
 
 	if(!sound_to_use)
 		sound_to_use = sound(get_sfx(soundin))
 
-	sound_to_use.wait = 0 //No queue
+	sound_to_use.wait = wait
 	sound_to_use.channel = channel || SSsounds.random_available_channel()
 	sound_to_use.volume = vol
 
@@ -416,3 +416,51 @@
 			if(SFX_ROCK_TAP)
 				soundin = pick('sound/effects/rocktap1.ogg', 'sound/effects/rocktap2.ogg', 'sound/effects/rocktap3.ogg')
 	return soundin
+
+// TODO: SS220-TTS to delete
+//world/proc/shelleo
+#define SHELLEO_ERRORLEVEL 1
+#define SHELLEO_STDOUT 2
+#define SHELLEO_STDERR 3
+
+/proc/apply_sound_effect(effect, filename_input, filename_output)
+	filename_input = filename_sanitize(filename_input)
+	filename_output = filename_sanitize(filename_output)
+
+	if(!effect)
+		CRASH("Invalid sound effect chosen.")
+
+	var/taskset
+	// TODO: SS220-TTS
+	// if(GLOB.ffmpeg_cpuaffinity)
+		// taskset = "taskset -ac [GLOB.ffmpeg_cpuaffinity]"
+
+	var/list/output
+	switch(effect)
+		if(SOUND_EFFECT_RADIO)
+			output = world.shelleo({"[taskset] ffmpeg -y -hide_banner -loglevel error -i [filename_input] -filter:a "highpass=f=1000, lowpass=f=3000, acrusher=1:1:50:0:log" [filename_output]"})
+		if(SOUND_EFFECT_ROBOT)
+			output = world.shelleo({"[taskset] ffmpeg -y -hide_banner -loglevel error -i [filename_input] -filter:a "afftfilt=real='hypot(re,im)*sin(0)':imag='hypot(re,im)*cos(0)':win_size=1024:overlap=0.5, deesser=i=0.4, volume=volume=1.5" [filename_output]"})
+		if(SOUND_EFFECT_RADIO_ROBOT)
+			output = world.shelleo({"[taskset] ffmpeg -y -hide_banner -loglevel error -i [filename_input] -filter:a "afftfilt=real='hypot(re,im)*sin(0)':imag='hypot(re,im)*cos(0)':win_size=1024:overlap=0.5, deesser=i=0.4, volume=volume=1.5, highpass=f=1000, lowpass=f=3000, acrusher=1:1:50:0:log" [filename_output]"})
+		if(SOUND_EFFECT_MEGAPHONE)
+			output = world.shelleo({"[taskset] ffmpeg -y -hide_banner -loglevel error -i [filename_input] -filter:a "highpass=f=500, lowpass=f=4000, volume=volume=10, acrusher=1:1:45:0:log" [filename_output]"})
+		if(SOUND_EFFECT_MEGAPHONE_ROBOT)
+			output = world.shelleo({"[taskset] ffmpeg -y -hide_banner -loglevel error -i [filename_input] -filter:a "afftfilt=real='hypot(re,im)*sin(0)':imag='hypot(re,im)*cos(0)':win_size=1024:overlap=0.5, deesser=i=0.4, highpass=f=500, lowpass=f=4000, volume=volume=10, acrusher=1:1:45:0:log" [filename_output]"})
+		else
+			CRASH("Invalid sound effect chosen.")
+	var/errorlevel = output[SHELLEO_ERRORLEVEL]
+	var/stdout = output[SHELLEO_STDOUT]
+	var/stderr = output[SHELLEO_STDERR]
+	if(errorlevel)
+		error("Error: apply_sound_effect([effect], [filename_input], [filename_output]) - See debug logs.")
+		// TODO: SS220-TTS log_debug -> debug_world_log
+		debug_world_log("apply_sound_effect([effect], [filename_input], [filename_output]) STDOUT: [stdout]")
+		debug_world_log("apply_sound_effect([effect], [filename_input], [filename_output]) STDERR: [stderr]")
+		return FALSE
+	return TRUE
+
+//world/proc/shelleo
+#undef SHELLEO_ERRORLEVEL
+#undef SHELLEO_STDOUT
+#undef SHELLEO_STDERR

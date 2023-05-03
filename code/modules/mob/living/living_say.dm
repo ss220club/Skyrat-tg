@@ -264,7 +264,8 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 		deaf_type = MSG_AUDIBLE
 
 	var/atom/movable/virtualspeaker/holopad_speaker = speaker
-	var/avoid_highlight = src == (istype(holopad_speaker) ? holopad_speaker.source : speaker)
+	var/atom/movable/real_speaker = istype(holopad_speaker) ? holopad_speaker.source : speaker
+	var/avoid_highlight = src == real_speaker
 
 	var/is_custom_emote = message_mods[MODE_CUSTOM_SAY_ERASE_INPUT]
 	if(!is_custom_emote) // we do not translate emotes
@@ -319,6 +320,16 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 			create_chat_message(speaker, null, message_mods[MODE_CUSTOM_SAY_EMOTE], spans, EMOTE_MESSAGE)
 		else
 			create_chat_message(speaker, message_language, raw_message, spans)
+
+	var/effect = issilicon(real_speaker) ? SOUND_EFFECT_ROBOT : SOUND_EFFECT_NONE
+	if(radio_freq)
+		effect = issilicon(real_speaker) ? SOUND_EFFECT_RADIO_ROBOT : SOUND_EFFECT_RADIO
+	else if(SPAN_COMMAND in spans)
+		effect = issilicon(real_speaker) ? SOUND_EFFECT_MEGAPHONE_ROBOT : SOUND_EFFECT_MEGAPHONE
+	var/traits = TTS_TRAIT_RATE_MEDIUM
+	var/self_radio = radio_freq && src == real_speaker
+	if(!self_radio)
+		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), speaker, src, raw_message, "Arthas", TRUE, effect, traits)
 
 	// Recompose message for AI hrefs, language incomprehension.
 	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mods)

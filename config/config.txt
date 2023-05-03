@@ -671,3 +671,8 @@ TOAST_NOTIFICATION_ON_INIT
 
 ## Causes configuration errors to spit out runtimes
 CONFIG_ERRORS_RUNTIME
+
+## Silero Text-to-speech
+#TTS_TOKEN_SILERO mytoken
+#TTS_ENABLED
+#TTS_CACHE
