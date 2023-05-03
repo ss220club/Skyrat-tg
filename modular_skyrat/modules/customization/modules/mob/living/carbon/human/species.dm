@@ -50,7 +50,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 /datum/species/human
 	mutant_bodyparts = list()
-	default_mutant_bodyparts = list("ears" = "None", "tail" = "None", "wings" = "None")
+	//default_mutant_bodyparts = list("ears" = "None", "tail" = "None", "wings" = "None") //Skyrat220 EDIT
 
 /datum/species/mush
 	mutant_bodyparts = list()
