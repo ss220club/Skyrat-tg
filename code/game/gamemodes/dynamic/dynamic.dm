@@ -1,5 +1,3 @@
-#define RULESET_STOP_PROCESSING 1
-
 #define FAKE_GREENSHIFT_FORM_CHANCE 15
 #define FAKE_REPORT_CHANCE 8
 #define REPORT_NEG_DIVERGENCE -15
@@ -799,11 +797,6 @@ GLOBAL_VAR_INIT(dynamic_forced_threat_level, -1)
 			return RULE_OF_THREE(40, 20, x) + 50
 		if (20 to INFINITY)
 			return rand(90, 100)
-
-/// Log to messages and to the game
-/datum/game_mode/dynamic/proc/dynamic_log(text)
-	message_admins("DYNAMIC: [text]")
-	log_dynamic("[text]")
 
 #undef FAKE_REPORT_CHANCE
 #undef FAKE_GREENSHIFT_FORM_CHANCE

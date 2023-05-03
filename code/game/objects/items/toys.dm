@@ -260,7 +260,7 @@
 	user.visible_message(span_suicide("[user] consumes [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	playsound(user, 'sound/items/eatfood.ogg', 50, TRUE)
 	user.adjust_nutrition(50) // mmmm delicious
-	addtimer(CALLBACK(src, PROC_REF(manual_suicide), user), (3SECONDS))
+	addtimer(CALLBACK(src, PROC_REF(manual_suicide), user), (3 SECONDS))
 	return MANUAL_SUICIDE
 
 /**
@@ -294,6 +294,18 @@
 	user.adjustOxyLoss(200) // You know how most small toys in the EU have that 3+ onion head icon and a warning that says "Unsuitable for children under 3 years of age due to small parts - choking hazard"? This is why.
 	user.death(FALSE)
 	user.ghostize(FALSE)
+
+/*
+ * Fake dark matter singularity!
+ */
+/obj/item/toy/spinningtoy/dark_matter
+	name = "dark matter singularity"
+	desc = "<i>\"Surviving the encounter with the \
+		horrible thing, I realized immediately what I \
+		had to do: sell marketable toys of it. \
+		\"</i><br>- Chief Engineer Miles O'Brien"
+	icon = 'icons/obj/engine/singularity.dmi'
+	icon_state = "dark_matter_s1"
 
 /*
  * Toy gun: Why isn't this an /obj/item/gun?
@@ -400,7 +412,9 @@
 	AddComponent(/datum/component/transforming, \
 		throw_speed_on = throw_speed, \
 		hitsound_on = hitsound, \
-		clumsy_check = FALSE)
+		clumsy_check = FALSE, \
+		inhand_icon_change = FALSE, \
+	)
 	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
 	AddElement(/datum/element/update_icon_updates_onmob)
 
@@ -592,7 +606,7 @@
 /obj/item/toy/katana
 	name = "replica katana"
 	desc = "Woefully underpowered in D20."
-	icon = 'icons/obj/weapons/items_and_weapons.dmi'
+	icon = 'icons/obj/weapons/sword.dmi'
 	icon_state = "katana"
 	inhand_icon_state = "katana"
 	worn_icon_state = "katana"
@@ -734,7 +748,7 @@
 	icon_state = "demonomicon"
 	lefthand_file = 'icons/mob/inhands/items/books_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/books_righthand.dmi'
-	messages = list("You must challenge the devil to a dance-off!", "The devils true name is Ian", "The devil hates salt!", "Would you like infinite power?", "Would you like infinite  wisdom?", " Would you like infinite healing?")
+	messages = list("You must challenge the devil to a dance-off!", "The devils true name is Ian", "The devil hates salt!", "Would you like infinite power?", "Would you like infinite wisdom?", "Would you like infinite healing?")
 	w_class = WEIGHT_CLASS_SMALL
 	recharge_time = 60
 
@@ -776,7 +790,7 @@
 /obj/item/toy/nuke/attack_self(mob/user)
 	if (obj_flags & EMAGGED && cooldown < world.time)
 		cooldown = world.time + 600
-		user.visible_message(span_hear("You hear the click of a button."), span_notice("You activate [src], it plays a loud noise!"))
+		user.audible_message(span_hear("You hear the click of a button."), self_message = span_notice("You activate [src], it plays a loud noise!"))
 		sleep(0.5 SECONDS)
 		playsound(src, 'sound/machines/alarm.ogg', 20, FALSE)
 		sleep(14 SECONDS)
@@ -899,7 +913,7 @@
 /obj/item/toy/beach_ball/baseball
 	name = "baseball"
 	desc = "Enter the world of concussions and become who you were destined to be."
-	icon = 'icons/obj/weapons/items_and_weapons.dmi'
+	icon = 'icons/obj/toys/balls.dmi'
 	icon_state = "baseball"
 	inhand_icon_state = "baseball"
 	throw_range = 9
@@ -1285,20 +1299,42 @@
 	name = "Codex Cicatrix"
 	desc = "A toy book that closely resembles the Codex Cicatrix. Covered in fake polyester human flesh and has a huge goggly eye attached to the cover. The runes are gibberish and cannot be used to summon demons... Hopefully?"
 	icon = 'icons/obj/eldritch.dmi'
+	base_icon_state = "book"
 	icon_state = "book"
+	worn_icon_state = "book"
 	w_class = WEIGHT_CLASS_SMALL
 	attack_verb_continuous = list("sacrifices", "transmutes", "graspes", "curses")
 	attack_verb_simple = list("sacrifice", "transmute", "grasp", "curse")
 	/// Helps determine the icon state of this item when it's used on self.
 	var/book_open = FALSE
+	/// id for timer
+	var/timer_id
 
-/obj/item/toy/eldritch_book/attack_self(mob/user)
-	book_open = !book_open
-	update_appearance()
+/obj/item/toy/eldritch_book/attack_self(mob/user, modifiers)
+	. = ..()
+	if(.)
+		return
 
-/obj/item/toy/eldritch_book/update_icon_state()
-	icon_state = book_open ? "book_open" : "book"
-	return ..()
+	if(book_open)
+		close_animation()
+	else
+		open_animation()
+
+/// Plays a little animation that shows the book opening and closing.
+/obj/item/toy/eldritch_book/proc/open_animation()
+	icon_state = "[base_icon_state]_open"
+	flick("[base_icon_state]_opening", src)
+	book_open = TRUE
+
+	timer_id = addtimer(CALLBACK(src, PROC_REF(close_animation)), 5 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE)
+
+/// Plays a closing animation and resets the icon state.
+/obj/item/toy/eldritch_book/proc/close_animation()
+	icon_state = base_icon_state
+	flick("[base_icon_state]_closing", src)
+	book_open = FALSE
+
+	deltimer(timer_id)
 
 /*
  * Fake tear

@@ -381,7 +381,7 @@
 
 /obj/item/gun/energy/tesla_cannon/Initialize(mapload)
 	. = ..()
-	//AddComponent(/datum/component/automatic_fire, 0.1 SECONDS) SKYRAT EDIT REMOVAL
+	AddComponent(/datum/component/automatic_fire, 0.1 SECONDS)
 
 /obj/item/gun/energy/marksman_revolver
 	name = "marksman revolver"
@@ -411,7 +411,7 @@
 	else
 		. += "It has infinite coins available for use."
 
-/obj/item/gun/energy/marksman_revolver/process(delta_time)
+/obj/item/gun/energy/marksman_revolver/process(seconds_per_tick)
 	if(!max_coins || coin_count >= max_coins)
 		STOP_PROCESSING(SSobj, src)
 		return

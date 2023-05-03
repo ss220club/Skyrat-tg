@@ -88,7 +88,7 @@
 
 /datum/orderable_item/mining/kheiralcuffs
 	item_path = /obj/item/kheiral_cuffs
-	cost_per_order = 2000
+	cost_per_order = 750
 
 /datum/orderable_item/mining/bhop
 	item_path = /obj/item/clothing/shoes/bhop
@@ -97,3 +97,7 @@
 /datum/orderable_item/mining/hiking_boots
 	item_path = /obj/item/clothing/shoes/winterboots/ice_boots
 	cost_per_order = 2500
+
+/datum/orderable_item/mining/style_meter
+	item_path = /obj/item/style_meter
+	cost_per_order = 1500

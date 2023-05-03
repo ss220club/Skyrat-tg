@@ -9,9 +9,9 @@
 /obj/item/clothing/suit/hooded/wintercoat,
 /obj/item/clothing/suit/hooded/wintercoat,
 /obj/item/clothing/suit/hooded/wintercoat,
-/obj/item/clothing/suit/hooded/wintercoat/aformal,
-/obj/item/clothing/suit/hooded/wintercoat/aformal,
-/obj/item/clothing/suit/hooded/wintercoat/aformal,
+/obj/item/clothing/suit/hooded/wintercoat/skyrat,
+/obj/item/clothing/suit/hooded/wintercoat/skyrat,
+/obj/item/clothing/suit/hooded/wintercoat/skyrat,
 /obj/item/clothing/suit/hooded/wintercoat/captain,
 /obj/item/clothing/suit/hooded/wintercoat/captain,
 /obj/item/clothing/suit/hooded/wintercoat/cargo,
@@ -70,7 +70,7 @@
 "aeG" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/indestructible{
-	name = "NanoTrasen Consultant's Shutters";
+	name = "Nanotrasen Consultant's Shutters";
 	id = "ntrep_shutters"
 	},
 /turf/open/floor/plating,
@@ -122,10 +122,7 @@
 /obj/machinery/jukebox{
 	req_access = "0"
 	},
-/obj/structure/sign/barsign{
-	pixel_y = 32;
-	req_access = null
-	},
+/obj/machinery/barsign/all_access/directional/north,
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "afr" = (
@@ -593,11 +590,6 @@
 /obj/structure/flora/bush/flowers_br,
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
-"alg" = (
-/obj/structure/table,
-/obj/item/toy/beach_ball/holoball/dodgeball,
-/turf/open/indestructible/hotelwood,
-/area/centcom/holding/cafe)
 "alk" = (
 /obj/machinery/light/directional/east,
 /turf/open/misc/grass/planet,
@@ -1141,11 +1133,10 @@
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/structure/window/reinforced{
-	dir = 4;
+/obj/structure/window/reinforced/spawner/directional/east{
 	layer = 2.9
 	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/grass/fairy,
 /area/centcom/holding/cafe)
 "aqX" = (
@@ -1306,7 +1297,7 @@
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
 "atq" = (
-/obj/machinery/oven,
+/obj/machinery/oven/range,
 /turf/open/indestructible/hoteltile{
 	icon_state = "cafeteria"
 	},
@@ -2505,17 +2496,14 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/structure/flora/bush/flowers_br{
 	pixel_x = -3;
 	pixel_y = 3
 	},
 /obj/structure/flora/bush/ferny,
-/obj/structure/window/reinforced{
-	dir = 4;
+/obj/structure/window/reinforced/spawner/directional/east{
 	layer = 2.9
 	},
 /turf/open/floor/grass/fairy,
@@ -2560,7 +2548,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/obj/structure/window/reinforced/spawner/west,
+/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "aGw" = (
@@ -2790,11 +2778,11 @@
 /obj/item/reagent_containers/condiment/quality_oil,
 /obj/item/reagent_containers/condiment/quality_oil,
 /obj/item/reagent_containers/condiment/quality_oil,
-/obj/item/food/larvae,
-/obj/item/food/larvae,
-/obj/item/food/larvae,
-/obj/item/food/larvae,
-/obj/item/food/larvae,
+/obj/item/food/canned/larvae,
+/obj/item/food/canned/larvae,
+/obj/item/food/canned/larvae,
+/obj/item/food/canned/larvae,
+/obj/item/food/canned/larvae,
 /obj/item/food/canned/pine_nuts,
 /obj/item/food/canned/pine_nuts,
 /obj/item/food/canned/pine_nuts,
@@ -3740,7 +3728,7 @@
 /obj/item/storage/pill_bottle/mutadone,
 /obj/item/storage/pill_bottle/mannitol,
 /obj/structure/table/glass,
-/obj/item/clothing/gloves/color/latex,
+/obj/item/clothing/gloves/latex,
 /obj/item/flashlight/pen{
 	pixel_x = 4;
 	pixel_y = 3
@@ -3817,6 +3805,17 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/structure/rack,
+/obj/item/storage/box/nif_ghost_box,
+/obj/item/storage/box/nif_ghost_box,
+/obj/item/storage/box/nif_ghost_box,
+/obj/item/storage/box/nif_ghost_box,
+/obj/item/storage/box/nif_ghost_box,
+/obj/item/storage/box/nif_ghost_box,
+/obj/item/storage/box/nif_ghost_box,
+/obj/item/storage/box/nif_ghost_box,
+/obj/item/storage/box/nif_ghost_box,
+/obj/item/storage/box/nif_ghost_box,
 /turf/open/indestructible/hoteltile{
 	icon_state = "floor"
 	},
@@ -4405,7 +4404,7 @@
 	},
 /area/centcom/holding/cafe)
 "aYj" = (
-/obj/machinery/vending/wardrobe/chap_wardrobe,
+/obj/machinery/vending/wardrobe/chap_wardrobe/unholy,
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "aYk" = (
@@ -4610,10 +4609,7 @@
 /obj/structure/fence/end{
 	dir = 4
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "bkA" = (
@@ -4646,10 +4642,7 @@
 /area/centcom/interlink)
 "bnU" = (
 /obj/structure/flora/tree/stump,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "boa" = (
@@ -4777,11 +4770,10 @@
 /area/centcom/interlink)
 "bDM" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Communications Access";
-	req_one_access = list("cent_general","captain")
+	name = "Communications Access"
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/obj/effect/mapping_helpers/airlock/access/all/admin/general,
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_or_captain,
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "bEI" = (
@@ -4806,6 +4798,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
 	},
+/obj/machinery/time_clock/directional/west,
 /turf/open/floor/iron/white,
 /area/centcom/interlink)
 "bGx" = (
@@ -4875,9 +4868,7 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "bNi" = (
-/obj/machinery/computer/cryopod{
-	pixel_x = -32
-	},
+/obj/machinery/computer/cryopod/directional/west,
 /obj/machinery/cryopod/quiet{
 	dir = 1
 	},
@@ -4931,7 +4922,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/obj/structure/window/reinforced/spawner/west,
+/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "bUg" = (
@@ -4958,10 +4949,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/bush/flowers_br/style_random,
 /turf/open/floor/grass,
 /area/centcom/interlink)
@@ -5031,10 +5019,7 @@
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "che" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/effect/turf_decal/weather/dirt{
 	dir = 4
 	},
@@ -5079,10 +5064,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 5
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "cqC" = (
@@ -5130,6 +5112,19 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/centcom/interlink)
+"cuF" = (
+/obj/item/trench_tool,
+/obj/item/tank/internals/emergency_oxygen/double,
+/obj/item/storage/belt/holster/nukie,
+/obj/item/clothing/glasses/night,
+/obj/item/radio/headset/syndicate/alt,
+/obj/structure/closet/syndicate{
+	desc = "It's a personal storage unit for operative gear."
+	},
+/obj/effect/turf_decal/bot_white,
+/obj/item/clothing/suit/armor/vest,
+/turf/open/floor/iron/dark/textured_large,
+/area/cruiser_dock)
 "cuM" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/arrow_cw,
 /turf/open/floor/iron/dark,
@@ -5144,6 +5139,20 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
+"cxX" = (
+/obj/structure/closet/syndicate{
+	desc = "It's a personal storage unit for operative gear."
+	},
+/obj/item/trench_tool,
+/obj/item/tank/internals/emergency_oxygen/double,
+/obj/item/storage/belt/holster/nukie,
+/obj/item/clothing/glasses/night,
+/obj/item/radio/headset/syndicate/alt,
+/obj/effect/turf_decal/bot_white,
+/obj/machinery/light/cold/directional/north,
+/obj/item/clothing/suit/armor/vest,
+/turf/open/floor/iron/dark/textured_large,
+/area/cruiser_dock)
 "cyc" = (
 /obj/structure/chair/sofa/bench/corner,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -5181,13 +5190,6 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding/cafe)
-"cBp" = (
-/obj/machinery/computer/secure_data{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/red/opposingcorners,
-/turf/open/floor/iron/dark,
-/area/centcom/interlink)
 "cBq" = (
 /obj/effect/turf_decal/trimline/green/filled/arrow_ccw,
 /obj/effect/turf_decal/siding/white/corner{
@@ -5301,34 +5303,24 @@
 /area/cruiser_dock)
 "cNw" = (
 /obj/structure/flora/bush/fullgrass/style_random,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "cOV" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Administrative Offices";
-	req_one_access = list("cent_general","captain")
+	name = "Administrative Offices"
 	},
 /obj/effect/turf_decal/siding/white{
 	dir = 8
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command/general,
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_or_captain,
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "cQq" = (
 /obj/effect/turf_decal/weather/dirt,
 /obj/structure/hedge,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "cRs" = (
@@ -5460,12 +5452,23 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
+"dgo" = (
+/obj/item/trench_tool,
+/obj/item/tank/internals/emergency_oxygen/double,
+/obj/item/storage/belt/holster/nukie,
+/obj/item/clothing/glasses/night,
+/obj/item/radio/headset/syndicate/alt,
+/obj/structure/closet/syndicate{
+	desc = "It's a personal storage unit for operative gear."
+	},
+/obj/effect/turf_decal/bot_white,
+/obj/machinery/light/cold/directional/north,
+/obj/item/clothing/suit/armor/vest,
+/turf/open/floor/iron/dark/textured_large,
+/area/cruiser_dock)
 "diY" = (
 /obj/structure/toilet{
 	dir = 8
@@ -5482,10 +5485,7 @@
 /area/centcom/holding/cafe)
 "dky" = (
 /obj/structure/flora/tree/jungle/style_4,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "dkD" = (
@@ -5502,10 +5502,7 @@
 /turf/open/floor/iron/white,
 /area/centcom/interlink)
 "dkR" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/effect/turf_decal/weather/dirt{
 	dir = 8
 	},
@@ -5535,18 +5532,12 @@
 /area/centcom/interlink)
 "dsH" = (
 /obj/structure/flora/bush/flowers_yw/style_random,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "dsW" = (
 /obj/item/storage/basket,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/carpet/red,
 /area/centcom/interlink)
 "dtL" = (
@@ -5570,10 +5561,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/bush/fullgrass/style_random,
 /turf/open/floor/grass,
 /area/centcom/interlink)
@@ -5613,12 +5601,6 @@
 /obj/effect/turf_decal/siding/white,
 /obj/machinery/duct,
 /turf/open/floor/iron,
-/area/centcom/interlink)
-"dCk" = (
-/obj/machinery/computer/secure_data{
-	dir = 8
-	},
-/turf/open/floor/iron/dark/textured_large,
 /area/centcom/interlink)
 "dDo" = (
 /obj/machinery/light/directional/south,
@@ -5683,10 +5665,8 @@
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "dOC" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/item/megaphone,
 /obj/item/clothing/mask/whistle,
 /obj/item/binoculars,
@@ -5732,11 +5712,11 @@
 /obj/item/food/canned/tomatoes,
 /obj/item/food/canned/tomatoes,
 /obj/item/food/canned/tomatoes,
-/obj/item/food/canned_jellyfish,
-/obj/item/food/canned_jellyfish,
-/obj/item/food/canned_jellyfish,
-/obj/item/food/canned_jellyfish,
-/obj/item/food/canned_jellyfish,
+/obj/item/food/canned/jellyfish,
+/obj/item/food/canned/jellyfish,
+/obj/item/food/canned/jellyfish,
+/obj/item/food/canned/jellyfish,
+/obj/item/food/canned/jellyfish,
 /obj/item/food/fishmeat/moonfish,
 /obj/item/food/fishmeat/moonfish,
 /obj/item/food/fishmeat/moonfish,
@@ -5769,10 +5749,7 @@
 /area/centcom/holding/cafe)
 "dVb" = (
 /obj/effect/turf_decal/weather/dirt,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "dVh" = (
@@ -6116,10 +6093,7 @@
 /area/centcom/interlink)
 "eSk" = (
 /obj/structure/flora/bush/flowers_pp/style_random,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "eSC" = (
@@ -6351,10 +6325,7 @@
 /turf/open/floor/iron,
 /area/centcom/holding/cafe)
 "fFy" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/effect/turf_decal/weather/dirt{
 	dir = 5
 	},
@@ -6372,10 +6343,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/bush/flowers_pp/style_random,
 /obj/structure/flora/bush/fullgrass/style_random,
 /turf/open/floor/grass,
@@ -6387,36 +6355,24 @@
 /area/centcom/interlink)
 "fHV" = (
 /obj/structure/flora/bush/flowers_br/style_random,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "fIS" = (
 /obj/structure/flora/bush/fullgrass/style_random,
 /obj/structure/flora/bush/flowers_pp/style_random,
 /obj/structure/flora/bush/flowers_br/style_random,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "fIY" = (
 /obj/effect/turf_decal/weather/dirt,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/bush/flowers_yw/style_random,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "fJQ" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/bush/fullgrass/style_random,
 /turf/open/floor/grass,
 /area/centcom/interlink)
@@ -6445,10 +6401,7 @@
 /area/centcom/interlink)
 "fPn" = (
 /obj/structure/flora/bush/fullgrass/style_random,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/fence,
 /turf/open/floor/grass,
 /area/centcom/interlink)
@@ -6466,10 +6419,7 @@
 /obj/structure/chair/sofa/bench/right{
 	dir = 1
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/misc/dirt/planet,
 /area/centcom/interlink)
 "fTu" = (
@@ -6500,10 +6450,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/cruiser_dock)
 "fVr" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/effect/turf_decal/weather/dirt,
 /turf/open/floor/grass,
 /area/centcom/interlink)
@@ -6812,9 +6759,6 @@
 /turf/open/floor/eighties,
 /area/centcom/holding/cafe)
 "gSD" = (
-/obj/structure/window/paperframe{
-	can_atmos_pass = 0
-	},
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -6834,10 +6778,7 @@
 /area/centcom/holding/cafe)
 "gXw" = (
 /obj/effect/turf_decal/weather/dirt,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/bush/flowers_br/style_random,
 /obj/structure/statue/sandstone/venus{
 	name = "Order"
@@ -6874,10 +6815,7 @@
 /obj/structure/fence/interlink{
 	dir = 4
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "hcR" = (
@@ -6898,17 +6836,11 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/tree/jungle/small/style_5,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "hge" = (
-/obj/structure/window/paperframe{
-	can_atmos_pass = 0
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
@@ -7008,10 +6940,7 @@
 /area/centcom/holding/cafe)
 "hpR" = (
 /obj/effect/turf_decal/weather/dirt,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/bush/fullgrass/style_random,
 /turf/open/floor/grass,
 /area/centcom/interlink)
@@ -7080,19 +7009,6 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/interlink)
-"hAO" = (
-/obj/structure/closet/syndicate{
-	desc = "It's a personal storage unit for operative gear."
-	},
-/obj/item/trench_tool,
-/obj/item/tank/internals/emergency_oxygen/double,
-/obj/item/storage/belt/holster/nukie,
-/obj/item/clothing/glasses/night,
-/obj/item/radio/headset/syndicate/alt,
-/obj/effect/turf_decal/bot_white,
-/obj/machinery/light/cold/directional/north,
-/turf/open/floor/iron/dark/textured_large,
-/area/cruiser_dock)
 "hAW" = (
 /obj/effect/turf_decal/sand,
 /obj/machinery/light/directional/west,
@@ -7283,10 +7199,7 @@
 /turf/open/floor/wood/tile,
 /area/centcom/interlink)
 "iem" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/effect/turf_decal/weather/dirt{
 	dir = 8
 	},
@@ -7312,10 +7225,29 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/interlink)
+"iiV" = (
+/obj/item/trench_tool,
+/obj/item/tank/internals/emergency_oxygen/double,
+/obj/item/storage/belt/holster/nukie,
+/obj/item/clothing/glasses/night,
+/obj/item/radio/headset/syndicate/alt,
+/obj/structure/closet/syndicate{
+	desc = "It's a personal storage unit for operative gear."
+	},
+/obj/effect/turf_decal/bot_white,
+/obj/machinery/light/cold/directional/south,
+/obj/item/clothing/suit/armor/vest,
+/turf/open/floor/iron/dark/textured_large,
+/area/cruiser_dock)
 "ikG" = (
 /obj/structure/table,
 /obj/machinery/computer/libraryconsole,
 /turf/open/floor/iron,
+/area/centcom/interlink)
+"ilq" = (
+/obj/machinery/computer/records/security,
+/obj/effect/turf_decal/tile/red/opposingcorners,
+/turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "inr" = (
 /obj/effect/turf_decal/siding/dark{
@@ -7332,10 +7264,7 @@
 /area/centcom/interlink)
 "iov" = (
 /obj/structure/flora/tree/jungle/small/style_random,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "ioz" = (
@@ -7397,10 +7326,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/interlink)
 "iuK" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/carpet/red,
 /area/centcom/interlink)
 "iwF" = (
@@ -7525,10 +7451,7 @@
 /turf/open/floor/iron/smooth_large,
 /area/cruiser_dock)
 "iPs" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/misc/dirt/planet,
 /area/centcom/interlink)
 "iPU" = (
@@ -7554,10 +7477,7 @@
 "iRz" = (
 /obj/effect/turf_decal/weather/dirt,
 /obj/structure/hedge,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "iTf" = (
@@ -7611,10 +7531,7 @@
 /area/centcom/interlink)
 "iXq" = (
 /obj/structure/flora/tree/jungle,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "iXZ" = (
@@ -7701,10 +7618,7 @@
 /turf/open/floor/bamboo,
 /area/centcom/holding/cafedorms)
 "jgT" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/fence/corner,
 /turf/open/floor/grass,
 /area/centcom/interlink)
@@ -7825,10 +7739,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 10
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "jtl" = (
@@ -7995,10 +7906,7 @@
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "jSW" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/effect/turf_decal/weather/dirt,
 /obj/structure/flora/bush/flowers_pp/style_random,
 /turf/open/floor/grass,
@@ -8032,10 +7940,6 @@
 	pixel_y = 3
 	},
 /obj/effect/turf_decal/tile/red/opposingcorners,
-/turf/open/floor/iron/dark,
-/area/centcom/interlink)
-"jUw" = (
-/obj/machinery/vending/cigarette,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "jUK" = (
@@ -8080,10 +7984,7 @@
 	},
 /area/centcom/holding/cafe)
 "kdw" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
 	},
@@ -8223,10 +8124,7 @@
 "krJ" = (
 /obj/structure/flora/bush/fullgrass/style_random,
 /obj/structure/flora/bush/flowers_yw/style_random,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "kvj" = (
@@ -8314,11 +8212,14 @@
 	},
 /turf/open/floor/wood/tile,
 /area/centcom/interlink)
-"kLZ" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
+"kKo" = (
+/obj/machinery/computer/records/security{
+	dir = 8
 	},
+/turf/open/floor/iron/dark/textured_large,
+/area/centcom/interlink)
+"kLZ" = (
+/obj/effect/light_emitter/interlink,
 /obj/effect/turf_decal/weather/dirt,
 /obj/structure/flora/bush/fullgrass/style_random,
 /turf/open/floor/grass,
@@ -8428,13 +8329,16 @@
 /area/centcom/interlink)
 "kZF" = (
 /obj/effect/turf_decal/weather/dirt,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/bush/flowers_yw/style_random,
 /obj/structure/flora/bush/fullgrass/style_random,
 /turf/open/floor/grass,
+/area/centcom/interlink)
+"lba" = (
+/obj/machinery/computer/records/medical{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_large,
 /area/centcom/interlink)
 "lct" = (
 /obj/machinery/button/door{
@@ -8481,6 +8385,13 @@
 	},
 /turf/open/floor/iron/white,
 /area/centcom/holding/cafe)
+"lic" = (
+/obj/machinery/computer/records/security{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red/opposingcorners,
+/turf/open/floor/iron/dark,
+/area/centcom/interlink)
 "liK" = (
 /obj/structure/reagent_dispensers/cooking_oil,
 /turf/open/floor/iron/showroomfloor,
@@ -8610,11 +8521,8 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "lCi" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/north{
 	layer = 2.9
 	},
 /obj/structure/chair/stool/directional/south{
@@ -8772,10 +8680,7 @@
 /turf/open/floor/iron/smooth_large,
 /area/cruiser_dock)
 "lTP" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/tree/jungle/style_6,
 /turf/open/floor/grass,
 /area/centcom/interlink)
@@ -8795,7 +8700,7 @@
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
 "lXo" = (
-/obj/machinery/oven,
+/obj/machinery/oven/range,
 /turf/open/floor/wood,
 /area/centcom/holding/cafe)
 "mac" = (
@@ -8904,10 +8809,7 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "mnS" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/bush/flowers_br/style_random,
 /obj/structure/flora/bush/flowers_pp/style_random,
 /turf/open/floor/grass,
@@ -9065,10 +8967,7 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "mDR" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/effect/turf_decal/weather/dirt,
 /obj/structure/flora/bush/flowers_br/style_random,
 /turf/open/floor/grass,
@@ -9099,10 +8998,7 @@
 /turf/open/misc/beach/sand,
 /area/centcom/holding/cafepark)
 "mLa" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
 	},
@@ -9309,9 +9205,7 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "nqQ" = (
-/obj/machinery/computer/cryopod{
-	pixel_y = 32
-	},
+/obj/machinery/computer/cryopod/directional/north,
 /obj/effect/landmark/latejoin,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
@@ -9393,10 +9287,7 @@
 "nHK" = (
 /obj/structure/flora/bush/fullgrass/style_random,
 /obj/effect/turf_decal/weather/dirt,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "nJp" = (
@@ -9434,10 +9325,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 8
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "nNe" = (
@@ -9472,7 +9360,7 @@
 /area/centcom/interlink)
 "nOb" = (
 /obj/machinery/door/airlock/centcom{
-	name = "NanoTrasen Consultant's Office"
+	name = "Nanotrasen Consultant's Office"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door,
 /obj/effect/turf_decal/siding/white{
@@ -9503,10 +9391,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 4
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/bush/flowers_pp/style_random,
 /turf/open/floor/grass,
 /area/centcom/interlink)
@@ -9737,10 +9622,7 @@
 	dir = 1
 	},
 /obj/structure/flora/bush/flowers_br/style_random,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "oyI" = (
@@ -9748,10 +9630,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 4
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "oAn" = (
@@ -9774,10 +9653,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/bush/flowers_br/style_random,
 /obj/structure/flora/bush/large/style_random,
 /turf/open/floor/grass,
@@ -9946,10 +9822,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 8
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "pcH" = (
@@ -10022,10 +9895,7 @@
 "pmI" = (
 /obj/structure/flora/bush/fullgrass/style_random,
 /obj/structure/flora/bush/flowers_pp/style_random,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "pmJ" = (
@@ -10049,10 +9919,7 @@
 "pod" = (
 /obj/structure/flora/bush/flowers_br/style_random,
 /obj/structure/flora/bush/flowers_yw/style_random,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "ppR" = (
@@ -10153,10 +10020,8 @@
 /area/centcom/interlink)
 "pDd" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Administrative Offices";
-	req_one_access = list("cent_general","captain")
+	name = "Administrative Offices"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command/general,
 /obj/machinery/button/door/directional/west{
 	pixel_y = -8;
 	id = "evac_hall_lookout";
@@ -10171,6 +10036,7 @@
 	name = "Interlink Access Shutters"
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_or_captain,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "pDN" = (
@@ -10205,10 +10071,7 @@
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "pFM" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/fence/interlink{
 	dir = 4
 	},
@@ -10240,16 +10103,15 @@
 /area/centcom/interlink)
 "pHe" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Administrative Offices";
-	req_one_access = list("cent_general","captain")
+	name = "Administrative Offices"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command/captain,
 /obj/effect/turf_decal/trimline/dark_green/corner,
 /obj/machinery/door/poddoor/shutters/indestructible{
 	id = "arr_hall_lookout";
 	name = "Interlink Access Shutters"
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_or_captain,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "pHi" = (
@@ -10367,10 +10229,7 @@
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "pPO" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/tree/jungle/small/style_random,
 /turf/open/floor/grass,
 /area/centcom/interlink)
@@ -10458,10 +10317,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 6
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "pZh" = (
@@ -10503,7 +10359,7 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "qbw" = (
-/obj/structure/window/reinforced/spawner/north,
+/obj/structure/window/reinforced/spawner/directional/north,
 /obj/effect/turf_decal/tile/red/opposingcorners,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
@@ -10573,10 +10429,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 9
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "qoB" = (
@@ -10646,7 +10499,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/cruiser_dock)
 "qvk" = (
-/obj/machinery/oven,
+/obj/machinery/oven/range,
 /turf/open/floor/iron/cafeteria,
 /area/centcom/interlink)
 "qwk" = (
@@ -10808,10 +10661,7 @@
 /area/centcom/holding/cafe)
 "qRX" = (
 /obj/effect/turf_decal/weather/dirt,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/statue/sandstone/venus{
 	dir = 1;
 	name = "Law"
@@ -10854,19 +10704,13 @@
 /turf/open/floor/wood,
 /area/centcom/holding/cafe)
 "qWZ" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/fluff/arc,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "rah" = (
 /obj/structure/flora/bush/flowers_br/style_random,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/fence/interlink{
 	dir = 4
 	},
@@ -10975,10 +10819,7 @@
 "rng" = (
 /obj/effect/turf_decal/weather/dirt,
 /obj/structure/flora/bush/flowers_yw/style_random,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "rpG" = (
@@ -11009,10 +10850,7 @@
 /turf/open/floor/wood,
 /area/centcom/interlink)
 "rDg" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
 	},
@@ -11111,12 +10949,8 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "rPh" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/table/wood,
 /obj/item/storage/medkit/regular{
 	pixel_x = 3
@@ -11190,10 +11024,7 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "rSa" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/bush/flowers_yw/style_random,
 /turf/open/floor/grass,
 /area/centcom/interlink)
@@ -11226,18 +11057,6 @@
 /obj/machinery/vending/ashclothingvendor,
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
-"rVv" = (
-/obj/item/trench_tool,
-/obj/item/tank/internals/emergency_oxygen/double,
-/obj/item/storage/belt/holster/nukie,
-/obj/item/clothing/glasses/night,
-/obj/item/radio/headset/syndicate/alt,
-/obj/structure/closet/syndicate{
-	desc = "It's a personal storage unit for operative gear."
-	},
-/obj/effect/turf_decal/bot_white,
-/turf/open/floor/iron/dark/textured_large,
-/area/cruiser_dock)
 "rVP" = (
 /obj/machinery/door/poddoor/ert,
 /obj/effect/turf_decal/stripes/asteroid/line{
@@ -11246,10 +11065,7 @@
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "rVQ" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/bush/flowers_br/style_random,
 /turf/open/floor/grass,
 /area/centcom/interlink)
@@ -11314,10 +11130,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/bush/flowers_yw/style_random,
 /turf/open/floor/grass,
 /area/centcom/interlink)
@@ -11445,11 +11258,6 @@
 /obj/effect/turf_decal/siding/white,
 /turf/open/floor/iron/white,
 /area/centcom/interlink)
-"svF" = (
-/obj/machinery/computer/secure_data,
-/obj/effect/turf_decal/tile/red/opposingcorners,
-/turf/open/floor/iron/dark,
-/area/centcom/interlink)
 "sxE" = (
 /obj/structure/closet/crate/bin,
 /obj/effect/turf_decal/delivery,
@@ -11459,10 +11267,7 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "syc" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/bush/large/style_random,
 /turf/open/floor/grass,
 /area/centcom/interlink)
@@ -11510,12 +11315,25 @@
 "sGU" = (
 /obj/structure/flora/bush/fullgrass/style_random,
 /obj/structure/flora/bush/flowers_br/style_random,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
+"sIb" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/turf/open/indestructible/hoteltile{
+	icon_state = "floor"
+	},
+/area/centcom/holding/cafe)
 "sIH" = (
 /obj/structure/chair/sofa/left/brown{
 	dir = 1
@@ -11533,7 +11351,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/obj/structure/window/spawner/west,
+/obj/structure/window/spawner/directional/west,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "sKg" = (
@@ -11560,7 +11378,7 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "sPI" = (
-/obj/structure/window/reinforced/spawner/east,
+/obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner,
 /obj/structure/closet/crate/bin,
 /obj/item/reagent_containers/cup/glass/coffee_cup,
@@ -11605,7 +11423,7 @@
 /turf/open/floor/iron/white,
 /area/centcom/interlink)
 "sWb" = (
-/obj/structure/window/reinforced/spawner/east,
+/obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/closet/secure_closet/freezer/empty{
 	name = "milk freezer"
 	},
@@ -11653,10 +11471,7 @@
 /turf/open/floor/iron/freezer,
 /area/centcom/interlink)
 "sZl" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/tree/jungle/small,
 /turf/open/floor/grass,
 /area/centcom/interlink)
@@ -11701,10 +11516,7 @@
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "tdp" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/effect/turf_decal/weather/dirt{
 	dir = 8
 	},
@@ -11779,19 +11591,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
-"ttr" = (
-/obj/item/trench_tool,
-/obj/item/tank/internals/emergency_oxygen/double,
-/obj/item/storage/belt/holster/nukie,
-/obj/item/clothing/glasses/night,
-/obj/item/radio/headset/syndicate/alt,
-/obj/structure/closet/syndicate{
-	desc = "It's a personal storage unit for operative gear."
-	},
-/obj/effect/turf_decal/bot_white,
-/obj/machinery/light/cold/directional/south,
-/turf/open/floor/iron/dark/textured_large,
-/area/cruiser_dock)
 "ttx" = (
 /obj/structure/table,
 /obj/item/storage/fancy/candle_box{
@@ -11814,7 +11613,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/structure/closet/secure_closet/medical2,
+/obj/structure/closet/secure_closet/medical2/unlocked,
 /turf/open/floor/iron/white,
 /area/centcom/holding/cafe)
 "tvm" = (
@@ -11830,10 +11629,7 @@
 "twE" = (
 /obj/structure/flora/bush/flowers_yw/style_random,
 /obj/structure/flora/bush/flowers_br/style_random,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "twL" = (
@@ -11846,12 +11642,6 @@
 /obj/machinery/vending/cola,
 /turf/open/misc/beach/sand,
 /area/centcom/holding/cafepark)
-"tAX" = (
-/obj/machinery/computer/secure_data,
-/obj/effect/turf_decal/tile/green/opposingcorners,
-/obj/effect/turf_decal/siding/wood,
-/turf/open/floor/iron,
-/area/centcom/interlink)
 "tBo" = (
 /obj/structure/table,
 /obj/machinery/microwave{
@@ -11916,10 +11706,7 @@
 /turf/open/floor/wood,
 /area/centcom/holding/cafe)
 "tIN" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/bush/flowers_yw/style_random,
 /obj/structure/flora/bush/fullgrass/style_random,
 /turf/open/floor/grass,
@@ -11945,18 +11732,12 @@
 "tQP" = (
 /obj/structure/flora/bush/flowers_pp/style_random,
 /obj/structure/flora/bush/flowers_br/style_random,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "tUk" = (
 /obj/structure/fence/corner,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "tUz" = (
@@ -12050,10 +11831,7 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "uaM" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/effect/turf_decal/weather/dirt{
 	dir = 8
 	},
@@ -12216,7 +11994,7 @@
 /area/centcom/holding/cafepark)
 "uqJ" = (
 /obj/machinery/door/airlock/centcom{
-	name = "NanoTrasen Consultant's Office"
+	name = "Nanotrasen Consultant's Office"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door,
 /obj/effect/turf_decal/siding/white{
@@ -12226,10 +12004,7 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "usr" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
 	},
@@ -12312,12 +12087,6 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/interlink)
-"uFe" = (
-/obj/machinery/computer/med_data{
-	dir = 8
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/centcom/interlink)
 "uFG" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/poddoor/shutters/indestructible{
@@ -12330,10 +12099,7 @@
 /obj/structure/chair/sofa/bench/left{
 	dir = 1
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/misc/dirt/planet,
 /area/centcom/interlink)
 "uGU" = (
@@ -12349,7 +12115,7 @@
 /obj/effect/turf_decal/siding/wood,
 /obj/item/flashlight/flare/candle/infinite{
 	pixel_x = -12;
-	pixel_y = -45
+	pixel_y = -42
 	},
 /obj/item/fancy_pillow{
 	pixel_x = -22;
@@ -12382,10 +12148,7 @@
 /area/cruiser_dock)
 "uKH" = (
 /obj/effect/turf_decal/weather/dirt,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/tree/jungle/small/style_6,
 /turf/open/floor/grass,
 /area/centcom/interlink)
@@ -12496,10 +12259,7 @@
 /turf/open/floor/wood,
 /area/centcom/holding/cafe)
 "vat" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "vaB" = (
@@ -12541,9 +12301,7 @@
 /turf/open/floor/wood,
 /area/centcom/interlink)
 "vgx" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/wood,
 /area/centcom/holding/cafepark)
 "vgL" = (
@@ -12556,10 +12314,7 @@
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "vqy" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/effect/turf_decal/weather/dirt{
 	dir = 4
 	},
@@ -12620,19 +12375,6 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/interlink)
-"vvi" = (
-/obj/item/trench_tool,
-/obj/item/tank/internals/emergency_oxygen/double,
-/obj/item/storage/belt/holster/nukie,
-/obj/item/clothing/glasses/night,
-/obj/item/radio/headset/syndicate/alt,
-/obj/structure/closet/syndicate{
-	desc = "It's a personal storage unit for operative gear."
-	},
-/obj/effect/turf_decal/bot_white,
-/obj/machinery/light/cold/directional/north,
-/turf/open/floor/iron/dark/textured_large,
-/area/cruiser_dock)
 "vxh" = (
 /obj/item/instrument/accordion,
 /obj/item/instrument/banjo,
@@ -12891,10 +12633,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "wji" = (
@@ -12921,10 +12660,7 @@
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "wpz" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/bush/flowers_pp/style_random,
 /turf/open/floor/grass,
 /area/centcom/interlink)
@@ -12936,10 +12672,7 @@
 /turf/open/misc/asteroid,
 /area/cruiser_dock)
 "wqL" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
 	},
@@ -12982,10 +12715,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 4
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "wyn" = (
@@ -13008,17 +12738,16 @@
 /area/centcom/interlink)
 "wyL" = (
 /obj/machinery/door/airlock/centcom{
-	name = "ERT Access";
-	req_one_access = list("cent_general","captain")
+	name = "ERT Access"
 	},
 /obj/effect/turf_decal/siding/white{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/airlock/access/all/admin/general,
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_or_captain,
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "wzZ" = (
-/obj/structure/window/reinforced/spawner/north,
+/obj/structure/window/reinforced/spawner/directional/north,
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 1
 	},
@@ -13066,6 +12795,12 @@
 	},
 /turf/open/floor/bamboo,
 /area/centcom/holding/cafedorms)
+"wCN" = (
+/obj/machinery/computer/records/security,
+/obj/effect/turf_decal/tile/green/opposingcorners,
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/iron,
+/area/centcom/interlink)
 "wDG" = (
 /obj/structure/chair/stool/bar/directional/north,
 /turf/open/indestructible/hotelwood,
@@ -13277,10 +13012,7 @@
 "xmn" = (
 /obj/structure/flora/bush/flowers_pp/style_random,
 /obj/structure/flora/bush/flowers_yw/style_random,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "xpl" = (
@@ -13294,10 +13026,7 @@
 /obj/structure/flora/bush/fullgrass/style_random,
 /obj/structure/flora/bush/flowers_yw/style_random,
 /obj/structure/flora/bush/flowers_br/style_random,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "xqq" = (
@@ -13336,10 +13065,7 @@
 /area/centcom/holding/cafepark)
 "xtQ" = (
 /obj/effect/turf_decal/weather/dirt,
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/flora/bush/flowers_pp/style_random,
 /turf/open/floor/grass,
 /area/centcom/interlink)
@@ -13377,10 +13103,7 @@
 /obj/structure/chair/sofa/bench{
 	dir = 1
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/misc/dirt/planet,
 /area/centcom/interlink)
 "xCy" = (
@@ -13565,10 +13288,7 @@
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "xXc" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /obj/structure/fence,
 /turf/open/floor/grass,
 /area/centcom/interlink)
@@ -13627,10 +13347,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 8
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
+/obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "ycB" = (
@@ -13646,10 +13363,6 @@
 	},
 /obj/structure/beebox{
 	name = "Shrine"
-	},
-/obj/item/flashlight/flare/candle/infinite{
-	pixel_x = 17;
-	pixel_y = -22
 	},
 /turf/open/floor/wood,
 /area/centcom/holding/cafedorms)
@@ -22047,7 +21760,7 @@ iVW
 ooG
 spb
 tvw
-svF
+ilq
 jjQ
 xSr
 qbw
@@ -23063,7 +22776,7 @@ tvw
 lHZ
 fMM
 tvw
-tAX
+wCN
 aQY
 aQY
 ogq
@@ -26413,7 +26126,7 @@ fdo
 xSr
 xSr
 wXm
-cBp
+lic
 aDg
 aOl
 aXG
@@ -27664,7 +27377,7 @@ aqG
 aqG
 aqG
 aDg
-jUw
+aXG
 jXO
 rDL
 hvQ
@@ -31774,8 +31487,8 @@ aXG
 lSJ
 hvQ
 aDg
-uFe
-dCk
+lba
+kKo
 uhO
 oln
 hvQ
@@ -59059,7 +58772,7 @@ azT
 azT
 azT
 asC
-aSg
+sIb
 ang
 aUo
 aUo
@@ -60344,7 +60057,7 @@ aOI
 aKB
 aWq
 aDA
-aSg
+sIb
 ang
 aUo
 aUo
@@ -60860,7 +60573,7 @@ apx
 apx
 aoR
 aqf
-alg
+aXV
 aXV
 aam
 aUo
@@ -68432,13 +68145,13 @@ kjb
 kjb
 kjb
 xuY
-hAO
+cxX
 kqL
 hLW
 uKw
 iBc
 kqL
-ttr
+iiV
 xuY
 kjb
 kjb
@@ -69460,13 +69173,13 @@ kjb
 kjb
 kjb
 xuY
-vvi
+dgo
 kqL
 hLW
 uKw
 iBc
 kqL
-ttr
+iiV
 xuY
 kjb
 kjb
@@ -70233,7 +69946,7 @@ kjb
 kjb
 kjb
 xuY
-rVv
+cuF
 kGL
 hIU
 xuY

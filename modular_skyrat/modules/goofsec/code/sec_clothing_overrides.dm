@@ -47,37 +47,37 @@
 /obj/item/storage/backpack/security
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi'
-	icon_state = "backpack_black"
+	icon_state = "backpack_security_black"
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Black Variant" = list(
-			RESKIN_ICON_STATE = "backpack_black",
-			RESKIN_WORN_ICON_STATE = "backpack_black"
+			RESKIN_ICON_STATE = "backpack_security_black",
+			RESKIN_WORN_ICON_STATE = "backpack_security_black"
 		),
 		"White Variant" = list(
-			RESKIN_ICON_STATE = "backpack_white",
-			RESKIN_WORN_ICON_STATE = "backpack_white"
+			RESKIN_ICON_STATE = "backpack_security_white",
+			RESKIN_WORN_ICON_STATE = "backpack_security_white"
 		),
 	)
 
 /obj/item/storage/backpack/satchel/sec
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi'
-	icon_state = "security_satchel"
+	icon_state = "satchel_security"
 
 /obj/item/storage/backpack/duffelbag/sec
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi'
-	icon_state = "security_duffle_blue"
+	icon_state = "duffel_security_black"
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "security_duffle_blue",
-			RESKIN_WORN_ICON_STATE = "security_duffle_blue"
+		"Black Variant" = list(
+			RESKIN_ICON_STATE = "duffel_security_black",
+			RESKIN_WORN_ICON_STATE = "duffel_security_black"
 		),
 		"White Variant" = list(
-			RESKIN_ICON_STATE = "security_duffle_white",
-			RESKIN_WORN_ICON_STATE = "security_duffle_white"
+			RESKIN_ICON_STATE = "duffel_security_white",
+			RESKIN_WORN_ICON_STATE = "duffel_security_white"
 		),
 	)
 
@@ -473,7 +473,7 @@
 
 //Riot Armor
 /obj/item/clothing/suit/armor/riot
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi' //ORION TODO - actually have a unique icon_state overriding it instead of this cop-out it originally had (The original was actually done wrong anyways)
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
 
 //Warden's Vest
 /obj/item/clothing/suit/armor/vest/warden
@@ -485,16 +485,16 @@
 //Security Wintercoat (and hood)
 /obj/item/clothing/head/hooded/winterhood/security
 	desc = "A blue, armour-padded winter hood. Definitely not bulletproof, especially not the part where your face goes." //God dammit TG stop putting color in the desc of items like this
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
-	icon_state = "security_wintercoat_hood"
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/winterhood.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/winterhood.dmi'
+	icon_state = "winterhood_security"
 
 /obj/item/clothing/suit/hooded/wintercoat/security
 	name = "security winter coat" //TG has this as a Jacket now, so unless we update ours, this needs to be re-named as Coat
 	desc = "A blue, armour-padded winter coat. It glitters with a mild ablative coating and a robust air of authority.  The zipper tab is a small <b>\"Lopland\"</b> logo."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
-	icon_state = "security_wintercoat"
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits/wintercoat.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/wintercoat.dmi'
+	icon_state = "coatsecurity_winter"
 
 /obj/item/clothing/suit/armor/hos/hos_formal
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'

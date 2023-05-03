@@ -1,7 +1,7 @@
 import { classes } from 'common/react';
 import { useBackend } from '../../backend';
 import { BlockQuote, Box, Button, Divider, Icon, Section, Stack, Tooltip } from '../../components';
-import { CharacterPreview } from './CharacterPreview';
+import { CharacterPreview } from '../common/CharacterPreview';
 import { createSetPreference, Food, Perk, PreferencesMenuData, ServerData, Species } from './data';
 import { ServerPreferencesFetcher } from './ServerPreferencesFetcher';
 
@@ -310,7 +310,7 @@ const SpeciesPageInner = (
                         /* SKYRAT EDIT START - Scrollable description */
                         title="Description"
                         maxHeight="14vh"
-                        overflowY="auto"
+                        scrollable:true
                         /* SKYRAT EDIT END*/
                       >
                         {currentSpecies.desc}

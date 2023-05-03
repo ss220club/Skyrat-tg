@@ -1,6 +1,3 @@
-#define REVOLUTION_VICTORY 1
-#define STATION_VICTORY 2
-
 /datum/dynamic_ruleset
 	/// For admin logging and round end screen.
 	// If you want to change this variable name, the force latejoin/midround rulesets
@@ -112,15 +109,15 @@
 	indice_pop = min(requirements.len,round(population/pop_per_requirement)+1)
 
 	if(minimum_players > population)
-		log_game("DYNAMIC: FAIL: [src] failed acceptable: minimum_players ([minimum_players]) > population ([population])")
+		log_dynamic("FAIL: [src] failed acceptable: minimum_players ([minimum_players]) > population ([population])")
 		return FALSE
 
 	if(maximum_players > 0 && population > maximum_players)
-		log_game("DYNAMIC: FAIL: [src] failed acceptable: maximum_players ([maximum_players]) < population ([population])")
+		log_dynamic("FAIL: [src] failed acceptable: maximum_players ([maximum_players]) < population ([population])")
 		return FALSE
 
 	if (threat_level < requirements[indice_pop])
-		log_game("DYNAMIC: FAIL: [src] failed acceptable: threat_level ([threat_level]) < requirement ([requirements[indice_pop]])")
+		log_dynamic("FAIL: [src] failed acceptable: threat_level ([threat_level]) < requirement ([requirements[indice_pop]])")
 		return FALSE
 
 	return TRUE
@@ -202,7 +199,7 @@
 	if (required_candidates <= candidates.len)
 		return TRUE
 
-	log_game("DYNAMIC: FAIL: [src] does not have enough candidates ([required_candidates] needed, [candidates.len] found)")
+	log_dynamic("FAIL: [src] does not have enough candidates ([required_candidates] needed, [candidates.len] found)")
 	return FALSE
 
 /// Here you can remove candidates that do not meet your requirements.

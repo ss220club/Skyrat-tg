@@ -138,12 +138,37 @@
 /obj/item/lightreplacer/emag_act()
 	if(obj_flags & EMAGGED)
 		return
-	Emag()
+	obj_flags |= EMAGGED
+	playsound(loc, SFX_SPARKS, 100, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+	update_appearance()
+
+/obj/item/lightreplacer/update_name(updates)
+	. = ..()
+	name = (obj_flags & EMAGGED) ? "shortcircuited [initial(name)]" : initial(name)
+
+/obj/item/lightreplacer/update_icon_state()
+	icon_state = "[initial(icon_state)][(obj_flags & EMAGGED ? "-emagged" : "")]"
+	return ..()
+
+/obj/item/lightreplacer/vv_edit_var(vname, vval)
+	if(vname == NAMEOF(src, obj_flags))
+		update_appearance()
+	return ..()
+
 
 /obj/item/lightreplacer/attack_self(mob/user)
 	for(var/obj/machinery/light/target in user.loc)
 		replace_light(target, user)
 	to_chat(user, status_string())
+
+/obj/item/lightreplacer/proc/range_check(atom/destination, mob/user)
+	if(destination.z != user.z)
+		return
+	if(!(destination in view(7, get_turf(user))))
+		to_chat(user, span_warning("The \'Out of Range\' light on [src] blinks red."))
+		return FALSE
+	else
+		return TRUE
 
 /obj/item/lightreplacer/afterattack(atom/target, mob/user, proximity)
 	. = ..()
@@ -151,29 +176,27 @@
 		balloon_alert(user, "no more lights!")
 		return
 
-	if(!proximity && !bluespace_toggle)
+	/**
+	 * return if it has no bluespace capabilities and target is not in proximity OR
+	 * return if it has bluespace capabilities but the target is not in its Line of sight
+	 */
+	if((!proximity && !bluespace_toggle) || (bluespace_toggle && !range_check(target, user)))
 		return
 
-	if(!isturf(target))
-		if(istype(target, /obj/machinery/light))
-			if(!proximity && bluespace_toggle)
-				if(replace_light(target, user))
-					user.Beam(target, icon_state = "rped_upgrade", time = 1 SECONDS)
-					playsound(src, 'sound/items/pshoom.ogg', 40, 1)
-		return
-
-	for(var/atom/target_atom in target)
-		if(!can_use(user)) //We check inside the loop in case we're filling multiple lights with one click
-			balloon_alert(user, "no more lights!")
-			return
-		replace_light(target_atom, user)
-		if(bluespace_toggle)
+	// if we are attacking an light fixture then replace it directly
+	if(istype(target, /obj/machinery/light))
+		if(replace_light(target, user) && bluespace_toggle)
 			user.Beam(target, icon_state = "rped_upgrade", time = 1 SECONDS)
 			playsound(src, 'sound/items/pshoom.ogg', 40, 1)
+		return
 
-/obj/item/lightreplacer/update_icon_state()
-	icon_state = "[initial(icon_state)][(obj_flags & EMAGGED ? "-emagged" : "")]"
-	return ..()
+	var/light_replaced = FALSE
+	for(var/atom/target_atom in target)
+		if(replace_light(target_atom, user))
+			light_replaced = TRUE
+	if(light_replaced && bluespace_toggle)
+		user.Beam(target, icon_state = "rped_upgrade", time = 1 SECONDS)
+		playsound(src, 'sound/items/pshoom.ogg', 40, 1)
 
 /obj/item/lightreplacer/proc/status_string()
 	return "It has [uses] light\s remaining (plus [bulb_shards] fragment\s)."
@@ -181,7 +204,6 @@
 /obj/item/lightreplacer/proc/Use(mob/user)
 	playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 	add_uses(-1)
-	return TRUE
 
 // Negative numbers will subtract
 /obj/item/lightreplacer/proc/add_uses(amount = 1)
@@ -205,56 +227,41 @@
 		charge = 1
 
 /obj/item/lightreplacer/proc/replace_light(obj/machinery/light/target, mob/living/user)
-
-	if(!istype(target)) //Confirm that it's a light we're testing, because afterattack runs this for everything on a given turf and will runtime
-		return
-
-	if(target.status != LIGHT_OK)
-		if(can_use(user))
-			if(!Use(user))
-				return FALSE
-			to_chat(user, span_notice("You replace \the [target.fitting] with \the [src]."))
-
-			if(target.status != LIGHT_EMPTY)
-				add_shards(1, user)
-				target.status = LIGHT_EMPTY
-				target.update()
-
-			var/obj/item/light/L2 = new target.light_type()
-
-			target.status = L2.status
-			target.switchcount = L2.switchcount
-			target.brightness = L2.brightness
-			if(obj_flags & EMAGGED)
-				target.create_reagents(LIGHT_REAGENT_CAPACITY, SEALED_CONTAINER | TRANSPARENT)
-				target.reagents.add_reagent(/datum/reagent/toxin/plasma, 10)
-			target.on = target.has_power()
-			target.update()
-			qdel(L2)
-			return TRUE
-
-		else
-			to_chat(user, span_warning("\The [src]'s refill light blinks red."))
-			return FALSE
-	else
+	//Confirm that it's a light we're testing, because afterattack runs this for everything on a given turf and will runtime
+	if(!istype(target))
+		return FALSE
+	//If the light source is ok then what are we doing here
+	if(target.status == LIGHT_OK)
 		to_chat(user, span_warning("There is a working [target.fitting] already inserted!"))
 		return FALSE
+	//Were all out
+	if(!can_use(user))
+		to_chat(user, span_warning("\The [src]'s refill light blinks red."))
+		return FALSE
 
-/obj/item/lightreplacer/proc/Emag()
-	obj_flags ^= EMAGGED
-	playsound(src.loc, SFX_SPARKS, 100, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+	//remove any broken light on the fixture & add it as a shard
+	if(target.status != LIGHT_EMPTY)
+		add_shards(1, user)
+		target.status = LIGHT_EMPTY
+		target.update()
+	var/obj/item/light/old_light = new target.light_type()
+	target.status = old_light.status
+	target.switchcount = old_light.switchcount
+	target.brightness = old_light.brightness
 	if(obj_flags & EMAGGED)
-		name = "shortcircuited [initial(name)]"
-	else
-		name = initial(name)
-	update_appearance()
+		target.create_reagents(LIGHT_REAGENT_CAPACITY, SEALED_CONTAINER | TRANSPARENT)
+		target.reagents.add_reagent(/datum/reagent/toxin/plasma, 10)
+	target.on = target.has_power()
+	target.update()
+	qdel(old_light)
+
+	Use(user)
+	to_chat(user, span_notice("You replace \the [target.fitting] with \the [src]."))
+	return TRUE
 
 /obj/item/lightreplacer/proc/can_use(mob/living/user)
 	src.add_fingerprint(user)
-	if(uses > 0)
-		return TRUE
-	else
-		return FALSE
+	return uses > 0
 
 /obj/item/lightreplacer/cyborg/Initialize(mapload)
 	. = ..()

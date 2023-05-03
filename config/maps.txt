@@ -25,10 +25,6 @@ map deltastation
 	votable
 endmap
 
-map kilostation
-	votable
-endmap
-
 map icebox
 	minplayers 25
 	votable
@@ -38,6 +34,12 @@ map tramstation
 	minplayers 35
 endmap
 
+map northstar
+	minplayers 50
+	votable
+endmap
+
+
 map runtimestation
 endmap
 
@@ -45,11 +47,6 @@ map multiz_debug
 endmap
 
 ##SKYRAT MAPS##
-
-map blueshift
-	minplayers 50
-	votable
-endmap
 
 map voidraptor
 	maxplayers 100
