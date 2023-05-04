@@ -328,8 +328,10 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 		effect = issilicon(real_speaker) ? SOUND_EFFECT_MEGAPHONE_ROBOT : SOUND_EFFECT_MEGAPHONE
 	var/traits = TTS_TRAIT_RATE_MEDIUM
 	var/self_radio = radio_freq && src == real_speaker
+	var/mob/living/carbon/human/human_speaker = real_speaker
+	var/tts_seed = istype(human_speaker) ? human_speaker.tts_seed : "Arthas"
 	if(!self_radio)
-		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), speaker, src, raw_message, "Arthas", TRUE, effect, traits)
+		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), speaker, src, raw_message, tts_seed, TRUE, effect, traits)
 
 	// Recompose message for AI hrefs, language incomprehension.
 	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mods)

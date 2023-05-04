@@ -88,6 +88,22 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	/// If set to TRUE, will update character_profiles on the next ui_data tick.
 	var/tainted_character_profiles = FALSE
 
+	var/phrases = list(
+		"Так звучит мой голос.",
+		"Так я звучу.",
+		"Я.",
+		"Поставьте свою подпись.",
+		"Пора за работу.",
+		"Дело сделано.",
+		"Станция Нанотрейзен.",
+		"Офицер СБ.",
+		"Капитан.",
+		"Вульпканин.",
+		"Съешь же ещё этих мягких французских булок, да выпей чаю.",
+		"Клоун, прекрати разбрасывать банановые кожурки офицерам под ноги!",
+		"Капитан, вы уверены что хотите назначить клоуна на должность главы персонала?",
+	)
+
 /datum/preferences/Destroy(force, ...)
 	QDEL_NULL(character_preview_view)
 	QDEL_LIST(middleware)
@@ -210,6 +226,32 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	for (var/datum/preference_middleware/preference_middleware as anything in middleware)
 		data += preference_middleware.get_ui_static_data(user)
+
+	data["tts_enabled"] = CONFIG_GET(flag/tts_enabled)
+
+	var/list/providers = list()
+	for(var/_provider in SStts.tts_providers)
+		var/datum/tts_provider/provider = SStts.tts_providers[_provider]
+		providers += list(list(
+			"name" = provider.name,
+			"is_enabled" = provider.is_enabled,
+		))
+	data["providers"] = providers
+
+	var/list/seeds = list()
+	for(var/_seed in SStts.tts_seeds)
+		var/datum/tts_seed/seed = SStts.tts_seeds[_seed]
+		seeds += list(list(
+			"name" = seed.name,
+			"value" = seed.value,
+			"category" = seed.category,
+			"gender" = seed.gender,
+			"provider" = initial(seed.provider.name),
+			"donator_level" = seed.donator_level,
+		))
+	data["seeds"] = seeds
+
+	data["phrases"] = phrases
 
 	return data
 
@@ -370,6 +412,19 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			return TRUE
 		//SKYRAT EDIT END
 
+		if("listen")
+			var/phrase = params["phrase"]
+			var/seed_name = params["seed"]
+
+			if((phrase in phrases) && (seed_name in SStts.tts_seeds))
+				INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), null, usr, phrase, seed_name, FALSE)
+			return FALSE
+
+		if("select_voice")
+			var/seed_name = params["seed"]
+			var/datum/preference/tts_seed = GLOB.preference_entries_by_key["tts_seed"]
+			write_preference(tts_seed, seed_name)
+			return TRUE
 
 	for (var/datum/preference_middleware/preference_middleware as anything in middleware)
 		var/delegation = preference_middleware.action_delegations[action]
