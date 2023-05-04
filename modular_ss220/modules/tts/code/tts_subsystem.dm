@@ -413,7 +413,7 @@ SUBSYSTEM_DEF(tts)
 	if(preSFX)
 		play_sfx(listener, preSFX, output.channel, output.volume, output.environment)
 
-	listener.playsound_local(turf_source, output, volume, sound_to_use = output, channel = channel)
+	listener.playsound_local(turf_source, output, volume, sound_to_use = output, channel = channel, wait = TRUE)
 
 	if(!output || output.volume <= 0)
 		return
