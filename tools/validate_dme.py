@@ -33,7 +33,7 @@ offset = total - len(lines)
 print(f"{offset} lines were ignored in output")
 fail_no_include = False
 
-code_files = glob.glob("code/**/*.dm", recursive=True) + glob.glob("modular_skyrat/**/*.dm", recursive=True) # SKYRAT EDIT CHANGE
+code_files = glob.glob("code/**/*.dm", recursive=True) + glob.glob("modular_skyrat/**/*.dm", recursive=True) + glob.glob("modular_ss220/**/*.dm", recursive=True) # SKYRAT + SS220 EDIT CHANGE
 for code_file in code_files: # SKYRAT EDIT CHANGE
     dm_path = code_file.replace('/', '\\')
 
