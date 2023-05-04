@@ -5,12 +5,6 @@
 	winset(user, null, "command=[user.tgui_say_create_open_command(SAY_CHANNEL)]")
 	return TRUE
 
-/datum/keybinding/client/communication/radio/down(client/user)
-	. = ..()
-	if(.)
-		return
-	winset(user, null, "command=[user.tgui_say_create_open_command(RADIO_CHANNEL)]")
-	return TRUE
 
 /datum/keybinding/client/communication/ooc/down(client/user)
 	. = ..()
@@ -30,12 +24,12 @@
 	. = ..()
 	if(.)
 		return
-	winset(user, null, "command=[user.tgui_say_create_open_command("LOOC")]")
+	winset(user, null, "command=looc")
 	return TRUE
 
 /datum/keybinding/client/communication/whisper/down(client/user)
 	. = ..()
 	if(.)
 		return
-	winset(user, null, "command=[user.tgui_say_create_open_command("Whisper")]")
+	winset(user, null, "command=whisper")
 	return TRUE
