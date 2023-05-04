@@ -382,7 +382,7 @@ SUBSYSTEM_DEF(tts)
 
 	var/turf/turf_source = get_turf(speaker)
 
-	var/volume = 100
+	var/volume = 50
 	var/channel = CHANNEL_TTS_RADIO
 	if(is_local)
 		// TODO: SS220-TTS
@@ -471,9 +471,6 @@ SUBSYSTEM_DEF(tts)
 		sanitized_messages_cache_miss++
 	. = message
 	. = trim(.)
-
-	var/static/regex/plus_sign_replace = new(@"\+", "g")
-	. = plus_sign_replace.Replace(., "")
 
 	var/static/regex/punctuation_check = new(@"[.,?!]\Z")
 	if(!punctuation_check.Find(.))
