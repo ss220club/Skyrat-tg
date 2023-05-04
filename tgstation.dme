@@ -7028,4 +7028,6 @@
 #include "modular_ss220\modules\tts\code\tts_sound.dm"
 #include "modular_ss220\modules\tts\code\tts_subsystem.dm"
 #include "modular_ss220\modules\tts\code\~tts_undefs.dm"
+#include "modular_ss220\modules\tts\code\providers\silero.dm"
+#include "modular_ss220\modules\tts\code\seeds\silero.dm"
 // END_INCLUDE
