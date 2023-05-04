@@ -1,7 +1,7 @@
 /mob/living/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods, message_range)
 	. = ..()
 
-	if(!GET_CLIENT(src) || HAS_TRAIT(speaker, TRAIT_SIGN_LANG))
+	if(!GET_CLIENT(src) || HAS_TRAIT(speaker, TRAIT_SIGN_LANG) || !message_language)
 		return
 
 	var/atom/movable/virtualspeaker/virtual_speaker = speaker
