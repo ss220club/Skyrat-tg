@@ -29,10 +29,10 @@ const getCheckboxGroup = (
   itemsList,
   selectedList,
   setSelected,
-  contentKey = null
+  contentKey: string | null = null
 ) => {
   return itemsList.map((item) => {
-    const title = item[contentKey] ?? item;
+    const title = (contentKey && item[contentKey]) ?? item;
     return (
       <Button.Checkbox
         key={title}
@@ -41,7 +41,9 @@ const getCheckboxGroup = (
         onClick={() => {
           if (selectedList.includes(item)) {
             setSelected(
-              selectedList.filter((i) => (i[contentKey] ?? i) !== item)
+              selectedList.filter(
+                (i) => ((contentKey && i[contentKey]) ?? i) !== item
+              )
             );
           } else {
             setSelected([item, ...selectedList]);
