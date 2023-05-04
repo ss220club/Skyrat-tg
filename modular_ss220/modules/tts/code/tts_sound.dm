@@ -5,9 +5,6 @@
 #define SHELLEO_STDERR 3
 
 /proc/apply_sound_effect(effect, filename_input, filename_output)
-	filename_input = SANITIZE_FILENAME(filename_input)
-	filename_output = SANITIZE_FILENAME(filename_output)
-
 	if(!effect)
 		CRASH("Invalid sound effect chosen.")
 
