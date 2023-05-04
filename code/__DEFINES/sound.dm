@@ -23,8 +23,6 @@
 #define CHANNEL_PCV 1009
 //SKYRAT EDIT CHANGE END
 
-#define CHANNEL_TTS_RADIO 1008
-
 ///Default range of a sound.
 #define SOUND_RANGE 17
 #define MEDIUM_RANGE_SOUND_EXTRARANGE -5
@@ -237,10 +235,3 @@ GLOBAL_LIST_INIT(announcer_keys, list(
 #define SFX_CRUNCHY_BUSH_WHACK "crunchy_bush_whack"
 #define SFX_TREE_CHOP "tree_chop"
 #define SFX_ROCK_TAP "rock_tap"
-
-#define SOUND_EFFECT_NONE 0
-#define SOUND_EFFECT_RADIO 1
-#define SOUND_EFFECT_ROBOT 2
-#define SOUND_EFFECT_RADIO_ROBOT 3
-#define SOUND_EFFECT_MEGAPHONE 4
-#define SOUND_EFFECT_MEGAPHONE_ROBOT 5

@@ -1206,8 +1206,3 @@ GLOBAL_LIST_INIT(ru_key_to_en_key, list(
 	if(!new_key)
 		return _key
 	return uppertext(new_key)
-
-// Gut ANYTHING that isnt alphanumeric, or brackets
-/proc/filename_sanitize(t)
-	var/regex/alphanum_only = regex("\[^a-zA-Z0-9._/-]", "g")
-	return alphanum_only.Replace(t, "")

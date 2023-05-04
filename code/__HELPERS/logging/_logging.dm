@@ -1,6 +1,3 @@
-/proc/error(msg)
-	log_world("## ERROR: [msg]")
-
 //print a warning message to world.log
 #define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [UNLINT(src)] usr: [usr].")
 /proc/warning(msg)
