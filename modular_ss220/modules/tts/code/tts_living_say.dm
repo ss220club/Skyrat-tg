@@ -1,5 +1,8 @@
 /mob/living/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods, message_range)
-	. = ..()
+	var/static/regex/plus_sign_replace = new(@"\+", "g")
+	var/plussless_message = plus_sign_replace.Replace(raw_message, "")
+
+	. = ..(message, speaker, message_language, plussless_message, radio_freq, spans, message_mods, message_range)
 
 	if(!GET_CLIENT(src) || HAS_TRAIT(speaker, TRAIT_SIGN_LANG) || !message_language)
 		return

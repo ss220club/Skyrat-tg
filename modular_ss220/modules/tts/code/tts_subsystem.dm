@@ -472,9 +472,6 @@ SUBSYSTEM_DEF(tts)
 	. = message
 	. = trim(.)
 
-	var/static/regex/plus_sign_replace = new(@"\+", "g")
-	. = plus_sign_replace.Replace(., "")
-
 	var/static/regex/punctuation_check = new(@"[.,?!]\Z")
 	if(!punctuation_check.Find(.))
 		. += "."
