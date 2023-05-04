@@ -22,4 +22,6 @@
 	var/mob/living/carbon/human/human_speaker = real_speaker
 	var/tts_seed = istype(human_speaker) ? human_speaker.tts_seed : "Arthas"
 
-	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), speaker, src, raw_message, tts_seed, TRUE, effect, traits)
+	var/message_tts = translate_language(language = message_language, raw_message = raw_message)
+
+	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), speaker, src, message_tts, tts_seed, !radio_freq, effect, traits)
