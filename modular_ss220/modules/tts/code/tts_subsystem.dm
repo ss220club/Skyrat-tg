@@ -471,18 +471,32 @@ SUBSYSTEM_DEF(tts)
 		sanitized_messages_cache_miss++
 	. = message
 	. = trim(.)
-	. = regex(@"\+", "g").Replace(., "")
-	if(!regex(@"[.,?!]\Z").Find(.))
+
+	var/static/regex/plus_sign_replace = new(@"\+", "g")
+	. = plus_sign_replace.Replace(., "")
+
+	var/static/regex/punctuation_check = new(@"[.,?!]\Z")
+	if(!punctuation_check.Find(.))
 		. += "."
-	. = regex(@"<[^>]*>", "g").Replace(., "")
+
+	var/static/regex/html_tags = new(@"<[^>]*>", "g")
+	. = html_tags.Replace(., "")
 	. = html_decode(.)
-	. = regex(@"[^a-zA-Z0-9а-яА-ЯёЁ,!?+./ \r\n\t:—()-]", "g").Replace(., "")
-	. = replacetext(., regex(@"(?<![a-zA-Zа-яёА-ЯЁ])[a-zA-Zа-яёА-ЯЁ]+?(?![a-zA-Zа-яёА-ЯЁ])", "igm"), /proc/tts_word_replacer)
+
+	var/static/regex/forbidden_symbols = new(@"[^a-zA-Z0-9а-яА-ЯёЁ,!?+./ \r\n\t:—()-]", "g")
+	. = forbidden_symbols.Replace(., "")
+
+	var/static/regex/words = new(@"(?<![a-zA-Zа-яёА-ЯЁ])[a-zA-Zа-яёА-ЯЁ]+?(?![a-zA-Zа-яёА-ЯЁ])", "igm")
+	. = replacetext(., words, /proc/tts_word_replacer)
 	for(var/job in tts_job_replacements)
 		. = replacetext(., regex(job, "igm"), tts_job_replacements[job])
 	. = rustg_latin_to_cyrillic(.)
-	. = replacetext(., regex(@"-?\d+\.\d+", "g"), /proc/dec_in_words)
-	. = replacetext(., regex(@"-?\d+", "g"), /proc/num_in_words)
+
+	var/static/regex/decimals = new(@"-?\d+\.\d+", "g")
+	. = replacetext(., decimals, /proc/dec_in_words)
+
+	var/static/regex/numbers = new(@"-?\d+", "g")
+	. = replacetext(., numbers, /proc/num_in_words)
 	if(sanitized_messages_caching)
 		sanitized_messages_cache[hash] = .
 
