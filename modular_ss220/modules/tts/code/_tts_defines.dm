@@ -53,9 +53,6 @@
 #define TTS_GENDER_MALE "Мужской"
 #define TTS_GENDER_FEMALE "Женский"
 
-/proc/error(msg)
-	log_world("## ERROR: [msg]")
-
 #define TTS_PHRASES list(\
 		"Так звучит мой голос.",\
 		"Так я звучу.",\
@@ -71,3 +68,6 @@
 		"Клоун, прекрати разбрасывать банановые кожурки офицерам под ноги!",\
 		"Капитан, вы уверены что хотите назначить клоуна на должность главы персонала?",\
 	)
+
+/proc/error(msg)
+	log_world("## ERROR: [msg]")
