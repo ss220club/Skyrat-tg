@@ -471,6 +471,9 @@ SUBSYSTEM_DEF(tts)
 		sanitized_messages_cache_miss++
 	. = message
 	. = trim(.)
+	. = regex(@"\+", "g").Replace(., "")
+	if(!regex(@"[.,?!]\Z").Find(.))
+		. += "."
 	. = regex(@"<[^>]*>", "g").Replace(., "")
 	. = html_decode(.)
 	. = regex(@"[^a-zA-Z0-9а-яА-ЯёЁ,!?+./ \r\n\t:—()-]", "g").Replace(., "")
