@@ -382,7 +382,7 @@ SUBSYSTEM_DEF(tts)
 
 	var/turf/turf_source = get_turf(speaker)
 
-	var/volume = 100
+	var/volume = 50
 	var/channel = CHANNEL_TTS_RADIO
 	if(is_local)
 		// TODO: SS220-TTS
