@@ -1,3 +1,6 @@
+#define MAX_HOTKEY_SLOTS 3
+
+
 /datum/preference_middleware/keybindings/set_keybindings(list/params)
 	var/keybind_name = params["keybind_name"]
 
@@ -28,3 +31,6 @@
 	preferences.key_bindings_by_key = preferences.get_key_bindings_by_key(preferences.key_bindings)
 
 	return TRUE
+
+
+#undef MAX_HOTKEY_SLOTS

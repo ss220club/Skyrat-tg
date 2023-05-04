@@ -7019,7 +7019,8 @@
 #include "modular_ss220\modules\jobs\jobs.dm"
 #include "modular_ss220\modules\mutant_parts\body_size.dm"
 #include "modular_ss220\modules\mutant_parts\taur.dm"
-#include "modular_ss220\modules\text\cyrillic_key_fixes\client_procs.dm"
-#include "modular_ss220\modules\text\cyrillic_key_fixes\communication.dm"
-#include "modular_ss220\modules\text\cyrillic_key_fixes\keybindings.dm"
+#include "modular_ss220\modules\cyrillic_key_fixes\code\client_procs.dm"
+#include "modular_ss220\modules\cyrillic_key_fixes\code\communication.dm"
+#include "modular_ss220\modules\cyrillic_key_fixes\code\keybindings.dm"
+#include "modular_ss220\modules\cyrillic_key_fixes\code\text.dm"
 // END_INCLUDE
