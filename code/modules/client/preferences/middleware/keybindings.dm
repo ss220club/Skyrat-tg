@@ -68,7 +68,7 @@
 		if (length(hotkey) > 100)
 			return FALSE
 
-		hotkeys += convert_ru_key_to_en_key(hotkey)
+		hotkeys += hotkey
 
 	preferences.key_bindings[keybind_name] = hotkeys
 	preferences.key_bindings_by_key = preferences.get_key_bindings_by_key(preferences.key_bindings)
