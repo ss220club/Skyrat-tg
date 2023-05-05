@@ -2,6 +2,26 @@
 	"Dynamic": {},
 	"Roundstart": {
 		"Traitors": {
+			"cost": 8,
+			"scaling_cost": 9,
+			"weight": 0,
+			"required_candidates": 1,
+			"minimum_required_age": 0,
+			"requirements": [
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10
+			],
+			"antag_cap": {
+				"denominator": 24
+			},
 			"protected_roles": [
 				"Prisoner",
 				"Blueshield",
@@ -20,186 +40,128 @@
 				"Quartermaster"
 			],
 			"restricted_roles": [
-				"Cyborg",
-				"AI"
+				"Cyborg"
 			]
 		},
 
 		"Blood Brothers": {
-			"protected_roles": [
-				"Prisoner",
-				"Blueshield",
-				"Corrections Officer",
-				"Security Officer",
-				"Warden",
-				"Detective",
-				"Security Medic",
-				"Head of Security",
-				"Captain",
-				"Nanotrasen Consultant",
-				"Head of Personnel",
-				"Chief Engineer",
-				"Chief Medical Officer",
-				"Research Director",
-				"Quartermaster"
-			],
-			"restricted_roles": [
-				"Cyborg",
-				"AI",
-				"Positronic Brain"
-			]
+			"weight": 0
 		},
 
 		"Changelings": {
-			"protected_roles": [
-				"Prisoner",
-				"Blueshield",
-				"Corrections Officer",
-				"Security Officer",
-				"Warden",
-				"Detective",
-				"Security Medic",
-				"Head of Security",
-				"Captain",
-				"Nanotrasen Consultant",
-				"Head of Personnel",
-				"Chief Engineer",
-				"Chief Medical Officer",
-				"Research Director",
-				"Quartermaster"
-			],
-			"restricted_roles": [
-				"Cyborg",
-				"AI",
-				"Positronic Brain"
-			]
+			"weight": 0
 		},
 
 		"Heretics": {
-			"protected_roles": [
-				"Prisoner",
-				"Blueshield",
-				"Corrections Officer",
-				"Security Officer",
-				"Warden",
-				"Detective",
-				"Security Medic",
-				"Head of Security",
-				"Captain",
-				"Nanotrasen Consultant",
-				"Head of Personnel",
-				"Chief Engineer",
-				"Chief Medical Officer",
-				"Research Director",
-				"Quartermaster"
-			],
-			"restricted_roles": [
-				"Cyborg",
-				"AI",
-				"Positronic Brain"
-			]
+			"weight": 0
+		},
+
+		"Wizard": {
+			"weight": 0
+		},
+
+		"Blood Cult": {
+			"weight": 0
+		},
+
+		"Nuclear Emergency": {
+			"weight": 0
+		},
+
+		"Revolution": {
+			"weight": 0
 		}
 	},
 
 	"Midround": {
 		"Syndicate Sleeper Agent": {
-			"protected_roles": [
-				"Prisoner",
-				"Blueshield",
-				"Corrections Officer",
-				"Security Officer",
-				"Warden",
-				"Detective",
-				"Security Medic",
-				"Head of Security",
-				"Captain",
-				"Nanotrasen Consultant",
-				"Head of Personnel",
-				"Chief Engineer",
-				"Chief Medical Officer",
-				"Research Director",
-				"Quartermaster"
-			],
-			"restricted_roles": [
-				"Cyborg",
-				"AI",
-				"Positronic Brain"
-			]
+			"weight": 0
+		},
+
+		"Malfunctioning AI": {
+			"weight": 0
+		},
+
+		"Wizard": {
+			"weight": 0
+		},
+
+		"Nuclear Assault": {
+			"weight": 0
 		},
 
 		"Blob": {
-			"protected_roles": [
-				"Prisoner",
-				"Blueshield",
-				"Corrections Officer",
-				"Security Officer",
-				"Warden",
-				"Detective",
-				"Security Medic",
-				"Head of Security",
-				"Captain",
-				"Nanotrasen Consultant",
-				"Head of Personnel",
-				"Chief Engineer",
-				"Chief Medical Officer",
-				"Research Director",
-				"Quartermaster"
-			],
-			"restricted_roles": [
-				"Cyborg",
-				"AI",
-				"Positronic Brain"
-			]
+			"weight": 0
+		},
+
+		"Blob Infection": {
+			"weight": 0
+		},
+
+		"Alien Infestation": {
+			"weight": 0
+		},
+
+		"Nightmare": {
+			"weight": 0
+		},
+
+		"Space Dragon": {
+			"weight": 0
+		},
+
+		"Abductors": {
+			"weight": 0
+		},
+
+		"Space Ninja": {
+			"weight": 0
+		},
+
+		"Spiders": {
+			"weight": 0
+		},
+
+		"Revenant": {
+			"weight": 0
+		},
+
+		"Sentient Disease": {
+			"weight": 0
+		},
+
+		"Space Pirates": {
+			"weight": 0
+		},
+
+		"Obsessed": {
+			"weight": 0
+		},
+
+		"Space Changeling": {
+			"weight": 0
+		},
+
+		"Paradox Clone": {
+			"weight": 0
 		}
 	},
 
 	"Latejoin": {
 		"Syndicate Infiltrator": {
-			"protected_roles": [
-				"Prisoner",
-				"Blueshield",
-				"Corrections Officer",
-				"Security Officer",
-				"Warden",
-				"Detective",
-				"Security Medic",
-				"Head of Security",
-				"Captain",
-				"Nanotrasen Consultant",
-				"Head of Personnel",
-				"Chief Engineer",
-				"Chief Medical Officer",
-				"Research Director",
-				"Quartermaster"
-			],
-			"restricted_roles": [
-				"Cyborg",
-				"AI"
-			]
+			"weight": 0
+		},
+
+		"Provocateur": {
+			"weight": 0
 		},
 
 		"Heretic Smuggler": {
-			"protected_roles": [
-				"Prisoner",
-				"Blueshield",
-				"Corrections Officer",
-				"Security Officer",
-				"Warden",
-				"Detective",
-				"Security Medic",
-				"Head of Security",
-				"Captain",
-				"Nanotrasen Consultant",
-				"Head of Personnel",
-				"Chief Engineer",
-				"Chief Medical Officer",
-				"Research Director",
-				"Quartermaster"
-			],
-			"restricted_roles": [
-				"Cyborg",
-				"AI"
-			]
+			"weight": 0
+		},
+
+		"Stowaway Changeling": {
+			"weight": 0
 		}
 	}
 }
