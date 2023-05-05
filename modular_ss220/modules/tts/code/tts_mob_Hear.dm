@@ -1,8 +1,6 @@
-/mob/living/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods, message_range)
-	var/static/regex/plus_sign_replace = new(@"\+", "g")
-	var/plussless_message = plus_sign_replace.Replace(raw_message, "")
-
-	. = ..(message, speaker, message_language, plussless_message, radio_freq, spans, message_mods, message_range)
+/mob/proc/Hear_tts(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods, message_range)
+	if(!isliving(src) && !isobserver(src))
+		return
 
 	if(!GET_CLIENT(src))
 		return
@@ -44,3 +42,19 @@
 	var/message_tts = translate_language(language = message_language, raw_message = raw_message)
 
 	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), speaker, src, message_tts, tts_seed, !radio_freq, effect, traits)
+
+/mob/living/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods, message_range)
+	var/static/regex/plus_sign_replace = new(@"\+", "g")
+	var/plussless_message = plus_sign_replace.Replace(raw_message, "")
+
+	. = ..(message, speaker, message_language, plussless_message, radio_freq, spans, message_mods, message_range)
+
+	Hear_tts(message, speaker, message_language, raw_message, radio_freq, spans, message_mods, message_range)
+
+/mob/dead/observer/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods, message_range)
+	var/static/regex/plus_sign_replace = new(@"\+", "g")
+	var/plussless_message = plus_sign_replace.Replace(raw_message, "")
+
+	. = ..(message, speaker, message_language, plussless_message, radio_freq, spans, message_mods, message_range)
+
+	Hear_tts(message, speaker, message_language, raw_message, radio_freq, spans, message_mods, message_range)
