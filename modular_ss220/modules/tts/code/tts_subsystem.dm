@@ -382,13 +382,14 @@ SUBSYSTEM_DEF(tts)
 
 	var/turf/turf_source = get_turf(speaker)
 
-	var/volume = 50
-	var/channel = CHANNEL_TTS_RADIO
+	var/volume
+	var/channel
 	if(is_local)
-		// TODO: SS220-TTS
-		// volume = 100 * listener.client.prefs.get_channel_volume(CHANNEL_TTS_LOCAL)
-		volume = 100
+		volume = LOCAL_TTS_VOLUME(listener)
 		channel = get_local_channel_by_owner(speaker)
+	else
+		volume = RADIO_TTS_VOLUME(listener)
+		channel = CHANNEL_TTS_RADIO
 
 	var/sound/output = sound(voice)
 	output.status = SOUND_STREAM

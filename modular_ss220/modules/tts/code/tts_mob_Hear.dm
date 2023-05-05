@@ -14,6 +14,9 @@
 	if(stat == UNCONSCIOUS || stat == HARD_CRIT)
 		return
 
+	if(!radio_freq && !LOCAL_TTS_ENABLED(src) || radio_freq && !RADIO_TTS_ENABLED(src))
+		return
+
 	var/atom/movable/virtualspeaker/virtual_speaker = speaker
 	var/atom/movable/real_speaker = istype(virtual_speaker) ? virtual_speaker.source : speaker
 
