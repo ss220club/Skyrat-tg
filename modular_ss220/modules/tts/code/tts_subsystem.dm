@@ -281,7 +281,7 @@ SUBSYSTEM_DEF(tts)
 	if(traits & TTS_TRAIT_PITCH_WHISPER)
 		text = provider.pitch_whisper(text)
 
-	var/hash = rustg_hash_string(RUSTG_HASH_MD5, text)
+	var/hash = rustgss220_hash_string(RUSTG_HASH_MD5, text)
 	var/filename = "sound/tts_cache/[seed.name]/[hash]"
 
 	var/datum/callback/play_tts_cb = CALLBACK(src, .proc/play_tts, speaker, listener, filename, is_local, effect, preSFX, postSFX)
@@ -334,7 +334,7 @@ SUBSYSTEM_DEF(tts)
 	if(!voice)
 		return
 
-	rustg_file_write_b64decode(voice, "[filename].ogg")
+	rustgss220_file_write_b64decode(voice, "[filename].ogg")
 
 	if (!CONFIG_GET(flag/tts_cache))
 		addtimer(CALLBACK(src, .proc/cleanup_tts_file, "[filename].ogg"), 30 SECONDS)
@@ -464,7 +464,7 @@ SUBSYSTEM_DEF(tts)
 /datum/controller/subsystem/tts/proc/sanitize_tts_input(message)
 	var/hash
 	if(sanitized_messages_caching)
-		hash = rustg_hash_string(RUSTG_HASH_MD5, message)
+		hash = rustgss220_hash_string(RUSTG_HASH_MD5, message)
 		if(sanitized_messages_cache[hash])
 			sanitized_messages_cache_hit++
 			return sanitized_messages_cache[hash]
@@ -487,7 +487,7 @@ SUBSYSTEM_DEF(tts)
 	. = replacetext(., words, /proc/tts_word_replacer)
 	for(var/job in tts_job_replacements)
 		. = replacetext(., regex(job, "igm"), tts_job_replacements[job])
-	. = rustg_latin_to_cyrillic(.)
+	. = rustgss220_latin_to_cyrillic(.)
 
 	var/static/regex/decimals = new(@"-?\d+\.\d+", "g")
 	. = replacetext(., decimals, /proc/dec_in_words)

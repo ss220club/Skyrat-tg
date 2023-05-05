@@ -7021,6 +7021,7 @@
 #include "modular_ss220\modules\mutant_parts\body_size.dm"
 #include "modular_ss220\modules\mutant_parts\taur.dm"
 #include "modular_ss220\modules\tts\code\_tts_defines.dm"
+#include "modular_ss220\modules\tts\code\_tts_rust_g_ss220.dm"
 #include "modular_ss220\modules\tts\code\tts_configuration.dm"
 #include "modular_ss220\modules\tts\code\tts_living_say.dm"
 #include "modular_ss220\modules\tts\code\tts_numbers.dm"

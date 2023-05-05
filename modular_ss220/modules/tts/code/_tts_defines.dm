@@ -11,22 +11,6 @@
 #define TTS_TRAIT_RATE_FASTER (1<<2)
 #define TTS_TRAIT_RATE_MEDIUM (1<<3)
 
-#define rustg_file_write_b64decode(text, fname) RUSTG_CALL(RUST_G, "file_write")(text, fname, "true")
-
-// Hashing Operations //
-#define rustg_hash_string(algorithm, text) RUSTG_CALL(RUST_G, "hash_string")(algorithm, text)
-#define rustg_hash_file(algorithm, fname) RUSTG_CALL(RUST_G, "hash_file")(algorithm, fname)
-
-#define RUSTG_HASH_MD5 "md5"
-
-#ifdef RUSTG_OVERRIDE_BUILTINS
-	#define md5(thing) (isfile(thing) ? rustg_hash_file(RUSTG_HASH_MD5, "[thing]") : rustg_hash_string(RUSTG_HASH_MD5, thing))
-#endif
-
-// Text Operations //
-#define rustg_cyrillic_to_latin(text) RUSTG_CALL(RUST_G, "cyrillic_to_latin")("[text]")
-#define rustg_latin_to_cyrillic(text) RUSTG_CALL(RUST_G, "latin_to_cyrillic")("[text]")
-
 #define TTS_CATEGORY_OTHER "Другое"
 #define TTS_CATEGORY_WARCRAFT3 "WarCraft 3"
 #define TTS_CATEGORY_HALFLIFE2 "Half-Life 2"
