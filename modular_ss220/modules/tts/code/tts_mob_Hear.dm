@@ -2,7 +2,7 @@
 	if(!isliving(src) && !isobserver(src))
 		return
 
-	if(!GET_CLIENT(src))
+	if(!client)
 		return
 
 	if(HAS_TRAIT(speaker, TRAIT_SIGN_LANG))
