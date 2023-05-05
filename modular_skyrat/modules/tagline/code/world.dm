@@ -13,7 +13,7 @@
 	s += " ("
 	s += "<a href=\"[CONFIG_GET(string/discord_link)]\">"
 	s += "Discord"
-	s += "</a>)\]"
+	s += "</a>)\]" //SS220 EDIT CHANGE
 	s += "<br>[CONFIG_GET(string/servertagline)]<br>"
 
 
