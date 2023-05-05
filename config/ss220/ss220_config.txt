@@ -1,4 +1,0 @@
-﻿## Text-to-speech
-#TTS_TOKEN_SILERO mytoken
-#TTS_ENABLED
-#TTS_CACHE
