@@ -7019,7 +7019,6 @@
 #include "modular_ss220\modules\cyrillic_key_fixes\code\communication.dm"
 #include "modular_ss220\modules\cyrillic_key_fixes\code\keybindings.dm"
 #include "modular_ss220\modules\cyrillic_key_fixes\code\text.dm"
-#include "modular_ss220\modules\mutant_parts\species.dm"
 #include "modular_ss220\modules\tts\code\_tts_defines.dm"
 #include "modular_ss220\modules\tts\code\tts_configuration.dm"
 #include "modular_ss220\modules\tts\code\tts_living_say.dm"
