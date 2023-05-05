@@ -4,7 +4,16 @@
 
 	. = ..(message, speaker, message_language, plussless_message, radio_freq, spans, message_mods, message_range)
 
-	if(!GET_CLIENT(src) || HAS_TRAIT(speaker, TRAIT_SIGN_LANG) || !message_language)
+	if(!GET_CLIENT(src))
+		return
+
+	if(HAS_TRAIT(speaker, TRAIT_SIGN_LANG))
+		return
+
+	if(!message_language)
+		return
+
+	if(stat == UNCONSCIOUS || stat == HARD_CRIT)
 		return
 
 	var/atom/movable/virtualspeaker/virtual_speaker = speaker
@@ -14,6 +23,11 @@
 	if(self_radio)
 		return
 
+	var/is_speaker_whispering = message_mods[WHISPER_MODE]
+	var/can_hear_whisper = get_dist(speaker, src) <= message_range || isobserver(src)
+	if(is_speaker_whispering && !can_hear_whisper)
+		return
+
 	var/effect = issilicon(real_speaker) ? SOUND_EFFECT_ROBOT : SOUND_EFFECT_NONE
 	if(radio_freq)
 		effect = issilicon(real_speaker) ? SOUND_EFFECT_RADIO_ROBOT : SOUND_EFFECT_RADIO
@@ -21,6 +35,8 @@
 		effect = issilicon(real_speaker) ? SOUND_EFFECT_MEGAPHONE_ROBOT : SOUND_EFFECT_MEGAPHONE
 
 	var/traits = TTS_TRAIT_RATE_MEDIUM
+	if(is_speaker_whispering)
+		traits &= TTS_TRAIT_PITCH_WHISPER
 
 	var/mob/living/carbon/human/human_speaker = real_speaker
 	var/tts_seed = istype(human_speaker) ? human_speaker.tts_seed : "Arthas"
