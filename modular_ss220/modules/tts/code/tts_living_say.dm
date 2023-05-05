@@ -4,7 +4,16 @@
 
 	. = ..(message, speaker, message_language, plussless_message, radio_freq, spans, message_mods, message_range)
 
-	if(!GET_CLIENT(src) || HAS_TRAIT(speaker, TRAIT_SIGN_LANG) || !message_language)
+	if(!GET_CLIENT(src))
+		return
+
+	if(HAS_TRAIT(speaker, TRAIT_SIGN_LANG))
+		return
+
+	if(!message_language)
+		return
+
+	if(stat == UNCONSCIOUS || stat == HARD_CRIT)
 		return
 
 	var/atom/movable/virtualspeaker/virtual_speaker = speaker
