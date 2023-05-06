@@ -187,7 +187,7 @@ SUBSYSTEM_DEF(tts)
 	if(!is_enabled)
 		flags |= SS_NO_FIRE
 
-	return ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/tts/fire()
 	tts_rps = tts_rps_counter
