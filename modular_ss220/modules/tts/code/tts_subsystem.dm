@@ -165,7 +165,7 @@ SUBSYSTEM_DEF(tts)
 	msg += "F:[tts_request_failed] "
 	msg += "S:[tts_request_succeeded] "
 	msg += "R:[tts_reused] "
-	..(msg)
+	return ..()
 
 /datum/controller/subsystem/tts/PreInit()
 	. = ..()
