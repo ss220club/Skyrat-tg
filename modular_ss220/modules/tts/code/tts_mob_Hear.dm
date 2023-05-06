@@ -1,8 +1,11 @@
 /mob/proc/Hear_tts(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods, message_range)
+	if(!SStts.is_enabled)
+		return
+
 	if(!isliving(src) && !isobserver(src))
 		return
 
-	if(!GET_CLIENT(src))
+	if(!client)
 		return
 
 	if(HAS_TRAIT(speaker, TRAIT_SIGN_LANG))
@@ -12,6 +15,9 @@
 		return
 
 	if(stat == UNCONSCIOUS || stat == HARD_CRIT)
+		return
+
+	if(!radio_freq && !LOCAL_TTS_ENABLED(src) || radio_freq && !RADIO_TTS_ENABLED(src))
 		return
 
 	var/atom/movable/virtualspeaker/virtual_speaker = speaker

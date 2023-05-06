@@ -49,3 +49,25 @@
 			var/datum/preference/tts_seed = GLOB.preference_entries_by_key["tts_seed"]
 			write_preference(tts_seed, seed_name)
 			return TRUE
+
+/datum/preference/numeric/sound_tts_local
+	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
+	savefile_key = "sound_tts_local"
+	savefile_identifier = PREFERENCE_PLAYER
+
+	minimum = 0
+	maximum = 100
+
+/datum/preference/numeric/sound_tts_local/create_default_value()
+	return 100
+
+/datum/preference/numeric/sound_tts_radio
+	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
+	savefile_key = "sound_tts_radio"
+	savefile_identifier = PREFERENCE_PLAYER
+
+	minimum = 0
+	maximum = 100
+
+/datum/preference/numeric/sound_tts_radio/create_default_value()
+	return 50
