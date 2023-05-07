@@ -91,6 +91,29 @@
 	M.toggle_move_intent()
 	return TRUE
 
+/datum/keybinding/mob/move_quickly
+	hotkey_keys = list("Shift")
+	name = "moving_quickly"
+	full_name = "Move Quickly"
+	description = "Makes you move quickly"
+	keybind_signal = COMSIG_KB_MOB_MOVEQUICK_DOWN
+
+/datum/keybinding/mob/move_quickly/down(client/user)
+	. = ..()
+	if(.)
+		return
+	var/mob/M = user.mob
+	M.set_moving_quickly(M)
+	return TRUE
+
+/datum/keybinding/mob/move_quickly/up(client/user)
+	. = ..()
+	if(.)
+		return
+	var/mob/M = user.mob
+	M.set_moving_slowly(M)
+	return TRUE
+
 /datum/keybinding/mob/toggle_move_intent_alternative
 	hotkey_keys = list("Unbound")
 	name = "toggle_move_intent_alt"

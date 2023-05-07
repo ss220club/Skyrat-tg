@@ -121,7 +121,7 @@
 	var/overeatduration = 0 // How long this guy is overeating //Carbon
 
 	/// The movement intent of the mob (run/wal)
-	var/m_intent = MOVE_INTENT_RUN//Living
+	var/m_intent = MOVE_INTENT_WALK //Living  //SS220 TWEAK. WAS: MOVE_INTENT_RUN
 
 	/// The last known IP of the client who was in this mob
 	var/lastKnownIP = null

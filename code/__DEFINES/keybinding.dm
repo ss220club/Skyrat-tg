@@ -61,6 +61,7 @@
 #define COMSIG_KB_MOB_SWAPHANDS_DOWN "keybinding_mob_swaphands_down"
 #define COMSIG_KB_MOB_ACTIVATEINHAND_DOWN "keybinding_mob_activateinhand_down"
 #define COMSIG_KB_MOB_DROPITEM_DOWN "keybinding_mob_dropitem_down"
+#define COMSIG_KB_MOB_MOVEQUICK_DOWN "keybinding_mob_movequick_down"
 #define COMSIG_KB_MOB_TOGGLEMOVEINTENT_DOWN "keybinding_mob_togglemoveintent_down"
 #define COMSIG_KB_MOB_TOGGLEMOVEINTENTALT_DOWN "keybinding_mob_togglemoveintentalt_down"
 #define COMSIG_KB_MOB_TARGETCYCLEHEAD_DOWN "keybinding_mob_targetcyclehead_down"
