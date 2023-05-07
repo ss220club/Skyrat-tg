@@ -3,7 +3,7 @@
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 9 * * *'
+    - cron: '0 3 * * *'
 
 env:
   UPDATE_BRANCH: upstream-sync
