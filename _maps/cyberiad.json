@@ -3,7 +3,7 @@
 	"version": 1,
 	"map_name": "Cyberiad",
 	"map_path": "map_files/Cyberiad",
-	"map_file": "Cyberiadtest.dmm",
+	"map_file": "Cyberiad.dmm",
 	"space_ruin_levels": 0,
 	"space_empty_levels": 2,
 	"shuttles": {
