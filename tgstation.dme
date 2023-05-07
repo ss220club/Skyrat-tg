@@ -7013,6 +7013,8 @@
 #include "modular_skyrat\modules\xenos_skyrat_redo\code\xeno_types\sentinel.dm"
 #include "modular_skyrat\modules\xenos_skyrat_redo\code\xeno_types\spitter.dm"
 #include "modular_skyrat\modules\xenos_skyrat_redo\code\xeno_types\warrior.dm"
+#include "modular_ss220\modules\balance_changes\mobs\living_defines.dm"
+#include "modular_ss220\modules\balance_changes\weapons\baton\baton.dm"
 #include "modular_ss220\modules\cyrillic_key_fixes\code\client_procs.dm"
 #include "modular_ss220\modules\cyrillic_key_fixes\code\communication.dm"
 #include "modular_ss220\modules\cyrillic_key_fixes\code\keybindings.dm"
