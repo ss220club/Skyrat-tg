@@ -498,13 +498,13 @@ SUBSYSTEM_DEF(tts)
 	if(sanitized_messages_caching)
 		sanitized_messages_cache[hash] = .
 
-/proc/tts_cast(atom/speaker, mob/listener, message, seed_name, is_local = TRUE, effect = SOUND_EFFECT_NONE, traits = TTS_TRAIT_RATE_FASTER, preSFX = null, postSFX = null)
+/proc/tts_cast(atom/speaker, mob/listener, message, seed_name = "Arthas", is_local = TRUE, effect = SOUND_EFFECT_NONE, traits = TTS_TRAIT_RATE_FASTER, preSFX = null, postSFX = null)
 	SStts.get_tts(speaker, listener, message, seed_name, is_local, effect, traits, preSFX, postSFX)
 
 /proc/tts_word_replacer(word)
 	var/static/list/tts_replacement_list
 	if(!tts_replacement_list)
-		tts_replacement_list = list(\
+		tts_replacement_list = list(
 			"нт" = "Эн Тэ",
 			"смо" = "Эс Мэ О",
 			"гп" = "Гэ Пэ",
@@ -568,6 +568,7 @@ SUBSYSTEM_DEF(tts)
 			"трейзен" = "трэйзэн",
 			"нанотрейзен" = "нанотрэйзэн",
 			"мед" = "м ед",
+			"меде" = "м еде",
 			"кз" = "Кэ Зэ",
 		)
 	var/match = tts_replacement_list[lowertext(word)]

@@ -46,12 +46,9 @@
 	if(is_speaker_whispering)
 		traits &= TTS_TRAIT_PITCH_WHISPER
 
-	var/mob/mob_speaker = real_speaker
-	var/tts_seed = istype(mob_speaker) && mob_speaker.tts_seed || "Arthas"
-
 	var/message_tts = translate_language(language = message_language, raw_message = raw_message)
 
-	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), speaker, src, message_tts, tts_seed, !radio_freq, effect, traits)
+	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), speaker, src, message_tts, real_speaker.tts_seed, !radio_freq, effect, traits)
 
 /mob/living/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods, message_range)
 	var/static/regex/plus_sign_replace = new(@"\+", "g")
