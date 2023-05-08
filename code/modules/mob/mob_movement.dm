@@ -136,7 +136,7 @@
 	else
 		move_delay = world.time
 
-	mob.hadle_sprint(L) //SS220 SPRINT
+	mob.handle_sprint(L) //SS220 SPRINT
 
 	//Basically an optional override for our glide size
 	//Sometimes you want to look like you're moving with a delay you don't actually have yet
@@ -513,14 +513,6 @@
  * triggers an update the move intent hud as well
  */
 /mob/proc/toggle_move_intent(mob/user)
-	//SS220 ADDITION START: SPRINT SYSTEM
-	if(CONFIG_GET(flag/enable_sprint))
-		var/mob/living/mob = user
-		if(mob.getStaminaLoss() > CONFIG_GET(number/lower_sprint_threshold))
-			to_chat(src, span_warning("You are unable to run because you're exhausted"))
-			return FALSE
-	//SS220 ADDITION END
-
 	if(m_intent == MOVE_INTENT_RUN)
 		m_intent = MOVE_INTENT_WALK
 	else
