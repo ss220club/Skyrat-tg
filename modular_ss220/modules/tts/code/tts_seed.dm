@@ -16,8 +16,8 @@
 /datum/preference/text/tts_seed/create_default_value()
 	return "Arthas"
 
-/// Any humanoid (non-Xeno) mob, such as humans, plasmamen, lizards.
-/mob/living/carbon/human
+/// Any mob
+/mob
 	var/tts_seed
 
 /datum/preference/text/tts_seed/apply_to_human(mob/living/carbon/human/target, value)
