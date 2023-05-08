@@ -14,7 +14,7 @@
 	if(!message_language)
 		return
 
-	var/is_custom_say_emote_without_message = MODE_CUSTOM_SAY_ERASE_INPUT in mods
+	var/is_custom_say_emote_without_message = (MODE_CUSTOM_SAY_ERASE_INPUT in message_mods)
 	if(is_custom_say_emote_without_message)
 		return
 
