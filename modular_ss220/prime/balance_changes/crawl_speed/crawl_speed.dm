@@ -1,4 +1,4 @@
-#define ADDITIONAL_SLOWDOWN 10
+#define ADDITIONAL_SLOWDOWN 3.5
 
 /datum/config_entry/flag/additional_crawl_slowdown
 	default = FALSE
