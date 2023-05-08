@@ -31,7 +31,7 @@
 	if(self_radio)
 		return
 
-	var/is_speaker_whispering = message_mods[WHISPER_MODE]
+	var/is_speaker_whispering = (WHISPER_MODE in message_mods)
 	var/can_hear_whisper = get_dist(speaker, src) <= message_range || isobserver(src)
 	if(is_speaker_whispering && !can_hear_whisper)
 		return
