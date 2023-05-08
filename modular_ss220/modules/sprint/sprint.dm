@@ -41,7 +41,7 @@
 		affected.adjustStaminaLoss(affected.get_stamina_use_per_step(), TRUE)
 
 
-/// STAMINA SYSTEM: PROCS ///
+/// SPRINT: PROCS ///
 
 /mob/proc/set_moving_slowly(mob/user)
 	if(m_intent == MOVE_INTENT_RUN)
@@ -80,7 +80,7 @@
 	var/cost = CONFIG_GET(number/sprint_cost)
 	return cost
 
-/// STAMINA SYSTEM: PROCS OVERRIDE ///
+/// SPRINT: PROCS OVERRIDE ///
 
 //cuz stamina hud updates only when applying damage or healing wounds, or maybe i'm dumb
 /mob/living/Life(seconds_per_tick, times_fired)

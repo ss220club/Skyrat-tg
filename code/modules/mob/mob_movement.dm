@@ -513,7 +513,7 @@
  * triggers an update the move intent hud as well
  */
 /mob/proc/toggle_move_intent(mob/user)
-	//SS220 ADDITION START: STAMINA SYSTEM
+	//SS220 ADDITION START: SPRINT SYSTEM
 	if(CONFIG_GET(flag/enable_sprint))
 		var/mob/living/mob = user
 		if(mob.getStaminaLoss() > CONFIG_GET(number/lower_sprint_threshold))
