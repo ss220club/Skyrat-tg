@@ -42,8 +42,8 @@
 	if(is_speaker_whispering)
 		traits &= TTS_TRAIT_PITCH_WHISPER
 
-	var/mob/living/carbon/human/human_speaker = real_speaker
-	var/tts_seed = istype(human_speaker) && human_speaker.tts_seed || "Arthas"
+	var/mob/mob_speaker = real_speaker
+	var/tts_seed = istype(mob_speaker) && mob_speaker.tts_seed || "Arthas"
 
 	var/message_tts = translate_language(language = message_language, raw_message = raw_message)
 
