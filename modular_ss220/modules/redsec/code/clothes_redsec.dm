@@ -7,9 +7,23 @@
 */
 /obj/item/clothing/suit/hooded/wintercoat/security
 	name = "security winter jacket"
-	desc = "A red, armour-padded winter coat. It glitters with a mild ablative coating and a robust air of authority. The zipper tab is a pair of jingly little handcuffs that get annoying after the first ten seconds."
+	desc = "A red, armour-padded winter coat. It glitters with a mild ablative coating and a robust air of authority.  The zipper tab is a pair of jingly little handcuffs that get annoying after the first ten seconds."
 	icon_state = "coatsecurity"
 	inhand_icon_state = "coatsecurity"
+	armor_type = /datum/armor/wintercoat_security
+	hoodtype = /obj/item/clothing/head/hooded/winterhood/security
+
+/datum/armor/wintercoat_security
+	melee = 25
+	bullet = 15
+	laser = 30
+	energy = 40
+	bomb = 25
+	acid = 45
+
+/obj/item/clothing/suit/hooded/wintercoat/security/Initialize(mapload)
+	. = ..()
+	allowed += GLOB.security_wintercoat_allowed
 
 /obj/item/clothing/suit/armor/vest/alt/sec
 	desc = "A Type I armored vest that provides decent protection against most types of damage."
@@ -17,6 +31,69 @@
 	worn_icon = 'icons/mob/clothing/suits/armor.dmi'
 	icon_state = "armor_sec"
 	current_skin = "armor_sec" //prevents reskinning
+
+/obj/item/clothing/suit/armor/vest/warden
+	name = "warden's jacket"
+	desc = "A red armored jacket with '/Warden/' designation stitched into one of the chest pockets."
+	icon_state = "warden_jacket"
+	inhand_icon_state = "armor"
+	body_parts_covered = CHEST|GROIN|ARMS
+	cold_protection = CHEST|GROIN|ARMS|HANDS
+	heat_protection = CHEST|GROIN|ARMS|HANDS
+	strip_delay = 70
+	resistance_flags = FLAMMABLE
+	dog_fashion = null
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Basic Warden Armor" = list(
+			RESKIN_ICON = 'icons/obj/clothing/suits/armor.dmi',
+			RESKIN_ICON_STATE = "warden_jacket",
+			RESKIN_WORN_ICON = 'icons/mob/clothing/suits/armor.dmi',
+			RESKIN_WORN_ICON_STATE = "warden_jacket"
+		),
+		"Standard" = list(
+			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi',
+			RESKIN_ICON_STATE = "warden_jacket",
+			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi',
+			RESKIN_WORN_ICON_STATE = "warden_jacket"
+		)
+	)
+
+/obj/item/clothing/suit/armor/hos
+	unique_reskin = list(
+		"Greatcoat" = list(
+			RESKIN_ICON = 'icons/obj/clothing/suits/armor.dmi',
+			RESKIN_ICON_STATE = "hos",
+			RESKIN_WORN_ICON = 'icons/mob/clothing/suits/armor.dmi',
+			RESKIN_WORN_ICON_STATE = "hos"
+		),
+		"Trenchcoat" = list(
+			RESKIN_ICON = 'icons/obj/clothing/suits/armor.dmi',
+			RESKIN_ICON_STATE = "hostrench",
+			RESKIN_WORN_ICON = 'icons/mob/clothing/suits/armor.dmi',
+			RESKIN_WORN_ICON_STATE = "hostrench"
+		),
+		"Trenchcloak" = list(
+			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi',
+			RESKIN_ICON_STATE = "trenchcloak",
+			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi',
+			RESKIN_WORN_ICON_STATE = "trenchcloak"
+		),
+		"Black" = list(
+			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi',
+			RESKIN_ICON_STATE = "hos_black",
+			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi',
+			RESKIN_WORN_ICON_STATE = "hos_black",
+			RESKIN_SUPPORTS_VARIATIONS_FLAGS = NONE
+		)
+	)
+
+/obj/item/clothing/suit/armor/cossack/sec
+	icon_state = "kuban_cossak"
+
+/obj/item/clothing/suit/toggle/jacket/sec
+	desc = "A comfortable jacket in security red. Probably against uniform regulations."
+	icon_state = "sec_dep_jacket_old"
 
 /*
 * BACKPACKS
@@ -42,6 +119,8 @@
 * UNDER
 */
 /obj/item/clothing/under/rank/security/officer
+	name = "security uniform"
+	desc = "A tactical security jumpsuit for officers complete with Nanotrasen belt buckle."
 	icon = 'icons/obj/clothing/under/security.dmi'
 	worn_icon = 'icons/mob/clothing/under/security.dmi'
 	icon_state = "rsecurity"
@@ -50,6 +129,13 @@
 /obj/item/clothing/under/rank/security/skyrat/utility
 	desc = "A utility uniform worn by trained Security officers."
 	icon_state = "util_sec_old"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	can_adjust = FALSE
+
+/obj/item/clothing/under/rank/security/warden
+	icon = 'icons/obj/clothing/under/security.dmi'
+	worn_icon = 'icons/mob/clothing/under/security.dmi'
+	icon_state = "rwarden"
 
 /obj/item/clothing/under/rank/security/head_of_security
 	icon = 'icons/obj/clothing/under/security.dmi'
@@ -86,6 +172,7 @@
 * SHOES
 */
 /obj/item/clothing/shoes/jackboots/sec
+	name = "jackboots"
 	desc = "Nanotrasen-issue Security combat boots for combat scenarios or combat situations. All combat, all the time."
 	icon_state = "jackboots_sec"
 	icon = 'icons/obj/clothing/shoes.dmi'
@@ -98,22 +185,139 @@
 /obj/item/storage/belt/security
 	name = "security belt"
 	desc = "Can hold security gear like handcuffs and flashes."
-	icon = 'icons/obj/clothing/belts.dmi'
-	lefthand_file = 'icons/mob/inhands/equipment/belt_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/belt_righthand.dmi'
 	icon_state = "security"
-	inhand_icon_state = "security"
 	worn_icon_state = "security"
 	current_skin = "security" //prevents reskinning
-
-/obj/item/storage/belt/security/webbing
-	icon = 'icons/obj/clothing/belts.dmi'
-	uses_advanced_reskins = FALSE
-	unique_reskin = NONE
-	current_skin = "securitywebbing" //prevents reskinning
 
 /*
 * GLOVES
 */
 /obj/item/clothing/gloves/color/black
 	current_skin = "black" //prevents reskinning
+
+/obj/item/clothing/gloves/color/black/security
+	icon = 'icons/obj/clothing/gloves.dmi'
+	worn_icon = 'icons/mob/clothing/hands.dmi'
+	icon_state = "black"
+	greyscale_colors = "#2f2e31"
+	current_skin = "black" //prevents reskinning
+
+/*
+* GLASSES
+*/
+/obj/item/clothing/glasses/hud/security
+	icon = 'icons/obj/clothing/glasses.dmi'
+	worn_icon = 'icons/mob/clothing/eyes.dmi'
+	icon_state = "securityhud"
+	glass_colour_type = /datum/client_colour/glass_colour/red
+
+/obj/item/clothing/glasses/hud/security/sunglasses
+	icon = 'icons/obj/clothing/glasses.dmi'
+	worn_icon = 'icons/mob/clothing/eyes.dmi'
+	icon_state = "sunhudsec"
+	glass_colour_type = /datum/client_colour/glass_colour/darkred
+	current_skin = "sunhudsec"	//prevents reskinning
+
+/obj/item/clothing/glasses/hud/security/sunglasses/eyepatch
+	icon = 'icons/obj/clothing/glasses.dmi'
+	worn_icon = 'icons/mob/clothing/eyes.dmi'
+	icon_state = "hudpatch"
+	base_icon_state = "hudpatch"
+
+/obj/item/clothing/glasses/hud/security/night
+	icon = 'icons/obj/clothing/glasses.dmi'
+	worn_icon = 'icons/mob/clothing/eyes.dmi'
+	icon_state = "securityhudnight"
+
+/obj/item/clothing/glasses/hud/eyepatch/sec
+	icon = 'icons/obj/clothing/glasses.dmi'
+	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing/glasses_righthand.dmi'
+	icon_state = "hudpatch"
+	current_skin = "hudpatch"	//prevents reskinning
+	glass_colour_type = /datum/client_colour/glass_colour/darkred
+
+/*
+* HEAD
+*/
+/obj/item/clothing/head/hats/warden
+	name = "warden's hat"
+	desc = "A warden's red hat. Looking at it gives you the feeling of wanting to keep people in cells for as long as possible."
+	icon_state = "wardenhat"
+
+/obj/item/clothing/head/helmet/sec
+	icon = 'icons/obj/clothing/head/helmet.dmi'
+	worn_icon = 'icons/mob/clothing/head/helmet.dmi'
+	icon_state = "helmet"
+	base_icon_state = "helmet"
+	actions_types = null
+	can_toggle = FALSE
+	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+	flags_cover = HEADCOVERSEYES
+	flags_inv = HIDEHAIR
+
+/obj/item/clothing/head/helmet/sec/attack_self(mob/user)
+	. = ..()
+
+/obj/item/clothing/head/security_garrison
+	name = "security garrison cap"
+	desc = "A robust garrison cap with the security insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	icon_state = "garrison_black"
+	uses_advanced_reskins = TRUE
+	armor_type = /datum/armor/head_security_garrison
+	strip_delay = 60
+	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+	current_skin = "garrison_black"	//prevents reskinning
+
+/obj/item/clothing/head/cowboy/skyrat/cattleman/sec
+	greyscale_colors = "#EA3232#3F6E9E"
+
+/obj/item/clothing/head/cowboy/skyrat/cattleman/wide/sec
+	greyscale_colors = "#EA3232#3F6E9E"
+
+/*
+* NECK
+*/
+/obj/item/clothing/neck/security_cape
+	unique_reskin = list(
+		"Black Variant" = list(
+			RESKIN_ICON_STATE = "cape_black",
+			RESKIN_WORN_ICON_STATE = "cape_black"
+		),
+		"White Variant" = list(
+			RESKIN_ICON_STATE = "cape_white",
+			RESKIN_WORN_ICON_STATE = "cape_white"
+		)
+	)
+
+/obj/item/clothing/neck/security_cape/armplate
+	unique_reskin = list(
+		"Black Variant" = list(
+			RESKIN_ICON_STATE = "armplate_black",
+			RESKIN_WORN_ICON_STATE = "armplate_black"
+		),
+		"Capeless Variant" = list(
+			RESKIN_ICON_STATE = "armplate",
+			RESKIN_WORN_ICON_STATE = "armplate"
+		)
+	)
+
+/obj/item/clothing/neck/mantle/hosmantle
+	name = "\proper the head of security's mantle"
+	desc = "A plated mantle that one might wrap around the upper torso. The 'scales' of the garment signify the members of security and how you're carrying them on your shoulders."
+	icon = 'modular_skyrat/master_files/icons/mob/clothing/neck.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/neck.dmi'
+	icon_state = "hosmantle"
+
+/*
+* ACCESSORY
+*/
+/obj/item/clothing/accessory/armband/deputy
+	icon = 'icons/obj/clothing/accessories.dmi'
+	worn_icon = 'icons/mob/clothing/accessories.dmi'
+	icon_state = "redband"
+
+/obj/item/clothing/accessory/armband/deputy/lopland
+	desc = "A armband, showing the wearer to be certified by Lopland as a top-of-their-class Security Officer."
