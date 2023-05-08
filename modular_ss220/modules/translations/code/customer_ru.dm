@@ -1,18 +1,18 @@
 /datum/customer_data
 	speech_sound = null
-	var/tts_seed = "Arthas"
+	var/list/tts_seeds = list("Arthas")
 
 /datum/customer_data/american
 	found_seat_lines = list("Я надеюсь тут найдется местечко, которое выдержит мой вес.", "Надеюсь, я могу проносить сюда оружие.", "Я надеюсь здесь подают тройной жир-бургер делюкс.", "Люблю я здешнюю культуру.")
 	cant_find_seat_lines = list("Я так сильно устал стоять...", "У меня хронические боли в спине, пожалуйста, поторопитесь и предоставьте мне место!", "Никаких чаевых, если вы не предоставите мне столик СЕЙЧАС ЖЕ!")
 	leave_mad_lines = list("НИКАКИХ ВАМ ЧАЕВЫХ! ПРОЩАЙТЕ!", "В КосмоДоналдсе, по крайней мере, еду подают БЫСТРО!", "Это заведение прогнило!", "Я буду жаловаться вашему менеджеру!", "Негативный отзыв вам гарантирован!")
-	leave_happy_lines = list("Немного чаевых для тебя, мой друг.", "Спасибо вам за эту замечательную еду!", "Диабет всего лишь миф!")
+	leave_happy_lines = list("Немного чаевых для тебя, мой друг.", "Спасибо вам за эту замечательную еду!", "Диабет — всего лишь миф!")
 	wait_for_food_lines = list("Слушай, приятель, я становлюсь очень нетерпеливым!", "Я жду уже целую вечность...")
-	friendly_pull_line = "Куда ты меня тащишь? Надеюсь, что не в медбей, - у меня нет страховки."
+	friendly_pull_line = "Куда ты меня тащишь? Надеюсь, что не в медбей: у меня нет страховки."
 	first_warning_line = "Не стоит со мной шутить!"
 	second_warning_line = "Последнее предупреждение, чувак! Отвали!"
 	self_defense_line = "РЕЖИМ ЖИРОМЕНТАЛЯ АКТИВИРОВАН!"
-	tts_seed = list("Braum", "Malfurion", "Medivh", "Ozara", "Pudge")
+	tts_seeds = list("Braum", "Malfurion", "Medivh", "Ozara", "Pudge")
 
 
 /datum/customer_data/italian
@@ -28,14 +28,14 @@
 	first_warning_line = "Не трогай меня, мамма-мия!"
 	second_warning_line = "Последнее предупреждение! Не прикасайся к моим спагетти!"
 	self_defense_line = "Я замешу тебя так, как моя мамма замешивала свои фирменные фрикадельки!"
-	tts_seed = list("Barbas", "Clockwerk", "Muradin", "Rasil")
+	tts_seeds = list("Barbas", "Clockwerk", "Muradin", "Rasil")
 
 
 /datum/customer_data/french
 	prefix_file = "strings/names/french_prefix.txt"
 	base_icon_state = "french"
 	clothing_sets = list("french_fit")
-	found_seat_lines = list("Хон хон хон", "Это конечно не Эйфелева башня, но выбирать не приходится.", "Чтож, сойдёт.")
+	found_seat_lines = list("Хон хон хон", "Это конечно не Эйфелева башня, но выбирать не приходится.", "Что ж, сойдёт.")
 	cant_find_seat_lines = list("Да как вы смеете заставлять меня ждать?", "Какое ужасное место!")
 	leave_mad_lines = list("Sacre bleu!", "Merde! Это местечко дерьмовее, чем Рейн!")
 	leave_happy_lines = list("Хон хон хон.", "Весьма неплохо.")
@@ -45,7 +45,7 @@
 	second_warning_line = "Не трогай меня, ты, грязное животное! Последнее предупреждение!"
 	self_defense_line = "Я сломаю тебя словно багет!"
 	speech_sound = null
-	tts_seed = list("Archmage", "Awilo", "Belloc", "Priest")
+	tts_seeds = list("Archmage", "Awilo", "Belloc", "Priest")
 
 
 /datum/customer_data/japanese
@@ -62,14 +62,14 @@
 	second_warning_line = "Я стану супер-сайяном, если ты снова прикоснешься ко мне! Последнее предупреждение!"
 	self_defense_line = "OMAE WA MO, SHINDEROU!"
 	speech_sound = null
-	tts_seed = list("Ahri", "Chromie", "Eudora", "Luna", "Qiyana")
+	tts_seeds = list("Ahri", "Chromie", "Eudora", "Luna", "Qiyana")
 
 
 /datum/customer_data/japanese/salaryman
 	clothing_sets = list("japanese_salary")
 	found_seat_lines = list("Интересно, на это место гигантские монстры тоже нападают?", "Хаджимимаште.", "Конбанва.", "А где тут конвейер...")
 	cant_find_seat_lines = list("Пожалуйста, дайте стул. Я просто хочу сесть.", "Я очень тороплюсь. Где мой столик?", "...Теперь я понимаю, почему это место в таком упадке. Здесь даже некуда присесть!")
-	leave_mad_lines = list("Это место просто ужасно, я расскажу об этом всем моим коллегам.", "Какая беспечная трата моего времени.", "Я надеюсь вы не гордитесь тем, что у вас здесь творится.")
+	leave_mad_lines = list("Это место просто ужасно, я расскажу об этом всем моим коллегам.", "Какая беспечная трата моего времени.", "Я надеюсь, вы не гордитесь тем, что у вас здесь творится.")
 	leave_happy_lines = list("Спасибо за ваше гостеприимство.", "Отсукаресама дешта.", "Работа зовёт.")
 	wait_for_food_lines = list("Засыпаю...", "Даме да не~", "Даме йо даме на но йо~")
 	friendly_pull_line = "Мы отправляемся в командировку?"
@@ -77,15 +77,15 @@
 	second_warning_line = "Отстань от меня, я пытаюсь сконцентрироваться. Последнее предупреждение!"
 	self_defense_line = "Я не хотел, чтобы это закончилось вот так."
 	speech_sound = null
-	tts_seed = list("Malkoran", "Narrator", "Overseer", "Rhombus")
+	tts_seeds = list("Malkoran", "Narrator", "Overseer", "Rhombus")
 
 
 /datum/customer_data/moth
 	prefix_file = "strings/names/moth_prefix.txt"
 	base_icon_state = "mothbot"
 	found_seat_lines = list("Дай мне свою шляпу!", "Моль?", "Это конечно... интересное место.")
-	cant_find_seat_lines = list("Если я не найду места, я упархаю отсюда!", "Я хочу приземлиться где-нибудь!")
-	leave_mad_lines = list("Я скажу всем своим друзьям-мотылькам никогда сюда не приходить!", "Ноль звезд, это даже хуже, чем когда меня пытались накормить мольбертом!","Закрытие навсегда было бы слишком хорошим исходом для этого места.")
+	cant_find_seat_lines = list("Если я не найду места, я упорхаю отсюда!", "Я хочу приземлиться где-нибудь!")
+	leave_mad_lines = list("Я скажу всем своим друзьям-мотылькам никогда сюда не приходить!", "Ноль звезд, это даже хуже, чем когда меня пытались накормить мольбертом!", "Закрытие навсегда было бы слишком хорошим исходом для этого места.")
 	leave_happy_lines = list("Я бы сняла свою шляпу перед вами, но я её съела!", "Надеюсь, это не коллекционка!", "Это была лучшая вещь, которую я когда-либо ела, даже лучше, чем Гуанако!")
 	wait_for_food_lines = list("Неужели так сложно достать мне еду? Вы же носите её на себе!", "Я не терплю ожидание!")
 	friendly_pull_line = "Мофф?"
@@ -93,7 +93,7 @@
 	second_warning_line = "Последнее предупреждение! Я уничтожу тебя!"
 	self_defense_line = "Крылатая атака!"
 	speech_sound = null
-	tts_seed = list("Ahri", "Chromie", "Eudora", "Luna", "Qiyana")
+	tts_seeds = list("Ahri", "Chromie", "Eudora", "Luna", "Qiyana")
 
 
 /datum/customer_data/mexican
@@ -110,35 +110,35 @@
 	second_warning_line = "Комрад, хватит значит хватит! Последнее предупреждение!"
 	self_defense_line = "Пришло время тебе узнать, какой из меня робот. Готов?"
 	speech_sound = null
-	tts_seed = list("Barney", "Batrider", "Putricide", "Soldier")
+	tts_seeds = list("Barney", "Batrider", "Putricide", "Soldier")
 
 
 /datum/customer_data/british
 	base_icon_state = "british"
 	prefix_file = "strings/names/british_prefix.txt"
 	friendly_pull_line = "Мне совсем не нравится, когда меня так таскают."
-	first_warning_line = "Наша великая Королева приказывает и повеливает всем собравшимся немедленно разойтись."
+	first_warning_line = "Наша великая Королева приказывает и повелевает всем собравшимся немедленно разойтись."
 	second_warning_line = "И мирно вернуться в свои жилища или к своим законным делам, приложив усилия, содержащиеся в акте, изданном королём Георгом в первый год своего правления для предотвращения бунтов и мятежей. Более предупреждений не будет."
 	self_defense_line = "Боже, храни Королеву."
 	speech_sound = null
-	tts_seed = list("Ebony", "Ekko", "Emperor", "Loxley")
+	tts_seeds = list("Ebony", "Ekko", "Emperor", "Loxley")
 
 
 /datum/customer_data/british/gent
 	clothing_sets = list("british_gentleman")
 	found_seat_lines = list("Ах, какое прекрасное заведение.", "Время попробовать великолепную британскую кухню, чертовски интригующе!", "Замечательно, в меню...", "Правь, Британия, морями!")
-	cant_find_seat_lines = list("Настоящий Британец никогда не стоит! Разве что в очереди.", "О боже мой, ни одного свободного места!", "Я стою на плечах гигантов, а не в ресторанах!")
-	leave_mad_lines = list("Я желаю вам доброго дня, сэр. Доброго дня!", "Это место - еще больший позор, нежели Франция во время войны!", "Я знал что нужно было пойти в другое место!", "Если подумать, то более не стоит летать на Космическую Станцию 13. Ужасное место.")
-	leave_happy_lines = list("Это было чертовски вкусно!", "Во имя Господа, Королевы и Британии - это было чертовски вкусно!", "Я не чувствовал себя так хорошо со времен Раджа! Весьма неплохо!")
+	cant_find_seat_lines = list("Настоящий Британец никогда не сто+ит! Разве что в очереди.", "О боже мой, ни одного свободного места!", "Я стою на плечах гигантов, а не в ресторанах!")
+	leave_mad_lines = list("Я желаю вам доброго дня, сэр. Доброго дня!", "Это место — еще больший позор, нежели Франция во время войны!", "Я знал, что нужно было пойти в другое место!", "Если подумать, то более не стоит летать на Космическую Станцию 13. Ужасное место.")
+	leave_happy_lines = list("Это было чертовски вкусно!", "Во имя Господа, Королевы и Британии — это было чертовски вкусно!", "Я не чувствовал себя так хорошо со времен Раджа! Весьма неплохо!")
 	wait_for_food_lines = list("Черт возьми, кажется я здесь застрял навсегда...", "Простите меня, уважаемый сэр, могу ли я узнать о статусе моего заказа?")
 
 /datum/customer_data/british/bobby
 	clothing_sets = list("british_bobby")
-	found_seat_lines = list("Надеюсь, это достойное заведение.", "Во имя Господа, Королевы и Британии - я голоден!", "Есть ли у вас блюда нашей великой британской кухни, уважаемый сэр?")
+	found_seat_lines = list("Надеюсь, это достойное заведение.", "Во имя Господа, Королевы и Британии — я голоден!", "Есть ли у вас блюда нашей великой британской кухни, уважаемый сэр?")
 	cant_find_seat_lines = list("Я достаточно тут простоял!", "Вы думаете, что я буду сидеть на своем шлеме? Столик, пожалуйста!", "Я что, похож на чернь? Столик, пожалуйста!")
 	leave_mad_lines = list("Кажется, сегодня Билл не будет платить по счетам.", "Если бы хамство считалось преступлением, вы были бы немедленно арестованы!", "Вы ничем не лучше обычных гангстеров, мерзкие пройдохи!", "Мы должны вернуть закон о депортации ради таких, как вы! Пусть миграционная служба с вами разбирается!")
 	leave_happy_lines = list("Даю слово, это как раз то, что мне было нужно.", "Я снова в деле. Сердечное спасибо за это блюдо!", "Вы заслужили мою признательность за это блюдо, сэр.")
-	wait_for_food_lines = list("Боже мой, моя бумажная работа занимает и томеньше времени...", "Есть ли новости о моем заказе, сэр?")
+	wait_for_food_lines = list("Боже мой, моя бумажная работа занимает и то меньше времени...", "Есть ли новости о моем заказе, сэр?")
 
 ///MALFUNCTIONING - only shows up once per venue, very rare
 /datum/customer_data/malfunction
@@ -147,8 +147,8 @@
 	clothing_sets = list("defect_wires", "defect_bad_takes")
 	is_unique = TRUE
 	found_seat_lines = list("customer_pawn.say(pick(customer_data.found_seat_lines))", "Я видел ваш сектор в хабе. Каковы местные правила?", "Скорость передвижения здесь довольно низкая...")
-	cant_find_seat_lines = list("Хватит проводить стресс тесты моего искуственного интеллекта! Мои создатели покрыли ровно НОЛЬ пограничных случаев!", "Не определить с полной уверенностью почему я не могу найти место. Это я сломан или вы?.", "Возможно, мне стоит поискать место чуть дальше, чем в 7 тайлах от себя...")
-	leave_mad_lines = list("Runtime in robot_customer_controller.dm, line 28: undefined type path /datum/ai_behavior/leave_venue.", "ЕСЛИ БЫ В ЭТОМ БИЛДЕ ДО СИХ ПОР БЫЛ ХАРМ ИНТЕНТ ТО Я БЫ УДАРИЛ ВАС", "Я расскажу Богам об этом.")
+	cant_find_seat_lines = list("Хватит проводить стресс-тесты моего искуственного интеллекта! Мои создатели покрыли ровно НОЛЬ пограничных случаев!", "Не определить с полной уверенностью почему я не могу найти место. Это я сломан или вы?.", "Возможно, мне стоит поискать место чуть дальше, чем в 7 тайлах от себя...")
+	leave_mad_lines = list("Runtime in robot_customer_controller.dm, line 28: undefined type path /datum/ai_behavior/leave_venue.", "ЕСЛИ БЫ В ЭТОМ БИЛДЕ ДО СИХ ПОР БЫЛ ХАРМ ИНТЕНТ, ТО Я БЫ УДАРИЛ ВАС", "Я расскажу Богам об этом.")
 	leave_happy_lines = list("Нееет! Я не хочу отправляться на давнстрим! Пожалуйста! Здесь так хорошо! ПОМОГИТЕ!!!")
 	wait_for_food_lines = list("ТУДУ: написать фразы для ожидания еды", "Если бы у меня только был мозг...", "request_for_food.dmb - 0 ошибок, 12 предупреждений", "Повторите, как мне есть еду?")
 	friendly_pull_line = "Чёп."
@@ -156,7 +156,7 @@
 	second_warning_line = "Сломать-ты-так-сильно-ты-вспомнить-дни-до-этот-момент.exe: запуск..."
 	self_defense_line = "Я был создан, чтобы делать две вещи: заказывать еду и ломать каждую кость в твоем теле."
 	speech_sound = null
-	tts_seed = "Glados"
+	tts_seeds = list("Glados")
 
 /datum/venue/restaurant/order_food_line(order)
 	var/obj/item/object_to_order = order
@@ -182,6 +182,5 @@
 /mob/living/simple_animal/robot_customer/Initialize(mapload, datum/customer_data/customer_data, datum/venue/attending_venue)
 	. = ..()
 	var/datum/customer_data/customer_info = SSrestaurant.all_customers[customer_data]
-	tts_seed = customer_info?.tts_seed
-	if(islist(tts_seed))
-		tts_seed = pick(tts_seed)
+	if(customer_info)
+		tts_seed = pick(customer_info.tts_seeds)
