@@ -17,9 +17,13 @@
 			if(islist(value))
 				value = pick(value)
 
-			message = replacetextEx(message, " [uppertext(key)]", " [uppertext(value)]")
-			message = replacetextEx(message, " [capitalize(key)]", " [capitalize(value)]")
-			message = replacetextEx(message, " [key]", " [value]")
+			var/static/regex/uppertext_replacer = new(@"\b["[uppertext(key)]"]\b", "i")
+			var/static/regex/cepitalized_replacer = new(@"\b["[capitalize(key)]"]\b", "i")
+			var/static/regex/text_replacer = new(@"\b["[key]"]\b", "i")
+
+			message = uppertext_replacer.Replace(message, uppertext(value))
+			message = cepitalized_replacer.Replace(message, capitalize(value))
+			message = text_replacer.Replace(message, key, value)
 
 		if(prob(3))
 			message += pick(" Равиоли, равиоли, подскажи мне формуоли!"," Мамма-мия!"," Мамма-мия! Какая острая фрикаделька!", " Ла ла ла ла ла фуникули+ фуникуля+!")
