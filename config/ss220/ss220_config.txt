@@ -4,4 +4,4 @@
 #TTS_CACHE
 
 ## Additional slowdown when crawling
-#ADDITIONAL_CRAWLING_SLOWDOWN
+#ADDITIONAL_CRAWL_SLOWDOWN
