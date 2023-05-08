@@ -1,6 +1,6 @@
 /datum/customer_data
 	speech_sound = null
-	var/tts_seed = "Arthas"
+	var/list/tts_seeds = list("Arthas")
 
 /datum/customer_data/american
 	found_seat_lines = list("Я надеюсь тут найдется местечко, которое выдержит мой вес.", "Надеюсь, я могу проносить сюда оружие.", "Я надеюсь здесь подают тройной жир-бургер делюкс.", "Люблю я здешнюю культуру.")
@@ -12,7 +12,7 @@
 	first_warning_line = "Не стоит со мной шутить!"
 	second_warning_line = "Последнее предупреждение, чувак! Отвали!"
 	self_defense_line = "РЕЖИМ ЖИРОМЕНТАЛЯ АКТИВИРОВАН!"
-	tts_seed = list("Braum", "Malfurion", "Medivh", "Ozara", "Pudge")
+	tts_seeds = list("Braum", "Malfurion", "Medivh", "Ozara", "Pudge")
 
 
 /datum/customer_data/italian
@@ -28,7 +28,7 @@
 	first_warning_line = "Не трогай меня, мамма-мия!"
 	second_warning_line = "Последнее предупреждение! Не прикасайся к моим спагетти!"
 	self_defense_line = "Я замешу тебя так, как моя мамма замешивала свои фирменные фрикадельки!"
-	tts_seed = list("Barbas", "Clockwerk", "Muradin", "Rasil")
+	tts_seeds = list("Barbas", "Clockwerk", "Muradin", "Rasil")
 
 
 /datum/customer_data/french
@@ -45,7 +45,7 @@
 	second_warning_line = "Не трогай меня, ты, грязное животное! Последнее предупреждение!"
 	self_defense_line = "Я сломаю тебя словно багет!"
 	speech_sound = null
-	tts_seed = list("Archmage", "Awilo", "Belloc", "Priest")
+	tts_seeds = list("Archmage", "Awilo", "Belloc", "Priest")
 
 
 /datum/customer_data/japanese
@@ -62,7 +62,7 @@
 	second_warning_line = "Я стану супер-сайяном, если ты снова прикоснешься ко мне! Последнее предупреждение!"
 	self_defense_line = "OMAE WA MO, SHINDEROU!"
 	speech_sound = null
-	tts_seed = list("Ahri", "Chromie", "Eudora", "Luna", "Qiyana")
+	tts_seeds = list("Ahri", "Chromie", "Eudora", "Luna", "Qiyana")
 
 
 /datum/customer_data/japanese/salaryman
@@ -77,7 +77,7 @@
 	second_warning_line = "Отстань от меня, я пытаюсь сконцентрироваться. Последнее предупреждение!"
 	self_defense_line = "Я не хотел, чтобы это закончилось вот так."
 	speech_sound = null
-	tts_seed = list("Malkoran", "Narrator", "Overseer", "Rhombus")
+	tts_seeds = list("Malkoran", "Narrator", "Overseer", "Rhombus")
 
 
 /datum/customer_data/moth
@@ -93,7 +93,7 @@
 	second_warning_line = "Последнее предупреждение! Я уничтожу тебя!"
 	self_defense_line = "Крылатая атака!"
 	speech_sound = null
-	tts_seed = list("Ahri", "Chromie", "Eudora", "Luna", "Qiyana")
+	tts_seeds = list("Ahri", "Chromie", "Eudora", "Luna", "Qiyana")
 
 
 /datum/customer_data/mexican
@@ -110,7 +110,7 @@
 	second_warning_line = "Комрад, хватит значит хватит! Последнее предупреждение!"
 	self_defense_line = "Пришло время тебе узнать, какой из меня робот. Готов?"
 	speech_sound = null
-	tts_seed = list("Barney", "Batrider", "Putricide", "Soldier")
+	tts_seeds = list("Barney", "Batrider", "Putricide", "Soldier")
 
 
 /datum/customer_data/british
@@ -121,7 +121,7 @@
 	second_warning_line = "И мирно вернуться в свои жилища или к своим законным делам, приложив усилия, содержащиеся в акте, изданном королём Георгом в первый год своего правления для предотвращения бунтов и мятежей. Более предупреждений не будет."
 	self_defense_line = "Боже, храни Королеву."
 	speech_sound = null
-	tts_seed = list("Ebony", "Ekko", "Emperor", "Loxley")
+	tts_seeds = list("Ebony", "Ekko", "Emperor", "Loxley")
 
 
 /datum/customer_data/british/gent
@@ -149,14 +149,14 @@
 	found_seat_lines = list("customer_pawn.say(pick(customer_data.found_seat_lines))", "Я видел ваш сектор в хабе. Каковы местные правила?", "Скорость передвижения здесь довольно низкая...")
 	cant_find_seat_lines = list("Хватит проводить стресс-тесты моего искуственного интеллекта! Мои создатели покрыли ровно НОЛЬ пограничных случаев!", "Не определить с полной уверенностью почему я не могу найти место. Это я сломан или вы?.", "Возможно, мне стоит поискать место чуть дальше, чем в 7 тайлах от себя...")
 	leave_mad_lines = list("Runtime in robot_customer_controller.dm, line 28: undefined type path /datum/ai_behavior/leave_venue.", "ЕСЛИ БЫ В ЭТОМ БИЛДЕ ДО СИХ ПОР БЫЛ ХАРМ ИНТЕНТ, ТО Я БЫ УДАРИЛ ВАС", "Я расскажу Богам об этом.")
-	leave_happy_lines = list("Нееет! Я не хочу отправляться на даунстрим! Пожалуйста! Здесь так хорошо! ПОМОГИТЕ!!!")
+	leave_happy_lines = list("Нееет! Я не хочу отправляться на давнстрим! Пожалуйста! Здесь так хорошо! ПОМОГИТЕ!!!")
 	wait_for_food_lines = list("ТУДУ: написать фразы для ожидания еды", "Если бы у меня только был мозг...", "request_for_food.dmb - 0 ошибок, 12 предупреждений", "Повторите, как мне есть еду?")
 	friendly_pull_line = "Чёп."
 	first_warning_line = "Ты бы хорошо вписался туда, откуда я. Но тебе лучше остановиться."
 	second_warning_line = "Сломать-ты-так-сильно-ты-вспомнить-дни-до-этот-момент.exe: запуск..."
 	self_defense_line = "Я был создан, чтобы делать две вещи: заказывать еду и ломать каждую кость в твоем теле."
 	speech_sound = null
-	tts_seed = "Glados"
+	tts_seeds = list("Glados")
 
 /datum/venue/restaurant/order_food_line(order)
 	var/obj/item/object_to_order = order
@@ -182,6 +182,5 @@
 /mob/living/simple_animal/robot_customer/Initialize(mapload, datum/customer_data/customer_data, datum/venue/attending_venue)
 	. = ..()
 	var/datum/customer_data/customer_info = SSrestaurant.all_customers[customer_data]
-	tts_seed = customer_info?.tts_seed
-	if(islist(tts_seed))
-		tts_seed = pick(tts_seed)
+	if(customer_info)
+		tts_seed = pick(customer_info.tts_seeds)
