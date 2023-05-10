@@ -1,8 +1,11 @@
-/obj
-	tts_seed = null
-
 /obj/machinery
 	tts_seed = "Glados"
+
+/obj/machinery/computer
+	tts_seed = null
+
+/obj/machinery/modular_computer
+	tts_seed = null
 
 /obj/item/taperecorder
 	tts_seed = "Xenia"
