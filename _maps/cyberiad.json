@@ -14,14 +14,13 @@
 	"traits": [
 		{
 			"Up": 1,
-			"Baseturf": "/turf/open/openspace",
-			"Linkage": null
+			"Linkage": "Cross"
 		},
-            {
+		{
 			"Down": -1,
-			"Baseturf": "/turf/open/space/basic",
-			"Linkage": null
-		}
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": "Cross"
+            }
 	],
 	"job_changes": {
 		"Cook": {
