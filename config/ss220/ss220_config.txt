@@ -5,3 +5,6 @@
 
 ## Additional slowdown when crawling
 #ADDITIONAL_CRAWL_SLOWDOWN
+
+## Respawn delay in minutes
+RESPAWN_DELAY 10
