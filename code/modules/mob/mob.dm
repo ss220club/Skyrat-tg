@@ -812,11 +812,6 @@
 			return
 	//SKYRAT EDIT END
 
-	//SS220 EDIT ADDITION - RESPAWN DELAY
-	if(!check_respawn_delay())
-		return
-	//SS220 EDIT END - RESPAWN DELAY
-
 	usr.log_message("used the respawn button.", LOG_GAME)
 
 	to_chat(usr, span_boldnotice("Please roleplay correctly!"))

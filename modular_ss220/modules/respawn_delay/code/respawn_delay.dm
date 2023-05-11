@@ -10,6 +10,14 @@
 	if(. && client)
 		timeofdeath = world.time
 
+/mob/abandon_mob()
+	if (stat != DEAD)
+		to_chat(usr, span_boldnotice("You must be dead to use this!"))
+		return
+	if(!check_respawn_delay())
+		return
+	. = ..()
+
 /mob/proc/check_respawn_delay()
 	var/deathtime = 0
 	if(mind?.current)
