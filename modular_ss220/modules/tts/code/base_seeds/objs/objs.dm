@@ -7,6 +7,9 @@
 /obj/machinery/modular_computer
 	tts_seed = null
 
+/obj/item/modular_computer
+	tts_seed = null
+
 /obj/item/taperecorder
 	tts_seed = "Xenia"
 
