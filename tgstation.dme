@@ -7065,4 +7065,6 @@
 #include "modular_ss220\modules\tts\code\seeds\silero.dm"
 #include "modular_ss220\modules\tts\code\~undefs\~tts_undefs.dm"
 #include "modular_ss220\prime\balance_changes\crawl_speed\crawl_speed.dm"
+#include "modular_ss220\master_files\code\modules\discord\accountlink.dm"
+#include "modular_ss220\master_files_skyrat\modules\title_screen\code\new_player.dm"
 // END_INCLUDE
