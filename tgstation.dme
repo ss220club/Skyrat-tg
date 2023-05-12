@@ -7040,6 +7040,8 @@
 #include "modular_ss220\master_files\code\datums\keybinding\movement.dm"
 #include "modular_ss220\master_files\code\datums\keybinding\robot.dm"
 #include "modular_ss220\master_files\code\game\objects\items\melee\baton.dm"
+#include "modular_ss220\master_files\code\modules\client\client_procs.dm"
+#include "modular_ss220\master_files\code\modules\client\preferences.dm"
 #include "modular_ss220\master_files\code\modules\discord\accountlink.dm"
 #include "modular_ss220\master_files\code\modules\mob\client\client_procs.dm"
 #include "modular_ss220\master_files\code\modules\mob\client\preferences\middleware\keybindings.dm"
