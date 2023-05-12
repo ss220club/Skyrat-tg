@@ -14,4 +14,4 @@
 			to_chat(usr, "<span class='warning'>Нажмите 'Verify Discord Account' во вкладке 'OOC' для получения инструкций.</span>")
 			return FALSE
 
-	..()
+	. = ..()
