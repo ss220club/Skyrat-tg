@@ -3,6 +3,3 @@
 	attack_verb_continuous = "кусает"
 	attack_verb_simple = "кусает"
 	death_message = "визжит, крылья превращаются в пыль, а в глазах угасает жизнь, после чего дракон падает замертво."
-
-/datum/objective/summon_carp
-	explanation_text = "Открывайте и защищайте разрывы, чтобы наводнить станцию карпами."
