@@ -1,6 +1,14 @@
 /obj/item/melee/sickly_blade
 	desc = "A sickly green crescent blade, decorated with an ornamental eye. You feel like you're being watched..."
 
+/obj/item/melee/sickly_blade/examine(mob/user)
+	. = ..()
+	if(!IS_HERETIC_OR_MONSTER(user))
+		return
+
+	. -= span_notice("You can shatter the blade to teleport to a random, (mostly) safe location by <b>activating it in-hand</b>.")
+	. += span_notice("ПЕРЕВЕСТИ: You can shatter the blade to teleport to a random, (mostly) safe location by <b>activating it in-hand</b>.")
+
 /obj/item/melee/sickly_blade/rust
 	desc = "This crescent blade is decrepit, wasting to rust. \
 		Yet still it bites, ripping flesh and bone with jagged, rotten teeth."
