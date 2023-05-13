@@ -41,7 +41,7 @@
 	to_chat(human_occupant, span_danger("Когда [src] приходит в действие, вы чувствуете, как вокруг вас разворачиваются холодные металлические ограничители, вы не можете двигаться!"))
 	playsound(loc, 'sound/items/rped.ogg', 60)
 	say("Стадия первая: завершена!")
-	minor_announce("ОБНАРУЖЕНА БРЕШЬ В СИСТЕМЕ БЕЗОПАСНОСТИ, СЕТЬ ВЗЛОМАНА! МЕСТОПОЛОЖЕНИЕ НЕВОЗМОЖНО ОТСЛЕДИТЬ.", "GoldenEye Defence Network")
+	minor_announce("ОБНАРУЖЕНА БРЕШЬ В СИСТЕМЕ БЕЗОПАСНОСТИ, СЕТЬ ВЗЛОМАНА! МЕСТОПОЛОЖЕНИЕ НЕВОЗМОЖНО ОТСЛЕДИТЬ.", "Защитная сеть GoldenEye")
 	timer_id = addtimer(CALLBACK(src, PROC_REF(stage_two)), rand(STAGE_PROCESS_TIME_LOWER, STAGE_PROCESS_TIME_UPPER), TIMER_STOPPABLE|TIMER_UNIQUE)
 
 /obj/machinery/interrogator/stage_two() // Overriden
@@ -77,6 +77,6 @@
 	addtimer(CALLBACK(src, PROC_REF(announce_creation)), ALERT_CREW_TIME)
 
 /obj/machinery/interrogator/announce_creation() // Overriden
-	priority_announce("ОБНАРУЖЕНА КРИТИЧЕСКАЯ БРЕШЬ В СИСТЕМЕ БЕЗОПАСНОСТИ! Ключ-карта аутентификации GoldenEye была незаконно извлечена и передана куда-то на станцию!", "GoldenEye Defence Network")
+	priority_announce("ОБНАРУЖЕНА КРИТИЧЕСКАЯ БРЕШЬ В СИСТЕМЕ БЕЗОПАСНОСТИ! Ключ-карта аутентификации GoldenEye была незаконно извлечена и передана куда-то на станцию!", "Защитная сеть GoldenEye")
 	for(var/obj/item/pinpointer/nuke/disk_pinpointers in GLOB.pinpointer_list)
 		disk_pinpointers.switch_mode_to(TRACK_GOLDENEYE) //Pinpointer will track the newly created goldeneye key.
