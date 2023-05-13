@@ -1,8 +1,8 @@
 /obj/machinery/computer/shuttle/goldeneye_cruiser
-	desc = "The terminal used to control the goldeneye cruiser."
+	desc = "Терминал, используемый для управления крейсером GoldenEye."
 
 /obj/machinery/computer/shuttle/goldeneye_cruiser/recall
-	desc = "Use this if your friends left you behind."
+	desc = "Используйте его, если ваши друзья оставили вас позади."
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/goldeneye_cruiser
-	desc = "Used to designate a precise transit location for the goldeneye cruiser."
+	desc = "Используется для обозначения точного места прибытия крейсера GoldenEye."

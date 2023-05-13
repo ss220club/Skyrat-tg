@@ -1,26 +1,26 @@
 /obj/item/gun/ballistic/automatic/pistol/clandestine/assault_ops
-	desc = "A pistol chambered in 10mm magnum and painted in an ominous matte black. Strangely, the gun also seems to lack any form of manufacturer markings."
+	desc = "Пистолет под патрон 10 мм магнум, окрашенный в зловещий матово-черный цвет. Странно, но на пистолете отсутствует какая-либо маркировка производителя."
 
 /obj/item/gun/ballistic/automatic/assault_ops_rifle
-	desc = "A bullpup rifle chambered in 5.6x40mm and painted in an ominous matte black. Strangely, the gun also seems to lack any form of manufacturer markings."
+	desc = "Винтовка булл-пап под патрон 5,6x40 мм, окрашенная в зловещий матово-черный цвет. Странно, но на винтовке отсутствует какая-либо маркировка производителя."
 
 /obj/item/ammo_box/magazine/multi_sprite/assault_ops_rifle
-	desc = "A twenty round magazine built for 5.6x40mm, intended for use in the IGE-110 rifle."
+	desc = "Магазин на двадцать патронов под патрон 5,6х40 мм, предназначенный для использования в винтовке IGE-110."
 
 /obj/item/gun/ballistic/automatic/assault_ops_smg
-	desc = "A toploader submachine gun chambered in 9x25mm and painted in an ominous matte black. Strangely, the gun also seems to lack any form of manufacturer markings."
+	desc = "Пистолет-пулемет с верхней загрузкой под патрон 9х25 мм, окрашенный в зловещий матово-черный цвет. Странно, но на пистолет-пулемете отсутствует какая-либо маркировка производителя."
 
 /obj/item/ammo_box/magazine/multi_sprite/assault_ops_smg
-	desc = "A forty round magazine built for 9x25mm, intended for use in the IGE-260 submachine gun."
+	desc = "Магазин на сорок патронов под патрон 9х25 мм, предназначенный для использования в пистолете-пулемете IGE-260."
 
 /obj/item/gun/ballistic/automatic/assault_ops_shotgun
-	desc = "A magazine fed semi-automatic shotgun chambered in 12 GA and painted in an ominous matte black. Strangely, the gun also seems to lack any form of manufacturer markings."
+	desc = "Самозарядное ружье с магазинным питанием под патрон 12-го калибра, окрашенное в зловещий матово-черный цвет. Странно, но на ружье отсутствует какая-либо маркировка производителя."
 
 /obj/item/ammo_box/magazine/multi_sprite/assault_ops_shotgun
-	desc = "A seven round magazine built for 12 GA, intended for use in the IGE-340 shotgun."
+	desc = "Магазин на семь патронов, рассчитанный на 12-й калибр, предназначенный для использования в ружье IGE-340."
 
 /obj/item/gun/ballistic/rifle/boltaction/assault_ops_sniper
-	desc = "A magazine fed bolt-action rifle with a short enough barrel that your shoulder hurts just looking at it. Chambered in .416 Stabilis, it is painted in an ominous matte black and seems to lack any form of manufacturer markings."
+	desc = "Винтовка с магазинным питанием и настолько коротким стволом, что при взгляде на нее болит плечо. Винтовка калибра .416 Stabilis окрашена в зловещий матово-черный цвет и, похоже, лишена какой-либо маркировки производителя."
 
 /obj/item/ammo_box/magazine/multi_sprite/assault_ops_sniper
-	desc = "A five round magazine built for .416 Stabilis, intended for use in the IGE-410 sniper."
+	desc = "Магазин на пять патронов под патрон .416 Stabilis, предназначенный для использования в снайперской винтовке IGE-410."

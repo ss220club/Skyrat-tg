@@ -1,32 +1,32 @@
 /datum/armament_entry/assault_operatives/primary/rifle_ammo/rubber
-	description = "Rifle ammo that is more likely to exhaust whoever its shot at, rather than killing them."
+	description = "Винтовочные патроны, направленные на ослабление цели, нежели её убийство."
 
 /datum/armament_entry/assault_operatives/primary/rifle_ammo/ap
-	description = "Rifle ammo built specifically to penetrate through armor."
+	description = "Винтовочные патроны, созданные для пробивания брони."
 
 /datum/armament_entry/assault_operatives/primary/submachinegun_ammo/rubber
-	description = "Submachine gun ammo that is more likely to exhaust whoever its shot at, rather than killing them."
+	description = "Патроны SMG, направленные на ослабление цели, нежели её убийство."
 
 /datum/armament_entry/assault_operatives/primary/submachinegun_ammo/hp
-	description = "Submachine gun ammo that hurts unarmored targets more, in exchange for worse performance against armor."
+	description = "Патроны SMG, наносящие повышенный урон ценой уменьшенной пропускной способности."
 
 /datum/armament_entry/assault_operatives/primary/shotgun_ammo/rubber
-	description = "Shotgun ammo that's much like buckshot, but more likely to exhaust whoever its shot at rather than killing them."
+	description = "Резиновые патроны для дробовика, направленные на ослабление цели, нежели её убийство."
 
 /datum/armament_entry/assault_operatives/primary/shotgun_ammo/flechette
-	description = "Shotgun ammo that fires armor piercing flechettes that can cause some nasty wounds."
+	description = "Бронебойные патроны для дробовика, способные нанести сильные раны."
 
 /datum/armament_entry/assault_operatives/primary/shotgun_ammo/hollowpoint
-	description = "Shotgun ammo that fires a large hollowpoint slug that hurts unarmored targets a lot more, in exchange for worse performance against armor."
+	description = "Крупнокалиберные пули для дробовика, наносящие больше урона небронированым целям ценой уменьшения пропускной способности."
 
 /datum/armament_entry/assault_operatives/primary/shotgun_ammo/beehive
-	description = "Shotgun ammo that fires a spread of smart-bouncing pellets, that are more likely to exhaust whoever its shot at rather than killing them."
+	description = "Умно-рикошетные патроны для дробовика, направленные на ослабление цели, нежели её убийство."
 
 /datum/armament_entry/assault_operatives/primary/shotgun_ammo/dragonsbreath
-	description = "Shotgun ammo that fires a spread of incendiary projectiles, creating a wall of fire whichever direction they are shot in."
+	description = "Поджигающие патроны для дробовика, которые создают стену огня на своём пути."
 
-/datum/armament_entry/assault_operatives/primary/sniper_ammo/eepy
-	description = "Sniper ammo that will put whoever it hits right to sleep, rather than killing them."
+/datum/armament_entry/assault_operatives/primary/sniper_ammo/eepy // А ТАКИХ ПУЛЕЙ ВРОДЕ НЕТ БОЛЬШЕ?
+	description = "Снайперские патроны, которые мгновенно усыпляют цель."
 
 /datum/armament_entry/assault_operatives/primary/sniper_ammo/penetrator
-	description = "Sniper ammo that is capable of penetrating through multiple walls and people at once."
+	description = "Снайперские патроны, способные к пробитию нескольких стен и людей одновременно."

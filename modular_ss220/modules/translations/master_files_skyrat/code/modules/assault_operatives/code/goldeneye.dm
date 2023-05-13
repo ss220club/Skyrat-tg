@@ -19,25 +19,25 @@
 	addtimer(CALLBACK(src, PROC_REF(fire_icarus)), ignition_time)
 
 /obj/item/goldeneye_key
-	desc = "A high profile authentication keycard to Nanotrasen's GoldenEye defence network. It seems indestructible."
+	desc = "Высококлассная ключ-карта для аутентификации в защитной сети GoldenEye компании Nanotrasen. Она кажется неразрушимой."
 
 /obj/item/goldeneye_key/Initialize(mapload)
 	. = ..()
-	name = "\improper GoldenEye authentication keycard: [goldeneye_tag]"
+	name = "\improper Ключ-карта для аутентификации GoldenEye: [goldeneye_tag]"
 
 /obj/machinery/goldeneye_upload_terminal
-	desc = "An ominous terminal with some ports and keypads, the screen is scrolling with illegible nonsense. It has a strange marking on the side, a red ring with a gold circle within."
+	desc = "Зловещий терминал с несколькими портами и клавиатурами, на экране прокручивается неразборчивая бессмыслица. На стороне у него странная маркировка - красное кольцо с золотым кругом внутри."
 
 /obj/item/pinpointer/nuke/goldeneye
-	desc = "A handheld tracking device that locks onto certain signals. This one is configured to locate any GoldenEye keycards."
+	desc = "Портативное устройство слежения, которое фиксирует определенные сигналы. Это устройство настроено на обнаружение любых ключ-карт GoldenEye."
 
 /datum/objective/goldeneye
-	objective_name = "Subvert GoldenEye"
-	explanation_text = "Extract all of the required GoldenEye authentication keys from the heads of staff and activate GoldenEye."
+	objective_name = "Взломайте систему GoldenEye"
+	explanation_text = "Извлеките все необходимые ключи аутентификации GoldenEye у глав станции и активируйте протокол GoldenEye."
 
 /atom/movable/screen/alert/status_effect/goldeneye_pinpointer
-	desc = "Even stealthier than a normal implant, it points to a selected GoldenEye keycard."
+	desc = "Еще более скрытный, чем обычный имплант, он указывает на выбранную ключ-карту GoldenEye."
 
 /datum/status_effect/goldeneye_pinpointer/set_target(obj/item/new_target) // OVerriden
 	target = new_target
-	to_chat(owner, span_redtext("Integrated pinpointer set to: [target.name]"))
+	to_chat(owner, span_redtext("Интегрированный пинпоинтер указывает на: [target.name]"))

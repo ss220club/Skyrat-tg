@@ -1,8 +1,8 @@
 /datum/antagonist/assault_operative
-	spawn_text = "Your mission is to assault NTSS13 and get all of the GoldenEye keys that you can from the heads of staff that reside there. \
-	Use your pinpointer to locate these after you have extracted the GoldenEye key from the head of staff. It will be sent in by droppod. \
-	You must then upload the key to the GoldenEye upload terminal on this GoldenEye station. After you have completed your mission, \
-	The GoldenEye defence network will fall, and we will gain access to Nanotrasen's military systems. Good luck agent."
+	spawn_text = "Ваша миссия - напасть на НТКС13 и забрать все ключи от GoldenEye, которые вы можете, у глав персонала, которые там находятся. \
+	Используйте свой пинпоинтер, чтобы найти их после того, как вы заберете ключ от GoldenEye у главы персонала. Он будет отправлен дропподом. \
+	Затем вы должны загрузить ключ в терминал загрузки GoldenEye на этой станции GoldenEye. После того, как вы выполните свою миссию, \
+	защитная сеть GoldenEye падёт, и мы получим доступ к военным системам Nanotrasen. Удачи, агент."
 
 /datum/team/assault_operatives/roundend_report() // Overriden
 	var/list/parts = list()
