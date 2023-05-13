@@ -25,6 +25,11 @@
 	. = ..()
 	name = "\improper Ключ-карта для аутентификации GoldenEye: [goldeneye_tag]"
 
+/obj/item/goldeneye_key/examine(mob/user)
+	. = ..()
+	. -= "The DNA data link belongs to: [extract_name]"
+	. += "Информация из ДНК принадлежит: [extract_name]"
+
 /obj/machinery/goldeneye_upload_terminal
 	desc = "Зловещий терминал с несколькими портами и клавиатурами, на экране прокручивается неразборчивая бессмыслица. На стороне у него странная маркировка - красное кольцо с золотым кругом внутри."
 

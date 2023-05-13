@@ -1,6 +1,11 @@
 /obj/machinery/interrogator
 	desc = "Морально ужасный механизм, используемый для извлечения человеческого разума в ключ аутентификации GoldenEye. Считается, что этот процесс является одним из самых болезненных, которые только можно пережить. Нажмите Alt+Click для запуска процесса."
 
+/obj/machinery/interrogator/examine(mob/user)
+	. = ..()
+	. -= "It requies a direct link to a Nanotrasen defence network, stay near a Nanotrasen comms sat!"
+	. += "Машине необходима прямая связь с защитной сетью Nanotrasen, находитесь близко к их сети телекоммуникаций!"
+
 /obj/machinery/interrogator/attempt_extract(mob/user) // Overriden
 	if(!occupant)
 		balloon_alert_to_viewers("внутри пусто!")
