@@ -6,7 +6,7 @@
 
 /datum/team/assault_operatives/roundend_report() // Overriden
 	var/list/parts = list()
-	parts += "<span class='header'>Штурмовые оперативники::</span>"
+	parts += "<span class='header'>Штурмовые оперативники:</span>"
 
 	switch(get_result())
 		if(ASSAULT_RESULT_WIN)
