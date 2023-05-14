@@ -7072,6 +7072,7 @@
 #include "modular_ss220\modules\translations\master_files\code\modules\food_and_drinks\restaurant\customers\_customer..dm"
 #include "modular_ss220\modules\translations\master_files\code\modules\mob\living\basic\space_fauna\carp\carp_abilities.dm"
 #include "modular_ss220\modules\translations\master_files\code\modules\mob\living\simple_animal\hostile\space_dragon.dm"
+#include "modular_ss220\modules\translations\master_files_skyrat\code\modules\sec_haul\code\misc\ai_module.dm"
 #include "modular_ss220\modules\tts\code\_tts_defines.dm"
 #include "modular_ss220\modules\tts\code\_tts_rust_g_ss220.dm"
 #include "modular_ss220\modules\tts\code\tts_configuration.dm"
