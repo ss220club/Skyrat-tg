@@ -7127,6 +7127,7 @@
 #include "modular_ss220\modules\translations\master_files\code\modules\antagonists\heretic\mobs\maid_in_mirror.dm"
 #include "modular_ss220\modules\translations\master_files\code\modules\antagonists\heretic\status_effects\buffs.dm"
 #include "modular_ss220\modules\translations\master_files\code\modules\antagonists\heretic\status_effects\debuffs.dm"
+#include "modular_ss220\modules\translations\master_files\code\modules\antagonists\heretic\status_effects\ghoul.dm"
 #include "modular_ss220\modules\translations\master_files\code\modules\antagonists\heretic\structures\carving_knife.dm"
 #include "modular_ss220\modules\translations\master_files\code\modules\antagonists\heretic\structures\mawed_crucible.dm"
 #include "modular_ss220\modules\translations\master_files\code\modules\antagonists\space_dragon\carp_rift.dm"
