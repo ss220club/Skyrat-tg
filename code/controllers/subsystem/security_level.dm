@@ -68,9 +68,9 @@ SUBSYSTEM_DEF(security_level)
  */
 /datum/controller/subsystem/security_level/proc/announce_security_level(datum/security_level/selected_level)
 	if(selected_level.number_level > current_security_level.number_level) // We are elevating to this level.
-		minor_announce(selected_level.elevating_to_announcemnt, "Внимание! Код угрозы повышен до: [selected_level.name].", sound_override = selected_level.sound) // SS220 EDIT: Translation
+		minor_announce(selected_level.elevating_to_announcemnt, "Внимание! Код угрозы повышен до: [selected_level.ru_name].", sound_override = selected_level.sound) // SS220 EDIT: Translation
 	else // Going down
-		minor_announce(selected_level.lowering_to_announcement, "Внимание! Код угрозы снижен до: [selected_level.name].", sound_override = selected_level.sound) // SS220 EDIT: Translation
+		minor_announce(selected_level.lowering_to_announcement, "Внимание! Код угрозы снижен до: [selected_level.ru_name].", sound_override = selected_level.sound) // SS220 EDIT: Translation
 
 /**
  * Returns the current security level as a number

@@ -1,11 +1,11 @@
 /datum/security_level/violet
-	name = "Фиолетового"
+	ru_name = "Фиолетового"
 
 /datum/security_level/orange
-	name = "Оранжевого"
+	ru_name = "Оранжевого"
 
 /datum/security_level/amber
-	name = "Янтарного"
+	ru_name = "Янтарного"
 
 /datum/security_level/gamma
-	name = "Гамма"
+	ru_name = "Гамма"

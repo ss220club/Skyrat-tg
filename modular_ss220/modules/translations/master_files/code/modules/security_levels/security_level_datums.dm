@@ -1,11 +1,14 @@
+/datum/security_level
+	var/ru_name = "не назначен"
+
 /datum/security_level/green
-	name = "Зелёного"
+	ru_name = "Зелёного"
 
 /datum/security_level/blue
-	name = "Синего"
+	ru_name = "Синего"
 
 /datum/security_level/red
-	name = "Красного"
+	ru_name = "Красного"
 
 /datum/security_level/delta
-	name = "Дельта"
+	ru_name = "Дельта"
