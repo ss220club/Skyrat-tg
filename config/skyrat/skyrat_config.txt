@@ -31,15 +31,15 @@ PLAYER_SOFT_CAP 0
 ## But currently the SQL system is not implemented and it'll read from mentors.txt nonetheless
 MENTOR_LEGACY_SYSTEM
 
-ALERT_AMBER_UPTO A major security emergency has developed. Security staff may have weapons unholstered at all times. Random searches are allowed and advised.
-ALERT_AMBER_DOWNTO A major security emergency is still underway. Non-security personnel are required to obey all relevant instructions from security staff.
-ALERT_ORANGE_UPTO A major engineering emergency has developed. Non-engineering personnel are required to evacuate any affected areas and obey relevant instructions from engineering staff. Engineering staff will have expanded access to areas of the station during the emergency.
-ALERT_ORANGE_DOWNTO A major engineering emergency has developed. Non-engineering personnel are required to evacuate any affected areas and obey relevant instructions from engineering staff. Engineering staff will have expanded access to areas of the station during the emergency.
-ALERT_VIOLET_UPTO A major medical emergency has developed. Non-medical personnel are required to obey all relevant instructions from medical staff.
-ALERT_VIOLET_DOWNTO  A major medical emergency has developed. Non-medical personnel are required to obey all relevant instructions from medical staff.
-ALERT_DELTA_UPTO Destruction of the station is imminent. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill.
-ALERT_DELTA_DOWNTO Destruction of the station is still imminent. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill.
-ALERT_GAMMA The Solar Federation has placed this system under Gamma Alert status. This galactic system is facing a ZK-Class Reality Failure Scenario. Security Personnel is authorized full access to lethal equipment to enforce Martial Law. Failure to follow emergency procedures is punishable by death. This is not a drill.
+ALERT_AMBER_UPTO Возникла чрезвычайная ситуация по безопасности на станции. Службе безопасности рекомендуется иметь оружие в полной боевой готовности. Выборочные обыски разрешены и рекомендованы.
+ALERT_AMBER_DOWNTO Чрезвычайная ситуация по безопасности на станции всё ещё имеется. Персоналу, не состоящему в службе безопасности, необходимо подчиняться всем указаниям службы безопасности.
+ALERT_ORANGE_UPTO Возникла инженерная чрезвычайная ситуация на станции. Персоналу, не состоящему в инженерном отделе, необходимо эвакуироваться из затронутых зон и подчиняться соответствующим инструкциям инженерного персонала. Инженерный отдел будет иметь расширенный доступ к участкам станции во время чрезвычайной ситуации.
+ALERT_ORANGE_DOWNTO Возникла инженерная чрезвычайная ситуация на станции. Персоналу, не состоящему в инженерном отделе, необходимо эвакуироваться из затронутых зон и подчиняться соответствующим инструкциям инженерного персонала. Инженерный отдел будет иметь расширенный доступ к участкам станции во время чрезвычайной ситуации.
+ALERT_VIOLET_UPTO Возникла медицинская чрезвычайная ситуация на станции. Персоналу, не состоящему в медицинском отделе, необходимо подчиняться соответствующим инструкциям медицинского персонала.
+ALERT_VIOLET_DOWNTO  Возникла медицинская чрезвычайная ситуация на станции. Персоналу, не состоящему в медицинском отделе, необходимо подчиняться соответствующим инструкциям медицинского персонала.
+ALERT_DELTA_UPTO Станции грозит скорое уничтожение. Все члены экипажа обязаны подчиняться всем указаниям, данными главами отделов. Любые нарушения этих приказов наказуемы уничтожением на месте. Это не учебная тревога.
+ALERT_DELTA_DOWNTO Станции всё ещё грозит скорое уничтожение. Все члены экипажа обязаны подчиняться всем указаниям, данными главами отделов. Любые нарушения этих приказов наказуемы уничтожением на месте. Это не учебная тревога.
+ALERT_GAMMA Транс-Солнечная Федерация накладывает на систему код гамма. Эта галактическая система столкнулась со сценарием разрушения реальности класса ZK. Персоналу службы безопасности разрешен полный доступ к летальному оборудованию для введения военного положения. Несоблюдение чрезвычайных процедур карается смертью. Это не учения.
 
 ## How long until someone can be put in cryo if they are SSD
 CRYO_MIN_SSD_TIME 15
