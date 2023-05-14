@@ -543,6 +543,7 @@
 /obj/item/toner,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/power/apc/auto_name/directional/east,
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/commons/storage/art)
 "atH" = (
@@ -2295,17 +2296,12 @@
 /turf/open/floor/iron/dark,
 /area/station/security/lockers)
 "bDV" = (
-/obj/structure/closet/secure_closet/security{
-	broken = 1;
-	contents_initialized = 1;
-	locked = 0;
-	opened = 1
-	},
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/red/anticorner/contrasted{
 	dir = 1
 	},
+/obj/structure/closet/secure_closet/security/sec,
 /turf/open/floor/iron,
 /area/station/security/checkpoint/customs/auxiliary)
 "bEb" = (
@@ -3118,6 +3114,7 @@
 /area/station/ai_monitored/command/storage/eva)
 "cjr" = (
 /obj/structure/closet/emcloset,
+/obj/machinery/light/dim/directional/west,
 /turf/open/floor/iron,
 /area/station/hallway/primary/port)
 "cju" = (
@@ -4193,6 +4190,13 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/office)
+"cRX" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/commons/storage/art)
 "cRZ" = (
 /obj/structure/chair/office{
 	dir = 1
@@ -9426,6 +9430,21 @@
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/carpet,
 /area/station/service/library)
+"gIq" = (
+/obj/structure/toilet,
+/obj/machinery/button/door/directional/south{
+	id = "AuxToilet1";
+	name = "Lock Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/obj/machinery/light/small/directional/west{
+	name = "maintenance light";
+	nightshift_allowed = 0;
+	nightshift_enabled = 1
+	},
+/turf/open/floor/iron/freezer,
+/area/station/commons/toilet/locker)
 "gIr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/emcloset,
@@ -10485,6 +10504,9 @@
 	name = "Art Storage"
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/commons/storage/art)
 "huC" = (
@@ -16823,9 +16845,10 @@
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "lKn" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/space/basic,
-/area/space)
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron,
+/area/station/commons/storage/art)
 "lKP" = (
 /obj/structure/table,
 /obj/item/toy/gun,
@@ -17939,7 +17962,7 @@
 /area/station/maintenance/department/medical/central)
 "mAb" = (
 /obj/machinery/status_display/evac/directional/north,
-/obj/effect/spawner/random/vending/colavend,
+/obj/machinery/vending/cola/red,
 /turf/open/floor/iron,
 /area/station/commons/locker)
 "mAc" = (
@@ -18786,6 +18809,8 @@
 /area/station/ai_monitored/turret_protected/aisat/maint)
 "nen" = (
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/commons/storage/art)
 "new" = (
@@ -20413,10 +20438,10 @@
 /turf/open/floor/iron/dark,
 /area/station/medical/chemistry)
 "oqH" = (
-/obj/machinery/shower/directional/west{
-	pixel_x = 12
-	},
 /obj/structure/curtain,
+/obj/machinery/shower/directional/west{
+	pixel_x = 10
+	},
 /turf/open/floor/iron/showroomfloor,
 /area/station/commons/toilet)
 "orj" = (
@@ -23785,6 +23810,21 @@
 	},
 /turf/open/floor/iron,
 /area/station/maintenance/department/medical/central)
+"qSv" = (
+/obj/structure/toilet,
+/obj/machinery/button/door/directional/south{
+	id = "AuxToilet3";
+	name = "Lock Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/obj/machinery/light/small/directional/west{
+	name = "maintenance light";
+	nightshift_allowed = 0;
+	nightshift_enabled = 1
+	},
+/turf/open/floor/iron/freezer,
+/area/station/commons/toilet/locker)
 "qSF" = (
 /obj/machinery/iv_drip,
 /obj/structure/extinguisher_cabinet/directional/north,
@@ -24080,7 +24120,6 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
 "raN" = (
-/obj/effect/spawner/random/vending/colavend,
 /obj/effect/turf_decal/trimline/dark/line{
 	dir = 8
 	},
@@ -24088,8 +24127,9 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/dark,
+/obj/machinery/vending/cola/red,
 /turf/open/floor/iron,
-/area/space)
+/area/station/commons/dorms)
 "raR" = (
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
@@ -26171,7 +26211,7 @@
 /obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
 	dir = 8
 	},
-/turf/open/space/openspace,
+/turf/open/floor/iron/dark,
 /area/station/commons/storage/primary)
 "sAi" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -28691,7 +28731,7 @@
 /obj/machinery/airalarm/directional/south,
 /obj/item/bikehorn/rubberducky,
 /obj/machinery/shower/directional/west{
-	pixel_x = 12
+	pixel_x = 10
 	},
 /obj/structure/curtain,
 /turf/open/floor/iron/freezer,
@@ -28951,9 +28991,9 @@
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/aft)
 "uBV" = (
-/obj/structure/chair/stool/directional/south,
 /obj/effect/landmark/start/assistant,
 /obj/structure/cable,
+/obj/structure/chair/stool/directional/north,
 /turf/open/floor/iron,
 /area/station/commons/locker)
 "uBZ" = (
@@ -29755,6 +29795,9 @@
 	},
 /obj/item/vending_refill/cigarette,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/camera/directional/east{
+	c_tag = "Art Storage"
+	},
 /turf/open/floor/iron,
 /area/station/commons/storage/art)
 "vgO" = (
@@ -30092,12 +30135,12 @@
 /area/space)
 "vro" = (
 /obj/structure/curtain,
-/obj/machinery/shower/directional/west{
-	pixel_x = 12
-	},
 /obj/item/soap,
 /obj/item/bikehorn/rubberducky,
 /obj/machinery/firealarm/directional/south,
+/obj/machinery/shower/directional/west{
+	pixel_x = 10
+	},
 /turf/open/floor/iron/showroomfloor,
 /area/station/commons/toilet)
 "vrp" = (
@@ -30264,6 +30307,7 @@
 "vyP" = (
 /obj/structure/chair/stool/directional/west,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/commons/storage/art)
 "vyU" = (
@@ -30697,8 +30741,9 @@
 	},
 /obj/item/vending_refill/cola,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/camera/directional/east{
-	c_tag = "Art Storage"
+/obj/machinery/light/dim/directional/east,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
 	},
 /turf/open/floor/iron,
 /area/station/commons/storage/art)
@@ -32269,6 +32314,9 @@
 /obj/item/camera,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/airalarm/directional/east,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
 /turf/open/floor/iron,
 /area/station/commons/storage/art)
 "xaJ" = (
@@ -33017,6 +33065,17 @@
 /area/station/maintenance/department/medical/central)
 "xFv" = (
 /obj/structure/toilet,
+/obj/machinery/button/door/directional/south{
+	id = "AuxToilet2";
+	name = "Lock Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/obj/machinery/light/small/directional/west{
+	name = "maintenance light";
+	nightshift_allowed = 0;
+	nightshift_enabled = 1
+	},
 /turf/open/floor/iron/freezer,
 /area/station/commons/toilet/locker)
 "xFY" = (
@@ -115911,11 +115970,11 @@ gMl
 gMl
 gMl
 mas
-xFv
+gIq
 mas
 xFv
 mas
-xFv
+qSv
 mas
 tBF
 tBF
@@ -122089,7 +122148,7 @@ rZl
 kHC
 kHC
 kHC
-lKn
+wvx
 wGT
 cgc
 fUe
@@ -122578,12 +122637,12 @@ bfW
 myd
 fia
 mNz
-nen
+lKn
 vyP
 nen
-nen
+cRX
 huk
-qIb
+rxA
 lfo
 qIb
 lCm
@@ -122610,7 +122669,7 @@ tVL
 tVL
 lbd
 vfA
-lKn
+wvx
 wQo
 dgG
 kHC
@@ -122867,7 +122926,7 @@ kHC
 kHC
 puO
 gPy
-lKn
+wvx
 cQa
 lQi
 kHC
@@ -123124,7 +123183,7 @@ kHC
 kHC
 apv
 tcA
-lKn
+wvx
 fPs
 lQi
 kHC
@@ -123900,7 +123959,7 @@ oiv
 oiv
 oiv
 oiv
-pvq
+rZl
 rZl
 siP
 rZl
