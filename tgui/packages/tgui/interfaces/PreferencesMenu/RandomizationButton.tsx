@@ -33,23 +33,22 @@ export const RandomizationButton = (props: {
       displayText={<Icon name="dice-d20" mr="-0.25em" />}
       options={[
         {
-          displayText: 'Do not randomize',
+          displayText: 'Никогда не случайно',
           value: RandomSetting.Disabled,
         },
 
         {
-          displayText: 'Always randomize',
+          displayText: 'Всегда случайно',
           value: RandomSetting.Enabled,
         },
 
         {
-          displayText: 'Randomize when antagonist',
+          displayText: 'Случайно когда антагонист',
           value: RandomSetting.AntagOnly,
         },
       ]}
       nochevron
       onSelected={setValue}
-      menuWidth="120px"
       width="auto"
     />
   );

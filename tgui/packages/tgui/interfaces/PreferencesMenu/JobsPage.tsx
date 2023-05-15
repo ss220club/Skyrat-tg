@@ -88,13 +88,13 @@ const PriorityHeaders = () => {
     <Stack>
       <Stack.Item grow />
 
-      <Stack.Item className={className}>Off</Stack.Item>
+      <Stack.Item className={className}>Откл.</Stack.Item>
 
-      <Stack.Item className={className}>Low</Stack.Item>
+      <Stack.Item className={className}>Низк.</Stack.Item>
 
-      <Stack.Item className={className}>Medium</Stack.Item>
+      <Stack.Item className={className}>Средн.</Stack.Item>
 
-      <Stack.Item className={className}>High</Stack.Item>
+      <Stack.Item className={className}>Высок.</Stack.Item>
     </Stack>
   );
 };
@@ -135,7 +135,7 @@ const PriorityButtons = (props: {
       ) : (
         <>
           <PriorityButton
-            name="Off"
+            name="Отключить"
             modifier="off"
             color="light-grey"
             enabled={!priority}
@@ -143,21 +143,21 @@ const PriorityButtons = (props: {
           />
 
           <PriorityButton
-            name="Low"
+            name="Низкий"
             color="red"
             enabled={priority === JobPriority.Low}
             onClick={createSetPriority(JobPriority.Low)}
           />
 
           <PriorityButton
-            name="Medium"
+            name="Средний"
             color="yellow"
             enabled={priority === JobPriority.Medium}
             onClick={createSetPriority(JobPriority.Medium)}
           />
 
           <PriorityButton
-            name="High"
+            name="Высокий"
             color="green"
             enabled={priority === JobPriority.High}
             onClick={createSetPriority(JobPriority.High)}
@@ -373,15 +373,15 @@ const JoblessRoleDropdown = (props, context) => {
 
   const options = [
     {
-      displayText: `Join as ${data.overflow_role} if unavailable`,
+      displayText: `Присоединиться как ${data.overflow_role} если недоступно`,
       value: JoblessRole.BeOverflow,
     },
     {
-      displayText: `Join as a random job if unavailable`,
+      displayText: `Случайная работа, если недоступно`,
       value: JoblessRole.BeRandomJob,
     },
     {
-      displayText: `Return to lobby if unavailable`,
+      displayText: `Вернуться в лобби, если недоступно`,
       value: JoblessRole.ReturnToLobby,
     },
   ];

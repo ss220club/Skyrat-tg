@@ -88,11 +88,11 @@ const AntagSelection = (
       buttons={
         <>
           <Button color="good" onClick={() => enableAntags(antagonistKeys)}>
-            Enable All
+            Включить все
           </Button>
 
           <Button color="bad" onClick={() => disableAntags(antagonistKeys)}>
-            Disable All
+            Отключить все
           </Button>
         </>
       }>
@@ -189,17 +189,17 @@ export const AntagsPage = () => {
   return (
     <Box className="PreferencesMenu__Antags">
       <AntagSelection
-        name="Roundstart"
+        name="Раундстартовые"
         antagonists={antagsByCategory.get(Category.Roundstart)!}
       />
 
       <AntagSelection
-        name="Midround"
+        name="В середине раунда"
         antagonists={antagsByCategory.get(Category.Midround)!}
       />
 
       <AntagSelection
-        name="Latejoin"
+        name="Поздное присоединение"
         antagonists={antagsByCategory.get(Category.Latejoin)!}
       />
     </Box>
