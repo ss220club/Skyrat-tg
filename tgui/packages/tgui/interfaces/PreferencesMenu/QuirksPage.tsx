@@ -170,15 +170,15 @@ export const QuirksPage = (props, context) => {
 
           if (quirk.value > 0) {
             if (positiveQuirks >= maxPositiveQuirks) {
-              return "You can't have any more positive quirks!";
+              return 'Нельзя иметь больше положительных черт!';
             } else if (balance + quirk.value > 0) {
-              return 'You need a negative quirk to balance this out!';
+              return 'Необходим баланс с отрицательными чертами!';
             }
           }
 
           // SKYRAT EDIT START - Veteran quirks
           if (quirk.veteran_only && !data.is_veteran) {
-            return 'You need to be a veteran to select this quirk, apply today!';
+            return 'Для этой черты необходимо быть ветераном. Вступите сейчас!';
           }
           // SKYRAT EDIT END
 
@@ -196,7 +196,7 @@ export const QuirksPage = (props, context) => {
                 incompatibleQuirk !== quirk.name &&
                 selectedQuirkNames.indexOf(incompatibleQuirk) !== -1
               ) {
-                return `This is incompatible with ${incompatibleQuirk}!`;
+                return `Черта несовместима с ${incompatibleQuirk}!`;
               }
             }
           }
@@ -208,7 +208,7 @@ export const QuirksPage = (props, context) => {
           const quirk = quirkInfo[quirkName];
 
           if (balance - quirk.value > 0) {
-            return 'You need to remove a positive quirk first!';
+            return 'Сначала вам нужно убрать позитивную черту!';
           }
 
           return undefined;
@@ -219,7 +219,7 @@ export const QuirksPage = (props, context) => {
             <Stack.Item basis="50%">
               <Stack vertical fill align="center">
                 <Stack.Item>
-                  <Box fontSize="1.3em">Positive Quirks</Box>
+                  <Box fontSize="1.3em">Положительные черты</Box>
                 </Stack.Item>
 
                 <Stack.Item>
@@ -230,7 +230,7 @@ export const QuirksPage = (props, context) => {
 
                 <Stack.Item>
                   <Box as="b" fontSize="1.6em">
-                    Available Quirks
+                    Доступные черты
                   </Box>
                 </Stack.Item>
 
@@ -270,7 +270,7 @@ export const QuirksPage = (props, context) => {
             <Stack.Item basis="50%">
               <Stack vertical fill align="center">
                 <Stack.Item>
-                  <Box fontSize="1.3em">Quirk Balance</Box>
+                  <Box fontSize="1.3em">Баланс черт</Box>
                 </Stack.Item>
 
                 <Stack.Item>
@@ -279,7 +279,7 @@ export const QuirksPage = (props, context) => {
 
                 <Stack.Item>
                   <Box as="b" fontSize="1.6em">
-                    Current Quirks
+                    Текущие черты
                   </Box>
                 </Stack.Item>
 

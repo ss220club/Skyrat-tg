@@ -33,17 +33,17 @@ export const RandomizationButton = (props: {
       displayText={<Icon name="dice-d20" mr="-0.25em" />}
       options={[
         {
-          displayText: 'Do not randomize',
+          displayText: 'Не рандомизировать',
           value: RandomSetting.Disabled,
         },
 
         {
-          displayText: 'Always randomize',
+          displayText: 'Всегда рандомизировать',
           value: RandomSetting.Enabled,
         },
 
         {
-          displayText: 'Randomize when antagonist',
+          displayText: 'Рандомизировать при антагонизме',
           value: RandomSetting.AntagOnly,
         },
       ]}

@@ -1,6 +1,6 @@
 import { FeatureChoiced, FeatureDropdownInput } from '../../base';
 
 export const character_scream: FeatureChoiced = {
-  name: 'Character Scream',
+  name: 'Персонаж - крик',
   component: FeatureDropdownInput,
 };

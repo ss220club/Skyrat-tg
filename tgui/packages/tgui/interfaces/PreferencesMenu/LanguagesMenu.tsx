@@ -45,7 +45,7 @@ export const LanguagesPage = (props, context) => {
   return (
     <Stack>
       <Stack.Item minWidth="33%">
-        <Section title="Available Languages">
+        <Section title="Доступные языки">
           <Stack vertical>
             {data.unselected_languages.map((val) => (
               <UnknownLanguage key={val.icon} language={val} />
@@ -56,7 +56,7 @@ export const LanguagesPage = (props, context) => {
       <Stack.Item minWidth="33%">
         <Section
           title={
-            'Points: ' +
+            'Очки: ' +
             data.selected_languages.length +
             '/' +
             data.total_language_points
@@ -66,7 +66,7 @@ export const LanguagesPage = (props, context) => {
         </Section>
       </Stack.Item>
       <Stack.Item minWidth="33%">
-        <Section title="Known Languages">
+        <Section title="Известные языки">
           <Stack vertical>
             {data.selected_languages.map((val) => (
               <KnownLanguage key={val.icon} language={val} />

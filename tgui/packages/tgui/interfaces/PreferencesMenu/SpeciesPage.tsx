@@ -118,7 +118,7 @@ const Diet = (props: { diet: Species['diet'] }) => {
         <FoodList
           food={liked_food}
           icon="heart"
-          name="Liked food"
+          name="Любимая пища"
           className="color-pink"
         />
       </Stack.Item>
@@ -127,7 +127,7 @@ const Diet = (props: { diet: Species['diet'] }) => {
         <FoodList
           food={disliked_food.filter(notIn(IGNORE_UNLESS_LIKED))}
           icon="thumbs-down"
-          name="Disliked food"
+          name="Нелюбимая пища"
           className="color-red"
         />
       </Stack.Item>
@@ -136,7 +136,7 @@ const Diet = (props: { diet: Species['diet'] }) => {
         <FoodList
           food={toxic_food.filter(notIn(IGNORE_UNLESS_LIKED))}
           icon="biohazard"
-          name="Toxic food"
+          name="Вредная пища"
           className="color-olive"
         />
       </Stack.Item>
@@ -246,7 +246,7 @@ const SpeciesPageInner = (
         <Button
           icon="arrow-left"
           onClick={props.handleClose}
-          content="Go Back"
+          content="Возврат"
         />
       </Stack.Item>
 
@@ -283,7 +283,7 @@ const SpeciesPageInner = (
                 if (species.veteran_only && !data.is_veteran) {
                   let tooltipContent =
                     species.name +
-                    ' - You need to be a veteran to select this race, apply today!';
+                    ' - Для выбора вы должны быть ветераном! Вступайте сегодня!';
                   speciesPage = (
                     <Tooltip content={tooltipContent}>{speciesPage}</Tooltip>
                   );
@@ -310,7 +310,7 @@ const SpeciesPageInner = (
                       }>
                       <Section
                         /* SKYRAT EDIT START - Scrollable description */
-                        title="Description"
+                        title="Описание"
                         maxHeight="14vh"
                         scrollable:true
                         /* SKYRAT EDIT END*/
@@ -318,7 +318,7 @@ const SpeciesPageInner = (
                         {currentSpecies.desc}
                       </Section>
 
-                      <Section title="Features">
+                      <Section title="Черты">
                         <SpeciesPerks perks={currentSpecies.perks} />
                       </Section>
                     </Section>
@@ -334,7 +334,7 @@ const SpeciesPageInner = (
               </Box>
 
               <Box mt={1}>
-                <Section title="Lore">
+                <Section title="История">
                   <BlockQuote /* SKYRAT EDIT START - scrollable lore */
                     overflowY="auto"
                     maxHeight="45vh"
@@ -374,7 +374,7 @@ export const SpeciesPage = (props: { closeSpecies: () => void }) => {
             />
           );
         } else {
-          return <Box>Loading species...</Box>;
+          return <Box>Загрузка видов...</Box>;
         }
       }}
     />

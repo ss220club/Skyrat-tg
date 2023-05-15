@@ -58,7 +58,7 @@ export const MultiNameInput = (
                     Close
                   </Button>
                 }
-                title="Alternate names">
+                title="Альтернативные имена">
                 <LabeledList>
                   {sortNameWithKeyEntries(Object.entries(namesIntoGroups)).map(
                     ([_, names], index, collection) => (
@@ -111,7 +111,7 @@ export const MultiNameInput = (
                                   <Stack.Item>
                                     <Button
                                       icon="dice"
-                                      tooltip="Randomize"
+                                      tooltip="Случайное имя"
                                       tooltipPosition="right"
                                       onClick={() => {
                                         props.handleRandomizeName(key);
@@ -214,7 +214,7 @@ export const NameInput = (
               <Stack.Item>
                 <Button
                   as="span"
-                  tooltip="Alternate Names"
+                  tooltip="Альтернативные имена"
                   tooltipPosition="bottom"
                   style={{
                     background: 'rgba(0, 0, 0, 0.7)',

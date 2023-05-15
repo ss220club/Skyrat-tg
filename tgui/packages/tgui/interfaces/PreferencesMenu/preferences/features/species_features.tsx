@@ -1,17 +1,17 @@
 import { FeatureColorInput, Feature, FeatureChoiced, FeatureDropdownInput, FeatureValueProps, FeatureChoicedServerData } from './base';
 
 export const eye_color: Feature<string> = {
-  name: 'Eye color',
+  name: 'Цвет глаз',
   component: FeatureColorInput,
 };
 
 export const facial_hair_color: Feature<string> = {
-  name: 'Facial hair color',
+  name: 'Лицевая растительность - цвет',
   component: FeatureColorInput,
 };
 
 export const facial_hair_gradient: FeatureChoiced = {
-  name: 'Facial hair gradient',
+  name: 'Лицевая растительность - градиент',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>
   ) => {
@@ -20,17 +20,17 @@ export const facial_hair_gradient: FeatureChoiced = {
 };
 
 export const facial_hair_gradient_color: Feature<string> = {
-  name: 'Facial hair gradient color',
+  name: 'Лицевая растительность - цвет градиента',
   component: FeatureColorInput,
 };
 
 export const hair_color: Feature<string> = {
-  name: 'Hair color',
+  name: 'Волосы - цвет',
   component: FeatureColorInput,
 };
 
 export const hair_gradient: FeatureChoiced = {
-  name: 'Hair gradient',
+  name: 'Волосы - градиент',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>
   ) => {
@@ -39,12 +39,12 @@ export const hair_gradient: FeatureChoiced = {
 };
 
 export const hair_gradient_color: Feature<string> = {
-  name: 'Hair gradient color',
+  name: 'Волосы - цвет градиента',
   component: FeatureColorInput,
 };
 
 export const feature_human_ears: FeatureChoiced = {
-  name: 'Ears',
+  name: 'Уши',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>
   ) => {
@@ -53,7 +53,7 @@ export const feature_human_ears: FeatureChoiced = {
 };
 
 export const feature_human_tail: FeatureChoiced = {
-  name: 'Tail',
+  name: 'Хвост',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>
   ) => {
@@ -62,7 +62,7 @@ export const feature_human_tail: FeatureChoiced = {
 };
 
 export const feature_lizard_legs: FeatureChoiced = {
-  name: 'Legs',
+  name: 'Ноги',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>
   ) => {
@@ -71,7 +71,7 @@ export const feature_lizard_legs: FeatureChoiced = {
 };
 
 export const feature_lizard_spines: FeatureChoiced = {
-  name: 'Spines',
+  name: 'Шипы',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>
   ) => {
@@ -80,7 +80,7 @@ export const feature_lizard_spines: FeatureChoiced = {
 };
 
 export const feature_lizard_tail: FeatureChoiced = {
-  name: 'Tail',
+  name: 'Хвост',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>
   ) => {
@@ -89,21 +89,21 @@ export const feature_lizard_tail: FeatureChoiced = {
 };
 
 export const feature_mcolor: Feature<string> = {
-  name: 'Mutant color',
+  name: 'Цвет мутанта',
   component: FeatureColorInput,
 };
 
 export const underwear_color: Feature<string> = {
-  name: 'Underwear color',
+  name: 'Цвет нижнего белья',
   component: FeatureColorInput,
 };
 
 export const feature_vampire_status: Feature<string> = {
-  name: 'Vampire status',
+  name: 'Статус вампира',
   component: FeatureDropdownInput,
 };
 
 export const heterochromatic: Feature<string> = {
-  name: 'Heterochromatic (Right Eye) color',
+  name: 'Цвет гетерохромии (Правый Глаз)',
   component: FeatureColorInput,
 };

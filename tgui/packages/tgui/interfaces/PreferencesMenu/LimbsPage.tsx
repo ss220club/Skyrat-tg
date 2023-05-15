@@ -11,14 +11,14 @@ export const RotateCharacterButtons = (props, context) => {
         onClick={() => act('rotate', { backwards: false })}
         fontSize="22px"
         icon="redo"
-        tooltip="Rotate Clockwise"
+        tooltip="Повернуть по часовой стрелке"
         tooltipPosition="bottom"
       />
       <Button
         onClick={() => act('rotate', { backwards: true })}
         fontSize="22px"
         icon="undo"
-        tooltip="Rotate Counter-Clockwise"
+        tooltip="Повернуть против часовой стрелки"
         tooltipPosition="bottom"
       />
     </Box>
@@ -63,7 +63,7 @@ export const Markings = (props, context) => {
               <Button
                 fill
                 color={marking.emissive ? 'good' : 'bad'}
-                tooltip="The 'E' is for 'Emissive', meaning does it glow or not. Green for glow, red for no glow."
+                tooltip="'E' значит 'Emissive' (свечение), указывает на то, есть ли свечение. Зелёное - свечение есть, красное - свечения нет."
                 onClick={() =>
                   act('change_emissive', {
                     limb_slot: props.limb.slot,
@@ -128,7 +128,7 @@ export const AugmentationPage = (props, context) => {
           <Stack fill vertical>
             <Stack.Item>
               <Stack fill>
-                <Stack.Item>Augumentation:</Stack.Item>
+                <Stack.Item>Аугментация:</Stack.Item>
                 <Stack.Item grow>
                   <Dropdown
                     grow
@@ -215,13 +215,13 @@ export const LimbsPage = (props, context) => {
   return (
     <Stack minHeight="100%">
       <Stack.Item minWidth="33%" minHeight="100%">
-        <Section fill scrollable title="Markings" height="237%">
+        <Section fill scrollable title="Отметины" height="237%">
           <div>
             <Dropdown
               grow
               width="100%"
               options={Object.values(markings)}
-              displayText="Pick a preset:"
+              displayText="Предустановка:"
               onSelected={(value) => act('set_preset', { preset: value })}
             />
           </div>
@@ -233,7 +233,11 @@ export const LimbsPage = (props, context) => {
         </Section>
       </Stack.Item>
       <Stack.Item minWidth="33%">
-        <Section title="Character Preview" fill align="center" height="237%">
+        <Section
+          title="Предварительный просмотр"
+          fill
+          align="center"
+          height="237%">
           <CharacterPreview
             id={data.character_preview_view}
             height="25%"
@@ -244,7 +248,7 @@ export const LimbsPage = (props, context) => {
             style={{
               'margin-top': '3em',
             }}>
-            <Section title="Quirk Points Balance" />
+            <Section title="Баланс очков черт" />
           </Box>
 
           <Box
@@ -262,14 +266,14 @@ export const LimbsPage = (props, context) => {
         </Section>
       </Stack.Item>
       <Stack.Item minWidth="33%">
-        <Section fill title="Organs" height="87%">
+        <Section fill title="Органы" height="87%">
           <Stack fill vertical>
             {data.organs_data.map((val) => (
               <OrganPage key={val.slot} organ={val} data={data} />
             ))}
           </Stack>
         </Section>
-        <Section fill scrollable title="Augmentations" height="148%">
+        <Section fill scrollable title="Аугментации" height="148%">
           {data.limbs_data.map((val) => (
             <AugmentationPage key={val.slot} limb={val} data={data} />
           ))}

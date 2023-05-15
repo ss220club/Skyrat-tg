@@ -1,8 +1,8 @@
 import { Feature, FeatureShortTextInput } from '../../base';
 
 export const headshot: Feature<string> = {
-  name: 'Headshot',
+  name: 'Персонаж - фото',
   description:
-    'Add an image to your character, visible on close examination. Requires it be formatted properly.',
+    'Прикрепить к своему персонажу изображение, видимое при ближайшем рассмотрении. Требует правильного оформления.',
   component: FeatureShortTextInput,
 };
