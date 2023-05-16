@@ -7066,6 +7066,7 @@
 #include "modular_ss220\master_files_skyrat\modules\nanotrasen_rep\nanotrasen_consultant.dm"
 #include "modular_ss220\master_files_skyrat\modules\title_screen\code\new_player.dm"
 #include "modular_ss220\master_files_skyrat\modules\veteran_only\job_types.dm"
+#include "modular_ss220\master_files_skyrat\modules\wall_fungus\code\wall_fungus_event.dm"
 #include "modular_ss220\modules\additional_crawl_speed\code\crawl_speed.dm"
 #include "modular_ss220\modules\cyrillic_key_fixes\code\communication.dm"
 #include "modular_ss220\modules\cyrillic_key_fixes\code\text.dm"
