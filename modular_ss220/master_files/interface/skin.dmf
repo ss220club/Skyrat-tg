@@ -193,8 +193,8 @@ window "infowindow"
 		anchor1 = 50,0
 		anchor2 = 66,0
 		saved-params = "is-checked"
-		text = "Forum"
-		command = "forum"
+		text = "Discord"
+		command = "discord"
 	elem "github"
 		type = BUTTON
 		pos = 420,5
