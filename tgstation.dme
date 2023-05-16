@@ -7029,6 +7029,7 @@
 #include "modular_skyrat\modules\xenos_skyrat_redo\code\xeno_types\spitter.dm"
 #include "modular_skyrat\modules\xenos_skyrat_redo\code\xeno_types\warrior.dm"
 #include "modular_ss220\master_files\code\datums\world_topic.dm"
+#include "modular_ss220\master_files\code\datums\actions\mobs\charge.dm"
 #include "modular_ss220\master_files\code\datums\keybinding\admin.dm"
 #include "modular_ss220\master_files\code\datums\keybinding\artificial_intelligence.dm"
 #include "modular_ss220\master_files\code\datums\keybinding\carbon.dm"
