@@ -5363,6 +5363,7 @@
 #include "interface\interface.dm"
 #include "interface\menu.dm"
 #include "interface\stylesheet.dm"
+#include "interface\skin.dmf"
 #include "modular_skyrat\master_files\code\_globalvars\configuration.dm"
 #include "modular_skyrat\master_files\code\_globalvars\religion.dm"
 #include "modular_skyrat\master_files\code\_globalvars\lists\ambience.dm"
