@@ -7063,6 +7063,7 @@
 #include "modular_ss220\master_files_skyrat\master_files\code\modules\client\preferences\body_size.dm"
 #include "modular_ss220\master_files_skyrat\master_files\code\modules\client\preferences\emote_panel.dm"
 #include "modular_ss220\master_files_skyrat\master_files\code\modules\client\preferences\mutant_parts.dm"
+#include "modular_ss220\master_files_skyrat\modules\altborgs\code\robot_model.dm"
 #include "modular_ss220\master_files_skyrat\modules\blueshield\blueshield.dm"
 #include "modular_ss220\master_files_skyrat\modules\customization\datums\keybinding\communication.dm"
 #include "modular_ss220\master_files_skyrat\modules\indicators\code\combat_indicator.dm"
