@@ -7066,6 +7066,7 @@
 #include "modular_ss220\master_files_skyrat\modules\blueshield\blueshield.dm"
 #include "modular_ss220\master_files_skyrat\modules\customization\datums\keybinding\communication.dm"
 #include "modular_ss220\master_files_skyrat\modules\indicators\code\combat_indicator.dm"
+#include "modular_ss220\master_files_skyrat\modules\microfusion\code\projectiles.dm"
 #include "modular_ss220\master_files_skyrat\modules\nanotrasen_rep\nanotrasen_consultant.dm"
 #include "modular_ss220\master_files_skyrat\modules\title_screen\code\new_player.dm"
 #include "modular_ss220\master_files_skyrat\modules\veteran_only\job_types.dm"
