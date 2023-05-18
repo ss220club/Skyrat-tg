@@ -3,25 +3,12 @@
 	"map_name": "Cyberiad",
 	"map_path": "map_files/Cyberiad",
 	"map_file": "Cyberiad.dmm",
-	"space_ruin_levels": 0,
-	"space_empty_levels": 2,
 	"shuttles": {
 		"emergency": "emergency_box",
 		"ferry": "ferry_fancy",
 		"cargo": "cargo_skyrat",
 		"whiteship": "whiteship_box"
 	},
-	"traits": [
-		{
-			"Up": 1,
-			"Linkage": "Cross"
-		},
-		{
-			"Down": -1,
-			"Baseturf": "/turf/open/openspace",
-			"Linkage": "Cross"
-            }
-	],
 	"job_changes": {
 		"Cook": {
 			"additional_cqc_areas": ["/area/station/commons/lounge","/area/station/service/kitchen","/area/station/service/kitchen/coldroom","/area/station/service/bar"]
