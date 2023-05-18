@@ -14,6 +14,10 @@
 	if(!message_language)
 		return
 
+	var/is_custom_say_emote_without_message = (MODE_CUSTOM_SAY_ERASE_INPUT in message_mods)
+	if(is_custom_say_emote_without_message)
+		return
+
 	if(stat == UNCONSCIOUS || stat == HARD_CRIT)
 		return
 
@@ -27,7 +31,7 @@
 	if(self_radio)
 		return
 
-	var/is_speaker_whispering = message_mods[WHISPER_MODE]
+	var/is_speaker_whispering = (WHISPER_MODE in message_mods)
 	var/can_hear_whisper = get_dist(speaker, src) <= message_range || isobserver(src)
 	if(is_speaker_whispering && !can_hear_whisper)
 		return
@@ -42,12 +46,9 @@
 	if(is_speaker_whispering)
 		traits &= TTS_TRAIT_PITCH_WHISPER
 
-	var/mob/living/carbon/human/human_speaker = real_speaker
-	var/tts_seed = istype(human_speaker) && human_speaker.tts_seed || "Arthas"
-
 	var/message_tts = translate_language(language = message_language, raw_message = raw_message)
 
-	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), speaker, src, message_tts, tts_seed, !radio_freq, effect, traits)
+	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), speaker, src, message_tts, real_speaker.tts_seed, !radio_freq, effect, traits)
 
 /mob/living/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods, message_range)
 	var/static/regex/plus_sign_replace = new(@"\+", "g")

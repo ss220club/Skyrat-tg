@@ -130,7 +130,7 @@
 	if (blocks_emissive)
 		if (blocks_emissive == EMISSIVE_BLOCK_UNIQUE)
 			render_target = ref(src)
-			em_block = new(src, render_target)
+			em_block = new(null, src)
 			overlays += em_block
 			if(managed_overlays)
 				if(islist(managed_overlays))
@@ -167,6 +167,8 @@
 			AddComponent(/datum/component/overlay_lighting)
 		if(MOVABLE_LIGHT_DIRECTIONAL)
 			AddComponent(/datum/component/overlay_lighting, is_directional = TRUE)
+		if(MOVABLE_LIGHT_BEAM)
+			AddComponent(/datum/component/overlay_lighting, is_directional = TRUE, is_beam = TRUE)
 
 /atom/movable/Destroy(force)
 	QDEL_NULL(language_holder)
@@ -233,15 +235,16 @@
 	// This saves several hundred milliseconds of init time.
 	if (blocks_emissive)
 		if (blocks_emissive == EMISSIVE_BLOCK_UNIQUE)
-			if(!em_block && !QDELETED(src))
+			if(em_block)
+				SET_PLANE(em_block, EMISSIVE_PLANE, src)
+			else if(!QDELETED(src))
 				render_target = ref(src)
-				em_block = new(src, render_target)
+				em_block = new(null, src)
 			return em_block
 		// Implied else if (blocks_emissive == EMISSIVE_BLOCK_NONE) -> return
 	// EMISSIVE_BLOCK_GENERIC == 0
 	else
 		return fast_emissive_blocker(src)
-
 
 /// Generates a space underlay for a turf
 /// This provides proper lighting support alongside just looking nice
@@ -252,7 +255,7 @@
 	SET_PLANE(underlay_appearance, PLANE_SPACE, generate_for)
 	if(!generate_for.render_target)
 		generate_for.render_target = ref(generate_for)
-	var/atom/movable/render_step/emissive_blocker/em_block = new(null, generate_for.render_target)
+	var/atom/movable/render_step/emissive_blocker/em_block = new(null, generate_for)
 	underlay_appearance.overlays += em_block
 	// We used it because it's convienient and easy, but it's gotta go now or it'll hang refs
 	QDEL_NULL(em_block)
@@ -1597,6 +1600,7 @@
 	VV_DROPDOWN_OPTION(VV_HK_EDIT_PARTICLES, "Edit Particles")
 	VV_DROPDOWN_OPTION(VV_HK_DEADCHAT_PLAYS, "Start/Stop Deadchat Plays")
 	VV_DROPDOWN_OPTION(VV_HK_ADD_FANTASY_AFFIX, "Add Fantasy Affix")
+	VV_DROPDOWN_OPTION(VV_HK_SELECT_TTS_VOICE, "Select TTS voice")
 
 /atom/movable/vv_do_topic(list/href_list)
 	. = ..()
@@ -1624,6 +1628,11 @@
 		to_chat(usr, span_notice("Deadchat now control [src]."))
 		log_admin("[key_name(usr)] has added deadchat control to [src]")
 		message_admins(span_notice("[key_name(usr)] has added deadchat control to [src]"))
+
+	if(href_list[VV_HK_SELECT_TTS_VOICE] && check_rights(R_VAREDIT))
+		var/selected_tts_seed = tgui_input_list(usr, "Select a TTS voice to change to", "[src.name] TTS voice selection", SStts.tts_seeds_names)
+		if(selected_tts_seed)
+			tts_seed = selected_tts_seed
 
 /**
 * A wrapper for setDir that should only be able to fail by living mobs.
