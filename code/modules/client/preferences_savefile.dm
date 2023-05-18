@@ -167,7 +167,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		var/bacpath = "[path].updatebac" //todo: if the savefile version is higher then the server, check the backup, and give the player a prompt to load the backup
 		if (fexists(bacpath))
 			fdel(bacpath) //only keep 1 version of backup
-		fcopy(savefile.path, bacpath) //byond helpfully lets you use a savefile for the first arg.
+		if(fexists(savefile.path))
+			fcopy(savefile.path, bacpath) //byond helpfully lets you use a savefile for the first arg.
 		return FALSE
 
 	apply_all_client_preferences()
