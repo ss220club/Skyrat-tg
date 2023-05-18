@@ -6,6 +6,5 @@
 /obj/machinery/light/update_icon_state()
 	. = ..()
 	if(status == LIGHT_OK)
-		var/area/local_area = get_area(src)
 		if(low_power_mode)
 			icon_state = "[base_state]"
