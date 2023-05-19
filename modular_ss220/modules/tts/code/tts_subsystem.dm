@@ -1,4 +1,4 @@
-SUBSYSTEM_DEF(tts)
+SUBSYSTEM_DEF(tts220)
 	name = "Text-to-Speech"
 	init_order = INIT_ORDER_DEFAULT
 	wait = 1 SECONDS
@@ -156,7 +156,7 @@ SUBSYSTEM_DEF(tts)
 		"visitor" = "посетитель",
 	)
 
-/datum/controller/subsystem/tts/stat_entry(msg)
+/datum/controller/subsystem/tts220/stat_entry(msg)
 	msg += "tRPS:[tts_trps] "
 	msg += "rRPS:[tts_rrps] "
 	msg += "RPS:[tts_rps] "
@@ -167,7 +167,7 @@ SUBSYSTEM_DEF(tts)
 	msg += "R:[tts_reused] "
 	return ..()
 
-/datum/controller/subsystem/tts/PreInit()
+/datum/controller/subsystem/tts220/PreInit()
 	. = ..()
 	for(var/path in subtypesof(/datum/tts_provider))
 		var/datum/tts_provider/provider = new path
@@ -182,14 +182,14 @@ SUBSYSTEM_DEF(tts)
 		tts_seeds_names_by_donator_levels["[seed.donator_level]"] += list(seed.name)
 	tts_seeds_names = sortTim(tts_seeds_names, /proc/cmp_text_asc)
 
-/datum/controller/subsystem/tts/Initialize(start_timeofday)
+/datum/controller/subsystem/tts220/Initialize(start_timeofday)
 	is_enabled = CONFIG_GET(flag/tts_enabled)
 	if(!is_enabled)
 		flags |= SS_NO_FIRE
 
 	return SS_INIT_SUCCESS
 
-/datum/controller/subsystem/tts/fire()
+/datum/controller/subsystem/tts220/fire()
 	tts_rps = tts_rps_counter
 	tts_rps_counter = 0
 	tts_trps = tts_trps_counter
@@ -224,14 +224,14 @@ SUBSYSTEM_DEF(tts)
 		sanitized_messages_cache_hit = 0
 		sanitized_messages_cache_miss = 0
 
-/datum/controller/subsystem/tts/Recover()
-	is_enabled = SStts.is_enabled
-	tts_wanted = SStts.tts_wanted
-	tts_request_failed = SStts.tts_request_failed
-	tts_request_succeeded = SStts.tts_request_succeeded
-	tts_reused = SStts.tts_reused
+/datum/controller/subsystem/tts220/Recover()
+	is_enabled = SStts220.is_enabled
+	tts_wanted = SStts220.tts_wanted
+	tts_request_failed = SStts220.tts_request_failed
+	tts_request_succeeded = SStts220.tts_request_succeeded
+	tts_reused = SStts220.tts_reused
 
-/datum/controller/subsystem/tts/proc/queue_request(text, datum/tts_seed/seed, datum/callback/proc_callback)
+/datum/controller/subsystem/tts220/proc/queue_request(text, datum/tts_seed/seed, datum/callback/proc_callback)
 	if(LAZYLEN(tts_requests_queue) > tts_requests_queue_limit)
 		is_enabled = FALSE
 		to_chat(world, span_announce("SERVER: очередь запросов превысила лимит, подсистема SStts принудительно отключена!"))
@@ -246,7 +246,7 @@ SUBSYSTEM_DEF(tts)
 	tts_requests_queue += list(list(text, seed, proc_callback))
 	return TRUE
 
-/datum/controller/subsystem/tts/proc/get_tts(atom/speaker, mob/listener, message, seed_name, is_local = TRUE, effect = SOUND_EFFECT_NONE, traits = TTS_TRAIT_RATE_FASTER, preSFX = null, postSFX = null)
+/datum/controller/subsystem/tts220/proc/get_tts(atom/speaker, mob/listener, message, seed_name, is_local = TRUE, effect = SOUND_EFFECT_NONE, traits = TTS_TRAIT_RATE_FASTER, preSFX = null, postSFX = null)
 	if(!is_enabled)
 		return
 	if(!message)
@@ -302,7 +302,7 @@ SUBSYSTEM_DEF(tts)
 	queue_request(text, seed, cb)
 	LAZYADD(tts_queue[filename], play_tts_cb)
 
-/datum/controller/subsystem/tts/proc/get_tts_callback(atom/speaker, mob/listener, filename, datum/tts_seed/seed, is_local, effect, preSFX, postSFX, datum/http_response/response)
+/datum/controller/subsystem/tts220/proc/get_tts_callback(atom/speaker, mob/listener, filename, datum/tts_seed/seed, is_local, effect, preSFX, postSFX, datum/http_response/response)
 	var/datum/tts_provider/provider = seed.provider
 
 	// Bail if it errored
@@ -345,7 +345,7 @@ SUBSYSTEM_DEF(tts)
 
 	tts_queue -= filename
 
-/datum/controller/subsystem/tts/proc/play_tts(atom/speaker, mob/listener, filename, is_local = TRUE, effect = SOUND_EFFECT_NONE, preSFX = null, postSFX = null)
+/datum/controller/subsystem/tts220/proc/play_tts(atom/speaker, mob/listener, filename, is_local = TRUE, effect = SOUND_EFFECT_NONE, preSFX = null, postSFX = null)
 	if(isnull(listener) || !listener.client)
 		return
 
@@ -422,7 +422,7 @@ SUBSYSTEM_DEF(tts)
 	if(postSFX)
 		play_sfx(listener, postSFX, output.channel, output.volume, output.environment)
 
-/datum/controller/subsystem/tts/proc/play_sfx(mob/listener, sfx, channel, volume, environment)
+/datum/controller/subsystem/tts220/proc/play_sfx(mob/listener, sfx, channel, volume, environment)
 	var/sound/output = sound(sfx)
 	output.status = SOUND_STREAM
 	output.wait = TRUE
@@ -431,17 +431,17 @@ SUBSYSTEM_DEF(tts)
 	output.environment = environment
 	SEND_SOUND(listener, output)
 
-/datum/controller/subsystem/tts/proc/get_local_channel_by_owner(owner)
+/datum/controller/subsystem/tts220/proc/get_local_channel_by_owner(owner)
 	var/channel = tts_local_channels_by_owner[owner]
 	if(isnull(channel))
 		channel = SSsounds.reserve_sound_channel_datumless()
 		tts_local_channels_by_owner[owner] = channel
 	return channel
 
-/datum/controller/subsystem/tts/proc/cleanup_tts_file(filename)
+/datum/controller/subsystem/tts220/proc/cleanup_tts_file(filename)
 	fdel(filename)
 
-/datum/controller/subsystem/tts/proc/get_available_seeds(owner)
+/datum/controller/subsystem/tts220/proc/get_available_seeds(owner)
 	var/list/_tts_seeds_names = list()
 	_tts_seeds_names |= tts_seeds_names
 
@@ -459,10 +459,10 @@ SUBSYSTEM_DEF(tts)
 	// 		_tts_seeds_names -= tts_seeds_names_by_donator_levels["[donator_level]"]
 	return _tts_seeds_names
 
-/datum/controller/subsystem/tts/proc/get_random_seed(owner)
+/datum/controller/subsystem/tts220/proc/get_random_seed(owner)
 	return pick(get_available_seeds(owner))
 
-/datum/controller/subsystem/tts/proc/sanitize_tts_input(message)
+/datum/controller/subsystem/tts220/proc/sanitize_tts_input(message)
 	var/hash
 	if(sanitized_messages_caching)
 		hash = rustgss220_hash_string(RUSTG_HASH_MD5, message)
@@ -499,7 +499,7 @@ SUBSYSTEM_DEF(tts)
 		sanitized_messages_cache[hash] = .
 
 /proc/tts_cast(atom/speaker, mob/listener, message, seed_name = "Arthas", is_local = TRUE, effect = SOUND_EFFECT_NONE, traits = TTS_TRAIT_RATE_FASTER, preSFX = null, postSFX = null)
-	SStts.get_tts(speaker, listener, message, seed_name, is_local, effect, traits, preSFX, postSFX)
+	SStts220.get_tts(speaker, listener, message, seed_name, is_local, effect, traits, preSFX, postSFX)
 
 /proc/tts_word_replacer(word)
 	var/static/list/tts_replacement_list

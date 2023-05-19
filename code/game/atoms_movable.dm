@@ -1637,7 +1637,7 @@
 		message_admins(span_notice("[key_name(usr)] has added deadchat control to [src]"))
 
 	if(href_list[VV_HK_SELECT_TTS_VOICE] && check_rights(R_VAREDIT))
-		var/selected_tts_seed = tgui_input_list(usr, "Select a TTS voice to change to", "[src.name] TTS voice selection", SStts.tts_seeds_names)
+		var/selected_tts_seed = tgui_input_list(usr, "Select a TTS voice to change to", "[src.name] TTS voice selection", SStts220.tts_seeds_names)
 		if(selected_tts_seed)
 			tts_seed = selected_tts_seed
 

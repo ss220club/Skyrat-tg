@@ -4,8 +4,8 @@
 	data["tts_enabled"] = CONFIG_GET(flag/tts_enabled)
 
 	var/list/providers = list()
-	for(var/_provider in SStts.tts_providers)
-		var/datum/tts_provider/provider = SStts.tts_providers[_provider]
+	for(var/_provider in SStts220.tts_providers)
+		var/datum/tts_provider/provider = SStts220.tts_providers[_provider]
 		providers += list(list(
 			"name" = provider.name,
 			"is_enabled" = provider.is_enabled,
@@ -13,8 +13,8 @@
 	data["providers"] = providers
 
 	var/list/seeds = list()
-	for(var/_seed in SStts.tts_seeds)
-		var/datum/tts_seed/seed = SStts.tts_seeds[_seed]
+	for(var/_seed in SStts220.tts_seeds)
+		var/datum/tts_seed/seed = SStts220.tts_seeds[_seed]
 		seeds += list(list(
 			"name" = seed.name,
 			"value" = seed.value,
@@ -40,7 +40,7 @@
 			var/phrase = params["phrase"]
 			var/seed_name = params["seed"]
 
-			if((phrase in TTS_PHRASES) && (seed_name in SStts.tts_seeds))
+			if((phrase in TTS_PHRASES) && (seed_name in SStts220.tts_seeds))
 				INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), null, usr, phrase, seed_name, FALSE)
 			return FALSE
 
