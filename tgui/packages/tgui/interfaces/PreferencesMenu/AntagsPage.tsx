@@ -6,7 +6,7 @@ import { Antagonist, Category } from './antagonists/base';
 import { PreferencesMenuData } from './data';
 
 const requireAntag = require.context(
-  './antagonists/antagonists',
+  './antagonists/antagonists_ru', // SS220 EDIT - Original: './antagonists/antagonists'
   false,
   /.ts$/
 );
@@ -88,11 +88,11 @@ const AntagSelection = (
       buttons={
         <>
           <Button color="good" onClick={() => enableAntags(antagonistKeys)}>
-            Enable All
+            Включить всё
           </Button>
 
           <Button color="bad" onClick={() => disableAntags(antagonistKeys)}>
-            Disable All
+            Отключить всё
           </Button>
         </>
       }>
