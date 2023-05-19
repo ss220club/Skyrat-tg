@@ -10,7 +10,7 @@
 /datum/preference_middleware/tts/proc/play_voice(list/params, mob/user)
 	if(!COOLDOWN_FINISHED(src, tts_test_cooldown))
 		return TRUE
-	var/speaker = preferences.read_preference(/datum/preference/choiced/voice)
+	//var/speaker = preferences.read_preference(/datum/preference/choiced/voice) /SS220 EDIT REMOVAL - remove TG's TTS
 	COOLDOWN_START(src, tts_test_cooldown, 0.5 SECONDS)
 	//INVOKE_ASYNC(SStts, TYPE_PROC_REF(/datum/controller/subsystem/tts, queue_tts_message), user.client, "Hello, this is my voice.", speaker = speaker, local = TRUE) //SS220 EDIT REMOVAL - remove TG's TTS
 	return TRUE
