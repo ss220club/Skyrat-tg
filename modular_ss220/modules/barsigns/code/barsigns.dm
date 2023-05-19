@@ -1,3 +1,6 @@
+/obj/machinery/barsign
+    icon = 'modular_ss220/modules/barsigns/icons/barsigns.dmi'
+
 /datum/barsign/evahumanspace
 	name = "SS220 EVA Human in Space"
 	icon = "evahumanspace"

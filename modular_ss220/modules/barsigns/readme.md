@@ -6,10 +6,6 @@ MODULE ID: barsigns
 
 Ports over the large collection of bar signs from /vg/station, SS220 and repaths existing barsigns to new file.
 
-### TG File Changes:
-
-- code\game\objects\structures\barsigns.dm, single edit, tagged.
-
 ### Credits:
 - /vg/station
 - werewolfboyfriend
