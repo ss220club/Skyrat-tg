@@ -3,7 +3,7 @@ import { multiline } from 'common/string';
 
 const ParadoxClone: Antagonist = {
   key: 'paradoxclone',
-  name: 'Парадокс клон',
+  name: 'Парадоксальный клон',
   description: [
     multiline`
     Странная пространственно-временная аномалия телепортировала вас в
