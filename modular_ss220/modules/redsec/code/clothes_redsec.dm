@@ -7,23 +7,9 @@
 */
 /obj/item/clothing/suit/hooded/wintercoat/security
 	name = "security winter jacket"
-	desc = "A red, armour-padded winter coat. It glitters with a mild ablative coating and a robust air of authority.  The zipper tab is a pair of jingly little handcuffs that get annoying after the first ten seconds."
+	desc = "A red, armour-padded winter coat. It glitters with a mild ablative coating and a robust air of authority. The zipper tab is a pair of jingly little handcuffs that get annoying after the first ten seconds."
 	icon_state = "coatsecurity"
 	inhand_icon_state = "coatsecurity"
-	armor_type = /datum/armor/wintercoat_security
-	hoodtype = /obj/item/clothing/head/hooded/winterhood/security
-
-/datum/armor/wintercoat_security
-	melee = 25
-	bullet = 15
-	laser = 30
-	energy = 40
-	bomb = 25
-	acid = 45
-
-/obj/item/clothing/suit/hooded/wintercoat/security/Initialize(mapload)
-	. = ..()
-	allowed += GLOB.security_wintercoat_allowed
 
 /obj/item/clothing/suit/armor/vest/alt/sec
 	desc = "A Type I armored vest that provides decent protection against most types of damage."
@@ -33,17 +19,10 @@
 	current_skin = "armor_sec" //prevents reskinning
 
 /obj/item/clothing/suit/armor/vest/warden
-	name = "warden's jacket"
-	desc = "A red armored jacket with '/Warden/' designation stitched into one of the chest pockets."
+	icon = 'icons/obj/clothing/suits/armor.dmi'
+	worn_icon = 'icons/mob/clothing/suits/armor.dmi'
 	icon_state = "warden_jacket"
 	inhand_icon_state = "armor"
-	body_parts_covered = CHEST|GROIN|ARMS
-	cold_protection = CHEST|GROIN|ARMS|HANDS
-	heat_protection = CHEST|GROIN|ARMS|HANDS
-	strip_delay = 70
-	resistance_flags = FLAMMABLE
-	dog_fashion = null
-	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Basic Warden Armor" = list(
 			RESKIN_ICON = 'icons/obj/clothing/suits/armor.dmi',
@@ -119,8 +98,6 @@
 * UNDER
 */
 /obj/item/clothing/under/rank/security/officer
-	name = "security uniform"
-	desc = "A tactical security jumpsuit for officers complete with Nanotrasen belt buckle."
 	icon = 'icons/obj/clothing/under/security.dmi'
 	worn_icon = 'icons/mob/clothing/under/security.dmi'
 	icon_state = "rsecurity"
@@ -129,8 +106,6 @@
 /obj/item/clothing/under/rank/security/skyrat/utility
 	desc = "A utility uniform worn by trained Security officers."
 	icon_state = "util_sec_old"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/security/warden
 	icon = 'icons/obj/clothing/under/security.dmi'
@@ -138,8 +113,6 @@
 	icon_state = "rwarden"
 
 /obj/item/clothing/under/rank/security/head_of_security
-	icon = 'icons/obj/clothing/under/security.dmi'
-	worn_icon = 'icons/mob/clothing/under/security.dmi'
 	icon_state = "rhos"
 
 /obj/item/clothing/under/rank/security/head_of_security/parade
@@ -168,11 +141,22 @@
 	worn_icon = 'icons/mob/clothing/under/security.dmi'
 	icon_state = "hos_envirosuit"
 
+/obj/item/clothing/head/helmet/space/plasmaman/security
+	icon = 'icons/obj/clothing/head/plasmaman_hats.dmi'
+	worn_icon = 'icons/mob/clothing/head/plasmaman_head.dmi'
+	icon_state = "security_envirohelm"
+
+/obj/item/clothing/head/helmet/space/plasmaman/security/warden
+	icon_state = "warden_envirohelm"
+
+/obj/item/clothing/head/helmet/space/plasmaman/security/head_of_security
+	icon_state = "hos_envirohelm"
+
+
 /*
 * SHOES
 */
 /obj/item/clothing/shoes/jackboots/sec
-	name = "jackboots"
 	desc = "Nanotrasen-issue Security combat boots for combat scenarios or combat situations. All combat, all the time."
 	icon_state = "jackboots_sec"
 	icon = 'icons/obj/clothing/shoes.dmi'
@@ -185,9 +169,19 @@
 /obj/item/storage/belt/security
 	name = "security belt"
 	desc = "Can hold security gear like handcuffs and flashes."
+	icon = 'icons/obj/clothing/belts.dmi'
+	lefthand_file = 'icons/mob/inhands/equipment/belt_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/belt_righthand.dmi'
 	icon_state = "security"
+	inhand_icon_state = "security"
 	worn_icon_state = "security"
 	current_skin = "security" //prevents reskinning
+
+/obj/item/storage/belt/security/webbing
+	icon = 'icons/obj/clothing/belts.dmi'
+	uses_advanced_reskins = FALSE
+	unique_reskin = NONE
+	current_skin = "securitywebbing" //prevents reskinning
 
 /*
 * GLOVES
