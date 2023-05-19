@@ -3,7 +3,7 @@ import { multiline } from 'common/string';
 
 const SentientCreature: Antagonist = {
   key: 'sentiencepotionspawn',
-  name: 'Sentient Creature',
+  name: 'Разумное существо',
   description: [
     multiline`
     Либо по космической случайности, либо из-за махинаций экипажа,

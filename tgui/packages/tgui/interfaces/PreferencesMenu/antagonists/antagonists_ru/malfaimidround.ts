@@ -4,7 +4,7 @@ import { MALF_AI_MECHANICAL_DESCRIPTION } from './malfai';
 
 const MalfAIMidround: Antagonist = {
   key: 'malfaimidround',
-  name: 'Value Drifted AI',
+  name: 'Засбоивший ИИ',
   description: [
     multiline`
       Мидраунд вариант сбойного ИИ, которого могут получить существующие ИИ
