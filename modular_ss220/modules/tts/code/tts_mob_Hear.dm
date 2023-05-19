@@ -1,5 +1,5 @@
 /mob/proc/Hear_tts(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods, message_range)
-	if(!SStts.is_enabled)
+	if(!SStts220.is_enabled)
 		return
 
 	if(!isliving(src) && !isobserver(src))
