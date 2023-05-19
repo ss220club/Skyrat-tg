@@ -367,8 +367,8 @@
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/maintenance,
 /obj/machinery/door/window/brigdoor/left/directional/north{
-	req_access = list("security");
-	name = "Security Checkpoint"
+	name = "Security Checkpoint";
+	req_access = list("security")
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -1783,8 +1783,8 @@
 	pixel_y = 6
 	},
 /obj/item/storage/box/lights/mixed{
-	pixel_y = 4;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 4
 	},
 /obj/item/storage/box/mousetraps{
 	pixel_y = 2
@@ -1800,8 +1800,8 @@
 "aVV" = (
 /obj/machinery/door/poddoor/shutters{
 	dir = 8;
-	name = "Kitchen Shutters";
-	id = "kitchenghettoshutters"
+	id = "kitchenghettoshutters";
+	name = "Kitchen Shutters"
 	},
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/condiment/saltshaker,
@@ -2264,8 +2264,8 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/rack,
 /obj/item/clothing/head/helmet/alt{
-	pixel_y = 6;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 6
 	},
 /obj/item/clothing/suit/armor/bulletproof{
 	pixel_y = -6
@@ -2866,8 +2866,8 @@
 	},
 /obj/structure/table/wood,
 /obj/item/reagent_containers/cup/glass/bottle/vodka{
-	pixel_y = 8;
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = 8
 	},
 /obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
 	pixel_x = -5;
@@ -3022,17 +3022,17 @@
 "bAx" = (
 /obj/structure/table/wood,
 /obj/machinery/button/door/directional{
-	pixel_x = 4;
-	pixel_y = -4;
 	id = "hos";
-	name = "Privacy Shutters Control"
+	name = "Privacy Shutters Control";
+	pixel_x = 4;
+	pixel_y = -4
 	},
 /obj/machinery/button/door/directional{
-	pixel_x = 4;
-	pixel_y = 8;
 	id = "hos_door";
 	name = "Door Control";
-	normaldoorcontrol = 1
+	normaldoorcontrol = 1;
+	pixel_x = 4;
+	pixel_y = 8
 	},
 /turf/open/floor/carpet,
 /area/station/command/heads_quarters/hos)
@@ -3207,8 +3207,8 @@
 "bEu" = (
 /obj/item/ammo_casing/c9mm{
 	dir = 5;
-	pixel_y = 8;
-	pixel_x = -7
+	pixel_x = -7;
+	pixel_y = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3231,11 +3231,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/poddoor{
-	name = "Quarantine Lockdown";
 	density = 0;
-	opacity = 0;
+	icon_state = "open";
 	id = "quarantine";
-	icon_state = "open"
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
@@ -3761,8 +3761,8 @@
 "bTo" = (
 /obj/structure/table/reinforced,
 /obj/item/stack/sheet/iron/fifty{
-	pixel_y = 4;
-	pixel_x = -2
+	pixel_x = -2;
+	pixel_y = 4
 	},
 /obj/item/stack/sheet/iron/fifty{
 	pixel_x = 1;
@@ -3806,8 +3806,8 @@
 /obj/structure/door_assembly/door_assembly_fre,
 /obj/structure/spider/stickyweb,
 /obj/effect/decal/cleanable/cobweb{
-	icon_state = "spiderling";
 	icon = 'icons/mob/simple/animal.dmi';
+	icon_state = "spiderling";
 	name = "dead spiderling"
 	},
 /turf/open/floor/plating,
@@ -4597,8 +4597,8 @@
 /area/station/medical/virology)
 "cnF" = (
 /obj/item/folder{
-	pixel_y = -6;
-	pixel_x = 7
+	pixel_x = 7;
+	pixel_y = -6
 	},
 /turf/open/floor/iron/dark,
 /area/space)
@@ -4819,7 +4819,7 @@
 /obj/structure/table/reinforced,
 /obj/item/clipboard,
 /obj/item/folder/yellow,
-/obj/item/stamp/ce,
+/obj/item/stamp/head/ce,
 /obj/item/storage/fancy/cigarettes,
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/iron/dark/smooth_corner,
@@ -4988,8 +4988,8 @@
 	},
 /obj/item/gun/energy/disabler,
 /obj/item/gun/energy/disabler{
-	pixel_y = 3;
-	pixel_x = -3
+	pixel_x = -3;
+	pixel_y = 3
 	},
 /obj/structure/rack/gunrack,
 /turf/open/floor/iron/dark,
@@ -5814,9 +5814,9 @@
 /area/station/command/heads_quarters/hos)
 "cRc" = (
 /obj/machinery/door/airlock/hatch{
-	use_power = 0;
 	locked = 1;
-	name = "Gamma Armory"
+	name = "Gamma Armory";
+	use_power = 0
 	},
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
@@ -6023,8 +6023,8 @@
 /area/station/security/holding_cell)
 "cXi" = (
 /obj/effect/decal/cleanable/cobweb{
-	icon_state = "spiderling";
 	icon = 'icons/mob/simple/animal.dmi';
+	icon_state = "spiderling";
 	name = "dead spiderling"
 	},
 /turf/open/floor/iron/dark,
@@ -6692,8 +6692,8 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/rack,
 /obj/item/clothing/head/helmet/alt{
-	pixel_y = 6;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 6
 	},
 /obj/item/clothing/suit/armor/bulletproof{
 	pixel_y = -6
@@ -6834,7 +6834,7 @@
 /area/space)
 "dus" = (
 /obj/structure/altar_of_gods,
-/obj/item/storage/book/bible,
+/obj/item/book/bible,
 /turf/open/floor/carpet,
 /area/station/service/chapel)
 "duN" = (
@@ -7152,11 +7152,11 @@
 	dir = 4
 	},
 /obj/machinery/door/poddoor{
-	name = "Quarantine Lockdown";
 	density = 0;
-	opacity = 0;
+	icon_state = "open";
 	id = "quarantine";
-	icon_state = "open"
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/aft)
@@ -7232,8 +7232,8 @@
 "dGh" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/cobweb{
-	icon_state = "spiderling";
 	icon = 'icons/mob/simple/animal.dmi';
+	icon_state = "spiderling";
 	name = "dead spiderling"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -7719,11 +7719,11 @@
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/unres,
 /obj/machinery/door/poddoor{
-	name = "Quarantine Lockdown";
 	density = 0;
-	opacity = 0;
+	icon_state = "open";
 	id = "quarantine";
-	icon_state = "open"
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
@@ -7772,11 +7772,11 @@
 	pixel_y = -8
 	},
 /obj/machinery/door/poddoor{
-	name = "Quarantine Lockdown";
 	density = 0;
-	opacity = 0;
+	icon_state = "open";
 	id = "quarantine";
-	icon_state = "open"
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
@@ -8007,12 +8007,12 @@
 	dir = 1
 	},
 /obj/machinery/recharger{
-	pixel_y = 2;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 2
 	},
 /obj/machinery/recharger{
-	pixel_y = 2;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 2
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/office)
@@ -8166,8 +8166,8 @@
 	currentcolor = "#9B51FF";
 	icon_state = "light_off";
 	light_color = "#9B51FF";
-	state = 3;
-	light_on = 0
+	light_on = 0;
+	state = 3
 	},
 /area/station/maintenance/department/medical/central)
 "egZ" = (
@@ -8741,9 +8741,9 @@
 /area/space)
 "evG" = (
 /obj/machinery/door/airlock/hatch{
-	use_power = 0;
 	locked = 1;
-	name = "Gamma Armory"
+	name = "Gamma Armory";
+	use_power = 0
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/tram)
@@ -9003,8 +9003,8 @@
 "eCL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/crayon{
-	icon_state = "Gib";
-	color = "#66171a"
+	color = "#66171a";
+	icon_state = "Gib"
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -9673,8 +9673,8 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/rack,
 /obj/item/clothing/head/helmet/alt{
-	pixel_y = 6;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 6
 	},
 /obj/item/clothing/suit/armor/bulletproof{
 	pixel_y = -6
@@ -10270,8 +10270,8 @@
 /obj/structure/table/reinforced,
 /obj/item/poster/random_contraband,
 /obj/item/lighter{
-	pixel_y = 2;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 2
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/central)
@@ -11410,8 +11410,8 @@
 "fQl" = (
 /obj/machinery/light/small/directional/west,
 /obj/machinery/airlock_sensor/incinerator_atmos{
-	pixel_y = 24;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 24
 	},
 /obj/machinery/atmospherics/components/binary/pump,
 /turf/open/floor/engine,
@@ -11923,9 +11923,9 @@
 	dir = 4
 	},
 /obj/machinery/button/door/directional/north{
-	pixel_x = 8;
 	id = "armory";
-	name = "Armory Shutter"
+	name = "Armory Shutter";
+	pixel_x = 8
 	},
 /turf/open/floor/iron,
 /area/station/security/breakroom)
@@ -12010,24 +12010,24 @@
 /area/space)
 "gez" = (
 /obj/item/reagent_containers/cup/glass/bottle/beer/almost_empty{
-	pixel_y = 12;
-	pixel_x = 9
+	pixel_x = 9;
+	pixel_y = 12
 	},
 /obj/item/reagent_containers/cup/glass/bottle/beer/almost_empty{
-	pixel_y = 12;
-	pixel_x = -8
+	pixel_x = -8;
+	pixel_y = 12
 	},
 /obj/item/reagent_containers/cup/glass/bottle/beer/almost_empty{
-	pixel_y = 13;
-	pixel_x = 1
+	pixel_x = 1;
+	pixel_y = 13
 	},
 /obj/item/reagent_containers/cup/glass/bottle/beer/almost_empty{
-	pixel_y = 2;
-	pixel_x = -8
+	pixel_x = -8;
+	pixel_y = 2
 	},
 /obj/item/reagent_containers/cup/glass/bottle/beer/almost_empty{
-	pixel_y = 5;
-	pixel_x = 1
+	pixel_x = 1;
+	pixel_y = 5
 	},
 /obj/structure/table/wood,
 /turf/open/floor/plating,
@@ -12446,21 +12446,21 @@
 /area/station/commons/dorms)
 "grV" = (
 /obj/machinery/button/door/directional/north{
-	pixel_x = -8;
 	id = "secrange";
-	name = "Security Range Shutters Control"
+	name = "Security Range Shutters Control";
+	pixel_x = -8
 	},
 /obj/structure/table,
 /obj/machinery/recharger{
-	pixel_y = 2;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 2
 	},
 /obj/effect/turf_decal/tile/red/anticorner/contrasted{
 	dir = 1
 	},
 /obj/machinery/recharger{
-	pixel_y = 2;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 2
 	},
 /turf/open/floor/iron,
 /area/station/security/range)
@@ -13066,7 +13066,7 @@
 "gJe" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/storage/book/bible,
+/obj/item/book/bible,
 /turf/open/floor/carpet/black,
 /area/space)
 "gJk" = (
@@ -13335,12 +13335,12 @@
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/red/fourcorners,
 /obj/machinery/recharger{
-	pixel_y = 2;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 2
 	},
 /obj/machinery/recharger{
-	pixel_y = 2;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 2
 	},
 /obj/machinery/light_switch/directional/west,
 /turf/open/floor/iron/dark,
@@ -13641,11 +13641,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/poddoor{
-	name = "Quarantine Lockdown";
 	density = 0;
-	opacity = 0;
+	icon_state = "open";
 	id = "quarantine";
-	icon_state = "open"
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/any/medical/maintenance,
@@ -13750,9 +13750,9 @@
 /area/station/medical/virology)
 "gZb" = (
 /obj/machinery/light/small/directional/north{
+	name = "maintenance light";
 	nightshift_allowed = 0;
-	nightshift_enabled = 1;
-	name = "maintenance light"
+	nightshift_enabled = 1
 	},
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/item/storage/bag/books,
@@ -14366,8 +14366,8 @@
 	dir = 8
 	},
 /obj/machinery/button/door/directional/south{
-	name = "Toilet Lock Control";
 	id = "Toilet2_sec";
+	name = "Toilet Lock Control";
 	normaldoorcontrol = 1;
 	specialfunctions = 4
 	},
@@ -14664,11 +14664,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/poddoor{
-	name = "Quarantine Lockdown";
 	density = 0;
-	opacity = 0;
+	icon_state = "open";
 	id = "quarantine";
-	icon_state = "open"
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /obj/structure/cable,
 /turf/open/floor/iron/white,
@@ -14813,10 +14813,10 @@
 	pixel_y = 6
 	},
 /obj/machinery/button/door/directional{
-	pixel_x = 4;
-	pixel_y = -4;
 	id = "hos";
-	name = "Brig Lockdown"
+	name = "Brig Lockdown";
+	pixel_x = 4;
+	pixel_y = -4
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -15717,7 +15717,7 @@
 	pixel_y = 3
 	},
 /obj/machinery/status_display/ai/directional/east,
-/obj/item/stamp/hos{
+/obj/item/stamp/head/hos{
 	pixel_x = -5;
 	pixel_y = 6
 	},
@@ -15791,8 +15791,8 @@
 "hZF" = (
 /obj/item/ammo_casing/c9mm{
 	dir = 6;
-	pixel_y = 8;
-	pixel_x = -7
+	pixel_x = -7;
+	pixel_y = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -16638,7 +16638,7 @@
 "ixQ" = (
 /obj/structure/table/wood,
 /obj/item/folder/blue,
-/obj/item/stamp/captain,
+/obj/item/stamp/head/captain,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/captain)
 "ixY" = (
@@ -16649,8 +16649,8 @@
 "iyk" = (
 /obj/machinery/door/poddoor/shutters{
 	dir = 8;
-	name = "Kitchen Shutters";
-	id = "kitchenghettoshutters"
+	id = "kitchenghettoshutters";
+	name = "Kitchen Shutters"
 	},
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/cup/rag{
@@ -17359,9 +17359,9 @@
 "iOp" = (
 /obj/machinery/deepfryer,
 /obj/machinery/light/directional/north{
+	name = "warm light";
 	nightshift_allowed = 0;
-	nightshift_enabled = 1;
-	name = "warm light"
+	nightshift_enabled = 1
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/central)
@@ -17582,9 +17582,9 @@
 	dir = 4
 	},
 /obj/machinery/button/door/directional/south{
-	pixel_x = -8;
 	id = "secrange2";
-	name = "Firing Range Privacy Shutters Control"
+	name = "Firing Range Privacy Shutters Control";
+	pixel_x = -8
 	},
 /turf/open/floor/iron,
 /area/station/security/range)
@@ -18143,8 +18143,8 @@
 /area/station/ai_monitored/turret_protected/aisat/hallway)
 "jgj" = (
 /obj/machinery/button/ignition/incinerator/atmos{
-	pixel_y = 12;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 12
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/general/visible,
 /turf/closed/wall/r_wall,
@@ -18162,8 +18162,8 @@
 /area/space)
 "jgZ" = (
 /obj/effect/decal/cleanable/cobweb{
-	icon_state = "spiderling";
 	icon = 'icons/mob/simple/animal.dmi';
+	icon_state = "spiderling";
 	name = "dead spiderling"
 	},
 /turf/open/floor/plating,
@@ -18569,9 +18569,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/light/small/directional/north{
+	name = "maintenance light";
 	nightshift_allowed = 0;
-	nightshift_enabled = 1;
-	name = "maintenance light"
+	nightshift_enabled = 1
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/central)
@@ -18588,10 +18588,10 @@
 "jrO" = (
 /obj/structure/railing,
 /obj/effect/decal/cleanable/crayon{
+	color = "#88a379";
 	icon_state = "Omni";
-	pixel_y = 32;
 	pixel_x = 14;
-	color = "#88a379"
+	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -18798,11 +18798,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/poddoor{
-	name = "Quarantine Lockdown";
 	density = 0;
-	opacity = 0;
+	icon_state = "open";
 	id = "quarantine";
-	icon_state = "open"
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
@@ -19207,10 +19207,10 @@
 "jIH" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
+	dir = 1;
 	id = "genetics";
 	layer = 3.1;
-	name = "Hydroponics Shutter";
-	dir = 1
+	name = "Hydroponics Shutter"
 	},
 /turf/open/floor/plating,
 /area/station/science/genetics)
@@ -19349,12 +19349,12 @@
 /obj/structure/table,
 /obj/machinery/newscaster/directional/north,
 /obj/item/dest_tagger{
-	pixel_y = 4;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 4
 	},
 /obj/item/dest_tagger{
-	pixel_y = 4;
-	pixel_x = -10
+	pixel_x = -10;
+	pixel_y = 4
 	},
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
@@ -20171,8 +20171,8 @@
 /area/space)
 "kgm" = (
 /obj/item/dest_tagger{
-	pixel_y = 4;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 4
 	},
 /turf/closed/wall,
 /area/station/commons/storage/tools)
@@ -20239,9 +20239,9 @@
 /area/station/maintenance/starboard/aft)
 "khu" = (
 /obj/machinery/light/small/directional/north{
+	name = "maintenance light";
 	nightshift_allowed = 0;
-	nightshift_enabled = 1;
-	name = "maintenance light"
+	nightshift_enabled = 1
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/central)
@@ -20496,8 +20496,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
 /obj/item/reagent_containers/cup/glass/coffee{
-	pixel_y = 4;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 4
 	},
 /turf/open/floor/iron/white,
 /area/space)
@@ -20890,8 +20890,8 @@
 /area/station/science/genetics)
 "kym" = (
 /obj/machinery/computer/monitor{
-	name = "Backup Power Monitoring Console";
-	dir = 1
+	dir = 1;
+	name = "Backup Power Monitoring Console"
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -21964,8 +21964,8 @@
 /obj/structure/table/wood,
 /obj/machinery/computer/libraryconsole/bookmanagement{
 	dir = 8;
-	pixel_y = 6;
-	pixel_x = 2
+	pixel_x = 2;
+	pixel_y = 6
 	},
 /obj/machinery/light_switch/directional/north,
 /obj/machinery/status_display/evac/directional/east,
@@ -22227,8 +22227,8 @@
 	pixel_x = -7
 	},
 /obj/item/toy/waterballoon{
-	pixel_y = -11;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = -11
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -22366,8 +22366,8 @@
 "llY" = (
 /obj/machinery/door/poddoor/shutters{
 	dir = 8;
-	name = "Kitchen Shutters";
-	id = "kitchenghettoshutters"
+	id = "kitchenghettoshutters";
+	name = "Kitchen Shutters"
 	},
 /obj/structure/table/reinforced,
 /obj/item/plate,
@@ -22489,8 +22489,8 @@
 	dir = 8
 	},
 /obj/structure/closet/emcloset{
-	opened = 1;
-	contents_initialized = 1
+	contents_initialized = 1;
+	opened = 1
 	},
 /obj/item/clothing/mask/breath,
 /turf/open/floor/iron/dark,
@@ -22644,23 +22644,23 @@
 "lsZ" = (
 /obj/structure/table/wood,
 /obj/item/storage/box/deputy{
-	pixel_y = 2;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 2
 	},
 /obj/item/storage/box/seccarts{
-	pixel_y = 2;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 2
 	},
 /obj/item/reagent_containers/cup/glass/mug/nanotrasen{
-	pixel_y = 16;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 16
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
 /obj/item/folder/red{
-	pixel_y = 18;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 18
 	},
 /turf/open/floor/carpet,
 /area/station/command/heads_quarters/hos)
@@ -22671,7 +22671,7 @@
 	pixel_x = 4;
 	pixel_y = -2
 	},
-/obj/item/stamp/hop,
+/obj/item/stamp/head/hop,
 /obj/machinery/newscaster/directional/north,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hop)
@@ -22701,10 +22701,10 @@
 	pixel_y = 2
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
+	dir = 1;
 	id = "genetics";
 	layer = 3.1;
-	name = "Hydroponics Shutter";
-	dir = 1
+	name = "Hydroponics Shutter"
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/genetics)
@@ -23506,8 +23506,8 @@
 /area/station/security/prison)
 "lNN" = (
 /obj/structure/closet/firecloset{
-	opened = 1;
-	contents_initialized = 1
+	contents_initialized = 1;
+	opened = 1
 	},
 /obj/item/clothing/head/utility/hardhat/red,
 /turf/open/floor/iron/dark,
@@ -23661,9 +23661,9 @@
 /area/station/ai_monitored/command/storage/eva)
 "lSj" = (
 /obj/machinery/light/small/directional/north{
+	name = "maintenance light";
 	nightshift_allowed = 0;
-	nightshift_enabled = 1;
-	name = "maintenance light"
+	nightshift_enabled = 1
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/tram)
@@ -23938,15 +23938,15 @@
 /area/station/maintenance/department/medical/central)
 "lYA" = (
 /obj/machinery/button/door/directional/north{
-	pixel_x = -8;
 	id = "ArmorySecAccess";
 	name = "Armory Security Access Control";
+	pixel_x = -8;
 	req_access = list("security")
 	},
 /obj/machinery/button/door/directional/north{
-	pixel_x = 8;
 	id = "SecureArmory";
 	name = "Armory Shutters Control";
+	pixel_x = 8;
 	req_access = list("security")
 	},
 /obj/structure/table,
@@ -24395,8 +24395,8 @@
 	currentcolor = "#9B51FF";
 	icon_state = "light_off";
 	light_color = "#9B51FF";
-	state = 3;
-	light_on = 0
+	light_on = 0;
+	state = 3
 	},
 /area/station/maintenance/department/medical/central)
 "mlt" = (
@@ -24465,12 +24465,12 @@
 "mmm" = (
 /obj/structure/table/wood,
 /obj/item/megaphone/sec{
-	pixel_y = 2;
-	pixel_x = -10
+	pixel_x = -10;
+	pixel_y = 2
 	},
 /obj/item/book/manual/wiki/security_space_law{
-	pixel_y = 2;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 2
 	},
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
@@ -24551,8 +24551,8 @@
 	dir = 4
 	},
 /obj/machinery/button/door/directional/south{
-	name = "Toilet Lock Control";
 	id = "Toilet1_sec";
+	name = "Toilet Lock Control";
 	normaldoorcontrol = 1;
 	specialfunctions = 4
 	},
@@ -25452,9 +25452,9 @@
 "mLv" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
-	name = "HoS Privacy Shutters";
 	dir = 8;
-	id = "hos"
+	id = "hos";
+	name = "HoS Privacy Shutters"
 	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/hos)
@@ -26008,7 +26008,7 @@
 	pixel_y = 7
 	},
 /obj/item/pen,
-/obj/item/stamp/hop,
+/obj/item/stamp/head/hop,
 /obj/structure/table/wood,
 /turf/open/floor/iron/grimy,
 /area/station/command/heads_quarters/hop)
@@ -26020,7 +26020,7 @@
 /obj/item/paper_bin{
 	pixel_y = 4
 	},
-/obj/item/stamp/cmo{
+/obj/item/stamp/head/cmo{
 	pixel_y = 6
 	},
 /turf/open/floor/iron/dark,
@@ -29102,8 +29102,8 @@
 "oFl" = (
 /obj/structure/guncase,
 /obj/item/gun/ballistic/revolver/mateba{
-	pixel_y = -3;
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = -3
 	},
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/hos)
@@ -30126,11 +30126,11 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/any/medical/maintenance,
 /obj/machinery/door/poddoor{
-	name = "Quarantine Lockdown";
 	density = 0;
-	opacity = 0;
+	icon_state = "open";
 	id = "quarantine";
-	icon_state = "open"
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /turf/open/floor/plating,
 /area/station/medical/medbay/central)
@@ -30864,10 +30864,6 @@
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /turf/open/floor/iron,
 /area/space)
-"pCF" = (
-/obj/effect/spawner/structure/window/reinforced/damaged,
-/turf/open/floor/plating,
-/area/space)
 "pCS" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 8
@@ -30947,11 +30943,11 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/sign/departments/medbay/alt,
 /obj/machinery/door/poddoor{
-	name = "Quarantine Lockdown";
 	density = 0;
-	opacity = 0;
+	icon_state = "open";
 	id = "quarantine";
-	icon_state = "open"
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /turf/open/floor/plating,
 /area/station/medical/medbay/aft)
@@ -31016,9 +31012,9 @@
 "pGm" = (
 /obj/structure/rack,
 /obj/machinery/light/small/directional/north{
+	name = "maintenance light";
 	nightshift_allowed = 0;
-	nightshift_enabled = 1;
-	name = "maintenance light"
+	nightshift_enabled = 1
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/central)
@@ -31180,9 +31176,9 @@
 "pKC" = (
 /obj/structure/table/reinforced,
 /obj/machinery/button/door/directional{
-	pixel_y = 6;
 	id = "Warden";
-	name = "Warden Privacy Shutters Control"
+	name = "Warden Privacy Shutters Control";
+	pixel_y = 6
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/warden)
@@ -32348,12 +32344,12 @@
 "qsv" = (
 /obj/structure/table,
 /obj/item/reagent_containers/cup/glass/bottle/beer/almost_empty{
-	pixel_y = 4;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 4
 	},
 /obj/item/toy/cards/deck{
-	pixel_y = 6;
-	pixel_x = -16
+	pixel_x = -16;
+	pixel_y = 6
 	},
 /turf/open/floor/iron,
 /area/station/security/breakroom)
@@ -33095,11 +33091,11 @@
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/unres,
 /obj/machinery/door/poddoor{
-	name = "Quarantine Lockdown";
 	density = 0;
-	opacity = 0;
+	icon_state = "open";
 	id = "quarantine";
-	icon_state = "open"
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
@@ -33720,20 +33716,20 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/rack,
 /obj/item/grenade/barrier{
-	pixel_y = 6;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 6
 	},
 /obj/item/grenade/barrier{
-	pixel_y = 6;
-	pixel_x = 2
+	pixel_x = 2;
+	pixel_y = 6
 	},
 /obj/item/grenade/barrier{
-	pixel_y = 6;
-	pixel_x = -2
+	pixel_x = -2;
+	pixel_y = 6
 	},
 /obj/item/grenade/barrier{
-	pixel_y = 6;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 6
 	},
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
@@ -33786,28 +33782,28 @@
 "rbq" = (
 /obj/structure/table,
 /obj/machinery/button/door/directional{
-	pixel_x = -6;
-	pixel_y = 6;
+	id = "Prison Gate";
 	name = "Prison Wing Lockdown";
-	id = "Prison Gate"
-	},
-/obj/machinery/button/door/directional{
-	pixel_x = 6;
-	pixel_y = 6;
-	id = "Secure Gate";
-	name = "Brig Lockdown"
-	},
-/obj/machinery/button/door/directional{
 	pixel_x = -6;
-	pixel_y = -6;
-	id = "ArmorySecAccess";
-	name = "Secure Armory Shutters"
+	pixel_y = 6
 	},
 /obj/machinery/button/door/directional{
+	id = "Secure Gate";
+	name = "Brig Lockdown";
 	pixel_x = 6;
-	pixel_y = -6;
+	pixel_y = 6
+	},
+/obj/machinery/button/door/directional{
+	id = "ArmorySecAccess";
+	name = "Secure Armory Shutters";
+	pixel_x = -6;
+	pixel_y = -6
+	},
+/obj/machinery/button/door/directional{
 	id = "armory";
-	name = "Armory Shutter"
+	name = "Armory Shutter";
+	pixel_x = 6;
+	pixel_y = -6
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/warden)
@@ -34558,9 +34554,9 @@
 "rvM" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
+	dir = 4;
 	id = "hos_room";
-	name = "Bedroom Privacy Shutters";
-	dir = 4
+	name = "Bedroom Privacy Shutters"
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -35197,8 +35193,8 @@
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/head/utility/surgerycap,
 /obj/item/reagent_containers/spray/cleaner{
-	name = "surgery cleaner";
-	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back."
+	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
+	name = "surgery cleaner"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -35235,7 +35231,7 @@
 /turf/open/floor/eighties,
 /area/station/common/arcade)
 "rOz" = (
-/obj/effect/spawner/structure/window/reinforced/damaged,
+/obj/effect/spawner/structure/window/reinforced,
 /obj/effect/decal/cleanable/blood/splatter/over_window,
 /turf/open/floor/plating,
 /area/space)
@@ -35449,8 +35445,8 @@
 /obj/structure/table/wood,
 /obj/effect/spawner/random/contraband/narcotics,
 /obj/item/book/fish_catalog{
-	pixel_y = 8;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 8
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -37268,8 +37264,8 @@
 	dir = 4
 	},
 /obj/machinery/button/door/directional/west{
-	name = "Bedroom Privacy Control";
-	id = "hos_room"
+	id = "hos_room";
+	name = "Bedroom Privacy Control"
 	},
 /obj/machinery/camera/directional/west{
 	c_tag = "Brig HoS Bedroom"
@@ -37691,11 +37687,11 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /obj/machinery/door/poddoor{
-	name = "Quarantine Lockdown";
 	density = 0;
-	opacity = 0;
+	icon_state = "open";
 	id = "quarantine";
-	icon_state = "open"
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /turf/open/floor/plating,
 /area/station/medical/paramedic)
@@ -37732,11 +37728,11 @@
 	},
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/machinery/door/poddoor{
-	name = "Quarantine Lockdown";
 	density = 0;
-	opacity = 0;
+	icon_state = "open";
 	id = "quarantine";
-	icon_state = "open"
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/paramedic)
@@ -38002,7 +37998,7 @@
 "tjx" = (
 /obj/structure/table/wood,
 /obj/effect/turf_decal/siding/wood,
-/obj/item/storage/book/bible,
+/obj/item/book/bible,
 /turf/open/floor/carpet/black,
 /area/station/service/chapel/office)
 "tjV" = (
@@ -39075,20 +39071,20 @@
 "tNy" = (
 /obj/effect/turf_decal/bot_red,
 /obj/item/storage/belt/holster{
-	pixel_y = 2;
-	pixel_x = 2
+	pixel_x = 2;
+	pixel_y = 2
 	},
 /obj/item/storage/belt/holster{
-	pixel_y = 4;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 4
 	},
 /obj/item/storage/belt/holster{
-	pixel_y = 8;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 8
 	},
 /obj/item/storage/belt/holster{
-	pixel_y = 6;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 6
 	},
 /obj/item/storage/belt/holster,
 /obj/item/storage/belt/holster{
@@ -39317,11 +39313,11 @@
 "tUN" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor{
-	name = "Quarantine Lockdown";
 	density = 0;
-	opacity = 0;
+	icon_state = "open";
 	id = "quarantine";
-	icon_state = "open"
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /turf/open/floor/plating,
 /area/station/medical/medbay/lobby)
@@ -39659,8 +39655,8 @@
 /area/station/ai_monitored/turret_protected/aisat/hallway)
 "ucg" = (
 /obj/structure/closet/emcloset{
-	opened = 1;
-	contents_initialized = 1
+	contents_initialized = 1;
+	opened = 1
 	},
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/plating,
@@ -39898,11 +39894,11 @@
 	req_access = list("medical")
 	},
 /obj/machinery/door/poddoor{
-	name = "Quarantine Lockdown";
 	density = 0;
-	opacity = 0;
+	icon_state = "open";
 	id = "quarantine";
-	icon_state = "open"
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
@@ -40490,9 +40486,9 @@
 "uCK" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
+	dir = 1;
 	id = "hos_room";
-	name = "Bedroom Privacy Shutters";
-	dir = 1
+	name = "Bedroom Privacy Shutters"
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -40618,8 +40614,8 @@
 "uIq" = (
 /obj/structure/spider/stickyweb,
 /obj/effect/decal/cleanable/cobweb{
-	icon_state = "spiderling";
 	icon = 'icons/mob/simple/animal.dmi';
+	icon_state = "spiderling";
 	name = "dead spiderling"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -40726,9 +40722,9 @@
 /area/station/cargo/miningoffice)
 "uKz" = (
 /obj/machinery/light/small/directional/north{
+	name = "maintenance light";
 	nightshift_allowed = 0;
-	nightshift_enabled = 1;
-	name = "maintenance light"
+	nightshift_enabled = 1
 	},
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
@@ -40827,9 +40823,9 @@
 /area/station/maintenance/starboard/fore)
 "uLJ" = (
 /obj/effect/decal/cleanable/crayon{
+	color = "#9e0909";
 	icon_state = "heart";
-	pixel_x = 28;
-	color = "#9e0909"
+	pixel_x = 28
 	},
 /obj/effect/decal/cleanable/blood/old,
 /obj/item/food/meat/slab/human,
@@ -41282,8 +41278,8 @@
 /obj/effect/mapping_helpers/airlock/access/all/security/hos,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
-	name = "Head of Security";
-	id_tag = "hos_door"
+	id_tag = "hos_door";
+	name = "Head of Security"
 	},
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/hos)
@@ -41620,12 +41616,12 @@
 "vhb" = (
 /obj/structure/table,
 /obj/item/grenade/chem_grenade/cleaner{
-	pixel_y = 14;
-	pixel_x = -8
+	pixel_x = -8;
+	pixel_y = 14
 	},
 /obj/item/grenade/chem_grenade/cleaner{
-	pixel_y = 14;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 14
 	},
 /obj/item/grenade/chem_grenade/cleaner{
 	pixel_y = 14
@@ -42145,8 +42141,8 @@
 	pixel_y = 4
 	},
 /obj/item/pen{
-	pixel_y = 4;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 4
 	},
 /obj/item/radio/intercom/directional/north,
 /turf/open/floor/carpet/black,
@@ -42351,11 +42347,11 @@
 	pixel_y = 8
 	},
 /obj/machinery/door/poddoor{
-	name = "Quarantine Lockdown";
 	density = 0;
-	opacity = 0;
+	icon_state = "open";
 	id = "quarantine";
-	icon_state = "open"
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
@@ -42709,8 +42705,8 @@
 /area/station/commons/dorms)
 "vKO" = (
 /obj/effect/decal/cleanable/cobweb{
-	icon_state = "spiderling";
 	icon = 'icons/mob/simple/animal.dmi';
+	icon_state = "spiderling";
 	name = "dead spiderling"
 	},
 /obj/effect/turf_decal/trimline/red/warning{
@@ -43780,11 +43776,11 @@
 	pixel_y = 6
 	},
 /obj/machinery/door/poddoor{
-	name = "Quarantine Lockdown";
 	density = 0;
-	opacity = 0;
+	icon_state = "open";
 	id = "quarantine";
-	icon_state = "open"
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
@@ -43871,8 +43867,8 @@
 	pixel_y = 2
 	},
 /obj/item/storage/lockbox/loyalty{
-	pixel_y = -2;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = -2
 	},
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
@@ -44239,7 +44235,7 @@
 /area/station/medical/psychology)
 "wwX" = (
 /obj/structure/table/wood/poker,
-/obj/item/clothing/head/fedora/fedbrown,
+/obj/item/clothing/head/fedora/brown,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood/parquet,
 /area/space)
@@ -44789,8 +44785,8 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters{
 	dir = 4;
-	name = "Privacy Shutters";
-	id = "secrange2"
+	id = "secrange2";
+	name = "Privacy Shutters"
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -45091,8 +45087,8 @@
 	pixel_y = 7
 	},
 /obj/item/toy/cards/deck/tarot{
-	pixel_y = 2;
-	pixel_x = -7
+	pixel_x = -7;
+	pixel_y = 2
 	},
 /turf/open/floor/wood/parquet,
 /area/space)
@@ -45480,8 +45476,8 @@
 "xgw" = (
 /obj/structure/table,
 /obj/item/reagent_containers/cup/glass/bottle/beer/almost_empty{
-	pixel_y = 4;
-	pixel_x = -10
+	pixel_x = -10;
+	pixel_y = 4
 	},
 /obj/effect/turf_decal/tile/red/real_red{
 	dir = 1
@@ -46566,8 +46562,8 @@
 /area/station/ai_monitored/turret_protected/aisat/atmos)
 "xMZ" = (
 /obj/machinery/door/poddoor/shutters/window{
-	name = "Security Range Shutters";
-	id = "secrange"
+	id = "secrange";
+	name = "Security Range Shutters"
 	},
 /turf/open/floor/iron,
 /area/station/security/range)
@@ -46946,8 +46942,8 @@
 	pixel_y = -2
 	},
 /obj/item/ammo_casing/shotgun/improvised{
-	pixel_y = -6;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = -6
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -47009,11 +47005,11 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/sign/departments/exam_room,
 /obj/machinery/door/poddoor{
-	name = "Quarantine Lockdown";
 	density = 0;
-	opacity = 0;
+	icon_state = "open";
 	id = "quarantine";
-	icon_state = "open"
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /turf/open/floor/plating,
 /area/station/medical/medbay/lobby)
@@ -47273,8 +47269,8 @@
 /area/station/maintenance/starboard/fore)
 "ydY" = (
 /obj/effect/decal/cleanable/crayon{
-	icon_state = "Tunnel";
-	color = "#938791"
+	color = "#938791";
+	icon_state = "Tunnel"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -47411,8 +47407,8 @@
 	pixel_x = -6
 	},
 /obj/item/reagent_containers/cup/glass/bottle/beer/almost_empty{
-	pixel_y = 6;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 6
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/aft)
@@ -90498,7 +90494,7 @@ cBZ
 fbx
 vAR
 wvx
-pCF
+wvx
 tNm
 xfx
 eFb
