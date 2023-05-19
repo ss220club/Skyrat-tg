@@ -339,6 +339,32 @@
 /*
 * HEAD
 */
+/obj/item/clothing/head/security_cap/bluesec
+	name = "security cap"
+	desc = "A robust cap with the security insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	icon_state = "security_cap_black"
+	uses_advanced_reskins = TRUE
+	armor_type = /datum/armor/head_security_cap
+	strip_delay = 60
+	dog_fashion = null
+	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+	unique_reskin = list(
+		"Black Variant" = list(
+			RESKIN_ICON_STATE = "security_cap_black",
+			RESKIN_WORN_ICON_STATE = "security_cap_black"
+		),
+		"Blue Variant" = list(
+			RESKIN_ICON_STATE = "security_cap_blue",
+			RESKIN_WORN_ICON_STATE = "security_cap_blue"
+		),
+		"White Variant" = list(
+			RESKIN_ICON_STATE = "security_cap_white",
+			RESKIN_WORN_ICON_STATE = "security_cap_white"
+		),
+	)
+
 /obj/item/clothing/head/hats/warden/bluesec
 	name = "warden's police hat"
 	desc = "It's a special armored hat issued to the Warden of a security force. Protects the head from impacts."
@@ -354,34 +380,6 @@
 	flags_cover = HEADCOVERSEYES | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | PEPPERPROOF
 	dog_fashion = null
-
-	///chat message when the visor is toggled down.
-	var/toggle_message = "You pull the visor down on"
-	///chat message when the visor is toggled up.
-	var/alt_toggle_message = "You push the visor up on"
-	///Can toggle?
-	var/can_toggle = TRUE
-
-/// Duplication of toggleable logic - only way to make it toggleable without worse hacks due to being in base maps.
-/obj/item/clothing/head/helmet/sec/bluesec/attack_self(mob/user)
-	. = ..()
-	if(.)
-		return
-	if(user.incapacitated() || !can_toggle)
-		return
-	up = !up
-	flags_1 ^= visor_flags
-	flags_inv ^= visor_flags_inv
-	flags_cover ^= visor_flags_cover
-	// This part is changed to work with the seclight.
-	base_icon_state = "[initial(icon_state)][up ? "up" : ""]"
-	update_icon_state()
-	to_chat(user, span_notice("[up ? alt_toggle_message : toggle_message] \the [src]."))
-
-	user.update_worn_head()
-	if(iscarbon(user))
-		var/mob/living/carbon/carbon_user = user
-		carbon_user.head_update(src, forced = TRUE)
 
 /obj/item/clothing/head/security_garrison/bluesec
 	name = "security garrison cap"
@@ -435,8 +433,6 @@
 			RESKIN_WORN_ICON_STATE = "cape_white"
 		),
 	)
-	///Decides the shoulder it lays on, false = RIGHT, TRUE = LEFT
-	var/swapped = FALSE
 
 /obj/item/clothing/neck/security_cape/bluesec/armplate
 	name = "security gauntlet"
@@ -457,21 +453,6 @@
 			RESKIN_WORN_ICON_STATE = "armplate"
 		),
 	)
-
-/obj/item/clothing/neck/security_cape/bluesec/AltClick(mob/user)
-	. = ..()
-	swapped = !swapped
-	to_chat(user, span_notice("You swap which arm [src] will lay over."))
-	update_appearance()
-
-/obj/item/clothing/neck/security_cape/bluesec/update_appearance(updates)
-	. = ..()
-	if(swapped)
-		worn_icon_state = icon_state
-	else
-		worn_icon_state = "[icon_state]_left"
-
-	usr.update_worn_neck()
 
 /obj/item/clothing/neck/mantle/hosmantle/bluesec
 	icon = 'modular_skyrat/master_files/icons/mob/clothing/neck.dmi'

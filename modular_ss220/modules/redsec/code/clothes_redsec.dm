@@ -170,6 +170,7 @@
 	name = "security belt"
 	desc = "Can hold security gear like handcuffs and flashes."
 	icon = 'icons/obj/clothing/belts.dmi'
+	worn_icon = 'icons/mob/clothing/belt.dmi'
 	lefthand_file = 'icons/mob/inhands/equipment/belt_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/belt_righthand.dmi'
 	icon_state = "security"
@@ -234,6 +235,10 @@
 /*
 * HEAD
 */
+/obj/item/clothing/head/security_cap
+	unique_reskin = NONE
+	current_skin = "security_cap_black"
+
 /obj/item/clothing/head/hats/warden
 	name = "warden's hat"
 	desc = "A warden's red hat. Looking at it gives you the feeling of wanting to keep people in cells for as long as possible."
@@ -245,10 +250,10 @@
 	icon_state = "helmet"
 	base_icon_state = "helmet"
 	actions_types = null
-	can_toggle = FALSE
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	flags_cover = HEADCOVERSEYES
 	flags_inv = HIDEHAIR
+	can_toggle = FALSE
 
 /obj/item/clothing/head/helmet/sec/attack_self(mob/user)
 	. = ..()
