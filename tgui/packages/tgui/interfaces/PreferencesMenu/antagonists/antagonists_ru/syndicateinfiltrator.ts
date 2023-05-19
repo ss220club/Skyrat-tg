@@ -3,7 +3,7 @@ import { TRAITOR_MECHANICAL_DESCRIPTION } from './traitor';
 
 const SyndicateInfiltrator: Antagonist = {
   key: 'syndicateinfiltrator',
-  name: 'Лазутчик Синдиката',
+  name: 'Диверсант Синдиката',
   description: [
     'Вариант предателя, который можно получить при прибытии на смену.',
     TRAITOR_MECHANICAL_DESCRIPTION,

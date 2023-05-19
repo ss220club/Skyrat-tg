@@ -3,7 +3,7 @@ import { Antagonist, Category } from '../base';
 
 const LoneInfiltrator: Antagonist = {
   key: 'loneinfiltrator',
-  name: 'Лазутчик-одиночка',
+  name: 'Диверсант-одиночка',
   description: [
     multiline`
     Мидраунд вариант предателя, который может появиться рядом со станцией,

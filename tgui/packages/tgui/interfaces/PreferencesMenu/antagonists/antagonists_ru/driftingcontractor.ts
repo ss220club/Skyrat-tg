@@ -8,7 +8,7 @@ export const CONTRACTOR_MECHANICAL_DESCRIPTION = multiline`
 
 const DriftingContractor: Antagonist = {
   key: 'driftingcontractor',
-  name: 'Дрейфующий контрактор',
+  name: 'Контрактор',
   description: [
     multiline`
     Агент Синдиката, который может появиться рядом со станцией,
