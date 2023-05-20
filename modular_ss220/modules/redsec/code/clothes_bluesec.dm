@@ -19,6 +19,7 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
 	icon_state = "vest_white"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	current_skin = null
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Black Variant" = list(
@@ -62,6 +63,7 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi'
 	icon_state = "backpack_security_black"
+	current_skin = null
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Black Variant" = list(
@@ -83,6 +85,7 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi'
 	icon_state = "duffel_security_black"
+	current_skin = null
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Black Variant" = list(
@@ -102,6 +105,7 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/security.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/security.dmi'
 	icon_state = "security_black"
+	current_skin = null
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Black Variant" = list(
@@ -180,6 +184,7 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/shoes.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/feet.dmi'
 	clothing_traits = list(TRAIT_SILENT_FOOTSTEPS) // We have other footsteps.
+	current_skin = null
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Blue-Trimmed Variant" = list(
@@ -204,6 +209,7 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/belt.dmi'
 	icon_state = "belt_white"
 	worn_icon_state = "belt_white"
+	current_skin = null
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Black Variant" = list(
@@ -237,13 +243,13 @@
 	name = "black gloves"
 	icon_state = "black"
 	greyscale_colors = "#2f2e31"
-	cold_protection = HANDS
-	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
-	heat_protection = HANDS
-	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = NONE
+	cold_protection = HANDS
+	heat_protection = HANDS
+	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
+	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	cut_type = /obj/item/clothing/gloves/fingerless
-	// SKYRAT EDIT ADDITION START
+	current_skin = null
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Basic Gloves" = list(
@@ -266,6 +272,7 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/gloves.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/hands.dmi'
 	icon_state = "gloves_white"
+	current_skin = null
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Black Variant" = list(
@@ -294,6 +301,7 @@
 /obj/item/clothing/glasses/hud/security/bluesec/sunglasses
 	icon_state = "security_hud_black"
 	glass_colour_type = /datum/client_colour/glass_colour/blue
+	current_skin = null
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Dark-Tint Variant" = list(
@@ -325,6 +333,8 @@
 	hud_type = DATA_HUD_SECURITY_ADVANCED
 	hud_trait = TRAIT_SECURITY_HUD
 	glass_colour_type = /datum/client_colour/glass_colour/blue
+	current_skin = null
+	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Eyepatch" = list(
 			RESKIN_ICON_STATE = "hudpatch",
@@ -336,6 +346,13 @@
 		)
 	)
 
+/obj/item/clothing/glasses/hud/eyepatch/sec/bluesec/blindfold
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/glasses.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/eyes.dmi'
+	icon_state = "secfold"
+	base_icon_state = "secfold"
+	glass_colour_type = /datum/client_colour/glass_colour/darkred
+
 /*
 * HEAD
 */
@@ -345,11 +362,12 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "security_cap_black"
-	uses_advanced_reskins = TRUE
 	armor_type = /datum/armor/head_security_cap
 	strip_delay = 60
-	dog_fashion = null
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+	dog_fashion = null
+	current_skin = null
+	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Black Variant" = list(
 			RESKIN_ICON_STATE = "security_cap_black",
@@ -391,6 +409,8 @@
 	armor_type = /datum/armor/head_security_garrison
 	strip_delay = 60
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+	current_skin = null
+	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Black Variant" = list(
 			RESKIN_ICON_STATE = "garrison_black",
@@ -418,6 +438,7 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/neck.dmi'
 	icon_state = "cape_black"
 	inhand_icon_state = "" //no unique inhands
+	current_skin = null
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Black Variant" = list(
@@ -438,6 +459,7 @@
 	name = "security gauntlet"
 	desc = "A fashionable full-arm gauntlet worn by security officers. The gauntlet itself is made of plastic, and provides no protection, but it looks cool as hell."
 	icon_state = "armplate_black"
+	current_skin = null
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Black Variant" = list(

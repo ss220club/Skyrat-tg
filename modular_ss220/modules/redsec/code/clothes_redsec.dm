@@ -233,6 +233,10 @@
 	current_skin = "hudpatch"	//prevents reskinning
 	glass_colour_type = /datum/client_colour/glass_colour/darkred
 
+/obj/item/clothing/glasses/hud/eyepatch/sec/blindfold
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/glasses.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/eyes.dmi'
+
 /*
 * HEAD
 */
@@ -251,10 +255,10 @@
 	icon_state = "helmet"
 	base_icon_state = "helmet"
 	actions_types = null
+	can_toggle = FALSE
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	flags_cover = HEADCOVERSEYES
 	flags_inv = HIDEHAIR
-	can_toggle = FALSE
 
 /obj/item/clothing/head/helmet/sec/attack_self(mob/user)
 	. = ..()
