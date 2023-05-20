@@ -410,8 +410,10 @@
 	user.update_worn_glasses()
 
 /obj/item/clothing/glasses/hud/security/night/bluesec
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/glasses.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/eyes.dmi'
 	icon_state = "security_hud_nv"
-	glass_colour_type = /datum/client_colour/glass_colour/green
+	glass_colour_type = /datum/client_colour/glass_colour/lightblue
 
 /obj/item/clothing/glasses/hud/eyepatch/sec/bluesec
 	name = "security eyepatch HUD"
