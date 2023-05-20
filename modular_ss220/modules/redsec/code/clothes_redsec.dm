@@ -1,5 +1,13 @@
 /*
-*	SS220: Actual Skyrat Bluesec override to Redsec again.
+*	SS220: Actual Skyrat Bluesec to Redsec overrides.
+*
+*	Tips:
+*		- I used `current_skin` for disabling skin choose
+		- If you're not sure why you can't select a skin (but you have one), you may need to set `current_skin` to null
+*		- All clothing is took his path from his parent, so you should override it on your code if you need it
+*		- Make sure every icon, worn_icon, icon_state, inhand_icon_state is correct
+*
+*	There's may be some `not needed` overridings but it'll took ages for me to clean this up
 */
 
 /*
@@ -8,15 +16,18 @@
 /obj/item/clothing/suit/hooded/wintercoat/security
 	name = "security winter jacket"
 	desc = "A red, armour-padded winter coat. It glitters with a mild ablative coating and a robust air of authority. The zipper tab is a pair of jingly little handcuffs that get annoying after the first ten seconds."
+	icon = 'icons/obj/clothing/suits/wintercoat.dmi'
+	worn_icon = 'icons/mob/clothing/suits/wintercoat.dmi'
 	icon_state = "coatsecurity"
 	inhand_icon_state = "coatsecurity"
+	hoodtype = /obj/item/clothing/head/hooded/winterhood/security
 
 /obj/item/clothing/suit/armor/vest/alt/sec
 	desc = "A Type I armored vest that provides decent protection against most types of damage."
 	icon = 'icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'icons/mob/clothing/suits/armor.dmi'
 	icon_state = "armor_sec"
-	current_skin = "armor_sec" //prevents reskinning
+	current_skin = "armor_sec"
 
 /obj/item/clothing/suit/armor/vest/warden
 	icon = 'icons/obj/clothing/suits/armor.dmi'
@@ -81,7 +92,7 @@
 	icon = 'icons/obj/storage/backpack.dmi'
 	worn_icon = 'icons/mob/clothing/back/backpack.dmi'
 	icon_state = "backpack-security"
-	current_skin = "backpack-security" //prevents reskinning
+	current_skin = "backpack-security"
 
 /obj/item/storage/backpack/satchel/sec
 	icon = 'icons/obj/storage/backpack.dmi'
@@ -92,7 +103,7 @@
 	icon = 'icons/obj/storage/backpack.dmi'
 	worn_icon = 'icons/mob/clothing/back/backpack.dmi'
 	icon_state = "duffel-security"
-	current_skin = "duffel-security" //prevents reskinning
+	current_skin = "duffel-security"
 
 /*
 * UNDER
@@ -101,7 +112,7 @@
 	icon = 'icons/obj/clothing/under/security.dmi'
 	worn_icon = 'icons/mob/clothing/under/security.dmi'
 	icon_state = "rsecurity"
-	current_skin = "rsecurity" //prevents reskinning
+	current_skin = "rsecurity"
 
 /obj/item/clothing/under/rank/security/skyrat/utility
 	desc = "A utility uniform worn by trained Security officers."
@@ -152,7 +163,6 @@
 /obj/item/clothing/head/helmet/space/plasmaman/security/head_of_security
 	icon_state = "hos_envirohelm"
 
-
 /*
 * SHOES
 */
@@ -161,7 +171,7 @@
 	icon_state = "jackboots_sec"
 	icon = 'icons/obj/clothing/shoes.dmi'
 	worn_icon = 'icons/mob/clothing/feet.dmi'
-	current_skin = "jackboots_sec" //prevents reskinning
+	current_skin = "jackboots_sec"
 
 /*
 * BELTS
@@ -176,26 +186,26 @@
 	icon_state = "security"
 	inhand_icon_state = "security"
 	worn_icon_state = "security"
-	current_skin = "security" //prevents reskinning
+	current_skin = "security"
 
 /obj/item/storage/belt/security/webbing
 	icon = 'icons/obj/clothing/belts.dmi'
 	uses_advanced_reskins = FALSE
 	unique_reskin = NONE
-	current_skin = "securitywebbing" //prevents reskinning
+	current_skin = "securitywebbing"
 
 /*
 * GLOVES
 */
 /obj/item/clothing/gloves/color/black
-	current_skin = "black" //prevents reskinning
+	current_skin = "black"
 
 /obj/item/clothing/gloves/color/black/security
 	icon = 'icons/obj/clothing/gloves.dmi'
 	worn_icon = 'icons/mob/clothing/hands.dmi'
 	icon_state = "black"
 	greyscale_colors = "#2f2e31"
-	current_skin = "black" //prevents reskinning
+	current_skin = "black"
 
 /*
 * GLASSES
@@ -211,7 +221,7 @@
 	worn_icon = 'icons/mob/clothing/eyes.dmi'
 	icon_state = "sunhudsec"
 	glass_colour_type = /datum/client_colour/glass_colour/darkred
-	current_skin = "sunhudsec"	//prevents reskinning
+	current_skin = "sunhudsec"
 
 /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch
 	icon = 'icons/obj/clothing/glasses.dmi'
@@ -230,7 +240,7 @@
 	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/clothing/glasses_righthand.dmi'
 	icon_state = "hudpatch"
-	current_skin = "hudpatch"	//prevents reskinning
+	current_skin = "hudpatch"
 	glass_colour_type = /datum/client_colour/glass_colour/darkred
 
 /obj/item/clothing/glasses/hud/eyepatch/sec/blindfold
@@ -254,7 +264,7 @@
 	worn_icon = 'icons/mob/clothing/head/helmet.dmi'
 	icon_state = "helmet"
 	base_icon_state = "helmet"
-	actions_types = null
+	actions_types = list()
 	can_toggle = FALSE
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	flags_cover = HEADCOVERSEYES
@@ -273,13 +283,13 @@
 	armor_type = /datum/armor/head_security_garrison
 	strip_delay = 60
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-	current_skin = "garrison_black"	//prevents reskinning
+	current_skin = "garrison_black"
 
 /obj/item/clothing/head/cowboy/skyrat/cattleman/sec
-	greyscale_colors = "#EA3232#3F6E9E"
+	greyscale_colors = "#39393F#EA3232"
 
 /obj/item/clothing/head/cowboy/skyrat/cattleman/wide/sec
-	greyscale_colors = "#EA3232#3F6E9E"
+	greyscale_colors = "#39393F#EA3232"
 
 /*
 * NECK

@@ -1,5 +1,13 @@
 /*
-*	SS220: Actual Skyrat Bluesec override to Redsec again.
+*	SS220: Bluesec items.
+*
+*	Tips:
+*		- I used `current_skin` for disabling skin choose
+		- If you're not sure why you can't select a skin (but you have one), you may need to set `current_skin` to null
+*		- All clothing is took his path from his parent, so you should override it on your code if you need it
+*		- Make sure every icon, worn_icon, icon_state, inhand_icon_state is correct
+*
+*	There's may be some `not needed` overridings but it'll took ages for me to clean this up
 */
 
 /*
@@ -45,9 +53,81 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
 	icon_state = "vest_warden"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	current_skin = null
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Basic Warden Armor" = list(
+			RESKIN_ICON = 'icons/obj/clothing/suits/armor.dmi',
+			RESKIN_ICON_STATE = "warden_alt",
+			RESKIN_WORN_ICON = 'icons/mob/clothing/suits/armor.dmi',
+			RESKIN_WORN_ICON_STATE = "warden_alt"
+		),
+		"Coat" = list(
+			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi',
+			RESKIN_ICON_STATE = "warden_alt",
+			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi',
+			RESKIN_WORN_ICON_STATE = "warden_alt"
+		),
+		"Standard" = list(
+			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi',
+			RESKIN_ICON_STATE = "vest_warden",
+			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi',
+			RESKIN_WORN_ICON_STATE = "vest_warden",
+		),
+		"Peacekeeper" = list(
+			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi',
+			RESKIN_ICON_STATE = "peacekeeper_trench_warden",
+			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi',
+			RESKIN_WORN_ICON_STATE = "peacekeeper_trench_warden",
+			RESKIN_SUPPORTS_VARIATIONS_FLAGS = NONE
+		)
+	)
 
 /obj/item/clothing/suit/armor/hos/bluesec
+	name = "armored greatcoat"
+	desc = "A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence."
+	icon_state = "hos"
+	inhand_icon_state = "greatcoat"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
+	armor_type = /datum/armor/armor_hos
+	cold_protection = CHEST|GROIN|LEGS|ARMS
+	heat_protection = CHEST|GROIN|LEGS|ARMS
+	strip_delay = 80
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Greatcoat" = list(
+			RESKIN_ICON = 'icons/obj/clothing/suits/armor.dmi',
+			RESKIN_ICON_STATE = "hos",
+			RESKIN_WORN_ICON = 'icons/mob/clothing/suits/armor.dmi',
+			RESKIN_WORN_ICON_STATE = "hos"
+		),
+		"Trenchcoat" = list(
+			RESKIN_ICON = 'icons/obj/clothing/suits/armor.dmi',
+			RESKIN_ICON_STATE = "hostrench",
+			RESKIN_WORN_ICON = 'icons/mob/clothing/suits/armor.dmi',
+			RESKIN_WORN_ICON_STATE = "hostrench"
+		),
+		"Navy Blue Jacket" = list(
+			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi',
+			RESKIN_ICON_STATE = "hosbluejacket",
+			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi',
+			RESKIN_WORN_ICON_STATE = "hosbluejacket"
+		),
+		"Trenchcloak" = list(
+			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi',
+			RESKIN_ICON_STATE = "trenchcloak",
+			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi',
+			RESKIN_WORN_ICON_STATE = "trenchcloak"
+		),
+		"Black" = list(
+			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi',
+			RESKIN_ICON_STATE = "hos_black",
+			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi',
+			RESKIN_WORN_ICON_STATE = "hos_black",
+			RESKIN_SUPPORTS_VARIATIONS_FLAGS = NONE
+		)
+	)
 
 /obj/item/clothing/suit/armor/cossack/sec/bluesec
 	icon_state = "don_cossak"
@@ -141,15 +221,19 @@
 
 /obj/item/clothing/under/rank/security/head_of_security/bluesec/parade
 	icon_state = "hos_parade_male_blue"
+	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/security/head_of_security/bluesec/parade/female
 	icon_state = "hos_parade_fem_blue"
+	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/security/head_of_security/bluesec/alt
 	icon_state = "hosalt_blue"
+	can_adjust = TRUE
 
 /obj/item/clothing/under/rank/security/head_of_security/bluesec/alt/skirt
 	icon_state = "hosalt_skirt_blue"
+	can_adjust = TRUE
 
 //Plasmaman
 /obj/item/clothing/under/plasmaman/security/bluesec
@@ -230,10 +314,10 @@
 		),
 	)
 
-/obj/item/storage/belt/security/bluesec/webbing
+/obj/item/storage/belt/security/webbing/bluesec
 	uses_advanced_reskins = FALSE
 	unique_reskin = NONE
-	current_skin = "securitywebbing" //Prevents reskinning
+	current_skin = "securitywebbing"
 
 /*
 * GLOVES
@@ -317,8 +401,15 @@
 /obj/item/clothing/glasses/hud/security/bluesec/sunglasses/eyepatch
 	icon_state = "security_eyepatch"
 	base_icon_state = "security_eyepatch"
+	current_skin = "security_eyepatch"
+	actions_types = list(/datum/action/item_action/flip)
 
-/obj/item/clothing/glasses/hud/security/bluesec/night
+/obj/item/clothing/glasses/hud/security/bluesec/sunglasses/eyepatch/attack_self(mob/user, modifiers)
+	. = ..()
+	icon_state = (icon_state == base_icon_state) ? "[base_icon_state]_flipped" : base_icon_state
+	user.update_worn_glasses()
+
+/obj/item/clothing/glasses/hud/security/night/bluesec
 	icon_state = "security_hud_nv"
 	glass_colour_type = /datum/client_colour/glass_colour/green
 
@@ -333,18 +424,8 @@
 	hud_type = DATA_HUD_SECURITY_ADVANCED
 	hud_trait = TRAIT_SECURITY_HUD
 	glass_colour_type = /datum/client_colour/glass_colour/blue
-	current_skin = null
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Eyepatch" = list(
-			RESKIN_ICON_STATE = "hudpatch",
-			RESKIN_WORN_ICON_STATE = "hudpatch"
-		),
-		"Fake Blindfold" = list(
-			RESKIN_ICON_STATE = "secfold",
-			RESKIN_WORN_ICON_STATE = "secfold"
-		)
-	)
+	current_skin = "hudpatch"
+	uses_advanced_reskins = FALSE
 
 /obj/item/clothing/glasses/hud/eyepatch/sec/bluesec/blindfold
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/glasses.dmi'
@@ -352,6 +433,8 @@
 	icon_state = "secfold"
 	base_icon_state = "secfold"
 	glass_colour_type = /datum/client_colour/glass_colour/darkred
+	current_skin = "secfold"
+	uses_advanced_reskins = FALSE
 
 /*
 * HEAD
@@ -393,6 +476,7 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/helmet.dmi'
 	icon_state = "security_helmet"
 	base_icon_state = "security_helmet"
+	can_toggle = TRUE
 	actions_types = list(/datum/action/item_action/toggle)
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION
 	flags_cover = HEADCOVERSEYES | PEPPERPROOF
