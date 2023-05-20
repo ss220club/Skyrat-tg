@@ -137,8 +137,8 @@
 	icon_state = "warden_envirosuit"
 
 /obj/item/clothing/under/plasmaman/security/head_of_security
-	icon = 'icons/obj/clothing/under/security.dmi'
-	worn_icon = 'icons/mob/clothing/under/security.dmi'
+	icon = 'icons/obj/clothing/under/plasmaman.dmi'
+	worn_icon = 'icons/mob/clothing/under/plasmaman.dmi'
 	icon_state = "hos_envirosuit"
 
 /obj/item/clothing/head/helmet/space/plasmaman/security
@@ -226,6 +226,7 @@
 
 /obj/item/clothing/glasses/hud/eyepatch/sec
 	icon = 'icons/obj/clothing/glasses.dmi'
+	worn_icon = 'icons/mob/clothing/eyes.dmi'
 	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/clothing/glasses_righthand.dmi'
 	icon_state = "hudpatch"
