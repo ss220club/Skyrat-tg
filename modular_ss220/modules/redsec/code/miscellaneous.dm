@@ -338,22 +338,22 @@
 
 /*
 * CUSTOM LOADOUTS DISABLE
-* SS220: Not actually ERP items, but we exploit it because there's no other option to disable it from loadout, УВЫ
+* SS220: If we need to delete certain items from loadouts. This code doesn't work actually :pleading_face:
 */
-/datum/controller/configuration/Load(_directory)
-	. = ..()
-	GLOB.loadout_glasses -= /datum/loadout_item/glasses/aviator_security
-	GLOB.loadout_glasses -= /datum/loadout_item/glasses/prescription_aviator_security
-	GLOB.loadout_glasses -= /datum/loadout_item/glasses/retinal_projector_security
-	GLOB.loadout_glasses -= /datum/loadout_item/head/ushanka/sec
-	GLOB.loadout_glasses -= /datum/loadout_item/head/solofficercap
-	GLOB.loadout_glasses -= /datum/loadout_item/head/soltrafficoff
-	GLOB.loadout_glasses -= /datum/loadout_item/head/imperial_generic
-	GLOB.loadout_glasses -= /datum/loadout_item/head/imperial_grey
-	GLOB.loadout_glasses -= /datum/loadout_item/head/imperial_white
-	GLOB.loadout_glasses -= /datum/loadout_item/suit/navybluejacketofficer
-	GLOB.loadout_glasses -= /datum/loadout_item/suit/navybluejacketwarden
-	GLOB.loadout_glasses -= /datum/loadout_item/suit/british_jacket
-	GLOB.loadout_glasses -= /datum/loadout_item/under/jumpsuit/solwarden
-	GLOB.loadout_glasses -= /datum/loadout_item/under/jumpsuit/security_trousers
-	GLOB.loadout_glasses -= /datum/loadout_item/under/jumpsuit/solofficer
+// /datum/controller/configuration/Load(_directory)
+// 	. = ..()
+// 	GLOB.loadout_glasses -= /datum/loadout_item/glasses/aviator_security
+// 	GLOB.loadout_glasses -= /datum/loadout_item/glasses/prescription_aviator_security
+// 	GLOB.loadout_glasses -= /datum/loadout_item/glasses/retinal_projector_security
+// 	GLOB.loadout_glasses -= /datum/loadout_item/head/ushanka/sec
+// 	GLOB.loadout_glasses -= /datum/loadout_item/head/solofficercap
+// 	GLOB.loadout_glasses -= /datum/loadout_item/head/soltrafficoff
+// 	GLOB.loadout_glasses -= /datum/loadout_item/head/imperial_generic
+// 	GLOB.loadout_glasses -= /datum/loadout_item/head/imperial_grey
+// 	GLOB.loadout_glasses -= /datum/loadout_item/head/imperial_white
+// 	GLOB.loadout_glasses -= /datum/loadout_item/suit/navybluejacketofficer
+// 	GLOB.loadout_glasses -= /datum/loadout_item/suit/navybluejacketwarden
+// 	GLOB.loadout_glasses -= /datum/loadout_item/suit/british_jacket
+// 	GLOB.loadout_glasses -= /datum/loadout_item/under/jumpsuit/solwarden
+// 	GLOB.loadout_glasses -= /datum/loadout_item/under/jumpsuit/security_trousers
+// 	GLOB.loadout_glasses -= /datum/loadout_item/under/jumpsuit/solofficer
