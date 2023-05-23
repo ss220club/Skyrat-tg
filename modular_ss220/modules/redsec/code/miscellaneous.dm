@@ -13,18 +13,21 @@
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "secdrobe"
 	products = list(/obj/item/clothing/suit/hooded/wintercoat/security = 3,
-					/obj/item/storage/backpack/security = 3,
-					/obj/item/storage/backpack/satchel/sec = 3,
-					/obj/item/storage/backpack/duffelbag/sec = 3,
-					/obj/item/clothing/under/rank/security/officer = 3,
-					/obj/item/clothing/shoes/jackboots/sec = 3,
-					/obj/item/clothing/head/beret/sec = 3,
+					/obj/item/clothing/suit/toggle/jacket/sec = 3,
+					/obj/item/clothing/neck/security_cape = 3,
+					/obj/item/clothing/neck/security_cape/armplate = 3,
+					/obj/item/storage/backpack/security = 5,
+					/obj/item/storage/backpack/satchel/sec = 5,
+					/obj/item/storage/backpack/duffelbag/sec = 5,
+					/obj/item/clothing/under/rank/security/officer = 10,
+					/obj/item/clothing/under/rank/security/officer/skirt = 10,
+					/obj/item/clothing/under/rank/security/skyrat/utility = 5,
+					/obj/item/clothing/shoes/jackboots/sec = 10,
+					/obj/item/clothing/head/security_garrison = 10,
 					/obj/item/clothing/head/soft/sec = 3,
-					/obj/item/clothing/head/security_garrison = 3,
+					/obj/item/clothing/head/beret/sec = 3,
 					/obj/item/clothing/mask/bandana/striped/security = 3,
-					/obj/item/clothing/gloves/color/black/security = 3,
-					/obj/item/clothing/under/rank/security/officer/skirt = 3,
-					/obj/item/clothing/under/rank/security/skyrat/utility = 3,
+					/obj/item/clothing/gloves/color/black/security = 10,
 					)
 	premium = list(	/obj/item/clothing/under/rank/security/officer/formal = 3,
 					/obj/item/clothing/suit/jacket/officer/blue = 3,
@@ -44,25 +47,25 @@
 	req_access = list(ACCESS_SECURITY)
 	products = list(
 		/obj/item/restraints/handcuffs = 8,
-		/obj/item/restraints/handcuffs/cable/zipties = 10,
-		/obj/item/grenade/flashbang = 4,
-		/obj/item/assembly/flash/handheld = 5,
+		/obj/item/restraints/handcuffs/cable/zipties = 12,
+		/obj/item/grenade/flashbang = 6,
+		/obj/item/assembly/flash/handheld = 8,
 		/obj/item/food/donut/plain = 12,
 		/obj/item/storage/box/evidence = 6,
-		/obj/item/flashlight/seclite = 4,
-		/obj/item/restraints/legcuffs/bola/energy = 7,
+		/obj/item/flashlight/seclite = 6,
+		/obj/item/restraints/legcuffs/bola/energy = 10,
 	)
 	contraband = list(
 		/obj/item/clothing/glasses/sunglasses = 2,
 		/obj/item/storage/fancy/donut_box = 2,
 	)
 	premium = list(
-		/obj/item/storage/belt/security/webbing = 5,
+		/obj/item/storage/belt/security/webbing = 4,
 		/obj/item/coin/antagtoken = 1,
 		/obj/item/clothing/head/helmet/blueshirt = 1,
 		/obj/item/clothing/suit/armor/vest/blueshirt = 1,
 		/obj/item/clothing/gloves/tackler = 5,
-		/obj/item/grenade/stingbang = 1,
+		/obj/item/grenade/stingbang = 5,
 		/obj/item/watertank/pepperspray = 2,
 	)
 	refill_canister = /obj/item/vending_refill/security
