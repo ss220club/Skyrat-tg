@@ -843,9 +843,8 @@
 /turf/open/floor/iron/dark,
 /area/station/security/warden)
 "att" = (
-/obj/structure/stairs/north,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
+/turf/open/floor/iron/stairs/right,
 /area/station/maintenance/starboard/fore)
 "atv" = (
 /obj/item/kirbyplants/random,
@@ -11734,8 +11733,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/ghetto_livingcomplex_hall)
 "eRV" = (
-/obj/structure/stairs/north,
-/turf/open/floor/wood/large,
+/turf/open/floor/iron/stairs,
 /area/station/commons/lounge)
 "eSp" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -13635,8 +13633,9 @@
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/cmo)
 "fIt" = (
-/obj/structure/stairs/east,
-/turf/open/floor/iron,
+/turf/open/floor/iron/stairs{
+	dir = 8
+	},
 /area/station/hallway/secondary/exit/departure_lounge)
 "fID" = (
 /obj/structure/chair/comfy/brown{
@@ -16016,12 +16015,11 @@
 /turf/open/floor/carpet,
 /area/station/maintenance/ghetto_library)
 "gHz" = (
-/obj/structure/stairs/north,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/turf/open/floor/iron,
+/turf/open/floor/iron/stairs,
 /area/station/hallway/secondary/exit/escape_pod)
 "gHF" = (
 /obj/structure/flora/bush/pointy,
@@ -39539,10 +39537,9 @@
 /turf/open/floor/plating,
 /area/station/commons/vacant_room/office)
 "qmg" = (
-/obj/structure/stairs/north,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/iron/stairs/left,
 /area/station/maintenance/starboard/fore)
 "qmx" = (
 /obj/machinery/porta_turret/ai{
@@ -39858,10 +39855,6 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron/white,
 /area/station/medical/storage)
-"qvm" = (
-/obj/structure/stairs/east,
-/turf/open/space/basic,
-/area/station/hallway/secondary/exit/departure_lounge)
 "qvu" = (
 /obj/structure/closet/lasertag/red,
 /turf/open/floor/eighties,
@@ -50042,8 +50035,9 @@
 /turf/open/floor/wood,
 /area/station/maintenance/ghetto_livingcomplex_lobby)
 "uHC" = (
-/obj/structure/stairs/south,
-/turf/open/floor/wood/large,
+/turf/open/floor/iron/stairs{
+	dir = 1
+	},
 /area/station/commons/lounge)
 "uHD" = (
 /obj/effect/decal/cleanable/dirt,
@@ -110339,9 +110333,9 @@ dKm
 tSM
 nio
 hrD
-qvm
+fIt
 hrD
-qvm
+fIt
 oKZ
 oKZ
 oKZ
