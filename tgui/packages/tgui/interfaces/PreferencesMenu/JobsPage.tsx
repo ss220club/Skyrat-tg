@@ -373,7 +373,7 @@ const JoblessRoleDropdown = (props, context) => {
 
   const options = [
     {
-      displayText: `Присоединиться как ${data.overflow_role} если недоступно`,
+      displayText: `Присоединиться как ${data.overflow_role}, если не удалось войти`,
       value: JoblessRole.BeOverflow,
     },
     {
