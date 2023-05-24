@@ -104,6 +104,6 @@ export const feature_vampire_status: Feature<string> = {
 };
 
 export const heterochromatic: Feature<string> = {
-  name: 'Цвет гетерохромии (Правый Глаз)',
+  name: 'Цвет гетерохромии (правый глаз)',
   component: FeatureColorInput,
 };
