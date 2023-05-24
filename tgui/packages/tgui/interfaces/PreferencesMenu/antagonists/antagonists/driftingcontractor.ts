@@ -2,16 +2,18 @@ import { multiline } from 'common/string';
 import { Antagonist, Category } from '../base';
 
 export const CONTRACTOR_MECHANICAL_DESCRIPTION = multiline`
-      Float onto the station and complete as many
-      contracts for your employer as you can!
+      Отправляйтесь на станцию и выполните как можно
+      больше контрактов для своего работодателя!
     `;
 
 const DriftingContractor: Antagonist = {
   key: 'driftingcontractor',
-  name: 'Drifting Contractor',
+  name: 'Контрактор',
   description: [
-    multiline`A Syndicate agent that can spawn near the station, equipped with
-    top-of-the-line contractor gear, to complete contracts for the Syndicate.`,
+    multiline`
+    Агент Синдиката, который может появиться рядом со станцией,
+    оснащенный для выполнения контрактов для Синдиката.
+    `,
     CONTRACTOR_MECHANICAL_DESCRIPTION,
   ],
   category: Category.Midround,

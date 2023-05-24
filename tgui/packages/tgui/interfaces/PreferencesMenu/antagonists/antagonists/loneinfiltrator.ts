@@ -3,11 +3,13 @@ import { Antagonist, Category } from '../base';
 
 const LoneInfiltrator: Antagonist = {
   key: 'loneinfiltrator',
-  name: 'Lone Infiltrator',
+  name: 'Диверсант-одиночка',
   description: [
-    multiline`A midround traitor that can spawn near the station, equipped with
-    a Syndicate Modsuit and equipment befitting a station boarder.
-    Float onto the station and complete your objectives.`,
+    multiline`
+    Мидраунд вариант предателя, который может появиться рядом со станцией,
+    экипированный в МОД синдиката и со снаряжением,
+    подобающим абордажнику. Отправляйтесь на станцию и выполните свои задачи.
+    `,
   ],
   category: Category.Midround,
 };

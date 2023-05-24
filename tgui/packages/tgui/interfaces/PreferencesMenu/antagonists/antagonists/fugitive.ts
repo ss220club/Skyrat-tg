@@ -3,11 +3,12 @@ import { multiline } from 'common/string';
 
 const Fugitive: Antagonist = {
   key: 'fugitive',
-  name: 'Fugitive',
+  name: 'Беглец',
   description: [
     multiline`
-    Wherever you come from, you're being hunted. You have 10 minutes to prepare
-    before fugitive hunters arrive and start hunting you and your friends down!
+    Откуда бы вы ни пришли, за вами охотятся. У вас есть 10 минут,
+    чтобы подготовиться пока не появились охотники за беглецами и не начали
+    охоту на вас и ваших друзей!
     `,
   ],
   category: Category.Midround,

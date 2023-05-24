@@ -2,20 +2,21 @@ import { Antagonist, Category } from '../base';
 import { multiline } from 'common/string';
 
 export const OPERATIVE_MECHANICAL_DESCRIPTION = multiline`
-  Attain all possible GoldenEye authentication keys and use them to activate
-  the GoldenEye. These keys use mindfragments of Nanotrasen heads to generate
-  the key. Use the interrogator to extract these mindfragments.
+  Получите все возможные ключи аутентификации GoldenEye и используйте их для активации
+  GoldenEye. Эти ключи используют фрагменты сознания глав Nanotrasen для генерации
+  ключа. Используйте Interrogator, чтобы извлечь эти фрагменты сознания.
 `;
 
 const AssaultOperative: Antagonist = {
   key: 'assaultoperative',
-  name: 'Assault Operative',
+  name: 'Штурмовой оперативник',
   description: [
     multiline`
-      Good afternoon 0013, you have been selected to join an elite strike team
-      designated to locating and forging GoldenEye keys. Your mission is to
-      get these keys and use them to turn Nanotrasens GoldenEye defence
-      network against them. The GoldenEye network requires 3 keys to activate.
+      Добрый день, агент 0013. Вы были выбраны в элитную ударную группу, которой
+      поручено найти и подделать ключи от GoldenEye. Ваша миссия - получить эти
+      ключи и использовать их, чтобы обратить оборонительную сеть
+      Nanotrasen GoldenEye против них самих. Для активации сети GoldenEye
+      требуется 3 ключа.
     `,
 
     OPERATIVE_MECHANICAL_DESCRIPTION,

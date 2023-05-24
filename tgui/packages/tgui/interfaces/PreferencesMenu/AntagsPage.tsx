@@ -6,7 +6,7 @@ import { Antagonist, Category } from './antagonists/base';
 import { PreferencesMenuData } from './data';
 
 const requireAntag = require.context(
-  './antagonists/antagonists_ru', // SS220 EDIT - Original: './antagonists/antagonists'
+  './antagonists/antagonists',
   false,
   /.ts$/
 );

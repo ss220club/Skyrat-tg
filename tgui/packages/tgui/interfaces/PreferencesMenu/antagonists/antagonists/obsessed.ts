@@ -3,12 +3,12 @@ import { multiline } from 'common/string';
 
 const Obsessed: Antagonist = {
   key: 'obsessed',
-  name: 'Obsessed',
+  name: 'Одержимый',
   description: [
     multiline`
-    You're obsessed with someone! Your obsession may begin to notice their
-    personal items are stolen and their coworkers have gone missing,
-    but will they realize they are your next victim in time?
+    Вы кем-то одержимы! Ваша цель одержимости может начать замечать,
+    что их личные вещи украдены, а коллеги пропали,
+    но поймут ли они вовремя, что они - ваша следующая жертва?
     `,
   ],
   category: Category.Midround,

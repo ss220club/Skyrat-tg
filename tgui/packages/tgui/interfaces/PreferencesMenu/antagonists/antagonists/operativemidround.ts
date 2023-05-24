@@ -4,11 +4,10 @@ import { OPERATIVE_MECHANICAL_DESCRIPTION } from './operative';
 
 const OperativeMidround: Antagonist = {
   key: 'operativemidround',
-  name: 'Nuclear Assailant',
+  name: 'Ядерный штурмовик',
   description: [
     multiline`
-      A form of nuclear operative that is offered to ghosts in the middle
-      of the shift.
+      Мидраунд вариант ядерного оперативника, который набирается среди призраков.
     `,
     OPERATIVE_MECHANICAL_DESCRIPTION,
   ],

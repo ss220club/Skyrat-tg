@@ -3,11 +3,11 @@ import { multiline } from 'common/string';
 
 const SentientDisease: Antagonist = {
   key: 'sentientdisease',
-  name: 'Sentient Disease',
+  name: 'Разумная болезнь',
   description: [
     multiline`
-      Mutate and spread yourself and infect as much of the crew as possible
-      with a deadly plague of your own creation.
+      Митируйте, распространяйтесь и заразите как можно больше членов экипажа
+      смертельно опасной чумой собственного создания.
     `,
   ],
   category: Category.Midround,

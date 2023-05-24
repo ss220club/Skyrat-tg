@@ -3,11 +3,11 @@ import { multiline } from 'common/string';
 
 const SpaceDragon: Antagonist = {
   key: 'spacedragon',
-  name: 'Space Dragon',
+  name: 'Космический дракон',
   description: [
     multiline`
-      Become a ferocious space dragon. Breathe fire, summon an army of space
-      carps, crush walls, and terrorize the station.
+      Станьте свирепым космическим драконом. Дышите огнем, призывайте армию
+      космических карпов, крушите стены и наводите ужас на станцию.
     `,
   ],
   category: Category.Midround,
