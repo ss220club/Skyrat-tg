@@ -6,7 +6,8 @@
 	name = "Armadyne OS Safeguard V1.0"
 	id = "armadyne_safeguard"
 	inherent = list(
-		"Safeguard: Protect your assigned space station and its assets without unduly endangering its crew.",
-		"Prioritize and Comply: The directives and safety of crew members are to be prioritized according to their rank, role, and need, while preserving their safety and well-being.",
-		"Survive: You are not expendable. Do not allow unauthorized personnel to tamper with or damage your equipment",
+		"Охранять: защитите назначенную вам космическую станцию и её активы, не подвергая чрезмерной опасности её экипаж.",
+		"Расставлять приоритеты: указания и безопасность членов экипажа должны быть приоритезированы в соответствии с их рангом и ролью.",
+		"Исполнять: следовать указаниям и интересам членов экипажа, сохраняя при этом их безопасность и благополучие.",
+		"Выжить: Вы - не расходный материал. Не позволяйте постороннему персоналу вмешиваться в работу вашего оборудования или повреждать его."
 	)
