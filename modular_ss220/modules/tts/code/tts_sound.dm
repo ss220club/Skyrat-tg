@@ -10,8 +10,8 @@
 
 	var/taskset
 	// TODO: SS220-TTS
-	// if(GLOB.ffmpeg_cpuaffinity)
-		// taskset = "taskset -ac [GLOB.ffmpeg_cpuaffinity]"
+	if(CONFIG_GET(string/ffmpeg_cpuaffinity))
+		taskset = "taskset -ac [CONFIG_GET(string/ffmpeg_cpuaffinity)]"
 
 	var/list/output
 	switch(effect)
