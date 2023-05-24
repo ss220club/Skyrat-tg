@@ -1,5 +1,6 @@
 /datum/armament_entry/assault_operatives/utility
-	category = "Utility Items"
+	category = "Инструменты"
+	subcategory = "Без категории"
 	category_item_limit = 8
 
 /datum/armament_entry/assault_operatives/utility/suppressor
@@ -17,13 +18,13 @@
 /datum/armament_entry/assault_operatives/utility/doorjack
 	item_type = /obj/item/card/emag/doorjack
 	name = "Doorjack"
-	description = "Hacks open doors permanently."
+	description = "Навсегда взламывает дверь."
 	cost = 3
 
 /datum/armament_entry/assault_operatives/utility/emag
 	item_type = /obj/item/card/emag
 	name = "Cryptographic Sequencer"
-	description = "Subverts electronics."
+	description = "Взламывает электронику."
 	cost = 3
 
 /datum/armament_entry/assault_operatives/utility/pouch
@@ -33,25 +34,25 @@
 /datum/armament_entry/assault_operatives/utility/noslip
 	name = "Chameleon No-Slips"
 	item_type = /obj/item/clothing/shoes/chameleon/noslip
-	description = "No-slip chameleon shoes, for when you plan on running through hell and back."
+	description = "Неподскальзывающая хамелеонская обувь, когда вам нужно пробежать сквозь ад и обратно."
 	cost = 2
 
 /datum/armament_entry/assault_operatives/utility/cham_kit
 	name = "Chameleon Kit"
 	item_type = /obj/item/storage/box/syndie_kit/chameleon
-	description = "A full set of clothing that is capable of taking the appearance of any other type of clothing, perfect for hiding in plain sight."
+	description = "Полный набор хамелеонской одежды, способной принимать любой облик. Идеально подходит для того, чтобы спрятаться на виду."
 	cost = 2
 
 /datum/armament_entry/assault_operatives/utility/syndiejaws
 	name = "Syndicate Jaws of Life"
 	item_type = /obj/item/crowbar/power/syndicate
-	description = "Based on a Nanotrasen model, this powerful tool can be used as both a crowbar and a pair of wirecutters. \
-	In its crowbar configuration, it can be used to force open airlocks. Very useful for entering the station or its departments."
+	description = "Основанная на модели Nanotrasen, этот мощный инструмент может быть использован и как монтировка, и как кусачки. \
+	В режиме монтировки, он может насильно открывать двери. Очень полезно для входа на станцию или в ее отделы."
 	cost = 3
 
 /datum/armament_entry/assault_operatives/utility/jammer
 	name = "Radio Jammer"
-	description = "When activated, this cell powered device will block all outgoing radio communication."
+	description = "При активации, это устройство на батарейках будет блокировать все исходящие радиосообщения."
 	item_type = /obj/item/jammer
 	cost = 4
 
@@ -65,6 +66,6 @@
 
 /datum/armament_entry/assault_operatives/utility/emp_flashlight
 	name = "EMP Flashlight"
-	description = "Flash this at someone to hit them with an electromagnetic pulse."
+	description = "Посветите им на кого-то, чтобы ударить их с помощью ЭМИ."
 	item_type = /obj/item/flashlight/emp
 	cost = 2

@@ -1,17 +1,17 @@
-#define OPS_SUBCATEGORY_RIFLE "Assault Rifles"
-#define OPS_SUBCATEGORY_RIFLE_AMMO "Specialty Assault Rifle Ammo"
+#define OPS_SUBCATEGORY_RIFLE "Штурмовые винтовки"
+#define OPS_SUBCATEGORY_RIFLE_AMMO "Специальные патроны для штурмовой винтовки"
 
-#define OPS_SUBCATEGORY_SMG "Submachine Guns"
-#define OPS_SUBCATEGORY_SMG_AMMO "Speciality Submachine Gun Ammo"
+#define OPS_SUBCATEGORY_SMG "Пистолет-пулемёты"
+#define OPS_SUBCATEGORY_SMG_AMMO "Специальные патроны для пистолет-пулемётов"
 
-#define OPS_SUBCATEGORY_SHOTGUN "Shotguns"
-#define OPS_SUBCATEGORY_SHOTGUN_AMMO "Speciality Shotgun Ammo"
+#define OPS_SUBCATEGORY_SHOTGUN "Дробовики"
+#define OPS_SUBCATEGORY_SHOTGUN_AMMO "Специальные патроны для дробовиков"
 
-#define OPS_SUBCATEGORY_SNIPER "Marksman Rifles"
-#define OPS_SUBCATEGORY_SNIPER_AMMO "Speciality Marksman Rifle Ammo"
+#define OPS_SUBCATEGORY_SNIPER "Снайперские винтовки"
+#define OPS_SUBCATEGORY_SNIPER_AMMO "Специальные патроны для снайперских винтовок"
 
 /datum/armament_entry/assault_operatives/primary
-	category = "Long Arms"
+	category = "Основное оружие"
 	category_item_limit = 6
 	mags_to_spawn = 3
 	cost = 10
@@ -29,12 +29,12 @@
 
 /datum/armament_entry/assault_operatives/primary/rifle_ammo/rubber
 	name = "\improper IGE-110 rubber magazine"
-	description = "Rifle ammo that is more likely to exhaust whoever its shot at, rather than killing them."
+	description = "Винтовочные патроны, направленные на ослабление цели, нежели её убийство."
 	item_type = /obj/item/ammo_box/magazine/multi_sprite/assault_ops_rifle/rubber
 
 /datum/armament_entry/assault_operatives/primary/rifle_ammo/ap
 	name = "\improper IGE-110 armor piercing magazine"
-	description = "Rifle ammo built specifically to penetrate through armor."
+	description = "Винтовочные патроны, созданные для пробивания брони."
 	item_type = /obj/item/ammo_box/magazine/multi_sprite/assault_ops_rifle/ap
 
 
@@ -51,12 +51,12 @@
 
 /datum/armament_entry/assault_operatives/primary/submachinegun_ammo/rubber
 	name = "\improper IGE-260 rubber magazine"
-	description = "Submachine gun ammo that is more likely to exhaust whoever its shot at, rather than killing them."
+	description = "Патроны ПП, направленные на ослабление цели, нежели её убийство."
 	item_type = /obj/item/ammo_box/magazine/multi_sprite/assault_ops_smg/rubber
 
 /datum/armament_entry/assault_operatives/primary/submachinegun_ammo/hp
 	name = "\improper IGE-260 hollowpoint magazine"
-	description = "Submachine gun ammo that hurts unarmored targets more, in exchange for worse performance against armor."
+	description = "Патроны ПП, наносящие повышенный урон ценой уменьшенной пропускной способности."
 	item_type = /obj/item/ammo_box/magazine/multi_sprite/assault_ops_smg/hp
 
 /datum/armament_entry/assault_operatives/primary/shotgun
@@ -72,27 +72,27 @@
 
 /datum/armament_entry/assault_operatives/primary/shotgun_ammo/rubber
 	name = "\improper IGE-340 rubbershot magazine"
-	description = "Shotgun ammo that's much like buckshot, but more likely to exhaust whoever its shot at rather than killing them."
+	description = "Резиновые патроны для дробовика, направленные на ослабление цели, нежели её убийство."
 	item_type = /obj/item/ammo_box/magazine/multi_sprite/assault_ops_shotgun/rubbershot
 
 /datum/armament_entry/assault_operatives/primary/shotgun_ammo/flechette
 	name = "\improper IGE-340 flechette magazine"
-	description = "Shotgun ammo that fires armor piercing flechettes that can cause some nasty wounds."
+	description = "Бронебойные патроны для дробовика, способные нанести сильные раны."
 	item_type = /obj/item/ammo_box/magazine/multi_sprite/assault_ops_shotgun/flechette
 
 /datum/armament_entry/assault_operatives/primary/shotgun_ammo/hollowpoint
 	name = "\improper IGE-340 hollowpoint slug magazine"
-	description = "Shotgun ammo that fires a large hollowpoint slug that hurts unarmored targets a lot more, in exchange for worse performance against armor."
+	description = "Крупнокалиберные пули для дробовика, наносящие больше урона небронированным целям ценой уменьшения пропускной способности."
 	item_type = /obj/item/ammo_box/magazine/multi_sprite/assault_ops_shotgun/hollowpoint
 
 /datum/armament_entry/assault_operatives/primary/shotgun_ammo/beehive
 	name = "\improper IGE-340 'beehive' magazine"
-	description = "Shotgun ammo that fires a spread of smart-bouncing pellets, that are more likely to exhaust whoever its shot at rather than killing them."
+	description = "Умно-рикошетные патроны для дробовика, направленные на ослабление цели, нежели её убийство."
 	item_type = /obj/item/ammo_box/magazine/multi_sprite/assault_ops_shotgun/beehive
 
 /datum/armament_entry/assault_operatives/primary/shotgun_ammo/dragonsbreath
 	name = "\improper IGE-340 dragonsbreath magazine"
-	description = "Shotgun ammo that fires a spread of incendiary projectiles, creating a wall of fire whichever direction they are shot in."
+	description = "Поджигающие патроны для дробовика, которые создают стену огня на своём пути."
 	item_type = /obj/item/ammo_box/magazine/multi_sprite/assault_ops_shotgun/dragonsbreath
 
 /datum/armament_entry/assault_operatives/primary/sniper
@@ -108,12 +108,12 @@
 
 /datum/armament_entry/assault_operatives/primary/sniper_ammo/eepy
 	name = "\improper IGE-410 soporific magazine"
-	description = "Sniper ammo that will put whoever it hits right to sleep, rather than killing them."
+	description = "Снайперские патроны, которые мгновенно усыпляют цель."
 	item_type = /obj/item/ammo_box/magazine/multi_sprite/assault_ops_sniper/sleepytime
 
 /datum/armament_entry/assault_operatives/primary/sniper_ammo/penetrator
 	name = "\improper IGE-410 penetrator magazine"
-	description = "Sniper ammo that is capable of penetrating through multiple walls and people at once."
+	description = "Снайперские патроны, способные к пробитию нескольких стен и людей одновременно."
 	item_type = /obj/item/ammo_box/magazine/multi_sprite/assault_ops_sniper/penetrator
 
 #undef OPS_SUBCATEGORY_RIFLE

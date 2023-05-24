@@ -31,7 +31,7 @@
 /obj/machinery/porta_turret/syndicate/assaultops/internal
 	always_up = FALSE
 	has_cover = TRUE
-	desc = "An energy blaster auto-turret."
+	desc = "Автоматическая турель с энергетическим бластером."
 	icon_state = "standard_stun"
 	base_icon_state = "standard"
 	stun_projectile = /obj/projectile/energy/electrode

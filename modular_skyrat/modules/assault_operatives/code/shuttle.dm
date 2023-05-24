@@ -1,6 +1,6 @@
 /obj/machinery/computer/shuttle/goldeneye_cruiser
 	name = "goldeneye cruiser helm"
-	desc = "The terminal used to control the goldeneye cruiser."
+	desc = "Терминал, используемый для управления крейсером GoldenEye."
 	shuttleId = "goldeneye_cruiser"
 	possible_destinations = "goldeneye_cruiser_custom;goldeneye_cruiser_dock;syndicate_away;syndicate_z5;syndicate_ne;syndicate_nw;syndicate_n;syndicate_se;syndicate_sw;syndicate_s;syndicate_cruiser_dock;whiteship_away;whiteship_home;whiteship_z4;whiteship_lavaland;ferry_away"
 	circuit = /obj/item/circuitboard/computer/syndicate_shuttle
@@ -20,12 +20,12 @@
 
 /obj/machinery/computer/shuttle/goldeneye_cruiser/recall
 	name = "goldeneye shuttle recall terminal"
-	desc = "Use this if your friends left you behind."
+	desc = "Используйте его, если ваши друзья оставили вас позади."
 	possible_destinations = "goldeneye_cruiser_dock"
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/goldeneye_cruiser
 	name = "goldeneye cruiser navigation computer"
-	desc = "Used to designate a precise transit location for the goldeneye cruiser."
+	desc = "Используется для обозначения точного места прибытия крейсера GoldenEye."
 	icon_screen = "syndishuttle"
 	icon_keyboard = "syndie_key"
 	shuttlePortId = "goldeneye_cruiser_dock"

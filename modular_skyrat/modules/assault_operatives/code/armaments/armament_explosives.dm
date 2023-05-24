@@ -1,5 +1,6 @@
 /datum/armament_entry/assault_operatives/explosives
-	category = "Explosive Devices"
+	category = "Взрывчатка"
+	subcategory = "Без категории"
 	category_item_limit = 4
 	max_purchase = 4
 

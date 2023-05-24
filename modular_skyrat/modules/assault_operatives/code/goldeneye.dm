@@ -39,19 +39,19 @@ SUBSYSTEM_DEF(goldeneye)
 	if(uploaded_keys >= required_keys)
 		activate()
 		return
-	priority_announce("UNAUTHORISED KEYCARD UPLOAD DETECTED. [uploaded_keys]/[required_keys] KEYCARDS UPLOADED.", "GoldenEye Defence Network")
+	priority_announce("ОБНАРУЖЕНА НЕСАНКЦИОНИРОВАННАЯ ЗАГРУЗКА КЛЮЧ-КАРТЫ. ЗАГРУЖЕНО КЛЮЧ-КАРТ: [uploaded_keys]/[required_keys].", "Защитная сеть GoldenEye")
 
 /// Activates goldeneye.
 /datum/controller/subsystem/goldeneye/proc/activate()
-	var/message = "/// GOLDENEYE DEFENCE NETWORK BREACHED /// \n \
-	Unauthorised GoldenEye Defence Network access detected. \n \
-	ICARUS online. \n \
-	Targeting system override detected... \n \
-	New target: /NTSS13/ \n \
-	ICARUS firing protocols activated. \n \
-	ETA to fire: [ignition_time / 10] seconds."
+	var/message = "/// ЗАЩИТНАЯ СЕТЬ GOLDENEYE ВЗЛОМАНА /// \n \
+	Обнаружен несанкционированный доступ к защитной сети GoldenEye. \n \
+	ИКАРУС онлайн. \n \
+	Обнаружен обход системы нацеливания... \n \
+	Новая цель: /НТКС13/ \n \
+	Огневые протоколы ИКАРУС активированы. \n \
+	Время до выстрела: [ignition_time / (1 SECONDS)] seconds."
 
-	priority_announce(message, "GoldenEye Defence Network", ANNOUNCER_ICARUS)
+	priority_announce(message, "Защитная сеть GoldenEye", ANNOUNCER_ICARUS)
 	goldeneye_activated = TRUE
 
 	addtimer(CALLBACK(src, PROC_REF(fire_icarus)), ignition_time)
@@ -73,8 +73,8 @@ SUBSYSTEM_DEF(goldeneye)
 
 // Goldeneye key
 /obj/item/goldeneye_key
-	name = "\improper GoldenEye authentication keycard"
-	desc = "A high profile authentication keycard to Nanotrasen's GoldenEye defence network. It seems indestructible."
+	name = "\improper Ключ-карта для аутентификации GoldenEye"
+	desc = "Высококлассная ключ-карта для аутентификации в защитной сети GoldenEye компании Nanotrasen. Она кажется неразрушимой."
 	icon = 'modular_skyrat/modules/assault_operatives/icons/goldeneye.dmi'
 	icon_state = "goldeneye_key"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -88,13 +88,13 @@ SUBSYSTEM_DEF(goldeneye)
 	. = ..()
 	SSgoldeneye.goldeneye_keys += src
 	goldeneye_tag = "G[rand(10000, 99999)]"
-	name = "\improper GoldenEye authentication keycard: [goldeneye_tag]"
+	name = "\improper Ключ-карта для аутентификации GoldenEye: [goldeneye_tag]"
 	AddComponent(/datum/component/gps, goldeneye_tag)
 	SSpoints_of_interest.make_point_of_interest(src)
 
 /obj/item/goldeneye_key/examine(mob/user)
 	. = ..()
-	. += "The DNA data link belongs to: [extract_name]"
+	. += "Информация из ДНК принадлежит: [extract_name]"
 
 /obj/item/goldeneye_key/Destroy(force)
 	SSgoldeneye.goldeneye_keys -= src
@@ -103,7 +103,7 @@ SUBSYSTEM_DEF(goldeneye)
 // Upload terminal
 /obj/machinery/goldeneye_upload_terminal
 	name = "\improper GoldenEye Defnet Upload Terminal"
-	desc = "An ominous terminal with some ports and keypads, the screen is scrolling with illegible nonsense. It has a strange marking on the side, a red ring with a gold circle within."
+	desc = "Зловещий терминал с несколькими портами и клавиатурами, на экране прокручивается неразборчивая бессмыслица. На стороне у него странная маркировка - красное кольцо с золотым кругом внутри."
 	icon = 'modular_skyrat/modules/assault_operatives/icons/goldeneye.dmi'
 	icon_state = "goldeneye_terminal"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -117,32 +117,32 @@ SUBSYSTEM_DEF(goldeneye)
 	if(uploading)
 		return
 	if(!is_station_level(z))
-		say("CONNECTION TO GOLDENEYE NOT DETECTED: Please return to comms range.")
+		say("ОТСУТСТВУЕТ СВЯЗЬ С GOLDENEYE: Пожалуйста, вернитесь в зону действия телекоммуникаций.")
 		playsound(src, 'sound/machines/nuke/angry_beep.ogg', 100)
 		return
 	if(!istype(weapon, /obj/item/goldeneye_key))
-		say("AUTHENTICATION ERROR: Please do not insert foreign objects into terminal.")
+		say("ОШИБКА АУТЕНТИФИКАЦИИ: Пожалуйста, не вставляйте инородные объекты в терминал.")
 		playsound(src, 'sound/machines/nuke/angry_beep.ogg', 100)
 		return
 	var/obj/item/goldeneye_key/inserting_key = weapon
-	say("GOLDENEYE KEYCARD ACCEPTED: Please wait while the keycard is verified...")
+	say("КЛЮЧ-КАРТА GOLDENEYE ПРИНЯТА: Пожалуйста, ожидайте, пока ключ-карта проходит проверку...")
 	playsound(src, 'sound/machines/nuke/general_beep.ogg', 100)
 	uploading = TRUE
 	if(do_after(user, 10 SECONDS, src))
-		say("GOLDENEYE KEYCARD AUTHENTICATED!")
+		say("КЛЮЧ-КАРТА GOLDENEYE: ПОДТВЕРЖДЕНА!")
 		playsound(src, 'sound/machines/nuke/confirm_beep.ogg', 100)
 		SSgoldeneye.upload_key()
 		uploading = FALSE
 		qdel(inserting_key)
 	else
-		say("GOLDENEYE KEYCARD VERIFICATION FAILED: Please try again.")
+		say("КЛЮЧ-КАРТА GOLDENEYE: ПРОВЕРКА НЕ ПРОЙДЕНА. Пожалуйста, попробуйте снова.")
 		playsound(src, 'sound/machines/nuke/angry_beep.ogg', 100)
 		uploading = FALSE
 
 // Pinpointer
 /obj/item/pinpointer/nuke/goldeneye
-	name = "\improper GoldenEye keycard pinpointer"
-	desc = "A handheld tracking device that locks onto certain signals. This one is configured to locate any GoldenEye keycards."
+	name = "\improper Пин-поинтер ключ-карт GoldenEye"
+	desc = "Портативное устройство слежения, которое фиксирует определенные сигналы. Это устройство настроено на обнаружение любых ключ-карт GoldenEye."
 	icon_state = "pinpointer_syndicate"
 	worn_icon_state = "pinpointer_black"
 	active = TRUE
@@ -155,10 +155,11 @@ SUBSYSTEM_DEF(goldeneye)
 /obj/item/pinpointer/nuke/goldeneye/attack_self(mob/living/user)
 	if(!LAZYLEN(SSgoldeneye.goldeneye_keys))
 		to_chat(user, span_danger("ERROR! No GoldenEye keys detected!"))
+		to_chat(user, span_danger("ОШИБКА! Не обнаружены ключи GoldenEye!"))
 		return
-	target = tgui_input_list(user, "Select GoldenEye keycard to track", "GoldenEye keycard", SSgoldeneye.goldeneye_keys)
+	target = tgui_input_list(user, "Выберите ключ-карту GoldenEye для трекинга", "Ключ-карта GoldenEye", SSgoldeneye.goldeneye_keys)
 	if(target)
-		to_chat(user, span_notice("Set to track: [target.name]"))
+		to_chat(user, span_notice("Трекинг: [target.name]"))
 
 /obj/item/pinpointer/nuke/goldeneye/scan_for_target()
 	if(QDELETED(target))
@@ -167,8 +168,8 @@ SUBSYSTEM_DEF(goldeneye)
 // Objective
 /datum/objective/goldeneye
 	name = "subvert goldeneye"
-	objective_name = "Subvert GoldenEye"
-	explanation_text = "Extract all of the required GoldenEye authentication keys from the heads of staff and activate GoldenEye."
+	objective_name = "Взломайте систему GoldenEye"
+	explanation_text = "Извлеките все необходимые ключи аутентификации GoldenEye у глав станции и активируйте протокол GoldenEye."
 	martyr_compatible = TRUE
 
 /datum/objective/goldeneye/check_completion()
@@ -180,8 +181,8 @@ SUBSYSTEM_DEF(goldeneye)
 
 
 /atom/movable/screen/alert/status_effect/goldeneye_pinpointer
-	name = "Target Integrated Pinpointer"
-	desc = "Even stealthier than a normal implant, it points to a selected GoldenEye keycard."
+	name = "Интегрированный пинпоинтер"
+	desc = "Еще более скрытный, чем обычный имплант, он указывает на выбранную ключ-карту GoldenEye."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "pinon"
 
@@ -251,7 +252,7 @@ SUBSYSTEM_DEF(goldeneye)
 
 /datum/status_effect/goldeneye_pinpointer/proc/set_target(obj/item/new_target)
 	target = new_target
-	to_chat(owner, span_redtext("Integrated pinpointer set to: [target.name]"))
+	to_chat(owner, span_redtext("Интегрированный пинпоинтер указывает на: [target.name]"))
 
 #undef ICARUS_IGNITION_TIME
 #undef PINPOINTER_PING_TIME

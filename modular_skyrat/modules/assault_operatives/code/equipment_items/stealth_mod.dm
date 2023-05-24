@@ -1,13 +1,12 @@
 /datum/mod_theme/covert
 	name = "covert"
-	desc = "A rarely seen MOD design of unknown origin, covered in sleek armor and with a menacingly solid faceplate."
-	extended_desc = "Not all that much is known about this type of suit, dubbed the 'Covert' type by most who come across it. \
-		The build is a streamlined layering consisting of shaped Plastitanium, and composite ceramic, while the under suit is \
-		lined with a lightweight Kevlar and durathread hybrid weave to provide ample protection to the user where the plating \
-		doesn't, with an illegal onboard electric powered ablative shield module to provide resistance against conventional \
-		energy firearms. In addition, it has an in-built chameleon system, allowing you to disguise the suit while undeployed. \
-		Aside from that, there are no manufcaturer marks or tags to be found, and even the color scheme is unfamiliar when \
-		it comes to most known MOD producers."
+	desc = "Редко встречающийся дизайн МОДа неизвестного происхождения, покрытый гладкой броней и с угрожающе массивным лицевым щитком."
+	extended_desc = "Не так уж много известно об этом типе костюма, который большинство тех, кто с ним сталкивается, называют \"Скрытным\". \
+		Конструкция представляет собой обтекаемый слой, состоящий из формованного пласттитана и композитной керамики, \
+		а нижняя часть костюма покрыта легким кевларом и гибридным плетением дюратред, обеспечивающим достаточную защиту пользователя в тех местах, где нет покрытия. \
+		Имеет незаконный встроенный модуль абляционного щита с электрическим питанием для защиты от обычного энергетического оружия. Кроме того, \
+		он имеет встроенную систему хамелеон, позволяющую маскировать костюм в неразвернутом состоянии. Также, \
+		на костюме нет никаких опознавательных знаков или бирок, и даже цветовая гамма не подходит к ни одному производителю МОДов."
 	default_skin = "stealth"
 	armor_type = /datum/armor/mod_theme_covert
 	resistance_flags = FIRE_PROOF | ACID_PROOF

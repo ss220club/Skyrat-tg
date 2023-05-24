@@ -1,7 +1,7 @@
 //VENDING MACHINES
 /obj/machinery/vending/assaultops_ammo
-	name = "\improper Syndicate Ammo Station"
-	desc = "An ammo vending machine which holds a variety of different ammo mags."
+	name = "\improper станция боезапаса Синдиката"
+	desc = "Вендор патронов, который имеет множество различных магазинов."
 	icon_state = "liberationstation"
 	vend_reply = "Item dispensed."
 	scan_id = FALSE

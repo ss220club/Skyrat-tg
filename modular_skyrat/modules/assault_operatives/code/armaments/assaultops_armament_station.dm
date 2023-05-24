@@ -1,6 +1,6 @@
 // VENDOR
 /obj/machinery/armament_station/assault_operatives
-	name = "Military Grade Armament Station"
+	name = "станция вооружения военного качества"
 
 	required_access = list(ACCESS_SYNDICATE)
 

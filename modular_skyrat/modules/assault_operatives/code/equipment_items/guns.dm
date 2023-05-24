@@ -2,7 +2,7 @@
 
 /obj/item/gun/ballistic/automatic/pistol/clandestine/assault_ops
 	name = "\improper IGE-040 pistol"
-	desc = "A pistol chambered in 10mm magnum and painted in an ominous matte black. Strangely, the gun also seems to lack any form of manufacturer markings."
+	desc = "Пистолет под патрон 10 мм магнум, окрашенный в зловещий матово-черный цвет. Странно, но на пистолете отсутствует какая-либо маркировка производителя."
 
 /obj/item/gun/ballistic/automatic/pistol/clandestine/assault_ops/give_manufacturer_examine()
 	AddComponent(/datum/component/manufacturer_examine, COMPANY_REMOVED)
@@ -17,7 +17,7 @@
 
 /obj/item/gun/ballistic/automatic/assault_ops_rifle
 	name = "\improper IGE-110 rifle"
-	desc = "A bullpup rifle chambered in 5.6x40mm and painted in an ominous matte black. Strangely, the gun also seems to lack any form of manufacturer markings."
+	desc = "Винтовка булл-пап под патрон 5,6x40 мм, окрашенная в зловещий матово-черный цвет. Странно, но на винтовке отсутствует какая-либо маркировка производителя."
 
 	icon_state = "ige_assault"
 	icon = 'modular_skyrat/modules/assault_operatives/icons/guns/guns.dmi'
@@ -51,7 +51,7 @@
 
 /obj/item/ammo_box/magazine/multi_sprite/assault_ops_rifle
 	name = "\improper IGE-110 magazine"
-	desc = "A twenty round magazine built for 5.6x40mm, intended for use in the IGE-110 rifle."
+	desc = "Магазин на двадцать патронов под патрон 5,6х40 мм, предназначенный для использования в винтовке IGE-110."
 	icon = 'modular_skyrat/modules/assault_operatives/icons/guns/magazines.dmi'
 	icon_state = "ige_assault_mag"
 	ammo_type = /obj/item/ammo_casing/realistic/a762x39
@@ -72,7 +72,7 @@
 
 /obj/item/gun/ballistic/automatic/assault_ops_smg
 	name = "\improper IGE-260 submachine gun"
-	desc = "A toploader submachine gun chambered in 9x25mm and painted in an ominous matte black. Strangely, the gun also seems to lack any form of manufacturer markings."
+	desc = "Пистолет-пулемёт с верхней загрузкой под патрон 9х25 мм, окрашенный в зловещий матово-черный цвет. Странно, но на пистолет-пулемёте отсутствует какая-либо маркировка производителя."
 
 	icon_state = "ige_smg"
 	icon = 'modular_skyrat/modules/assault_operatives/icons/guns/guns.dmi'
@@ -106,7 +106,7 @@
 
 /obj/item/ammo_box/magazine/multi_sprite/assault_ops_smg
 	name = "\improper IGE-260 magazine"
-	desc = "A forty round magazine built for 9x25mm, intended for use in the IGE-260 submachine gun."
+	desc = "Магазин на сорок патронов под патрон 9х25 мм, предназначенный для использования в пистолете-пулемёте IGE-260."
 	icon = 'modular_skyrat/modules/assault_operatives/icons/guns/magazines.dmi'
 	icon_state = "ige_smg_mag"
 	ammo_type = /obj/item/ammo_casing/c9mm
@@ -127,7 +127,7 @@
 
 /obj/item/gun/ballistic/automatic/assault_ops_shotgun
 	name = "\improper IGE-340 semi-automatic shotgun"
-	desc = "A magazine fed semi-automatic shotgun chambered in 12 GA and painted in an ominous matte black. Strangely, the gun also seems to lack any form of manufacturer markings."
+	desc = "Самозарядное ружье с магазинным питанием под патрон 12-го калибра, окрашенное в зловещий матово-черный цвет. Странно, но на ружье отсутствует какая-либо маркировка производителя."
 
 	icon_state = "ige_shotgun"
 	icon = 'modular_skyrat/modules/assault_operatives/icons/guns/guns.dmi'
@@ -157,7 +157,7 @@
 
 /obj/item/ammo_box/magazine/multi_sprite/assault_ops_shotgun
 	name = "\improper IGE-340 magazine"
-	desc = "A seven round magazine built for 12 GA, intended for use in the IGE-340 shotgun."
+	desc = "Магазин на семь патронов, рассчитанный на 12-й калибр, предназначенный для использования в ружье IGE-340."
 	icon = 'modular_skyrat/modules/assault_operatives/icons/guns/magazines.dmi'
 	icon_state = "ige_shotgun_mag"
 	ammo_type = /obj/item/ammo_casing/shotgun
@@ -190,7 +190,7 @@
 
 /obj/item/gun/ballistic/rifle/boltaction/assault_ops_sniper
 	name = "\improper IGE-410-S marksman rifle"
-	desc = "A magazine fed bolt-action rifle with a short enough barrel that your shoulder hurts just looking at it. Chambered in .416 Stabilis, it is painted in an ominous matte black and seems to lack any form of manufacturer markings."
+	desc = "Винтовка с магазинным питанием и настолько коротким стволом, что при взгляде на нее болит плечо. Винтовка калибра .416 Stabilis окрашена в зловещий матово-черный цвет и, похоже, лишена какой-либо маркировки производителя."
 
 	icon_state = "ige_sniper"
 	icon = 'modular_skyrat/modules/assault_operatives/icons/guns/guns.dmi'
@@ -228,7 +228,7 @@
 
 /obj/item/ammo_box/magazine/multi_sprite/assault_ops_sniper
 	name = "\improper IGE-410 magazine"
-	desc = "A five round magazine built for .416 Stabilis, intended for use in the IGE-410 sniper."
+	desc = "Магазин на пять патронов под патрон .416 Stabilis, предназначенный для использования в снайперской винтовке IGE-410."
 	icon = 'modular_skyrat/modules/assault_operatives/icons/guns/magazines.dmi'
 	icon_state = "ige_sniper_mag"
 	ammo_type = /obj/item/ammo_casing/p50

@@ -8,7 +8,7 @@
 
 /obj/effect/sunbeam
 	name = "\improper ICARUS Sunbeam"
-	desc = "A beam of light from the sun."
+	desc = "Луч света, прямиком от солнца."
 	icon = 'modular_skyrat/modules/assault_operatives/icons/sunbeam.dmi'
 	icon_state = "sunray_splash"
 	throwforce = 100
@@ -57,7 +57,7 @@
 		var/matrix/our_matrix = matrix()
 		our_matrix.Scale(scale_x, scale_y)
 		transform = our_matrix
-	notify_ghosts("An ICARUS sunbeam has been launched! [target_atom ? "Towards: [target_atom.name]" : ""]", source = src, action = NOTIFY_ORBIT, header = "Somethings burning!")
+	notify_ghosts("Солнечный луч ИКАРУСа был запущен! [target_atom ? "Цель: [target_atom.name]" : ""]", source = src, action = NOTIFY_ORBIT, header = "Что-то горит!")
 	soundloop = new(src, TRUE)
 
 /obj/effect/sunbeam/Destroy(force)
@@ -155,7 +155,7 @@
 	announce_when = 1 // Instant announcement
 
 /datum/round_event/icarus_sunbeam/announce(fake)
-	priority_announce("/// ICARUS SUNBEAM WEAPONS SYSTEM ACTIVATED, USE EXTREME CAUTION! ///", "GoldenEye Defence Network", ANNOUNCER_KLAXON)
+	priority_announce("/// АКТИВИРОВАНА СИСТЕМА ВООРУЖЕНИЯ ИКАРУСА \"СОЛНЕЧНЫЙ ЛУЧ\", СОБЛЮДАЙТЕ ПРЕДЕЛЬНУЮ ОСТОРОЖНОСТЬ! ///", "Защитная сеть GoldenEye", ANNOUNCER_KLAXON)
 	alert_sound_to_playing('modular_skyrat/modules/assault_operatives/sound/sunbeam_fire.ogg')
 
 /datum/round_event/icarus_sunbeam/start()

@@ -51,16 +51,16 @@ export const AntagInfoAssaultops = (props, context) => {
             <Section>
               <Stack.Item grow={1} align="center">
                 <Box fontSize={0.8} textAlign="right">
-                  GoldeneEye Defnet &nbsp;
+                  Система защиты GoldeneEye &nbsp;
                   <Box color="green" as="span">
-                    Connection Secure
+                    Безопасное соединение
                   </Box>
                 </Box>
               </Stack.Item>
-              <Section title="GoldenEye Subversion Progress" fontSize="15px">
+              <Section title="Прогресс взлома GoldenEye" fontSize="15px">
                 {uploaded_keys >= required_keys ? (
                   <Box fontSize="20px" color="green">
-                    GOLDENEYE ACTIVATED, WELL DONE OPERATIVE.
+                    GOLDENEYE АКТИВИРОВАН. ОТЛИЧНАЯ РАБОТА, АГЕНТ.
                   </Box>
                 ) : (
                   <Stack>
@@ -73,16 +73,16 @@ export const AntagInfoAssaultops = (props, context) => {
                       />
                     </Stack.Item>
                     <Stack.Item color="yellow">
-                      Required Keycards: {required_keys}
+                      Необходимо ключ-карт: {required_keys}
                     </Stack.Item>
                     <Stack.Item color="green">
-                      Uploaded Keycards: {uploaded_keys}
+                      Загружено ключ-карт: {uploaded_keys}
                     </Stack.Item>
                   </Stack>
                 )}
               </Section>
             </Section>
-            <Section title="Objectives">
+            <Section title="Задачи">
               <LabeledList>
                 {objectives.map((objective) => (
                   <LabeledList.Item
@@ -103,13 +103,13 @@ export const AntagInfoAssaultops = (props, context) => {
                     width="100%"
                     selected={tab === 1}
                     onClick={() => setTab(1)}>
-                    Targets
+                    Цели
                   </Tabs.Tab>
                   <Tabs.Tab
                     width="100%"
                     selected={tab === 2}
                     onClick={() => setTab(2)}>
-                    GoldenEye Keycards
+                    Ключ-карты GoldenEye
                   </Tabs.Tab>
                 </Tabs>
               </Stack.Item>
@@ -129,14 +129,15 @@ const TargetPrintout = (props, context) => {
   return (
     <Section grow>
       <Box textColor="red" fontSize="20px" mb={1}>
-        Target List
+        Список целей
       </Box>
       <Stack>
         <Stack.Item grow>
-          <Section title="Available Targets">
+          <Section title="Доступные цели">
             <Box textColor="red" mb={2}>
-              These are targets you have not yet extracted a GoldenEye key from.
-              They can be extracted by the in-TERROR-gator.
+              Это цели, из которых вы ещё не извлекли ключ-карту GoldenEye.
+              Ключ-карты могут быть извлечены из целей с помощью
+              in-TERROR-gator.
             </Box>
             <LabeledList>
               {available_targets.map((target) => (
@@ -152,10 +153,10 @@ const TargetPrintout = (props, context) => {
         </Stack.Item>
         <Divider vertical />
         <Stack.Item grow>
-          <Section title="Extracted Targets">
+          <Section title="Завершенные цели">
             <Box textColor="green" mb={2}>
-              These are targets you have extracted a GoldenEye keycard from.
-              They cannot be extracted again.
+              Это цели, из которых вы уже получили ключ-карту GoldenEye Вы не
+              можете извлечь их повторно.
             </Box>
             <LabeledList>
               {extracted_targets.map((target) => (
@@ -182,11 +183,11 @@ const KeyPrintout = (props, context) => {
   return (
     <Section grow>
       <Box textColor="red" fontSize="20px">
-        GoldenEye Keycards
+        Ключ-карты GoldenEye
       </Box>
       <Box mb={1}>
-        A list of GoldenEye keycards currently in existence. Select one to track
-        where it is using your hud.
+        Список доступных ключ-карт GoldenEye. Выберите один из них, чтобы начать
+        трекинг с помощью вашего HUD.
       </Box>
       <Stack vertical fill>
         <Stack.Item>

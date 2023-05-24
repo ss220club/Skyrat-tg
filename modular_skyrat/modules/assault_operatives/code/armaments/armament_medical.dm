@@ -1,9 +1,9 @@
 /datum/armament_entry/assault_operatives/medical
-	category = "First-Aid Supplies"
+	category = "Наборы первой помощи"
 	category_item_limit = 4
 
 /datum/armament_entry/assault_operatives/medical/medkit
-	subcategory = "Medical Kits"
+	subcategory = "Медицинские наборы"
 
 /datum/armament_entry/assault_operatives/medical/medkit/basic
 	item_type = /obj/item/storage/medkit/regular
@@ -18,7 +18,7 @@
 	cost = 4
 
 /datum/armament_entry/assault_operatives/medical/injector
-	subcategory = "Chemical Autoinjectors"
+	subcategory = "Химические автоинжекторы"
 
 /datum/armament_entry/assault_operatives/medical/injector/bloodloss
 	item_type = /obj/item/reagent_containers/hypospray/medipen/blood_loss

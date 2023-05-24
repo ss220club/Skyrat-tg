@@ -1,5 +1,6 @@
 /datum/armament_entry/assault_operatives/modules
-	category = "MOD Modules"
+	category = "Модули МОДа"
+	subcategory = "Без категории"
 	category_item_limit = 3
 
 /datum/armament_entry/assault_operatives/modules/noslip
