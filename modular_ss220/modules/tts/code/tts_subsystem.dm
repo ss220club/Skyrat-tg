@@ -498,7 +498,7 @@ SUBSYSTEM_DEF(tts220)
 	if(sanitized_messages_caching)
 		sanitized_messages_cache[hash] = .
 
-/proc/tts_cast(atom/speaker, mob/listener, message, seed_name = "Arthas", is_local = TRUE, effect = SOUND_EFFECT_NONE, traits = TTS_TRAIT_RATE_FASTER, preSFX = null, postSFX = null)
+/proc/tts_cast(atom/speaker, mob/listener, message, seed_name, is_local = TRUE, effect = SOUND_EFFECT_NONE, traits = TTS_TRAIT_RATE_FASTER, preSFX = null, postSFX = null)
 	SStts220.get_tts(speaker, listener, message, seed_name, is_local, effect, traits, preSFX, postSFX)
 
 /proc/tts_word_replacer(word)
