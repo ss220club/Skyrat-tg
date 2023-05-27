@@ -12533,10 +12533,9 @@
 /turf/open/floor/plating,
 /area/station/maintenance/solars/starboard/aft)
 "eQd" = (
-/obj/effect/turf_decal/tile/yellow,
-/obj/machinery/light/directional/east,
+/obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/iron,
-/area/station/hallway/primary/aft)
+/area/station/construction)
 "eQe" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/plating,
@@ -20252,10 +20251,6 @@
 	dir = 1
 	},
 /area/station/security/brig/entrance)
-"hMj" = (
-/obj/machinery/power/apc/auto_name/directional/west,
-/turf/open/floor/iron,
-/area/station/construction)
 "hMq" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/east,
@@ -23551,13 +23546,10 @@
 /turf/open/floor/plating,
 /area/station/maintenance/ghetto_engineering)
 "iWW" = (
+/obj/effect/turf_decal/tile/yellow,
 /obj/machinery/light/directional/east,
-/obj/machinery/camera/directional/east{
-	c_tag = "Atmospherics - West"
-	},
-/obj/machinery/status_display/evac/directional/east,
 /turf/open/floor/iron,
-/area/station/engineering/atmos)
+/area/station/hallway/primary/aft)
 "iXj" = (
 /obj/machinery/door/airlock{
 	name = "Unisex Restrooms"
@@ -60358,6 +60350,7 @@
 	pixel_x = -18
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/camera/directional/west,
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "xmQ" = (
@@ -86548,7 +86541,7 @@ ent
 ent
 sJt
 sJt
-hMj
+eQd
 fxN
 fxN
 dLU
@@ -91943,7 +91936,7 @@ qyt
 cMj
 mcS
 oGU
-eQd
+iWW
 lkt
 lkt
 wfx
@@ -95808,7 +95801,7 @@ oIz
 eXj
 oIz
 oIz
-iWW
+jYM
 jeH
 psC
 ito
