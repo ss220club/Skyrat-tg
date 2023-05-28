@@ -17,8 +17,8 @@
 		#include "map_files\tramstation\tramstation.dmm"
 		// SKYRAT EDIT ADDITON START - Compiling our modular maps too!
 		#include "map_files\VoidRaptor\VoidRaptor.dmm"
-		#include "map_files\Cyberiad\Cyberiad.dmm" //SS220 EDIT
 		// SKYRAT EDIT END
+		#include "map_files\Cyberiad\Cyberiad.dmm" //SS220 EDIT
 
 		#ifdef CIBUILDING
 			#include "templates.dm"
