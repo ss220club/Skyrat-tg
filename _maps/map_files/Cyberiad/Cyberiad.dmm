@@ -7283,7 +7283,7 @@
 /obj/structure/grille/broken,
 /obj/structure/holosign/barrier/atmos,
 /turf/open/floor/plating,
-/area/space)
+/area/station/maintenance/starboard/fore)
 "ctG" = (
 /obj/effect/turf_decal/delivery/white,
 /obj/effect/landmark/start/assistant,
@@ -20861,8 +20861,8 @@
 "hcy" = (
 /obj/structure/lattice,
 /obj/structure/holosign/barrier/atmos,
-/turf/open/space/basic,
-/area/space)
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
 "hcG" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
