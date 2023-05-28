@@ -548,9 +548,9 @@
 /turf/open/floor/plating,
 /area/station/maintenance/ghetto_secpoint)
 "aku" = (
-/obj/machinery/door/airlock/material{
-	name = "Room 1";
-	id = "secmaintdorm2"
+/obj/machinery/door/airlock{
+	id_tag = "secmaintdorm2";
+	name = "Room 2"
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/upper)
@@ -3060,13 +3060,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/commons/dorms)
-"bcP" = (
-/obj/effect/mapping_helpers/airlock/unres,
-/obj/machinery/door/airlock/maintenance{
-	name = "Maintenance"
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/port/lesser)
 "bcY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment,
@@ -14065,7 +14058,6 @@
 /area/station/engineering/supermatter/room)
 "eOn" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
@@ -20175,7 +20167,7 @@
 /area/station/security/warden)
 "gRP" = (
 /obj/machinery/door/window/brigdoor/right/directional/east{
-	name = "Forensic laboratory";
+	name = "Forensic Laboratory";
 	req_access = list("detective")
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -48373,10 +48365,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/medical/medsci)
-"qvP" = (
-/obj/structure/lattice,
-/turf/closed/wall/r_wall,
-/area/station/maintenance/starboard/fore)
 "qwa" = (
 /obj/structure/table/glass,
 /obj/structure/disposalpipe/segment{
@@ -49921,9 +49909,9 @@
 /area/station/medical/medbay/aft)
 "qYb" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/material{
-	name = "Room 1";
-	id = "secmaintdorm1"
+/obj/machinery/door/airlock{
+	id_tag = "secmaintdorm1";
+	name = "Room 1"
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/upper)
@@ -69513,7 +69501,7 @@
 /area/station/hallway/primary/starboard)
 "xQJ" = (
 /obj/machinery/door/airlock/public/glass{
-	name = "Imported food"
+	name = "Imported Food"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -83765,7 +83753,7 @@ coH
 iIJ
 xgW
 sFJ
-bcP
+hVz
 xgW
 kwA
 xZi
@@ -122858,7 +122846,7 @@ pvq
 pvq
 pvq
 oJg
-qvP
+oJg
 pvq
 pvq
 oJg
@@ -123120,7 +123108,7 @@ pvq
 pvq
 oJg
 pvq
-pvq
+oJg
 iUO
 oJg
 pvq
@@ -123373,11 +123361,11 @@ pvq
 pvq
 pvq
 oJg
-pvq
-pvq
 oJg
-pvq
-pvq
+oJg
+oJg
+oJg
+oJg
 iUO
 oJg
 pvq
@@ -123632,7 +123620,7 @@ pvq
 oJg
 pvq
 pvq
-pvq
+oJg
 pvq
 pvq
 oJg
