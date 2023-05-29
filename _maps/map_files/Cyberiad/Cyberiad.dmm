@@ -14871,7 +14871,6 @@
 /area/station/science/xenobiology)
 "fbh" = (
 /obj/structure/table/reinforced,
-/obj/structure/window/reinforced/spawner/directional/east,
 /obj/machinery/button/door{
 	id = "xeno1";
 	name = "Containment Control";
@@ -14882,6 +14881,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/iron,
 /area/station/science/xenobiology)
 "fbm" = (
@@ -18204,14 +18204,12 @@
 	name = "Containment Control";
 	req_access = list("xenobiology")
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/dark/half/contrasted,
+/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/iron,
 /area/station/science/xenobiology)
 "ggL" = (
@@ -19638,13 +19636,9 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/carpet,
 /area/station/maintenance/ghetto_library)
 "gHz" = (
@@ -22544,13 +22538,11 @@
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/aft)
 "hEH" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/carpet,
 /area/station/maintenance/ghetto_library)
 "hEI" = (
@@ -34065,11 +34057,11 @@
 	req_access = list("xenobiology")
 	},
 /obj/machinery/light/directional/south,
-/obj/structure/window/reinforced/spawner/directional/east,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/dark/half/contrasted,
+/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/iron,
 /area/station/science/xenobiology)
 "lvD" = (
@@ -34570,13 +34562,11 @@
 /area/station/maintenance/ghetto_livingcomplex_lobby)
 "lEU" = (
 /obj/structure/cable,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "lFa" = (
@@ -35716,7 +35706,6 @@
 "lXQ" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/window/reinforced/spawner/directional/north,
-/mob/living/simple_animal/chicken,
 /obj/structure/flora/bush/pointy/style_random,
 /obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/floor/grass,
@@ -36909,14 +36898,12 @@
 "msC" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/dark/half/contrasted,
+/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "msI" = (
@@ -42063,10 +42050,8 @@
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/bush/grassy,
 /obj/structure/flora/bush/flowers_yw,
-/obj/structure/window,
-/obj/structure/window{
-	dir = 1
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/grass,
 /area/station/medical/treatment_center)
 "ofF" = (
@@ -42697,13 +42682,9 @@
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/bush/grassy,
 /obj/structure/flora/bush/flowers_br,
-/obj/structure/window,
-/obj/structure/window{
-	dir = 1
-	},
-/obj/structure/window{
-	dir = 4
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/grass,
 /area/station/medical/treatment_center)
 "otN" = (
@@ -43544,9 +43525,6 @@
 /area/station/common/arcade)
 "oIq" = (
 /obj/structure/cable,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -43557,6 +43535,7 @@
 /obj/effect/turf_decal/tile/dark/half/contrasted{
 	dir = 8
 	},
+/obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "oIr" = (
@@ -60070,13 +60049,13 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/dark/half/contrasted{
 	dir = 8
 	},
+/obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "uqh" = (
@@ -60228,9 +60207,6 @@
 /area/station/hallway/primary/central/fore)
 "uti" = (
 /obj/structure/cable,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -60238,6 +60214,7 @@
 /obj/effect/turf_decal/tile/dark/half/contrasted{
 	dir = 8
 	},
+/obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "utk" = (
@@ -61449,7 +61426,6 @@
 /area/station/maintenance/disposal/incinerator)
 "uOh" = (
 /obj/structure/window/reinforced/spawner/directional/north,
-/mob/living/simple_animal/chicken,
 /obj/structure/flora/bush/pointy/style_random,
 /turf/open/floor/grass,
 /area/station/service/kitchen)
@@ -65152,7 +65128,6 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/central)
 "wcR" = (
-/obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
@@ -65161,6 +65136,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/iron,
 /area/station/science/xenobiology)
 "wcX" = (
@@ -65547,13 +65523,9 @@
 /obj/structure/flora/bush/sunny,
 /obj/structure/flora/bush/flowers_pp,
 /obj/machinery/light/floor,
-/obj/structure/window,
-/obj/structure/window{
-	dir = 1
-	},
-/obj/structure/window{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/grass,
 /area/station/medical/treatment_center)
 "wjq" = (
@@ -66250,10 +66222,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/science/auxlab/firing_range)
 "wwJ" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/carpet,
 /area/station/maintenance/ghetto_library)
 "wwU" = (
@@ -68735,12 +68705,12 @@
 "xqM" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk,
-/obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
 /obj/effect/turf_decal/tile/dark/half/contrasted,
+/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/iron,
 /area/station/science/xenobiology)
 "xqT" = (
@@ -70986,7 +70956,6 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
@@ -70996,6 +70965,7 @@
 /obj/effect/turf_decal/tile/dark/half/contrasted{
 	dir = 8
 	},
+/obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "yfz" = (
