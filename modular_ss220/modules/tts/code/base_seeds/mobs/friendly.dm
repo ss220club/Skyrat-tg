@@ -24,7 +24,7 @@
 /mob/living/simple_animal/chick
 	tts_seed = "Meepo"
 
-/mob/living/simple_animal/chicken
+/mob/living/basic/chicken
 	tts_seed = "Windranger"
 
 /mob/living/basic/pig
@@ -39,7 +39,7 @@
 /mob/living/basic/frog
 	tts_seed = "pantheon"
 
-/mob/living/simple_animal/hostile/lizard
+/mob/living/basic/lizard
 	tts_seed = "Shaker"
 
 /mob/living/basic/mouse
@@ -57,5 +57,5 @@
 /mob/living/simple_animal/sloth
 	tts_seed = "Peon"
 
-/mob/living/simple_animal/butterfly
+/mob/living/basic/butterfly
 	tts_seed = "Meepo"
