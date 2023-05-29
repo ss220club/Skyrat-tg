@@ -3006,10 +3006,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/commons/locker)
-"bbc" = (
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/station/hallway/secondary/entry)
 "bbm" = (
 /obj/structure/spider/stickyweb,
 /obj/effect/turf_decal/trimline/red/warning{
@@ -56456,9 +56452,7 @@
 /area/station/command/bridge)
 "tdk" = (
 /obj/structure/chair/sofa/corp,
-/mob/living/simple_animal/hostile/retaliate/goose{
-	buckled = 1
-	},
+/mob/living/simple_animal/hostile/retaliate/goose,
 /turf/open/floor/iron/white,
 /area/station/science/research)
 "tdl" = (
@@ -83008,9 +83002,9 @@ oJg
 mlt
 cpz
 mlt
-bbc
+oJg
 uCM
-bbc
+oJg
 mlt
 cpz
 mlt
