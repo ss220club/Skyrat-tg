@@ -154,7 +154,6 @@ SUBSYSTEM_DEF(goldeneye)
 
 /obj/item/pinpointer/nuke/goldeneye/attack_self(mob/living/user)
 	if(!LAZYLEN(SSgoldeneye.goldeneye_keys))
-		to_chat(user, span_danger("ERROR! No GoldenEye keys detected!"))
 		to_chat(user, span_danger("ОШИБКА! Не обнаружены ключи GoldenEye!"))
 		return
 	target = tgui_input_list(user, "Выберите ключ-карту GoldenEye для трекинга", "Ключ-карта GoldenEye", SSgoldeneye.goldeneye_keys)
