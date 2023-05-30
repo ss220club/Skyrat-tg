@@ -5,7 +5,7 @@
 	"map_file": "Cyberiad.dmm",
 	"shuttles": {
 		"emergency": "emergency_box",
-		"ferry": "ferry_fancy",
+		"ferry": "ferry_skyrat",
 		"cargo": "cargo_skyrat",
 		"whiteship": "whiteship_box"
 	},
