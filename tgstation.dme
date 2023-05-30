@@ -7095,6 +7095,7 @@
 #include "modular_ss220\master_files_skyrat\master_files\code\modules\client\preferences\mutant_parts.dm"
 #include "modular_ss220\master_files_skyrat\modules\aesthetics\lights\code\lighting.dm"
 #include "modular_ss220\master_files_skyrat\modules\altborgs\code\robot_model.dm"
+#include "modular_ss220\master_files_skyrat\modules\automapper\code\area_spawn_subsystem.dm"
 #include "modular_ss220\master_files_skyrat\modules\blueshield\blueshield.dm"
 #include "modular_ss220\master_files_skyrat\modules\customization\datums\keybinding\communication.dm"
 #include "modular_ss220\master_files_skyrat\modules\gun_safety\code\safety_additions.dm"
