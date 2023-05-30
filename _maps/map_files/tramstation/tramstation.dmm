@@ -19114,6 +19114,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
+"fum" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/brown/fourcorners,
+/obj/machinery/mineral/stacking_machine,
+/turf/open/floor/iron/smooth,
+/area/station/maintenance/disposal)
 "fuo" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/dark,
@@ -22711,6 +22717,14 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance/storage)
+"gPn" = (
+/obj/machinery/chem_heater/withbuffer,
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 8
+	},
+/obj/machinery/light/directional/west,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
 "gPA" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
@@ -52231,6 +52245,9 @@
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/engineering/supermatter/room)
+"rFf" = (
+/turf/open/floor/iron/smooth,
+/area/station/maintenance/department/science)
 "rFF" = (
 /obj/structure/bed,
 /obj/effect/turf_decal/trimline/red/filled/line{
@@ -53359,15 +53376,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/storage/tech)
-"scp" = (
-/obj/machinery/mineral/stacking_machine{
-	input_dir = 8;
-	output_dir = 2
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/tile/brown/fourcorners,
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/disposal)
 "scw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/railing,
@@ -65273,6 +65281,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
+"weh" = (
+/obj/machinery/light/small/directional/east,
+/obj/machinery/drone_dispenser,
+/turf/open/floor/iron/smooth,
+/area/station/maintenance/department/science)
 "wei" = (
 /obj/effect/turf_decal/trimline/red/filled/corner,
 /obj/effect/turf_decal/trimline/red/filled/corner{
@@ -67658,14 +67671,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/processing)
-"xbH" = (
-/obj/machinery/chem_heater,
-/obj/effect/turf_decal/trimline/purple/filled/line{
-	dir = 8
-	},
-/obj/machinery/light/directional/west,
-/turf/open/floor/iron/white,
-/area/station/science/xenobiology)
 "xcd" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 8
@@ -117102,7 +117107,7 @@ qlf
 hYx
 ulb
 dOq
-xbH
+gPn
 scO
 whn
 bgH
@@ -118842,7 +118847,7 @@ pCL
 aac
 vle
 gqc
-scp
+fum
 ggt
 mbQ
 vle
@@ -177731,9 +177736,9 @@ hwM
 dzu
 kcF
 soq
-abM
-abM
-abM
+weh
+rFf
+rFf
 abM
 abM
 abM
