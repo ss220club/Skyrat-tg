@@ -1,4 +1,12 @@
-//Maintenance - Cyberiad Ghetto
+/*
+*	Cyberiad
+*/
+//Maintenance - General
+/area/station/maintenance/xenobio_module
+	name = "\improper Abandoned Xenobiology Module"
+	icon_state = "xenobio"
+
+//Maintenance - Ghetto
 /area/station/maintenance/ghetto_livingcomplex_lobby
 	name = "\improper Abandoned Living Complex Lobby"
 	icon_state = "centralhall"
