@@ -29013,7 +29013,7 @@
 /area/station/maintenance/starboard/aft)
 "jJj" = (
 /obj/machinery/telecomms/processor/preset_two,
-/obj/effect/turf_decal/tile/brown/anticorner/contrasted{
+/obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
 	dir = 1
 	},
 /turf/open/floor/iron/telecomms,
@@ -46046,7 +46046,7 @@
 /area/station/maintenance/port/fore)
 "puj" = (
 /obj/machinery/telecomms/server/presets/engineering,
-/obj/effect/turf_decal/tile/brown/anticorner/contrasted{
+/obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
 	dir = 8
 	},
 /turf/open/floor/iron/telecomms,
