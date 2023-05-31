@@ -8926,6 +8926,10 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/poddoor/preopen{
+	id = "Engineering";
+	name = "Engineering Security Door"
+	},
 /turf/open/floor/iron,
 /area/station/engineering/storage_shared)
 "cUe" = (
@@ -9764,6 +9768,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/rust,
 /area/station/maintenance/fore)
+"djK" = (
+/obj/machinery/rnd/production/techfab/department/service,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
 "djP" = (
 /obj/structure/chair/stool{
 	dir = 8
@@ -9924,6 +9932,11 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/central)
+"dmM" = (
+/obj/effect/turf_decal/bot_blue,
+/obj/machinery/rnd/production/techfab/department/medical,
+/turf/open/floor/iron/white,
+/area/station/medical/storage)
 "dmN" = (
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=8";
@@ -15917,6 +15930,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/door/poddoor/preopen{
+	id = "Engineering";
+	name = "Engineering Security Door"
+	},
 /turf/open/floor/iron,
 /area/station/engineering/break_room)
 "fox" = (
@@ -18639,10 +18656,11 @@
 /turf/open/floor/plating,
 /area/station/engineering/main)
 "glt" = (
-/obj/effect/turf_decal/bot_blue,
-/obj/machinery/rnd/production/techfab/department/medical,
-/turf/open/floor/iron/white,
-/area/station/medical/storage)
+/obj/machinery/computer/department_orders/service{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
 "glA" = (
 /obj/structure/sink/directional/west,
 /obj/structure/sign/poster/official/cleanliness/directional/east,
@@ -20721,6 +20739,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
+"gVc" = (
+/obj/effect/turf_decal/siding/purple{
+	dir = 8
+	},
+/obj/machinery/rnd/production/techfab/department/science,
+/turf/open/floor/iron/white,
+/area/station/science/lab)
 "gVe" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/structure/chair/comfy/teal,
@@ -24999,11 +25024,10 @@
 /turf/open/floor/wood/large,
 /area/station/medical/psychology)
 "iso" = (
-/obj/machinery/computer/department_orders/service{
-	dir = 1
-	},
+/obj/structure/cable,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
+/area/station/security/checkpoint/engineering)
 "isy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
@@ -25654,6 +25678,13 @@
 	name = "Medbay Maintenance"
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/poddoor{
+	density = 0;
+	icon_state = "open";
+	id_tag = "atmos";
+	name = "Atmos Blast Door";
+	opacity = 0
+	},
 /turf/open/floor/plating,
 /area/station/engineering/atmos/office)
 "iCJ" = (
@@ -30425,12 +30456,12 @@
 	pixel_x = -5;
 	pixel_y = 5
 	},
+/obj/structure/desk_bell{
+	pixel_x = 6
+	},
 /obj/machinery/door/poddoor/preopen{
 	id = "Engineering";
 	name = "Engineering Security Door"
-	},
-/obj/structure/desk_bell{
-	pixel_x = 6
 	},
 /turf/open/floor/iron,
 /area/station/engineering/storage_shared)
@@ -32778,6 +32809,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
+/obj/machinery/light/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel)
 "kVm" = (
@@ -41446,6 +41478,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/poddoor/preopen{
+	id = "Engineering";
+	name = "Engineering Security Door"
+	},
 /turf/open/floor/plating,
 /area/station/engineering/engine_smes)
 "nQB" = (
@@ -43700,11 +43736,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
-"oFI" = (
-/obj/structure/cable,
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/station/security/checkpoint/engineering)
 "oFP" = (
 /obj/structure/filingcabinet,
 /obj/effect/turf_decal/tile/red{
@@ -46055,6 +46086,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/door/poddoor/preopen{
+	id = "Engineering";
+	name = "Engineering Security Door"
+	},
 /turf/open/floor/plating,
 /area/station/engineering/break_room)
 "pux" = (
@@ -46428,6 +46463,10 @@
 	name = "Atmos Blast Door";
 	opacity = 0
 	},
+/obj/machinery/door/poddoor/preopen{
+	id = "Engineering";
+	name = "Engineering Security Door"
+	},
 /turf/open/floor/plating,
 /area/station/engineering/atmos/office)
 "pAx" = (
@@ -46799,13 +46838,6 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/engine,
 /area/station/science/auxlab/firing_range)
-"pHG" = (
-/obj/effect/turf_decal/siding/purple{
-	dir = 8
-	},
-/obj/machinery/rnd/production/techfab/department/science,
-/turf/open/floor/iron/white,
-/area/station/science/lab)
 "pHK" = (
 /obj/structure/closet/secure_closet/detective,
 /obj/machinery/status_display/evac/directional/north,
@@ -51502,6 +51534,13 @@
 	name = "Maintenance"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/engineering/atmos,
+/obj/machinery/door/poddoor{
+	density = 0;
+	icon_state = "open";
+	id_tag = "atmos";
+	name = "Atmos Blast Door";
+	opacity = 0
+	},
 /turf/open/floor/plating,
 /area/station/engineering/atmos)
 "rkR" = (
@@ -62008,10 +62047,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
-"uPv" = (
-/obj/machinery/rnd/production/techfab/department/service,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
 "uPF" = (
 /obj/structure/table,
 /obj/item/radio/intercom/directional/north,
@@ -62356,6 +62391,10 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/obj/machinery/door/poddoor/preopen{
+	id = "Engineering";
+	name = "Engineering Security Door"
+	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos/office)
 "uUH" = (
@@ -63095,6 +63134,10 @@
 /area/station/commons/vacant_room/office)
 "vjD" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/preopen{
+	id = "Engineering";
+	name = "Engineering Security Door"
+	},
 /turf/open/floor/plating,
 /area/station/engineering/break_room)
 "vjH" = (
@@ -66465,6 +66508,10 @@
 /area/station/ai_monitored/turret_protected/ai)
 "wrA" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/preopen{
+	id = "Engineering";
+	name = "Engineering Security Door"
+	},
 /turf/open/floor/plating,
 /area/station/engineering/storage_shared)
 "wrB" = (
@@ -68002,9 +68049,6 @@
 /area/station/security/courtroom/holding)
 "wSw" = (
 /obj/structure/closet/crate/internals,
-/obj/machinery/firealarm/directional/east{
-	pixel_x = 18
-	},
 /turf/open/floor/plating,
 /area/station/engineering/storage)
 "wSU" = (
@@ -71898,6 +71942,10 @@
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/door/poddoor/preopen{
+	id = "Engineering";
+	name = "Engineering Security Door"
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
@@ -102141,7 +102189,7 @@ bbM
 pzO
 uex
 xJX
-oFI
+iso
 uKs
 pqs
 tth
@@ -111341,7 +111389,7 @@ hSi
 gvX
 leo
 nuX
-iso
+glt
 ijp
 rUg
 lGd
@@ -111598,7 +111646,7 @@ eKy
 nuX
 leo
 jfk
-uPv
+djK
 ijp
 rrA
 mgF
@@ -112935,7 +112983,7 @@ vyH
 qvj
 rgA
 jWx
-glt
+dmM
 jWx
 rgA
 qvj
@@ -119331,7 +119379,7 @@ iBA
 lfY
 mMz
 pPh
-pHG
+gVc
 gkh
 cpM
 mJy
