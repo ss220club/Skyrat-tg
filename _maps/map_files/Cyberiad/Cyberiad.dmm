@@ -5355,6 +5355,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
 "bNw" = (
+/obj/machinery/power/shieldwallgen,
 /turf/open/floor/plating,
 /area/station/engineering/storage)
 "bNC" = (
@@ -6412,8 +6413,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/maintenance/xenobio_module)
 "cgW" = (
@@ -18656,6 +18655,18 @@
 /obj/item/stack/sheet/glass{
 	amount = 50
 	},
+/obj/item/stack/sheet/glass{
+	amount = 50
+	},
+/obj/item/stack/sheet/glass{
+	amount = 50
+	},
+/obj/item/stack/sheet/glass{
+	amount = 50
+	},
+/obj/item/stack/sheet/glass{
+	amount = 50
+	},
 /turf/open/floor/plating,
 /area/station/engineering/storage)
 "glN" = (
@@ -22060,25 +22071,6 @@
 	},
 /turf/open/floor/glass,
 /area/station/maintenance/abandon_office)
-"htM" = (
-/obj/item/stack/sheet/glass{
-	amount = 50
-	},
-/obj/item/stack/sheet/glass{
-	amount = 50
-	},
-/obj/item/stack/sheet/glass{
-	amount = 50
-	},
-/obj/item/stack/sheet/glass{
-	amount = 50
-	},
-/obj/item/stack/sheet/glass{
-	amount = 50
-	},
-/obj/structure/table,
-/turf/open/floor/plating,
-/area/station/engineering/storage)
 "htN" = (
 /obj/structure/flora/bush/flowers_yw/style_random,
 /obj/structure/flora/bush/sparsegrass/style_random,
@@ -25787,10 +25779,10 @@
 /turf/open/floor/carpet,
 /area/station/medical/psychology)
 "iFn" = (
+/obj/machinery/field/generator,
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/field/generator,
 /turf/open/floor/plating,
 /area/station/engineering/storage)
 "iFp" = (
@@ -37314,7 +37306,10 @@
 /turf/open/floor/plating,
 /area/station/maintenance/ghetto_livingcomplex_hall)
 "mvE" = (
-/obj/machinery/the_singularitygen,
+/obj/machinery/power/energy_accumulator/tesla_coil,
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/station/engineering/storage)
 "mvK" = (
@@ -47844,10 +47839,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
 "qaF" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/machinery/power/emitter,
+/obj/machinery/power/energy_accumulator/tesla_coil,
 /turf/open/floor/plating,
 /area/station/engineering/storage)
 "qaH" = (
@@ -96700,14 +96692,14 @@ vGZ
 nGx
 nGx
 bNw
-dRs
-iFn
-gJa
 bNw
-pXB
+iFn
+dRs
+gJa
+mvE
 sBV
-htM
-qaF
+aSA
+pXB
 csw
 csw
 vGZ
@@ -96957,16 +96949,16 @@ vGZ
 nGx
 nGx
 bNw
+bNw
 dRs
 dRs
 fen
-bNw
-aSA
-mvE
+qaF
 sBV
+aSA
+aSA
 csw
 csw
-bNw
 vGZ
 ydA
 ydA
