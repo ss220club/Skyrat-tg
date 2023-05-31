@@ -11172,6 +11172,11 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/fore)
+"dJY" = (
+/obj/effect/turf_decal/bot_blue,
+/obj/machinery/rnd/production/techfab/department/medical,
+/turf/open/floor/iron/white,
+/area/station/medical/storage)
 "dKm" = (
 /obj/item/ctf_flag,
 /obj/effect/turf_decal/stripes/line{
@@ -12098,11 +12103,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
-"eaP" = (
-/obj/effect/turf_decal/bot_blue,
-/obj/machinery/rnd/production/techfab/department/medical,
-/turf/open/floor/iron/white,
-/area/station/medical/storage)
 "eaY" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -16920,10 +16920,10 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/light/directional/west,
 /obj/item/gun/energy/e_gun/dragnet{
-	pixel_y = -3
+	pixel_x = 4
 	},
 /obj/item/gun/energy/e_gun/dragnet{
-	pixel_y = 4
+	pixel_x = -4
 	},
 /obj/structure/rack/gunrack,
 /turf/open/floor/iron/dark,
@@ -18651,10 +18651,9 @@
 /turf/open/floor/plating,
 /area/station/engineering/main)
 "glt" = (
-/obj/structure/cable,
-/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/rnd/production/techfab/department/service,
 /turf/open/floor/plating,
-/area/station/security/checkpoint/engineering)
+/area/station/maintenance/starboard/fore)
 "glA" = (
 /obj/structure/sink/directional/west,
 /obj/structure/sign/poster/official/cleanliness/directional/east,
@@ -25011,9 +25010,12 @@
 /turf/open/floor/wood/large,
 /area/station/medical/psychology)
 "iso" = (
-/obj/machinery/rnd/production/techfab/department/service,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
+/obj/effect/turf_decal/siding/purple{
+	dir = 8
+	},
+/obj/machinery/rnd/production/techfab/department/science,
+/turf/open/floor/iron/white,
+/area/station/science/lab)
 "isy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
@@ -32746,12 +32748,6 @@
 "kUb" = (
 /turf/closed/wall,
 /area/station/hallway/secondary/exit/escape_pod)
-"kUd" = (
-/obj/machinery/computer/department_orders/service{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
 "kUl" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/grimy,
@@ -37279,13 +37275,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
 /turf/open/floor/iron,
 /area/station/security/prison)
-"mtW" = (
-/obj/effect/turf_decal/siding/purple{
-	dir = 8
-	},
-/obj/machinery/rnd/production/techfab/department/science,
-/turf/open/floor/iron/white,
-/area/station/science/lab)
 "mub" = (
 /turf/closed/wall,
 /area/station/maintenance/ghetto_livingcomplex_hall)
@@ -49890,6 +49879,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/abandon_wrestle)
+"qJQ" = (
+/obj/structure/cable,
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/security/checkpoint/engineering)
 "qJR" = (
 /obj/docking_port/stationary{
 	dir = 8;
@@ -54627,6 +54621,12 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood/parquet,
 /area/station/maintenance/abandon_cafeteria)
+"spF" = (
+/obj/machinery/computer/department_orders/service{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
 "spK" = (
 /obj/machinery/door/airlock/research/glass{
 	name = "Test Chamber"
@@ -68914,6 +68914,16 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
+"xiO" = (
+/obj/structure/table,
+/obj/item/storage/barricade{
+	pixel_y = 6
+	},
+/obj/item/storage/barricade{
+	pixel_y = 2
+	},
+/turf/open/floor/iron/dark,
+/area/station/ai_monitored/security/armory)
 "xja" = (
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
@@ -100551,7 +100561,7 @@ bTR
 bTR
 bTR
 gyW
-bTR
+xiO
 amU
 amU
 amU
@@ -102192,7 +102202,7 @@ bbM
 pzO
 uex
 xJX
-glt
+qJQ
 uKs
 pqs
 tth
@@ -111392,7 +111402,7 @@ hSi
 gvX
 leo
 nuX
-kUd
+spF
 ijp
 rUg
 lGd
@@ -111649,7 +111659,7 @@ eKy
 nuX
 leo
 jfk
-iso
+glt
 ijp
 rrA
 mgF
@@ -112986,7 +112996,7 @@ vyH
 qvj
 rgA
 jWx
-eaP
+dJY
 jWx
 rgA
 qvj
@@ -119382,7 +119392,7 @@ iBA
 lfY
 mMz
 pPh
-mtW
+iso
 gkh
 cpM
 mJy
