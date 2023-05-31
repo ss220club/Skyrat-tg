@@ -8327,6 +8327,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/station/maintenance/abandon_cafeteria)
+"cKp" = (
+/obj/structure/closet/crate,
+/turf/open/floor/iron,
+/area/station/cargo/sorting)
 "cKv" = (
 /obj/structure/closet,
 /obj/effect/spawner/random/maintenance,
@@ -10708,6 +10712,10 @@
 /obj/structure/sign/poster/contraband/random/directional/east,
 /turf/open/floor/plating,
 /area/station/maintenance/ghetto_engineering)
+"dAa" = (
+/obj/structure/closet/crate,
+/turf/open/floor/iron,
+/area/station/commons/locker)
 "dAd" = (
 /obj/structure/marker_beacon/jade,
 /obj/structure/lattice/catwalk,
@@ -15626,6 +15634,7 @@
 /obj/effect/turf_decal/tile/brown/anticorner/contrasted{
 	dir = 1
 	},
+/obj/structure/closet/crate,
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
 "fjG" = (
@@ -26917,6 +26926,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
+/obj/structure/closet/crate,
 /turf/open/floor/iron,
 /area/station/cargo/miningoffice)
 "iWs" = (
@@ -39190,8 +39200,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/machinery/modular_computer/console/preset/civilian{
+/obj/machinery/modular_computer/console/preset/engineering{
 	dir = 1
+	},
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
+	dir = 4
 	},
 /turf/open/floor/iron,
 /area/station/engineering/main)
@@ -44898,6 +44914,7 @@
 /area/station/security/courtroom)
 "oXz" = (
 /obj/machinery/light/small/directional/west,
+/obj/structure/closet/crate,
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
 "oXJ" = (
@@ -46820,6 +46837,10 @@
 	dir = 8
 	},
 /area/station/science/xenobiology)
+"pHt" = (
+/obj/structure/closet/crate,
+/turf/open/floor/plating,
+/area/station/maintenance/port)
 "pHy" = (
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/engine,
@@ -68611,6 +68632,10 @@
 	},
 /turf/open/floor/glass/reinforced,
 /area/station/engineering/atmos/mix)
+"xcK" = (
+/obj/structure/closet/crate,
+/turf/open/floor/iron,
+/area/station/cargo/storage)
 "xcM" = (
 /obj/machinery/computer/arcade{
 	dir = 4
@@ -89595,11 +89620,11 @@ pvq
 pvq
 pvq
 ndg
-nfU
+dcN
 dma
 ndg
 dma
-dcN
+nfU
 ndg
 pvq
 pvq
@@ -89852,11 +89877,11 @@ oJg
 oJg
 oJg
 ndg
-eZy
+xbn
 nwh
 bNC
 eDJ
-xbn
+eZy
 ndg
 pvq
 pvq
@@ -90109,11 +90134,11 @@ ndg
 ndg
 ndg
 ndg
-nfU
+dcN
 aDb
 bNC
 aDb
-dcN
+nfU
 ndg
 pvq
 pvq
@@ -90126,7 +90151,7 @@ drr
 vvl
 drr
 dhd
-trE
+pHt
 vvl
 tHR
 bid
@@ -90366,11 +90391,11 @@ icx
 utU
 utU
 utU
-gfs
+mog
 utU
 qJU
 utU
-mog
+gfs
 bNC
 pvq
 pvq
@@ -90622,12 +90647,12 @@ bNC
 pyH
 hrI
 jGq
-nHg
-cNX
-jGq
-pwh
 lbx
 yfU
+jGq
+pwh
+nHg
+cNX
 bNC
 pvq
 pvq
@@ -90880,11 +90905,11 @@ pEa
 cXV
 jGq
 jGq
-cNX
+mog
 jGq
 duO
 jGq
-mog
+cNX
 ndg
 pvq
 pvq
@@ -91137,11 +91162,11 @@ sCm
 qpQ
 jGq
 tVL
-cNX
+mog
 tVL
 duO
 tDv
-mog
+cNX
 ndg
 pvq
 pvq
@@ -91394,11 +91419,11 @@ eva
 qRY
 jGq
 taP
-cNX
+mog
 tVL
 duO
-jGq
-mog
+xcK
+cNX
 ndg
 pvq
 pvq
@@ -91640,7 +91665,7 @@ vSP
 aJR
 qHQ
 xOk
-wPx
+dAa
 gMl
 tBF
 tBF
@@ -91651,11 +91676,11 @@ eva
 qRY
 jGq
 tVL
-cNX
+mog
 tVL
 duO
 jGq
-mog
+cNX
 ndg
 pvq
 pvq
@@ -91908,11 +91933,11 @@ eva
 qRY
 jGq
 gNz
-cNX
+mog
 jGq
 duO
 jGq
-mog
+cNX
 ndg
 pvq
 pvq
@@ -92420,7 +92445,7 @@ wdL
 tDv
 eva
 qRY
-jGq
+xcK
 jGq
 jGq
 jGq
@@ -95754,7 +95779,7 @@ vsb
 jLR
 sAN
 arZ
-arZ
+cKp
 abP
 uVT
 jvs
@@ -96030,7 +96055,7 @@ aeB
 auo
 xBS
 jZB
-trE
+pHt
 gpo
 amH
 trE
