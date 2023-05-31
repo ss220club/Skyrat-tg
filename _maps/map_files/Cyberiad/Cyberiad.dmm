@@ -35806,6 +35806,7 @@
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/food_or_drink/cake_ingredients,
 /obj/machinery/light/directional/south,
+/obj/structure/sign/poster/official/fruit_bowl/directional/south,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "lVo" = (
@@ -37830,6 +37831,7 @@
 "mFh" = (
 /obj/structure/flora/bush/reed/style_random,
 /obj/structure/flora/bush/leavy/style_random,
+/mob/living/basic/chicken,
 /turf/open/floor/grass,
 /area/station/service/kitchen)
 "mFl" = (
@@ -61901,6 +61903,7 @@
 "uOh" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/flora/bush/pointy/style_random,
+/mob/living/basic/chicken,
 /turf/open/floor/grass,
 /area/station/service/kitchen)
 "uOs" = (
