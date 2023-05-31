@@ -6270,13 +6270,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/prison)
-"cdL" = (
-/obj/effect/turf_decal/siding/purple{
-	dir = 8
-	},
-/obj/machinery/rnd/production/techfab/department/science,
-/turf/open/floor/iron/white,
-/area/station/science/lab)
 "cdR" = (
 /obj/machinery/computer/crew,
 /obj/effect/turf_decal/tile/blue/anticorner{
@@ -25006,10 +24999,11 @@
 /turf/open/floor/wood/large,
 /area/station/medical/psychology)
 "iso" = (
-/obj/structure/cable,
-/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/computer/department_orders/service{
+	dir = 1
+	},
 /turf/open/floor/plating,
-/area/station/security/checkpoint/engineering)
+/area/station/maintenance/starboard/fore)
 "isy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
@@ -37676,12 +37670,6 @@
 /obj/structure/chair/comfy/black,
 /turf/open/floor/plating,
 /area/station/maintenance/fore)
-"mBG" = (
-/obj/machinery/computer/department_orders/service{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
 "mBI" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -38352,6 +38340,9 @@
 	pixel_y = 10
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/item/holosign_creator/robot_seat/bar{
+	pixel_y = -10
+	},
 /turf/open/floor/wood,
 /area/station/service/bar)
 "mOy" = (
@@ -43709,6 +43700,11 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
+"oFI" = (
+/obj/structure/cable,
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/security/checkpoint/engineering)
 "oFP" = (
 /obj/structure/filingcabinet,
 /obj/effect/turf_decal/tile/red{
@@ -46803,6 +46799,13 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/engine,
 /area/station/science/auxlab/firing_range)
+"pHG" = (
+/obj/effect/turf_decal/siding/purple{
+	dir = 8
+	},
+/obj/machinery/rnd/production/techfab/department/science,
+/turf/open/floor/iron/white,
+/area/station/science/lab)
 "pHK" = (
 /obj/structure/closet/secure_closet/detective,
 /obj/machinery/status_display/evac/directional/north,
@@ -48394,10 +48397,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
-"qhG" = (
-/obj/machinery/rnd/production/techfab/department/service,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
 "qii" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/smart/simple/orange/visible,
@@ -62009,6 +62008,10 @@
 	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
+"uPv" = (
+/obj/machinery/rnd/production/techfab/department/service,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
 "uPF" = (
 /obj/structure/table,
 /obj/item/radio/intercom/directional/north,
@@ -102138,7 +102141,7 @@ bbM
 pzO
 uex
 xJX
-iso
+oFI
 uKs
 pqs
 tth
@@ -111338,7 +111341,7 @@ hSi
 gvX
 leo
 nuX
-mBG
+iso
 ijp
 rUg
 lGd
@@ -111595,7 +111598,7 @@ eKy
 nuX
 leo
 jfk
-qhG
+uPv
 ijp
 rrA
 mgF
@@ -119328,7 +119331,7 @@ iBA
 lfY
 mMz
 pPh
-cdL
+pHG
 gkh
 cpM
 mJy
