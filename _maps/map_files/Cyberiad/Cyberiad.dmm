@@ -602,9 +602,6 @@
 /area/station/service/hydroponics)
 "alk" = (
 /obj/machinery/light/small/directional/south,
-/obj/machinery/computer/department_orders/service{
-	dir = 1
-	},
 /turf/open/floor/wood,
 /area/station/service/bar)
 "alr" = (
@@ -6273,6 +6270,13 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/prison)
+"cdL" = (
+/obj/effect/turf_decal/siding/purple{
+	dir = 8
+	},
+/obj/machinery/rnd/production/techfab/department/science,
+/turf/open/floor/iron/white,
+/area/station/science/lab)
 "cdR" = (
 /obj/machinery/computer/crew,
 /obj/effect/turf_decal/tile/blue/anticorner{
@@ -15172,11 +15176,10 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 6
 	},
-/obj/item/folder/white,
-/obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/firealarm/directional/east{
 	pixel_x = 18
 	},
+/obj/structure/closet/secure_closet/security/med,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
 "fds" = (
@@ -18643,13 +18646,10 @@
 /turf/open/floor/plating,
 /area/station/engineering/main)
 "glt" = (
-/obj/effect/turf_decal/tile/red/diagonal_centre,
-/obj/effect/turf_decal/tile/blue/diagonal_edge,
-/obj/machinery/camera/directional/east{
-	c_tag = "Holodeck - Control Room"
-	},
-/turf/open/floor/iron/diagonal,
-/area/station/medical/break_room)
+/obj/effect/turf_decal/bot_blue,
+/obj/machinery/rnd/production/techfab/department/medical,
+/turf/open/floor/iron/white,
+/area/station/medical/storage)
 "glA" = (
 /obj/structure/sink/directional/west,
 /obj/structure/sign/poster/official/cleanliness/directional/east,
@@ -28137,11 +28137,10 @@
 /area/station/service/bar)
 "juc" = (
 /obj/structure/cable,
-/obj/machinery/door/firedoor/heavy,
-/obj/machinery/door/airlock/research{
-	name = "Ordnance Lab"
+/obj/effect/mapping_helpers/airlock/access/all/security/general,
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/science/ordnance,
 /turf/open/floor/iron/dark,
 /area/station/science/auxlab/firing_range)
 "juo" = (
@@ -37526,14 +37525,14 @@
 /obj/effect/turf_decal/bot_red,
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/structure/window/reinforced/spawner/directional/east,
-/obj/item/gun/ballistic/automatic/wt550,
-/obj/item/gun/ballistic/automatic/wt550{
+/obj/structure/rack/gunrack,
+/obj/item/gun/microfusion/mcr01{
+	pixel_y = -4
+	},
+/obj/item/gun/microfusion/mcr01,
+/obj/item/gun/microfusion/mcr01{
 	pixel_y = 4
 	},
-/obj/item/gun/ballistic/automatic/wt550{
-	pixel_y = 8
-	},
-/obj/structure/rack/gunrack,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "myJ" = (
@@ -37677,6 +37676,12 @@
 /obj/structure/chair/comfy/black,
 /turf/open/floor/plating,
 /area/station/maintenance/fore)
+"mBG" = (
+/obj/machinery/computer/department_orders/service{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
 "mBI" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -38648,6 +38653,10 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
+/obj/machinery/recharger{
+	pixel_x = -14;
+	pixel_y = 2
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
 "mTG" = (
@@ -38685,6 +38694,12 @@
 	dir = 1
 	},
 /obj/machinery/computer/crew,
+/obj/machinery/computer/security/telescreen{
+	desc = "Used for monitoring medbay to ensure patient safety.";
+	name = "Medbay Monitor";
+	network = list("medbay");
+	pixel_y = 32
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
 "mTS" = (
@@ -44831,7 +44846,8 @@
 "oXc" = (
 /obj/structure/table/wood,
 /obj/machinery/coffeemaker/impressa{
-	pixel_x = 2
+	pixel_x = 2;
+	pixel_y = 4
 	},
 /obj/effect/turf_decal/tile/red/diagonal_centre,
 /obj/effect/turf_decal/tile/blue/diagonal_edge,
@@ -48378,6 +48394,10 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
+"qhG" = (
+/obj/machinery/rnd/production/techfab/department/service,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
 "qii" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/smart/simple/orange/visible,
@@ -51058,9 +51078,9 @@
 /turf/open/floor/plating,
 /area/station/maintenance/ghetto_livingcomplex_hall)
 "rcV" = (
-/obj/structure/reagent_dispensers/fueltank,
 /obj/machinery/status_display/evac/directional/north,
 /obj/machinery/light/directional/north,
+/obj/machinery/rnd/production/techfab/department/engineering,
 /turf/open/floor/iron,
 /area/station/engineering/main)
 "rcW" = (
@@ -51936,7 +51956,6 @@
 /area/station/science/xenobiology)
 "rrA" = (
 /obj/effect/turf_decal/bot_white,
-/obj/structure/kitchenspike,
 /turf/open/floor/iron/freezer,
 /area/station/service/kitchen/coldroom)
 "rrC" = (
@@ -62787,25 +62806,13 @@
 "vfb" = (
 /obj/effect/turf_decal/bot_red,
 /obj/structure/window/reinforced/spawner/directional/south,
-/obj/item/ammo_box/magazine/wt550m9{
-	pixel_y = -8
-	},
-/obj/item/ammo_box/magazine/wt550m9{
-	pixel_y = -5
-	},
-/obj/item/ammo_box/magazine/wt550m9{
-	pixel_y = -2
-	},
-/obj/item/ammo_box/magazine/wt550m9{
-	pixel_y = 1
-	},
-/obj/item/ammo_box/magazine/wt550m9{
+/obj/item/storage/box/gunset/cmg{
 	pixel_y = 4
 	},
-/obj/item/ammo_box/magazine/wt550m9{
-	pixel_y = 7
+/obj/item/storage/box/gunset/cmg{
+	pixel_y = 10
 	},
-/obj/structure/rack,
+/obj/structure/table,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "vfi" = (
@@ -64641,6 +64648,7 @@
 /obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
 	dir = 8
 	},
+/obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/iron,
 /area/station/engineering/main)
 "vMu" = (
@@ -111330,7 +111338,7 @@ hSi
 gvX
 leo
 nuX
-nuX
+mBG
 ijp
 rUg
 lGd
@@ -111586,8 +111594,8 @@ iGq
 eKy
 nuX
 leo
-nuX
 jfk
+qhG
 ijp
 rrA
 mgF
@@ -111890,7 +111898,7 @@ qOk
 jEs
 kcO
 qDr
-glt
+pfr
 txf
 vyH
 iQP
@@ -112924,7 +112932,7 @@ vyH
 qvj
 rgA
 jWx
-jWx
+glt
 jWx
 rgA
 qvj
@@ -119320,7 +119328,7 @@ iBA
 lfY
 mMz
 pPh
-pPh
+cdL
 gkh
 cpM
 mJy
