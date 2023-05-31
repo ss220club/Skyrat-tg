@@ -21,4 +21,5 @@ jobs:
           key: ${{ secrets.GAME1_SSH_KEY }}
           script: |
             cd /opt/ss13/skyrat/
+            git status
             sh ./upgrade.sh
