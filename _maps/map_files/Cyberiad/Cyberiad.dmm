@@ -7496,16 +7496,14 @@
 "cvC" = (
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/rack/gunrack,
 /obj/item/gun/energy/disabler{
-	pixel_x = 3;
-	pixel_y = -3
+	pixel_x = -6
+	},
+/obj/item/gun/energy/disabler{
+	pixel_x = 6
 	},
 /obj/item/gun/energy/disabler,
-/obj/item/gun/energy/disabler{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/structure/rack/gunrack,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "cvG" = (
@@ -9768,10 +9766,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/rust,
 /area/station/maintenance/fore)
-"djK" = (
-/obj/machinery/rnd/production/techfab/department/service,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
 "djP" = (
 /obj/structure/chair/stool{
 	dir = 8
@@ -9932,11 +9926,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/central)
-"dmM" = (
-/obj/effect/turf_decal/bot_blue,
-/obj/machinery/rnd/production/techfab/department/medical,
-/turf/open/floor/iron/white,
-/area/station/medical/storage)
 "dmN" = (
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=8";
@@ -15934,6 +15923,7 @@
 	id = "Engineering";
 	name = "Engineering Security Door"
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/engineering/break_room)
 "fox" = (
@@ -18656,11 +18646,10 @@
 /turf/open/floor/plating,
 /area/station/engineering/main)
 "glt" = (
-/obj/machinery/computer/department_orders/service{
-	dir = 1
-	},
+/obj/structure/cable,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
+/area/station/security/checkpoint/engineering)
 "glA" = (
 /obj/structure/sink/directional/west,
 /obj/structure/sign/poster/official/cleanliness/directional/east,
@@ -20739,13 +20728,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
-"gVc" = (
-/obj/effect/turf_decal/siding/purple{
-	dir = 8
-	},
-/obj/machinery/rnd/production/techfab/department/science,
-/turf/open/floor/iron/white,
-/area/station/science/lab)
 "gVe" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/structure/chair/comfy/teal,
@@ -25024,10 +25006,9 @@
 /turf/open/floor/wood/large,
 /area/station/medical/psychology)
 "iso" = (
-/obj/structure/cable,
-/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/rnd/production/techfab/department/service,
 /turf/open/floor/plating,
-/area/station/security/checkpoint/engineering)
+/area/station/maintenance/starboard/fore)
 "isy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
@@ -27027,6 +27008,11 @@
 /obj/effect/mapping_helpers/airlock/unres,
 /turf/open/floor/plating,
 /area/station/hallway/primary/central/fore)
+"iYC" = (
+/obj/effect/turf_decal/bot_blue,
+/obj/machinery/rnd/production/techfab/department/medical,
+/turf/open/floor/iron/white,
+/area/station/medical/storage)
 "iYD" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -27409,7 +27395,7 @@
 /area/station/science/explab)
 "jfr" = (
 /obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/closed/wall/r_wall,
 /area/station/security/checkpoint/engineering)
 "jfs" = (
@@ -30303,6 +30289,12 @@
 /obj/effect/decal/cleanable/blood/old,
 /obj/item/toy/figure/botanist,
 /obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
+"kdV" = (
+/obj/machinery/computer/department_orders/service{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
 "kdY" = (
@@ -37552,13 +37544,7 @@
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/rack/gunrack,
-/obj/item/gun/microfusion/mcr01{
-	pixel_y = -4
-	},
-/obj/item/gun/microfusion/mcr01,
-/obj/item/gun/microfusion/mcr01{
-	pixel_y = 4
-	},
+/obj/effect/spawner/armory_spawn/cmg,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "myJ" = (
@@ -39208,6 +39194,13 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/engineering/main)
+"ncp" = (
+/obj/effect/turf_decal/siding/purple{
+	dir = 8
+	},
+/obj/machinery/rnd/production/techfab/department/science,
+/turf/open/floor/iron/white,
+/area/station/science/lab)
 "ncr" = (
 /obj/effect/turf_decal/trimline/green/filled/corner{
 	dir = 4
@@ -48966,7 +48959,7 @@
 /turf/open/floor/iron/white,
 /area/station/science/research)
 "qtw" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/closed/wall/r_wall,
 /area/station/engineering/break_room)
 "qtz" = (
@@ -62848,13 +62841,14 @@
 "vfb" = (
 /obj/effect/turf_decal/bot_red,
 /obj/structure/window/reinforced/spawner/directional/south,
-/obj/item/storage/box/gunset/cmg{
-	pixel_y = 4
-	},
-/obj/item/storage/box/gunset/cmg{
-	pixel_y = 10
+/obj/item/melee/hammer{
+	pixel_y = 4;
+	pixel_x = -4
 	},
 /obj/structure/table,
+/obj/item/melee/hammer{
+	pixel_x = 4
+	},
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "vfi" = (
@@ -63137,6 +63131,9 @@
 /obj/machinery/door/poddoor/preopen{
 	id = "Engineering";
 	name = "Engineering Security Door"
+	},
+/obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/visible{
+	dir = 1
 	},
 /turf/open/floor/plating,
 /area/station/engineering/break_room)
@@ -67960,7 +67957,13 @@
 /obj/effect/turf_decal/bot_red,
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/rack/gunrack,
-/obj/effect/spawner/armory_spawn/cmg,
+/obj/item/gun/energy/e_gun{
+	pixel_x = -6
+	},
+/obj/item/gun/energy/e_gun{
+	pixel_x = 6
+	},
+/obj/item/gun/energy/e_gun,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "wQW" = (
@@ -102189,7 +102192,7 @@ bbM
 pzO
 uex
 xJX
-iso
+glt
 uKs
 pqs
 tth
@@ -111389,7 +111392,7 @@ hSi
 gvX
 leo
 nuX
-glt
+kdV
 ijp
 rUg
 lGd
@@ -111646,7 +111649,7 @@ eKy
 nuX
 leo
 jfk
-djK
+iso
 ijp
 rrA
 mgF
@@ -112983,7 +112986,7 @@ vyH
 qvj
 rgA
 jWx
-dmM
+iYC
 jWx
 rgA
 qvj
@@ -119379,7 +119382,7 @@ iBA
 lfY
 mMz
 pPh
-gVc
+ncp
 gkh
 cpM
 mJy
