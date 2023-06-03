@@ -64,9 +64,9 @@
 			RESKIN_WORN_ICON_STATE = "hostrench"
 		),
 		"Trenchcloak" = list(
-			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi',
+			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/suits/armor.dmi',
 			RESKIN_ICON_STATE = "trenchcloak",
-			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi',
+			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi',
 			RESKIN_WORN_ICON_STATE = "trenchcloak"
 		),
 		"Black" = list(
@@ -78,8 +78,6 @@
 		)
 	)
 
-/obj/item/clothing/suit/armor/cossack/sec
-	icon_state = "kuban_cossak"
 
 /obj/item/clothing/suit/toggle/jacket/sec
 	desc = "A comfortable jacket in security red. Probably against uniform regulations."

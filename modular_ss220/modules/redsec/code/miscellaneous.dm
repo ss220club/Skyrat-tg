@@ -251,8 +251,8 @@
 * PATH FIXES (skin choose where it doesn't needed, icon paths, adjust)
 */
 /obj/item/clothing/suit/armor/vest/warden/rax
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits/armor.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "vest_warden"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	current_skin = null
@@ -265,75 +265,53 @@
 			RESKIN_WORN_ICON_STATE = "warden_alt"
 		),
 		"Coat" = list(
-			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi',
+			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/suits/armor.dmi',
 			RESKIN_ICON_STATE = "warden_alt",
-			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi',
+			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi',
 			RESKIN_WORN_ICON_STATE = "warden_alt"
 		),
 		"Standard" = list(
-			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi',
+			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/suits/armor.dmi',
 			RESKIN_ICON_STATE = "vest_warden",
-			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi',
+			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi',
 			RESKIN_WORN_ICON_STATE = "vest_warden",
 		),
 		"Peacekeeper" = list(
-			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi',
+			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/suits/armor.dmi',
 			RESKIN_ICON_STATE = "peacekeeper_trench_warden",
-			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi',
+			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi',
 			RESKIN_WORN_ICON_STATE = "peacekeeper_trench_warden",
 			RESKIN_SUPPORTS_VARIATIONS_FLAGS = NONE
 		)
 	)
 
 /obj/item/clothing/suit/armor/vest/warden/navyblue
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
+	icon = 'icons/obj/clothing/suits/jacket.dmi'
+	worn_icon = 'icons/mob/clothing/suits/jacket.dmi'
 	icon_state = "wardenbluejacket"
 	current_skin = "wardenbluejacket"
 	uses_advanced_reskins = FALSE
 
 /obj/item/clothing/suit/armor/vest/warden/syndicate
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits/armor.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "warden_syndie"
 	current_skin = "warden_syndie"
 	uses_advanced_reskins = FALSE
 
 /obj/item/clothing/suit/armor/vest/warden/peacekeeper
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
-	icon_state = "peacekeeper_trench_warden"
 	current_skin = "peacekeeper_trench_warden"
 	uses_advanced_reskins = FALSE
 
-/obj/item/clothing/suit/armor/hos/navyblue
-	icon_state = "hosbluejacket"
-	current_skin = "hosbluejacket"
-	uses_advanced_reskins = FALSE
 
 /obj/item/clothing/suit/armor/hos/trenchcoat
-	icon_state = "hostrench"
-	current_skin = "hostrench"
 	uses_advanced_reskins = FALSE
 
 /obj/item/clothing/suit/armor/hos/trenchcoat/winter
-	icon_state = "hoswinter"
 	current_skin = "hoswinter"
 	uses_advanced_reskins = FALSE
 
-/obj/item/clothing/suit/armor/hos/trenchcoat/peacekeeper
-	icon_state = "peacekeeper_trench_hos"
-	current_skin = "peacekeeper_trench_hos"
-	uses_advanced_reskins = FALSE
-
-/obj/item/clothing/suit/armor/hos/trenchcoat/peacekeeper/cloak
-	icon_state = "trenchcloak"
-	current_skin = "trenchcloak"
-	uses_advanced_reskins = FALSE
-
-/obj/item/clothing/suit/armor/hos/trenchcoat/peacekeeper/armadyne
-	icon_state = "armadyne_trench"
-	current_skin = "armadyne_trench"
+/obj/item/clothing/suit/armor/hos/trenchcoat/armadyne
 	uses_advanced_reskins = FALSE
 
 /obj/item/clothing/under/rank/security/head_of_security/skyrat/imperial
