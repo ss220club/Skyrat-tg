@@ -6,10 +6,10 @@
 
 /// smuggle! bring a traitor item from its arrival area to the cargo shuttle, where the objective completes on selling the item
 /datum/traitor_objective/smuggle
-	name = "Smuggle %CONTRABAND% from %AREA% off the station via cargo shuttle"
-	description = "Go to a designated area, pick up syndicate contraband, and get it off the station via the cargo shuttle. \
-	You will instantly fail this objective if anyone else picks up your contraband. If you fail, you are liable for the costs \
-	of the smuggling item."
+	name = "Вывезите %CONTRABAND% из %AREA% за пределы станции с помощью грузового шаттла"
+	description = "Отправляйтесь в указанную зону, заберите контрабанду Синдиката и вывезите её со станции на грузовом шаттле. \
+	Если кто-то другой заберет вашу контрабанду, вы немедленно провалите задание. \
+	Если вы провалите задание, вы будете нести ответственность за расходы на контрабанду."
 
 	progression_minimum = 0
 
