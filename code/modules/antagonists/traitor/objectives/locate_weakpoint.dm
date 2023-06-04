@@ -6,8 +6,10 @@
 	weight = OBJECTIVE_WEIGHT_UNLIKELY
 
 /datum/traitor_objective/locate_weakpoint
-	name = "Triangulate station's structural weakpoint and detonate an explosive charge nearby."
-	description = "You will be given a handheld device that you'll need to use in %AREA1% and %AREA2% in order to triangulate the station's structural weakpoint and detonate an explosive charge there. Warning: Once you start scanning either one of the areas, station's AI will be alerted."
+	name = "Триангулируйте слабое место в структуре станции и взорвите заряд взрывчатки поблизости."
+	description = "Вы получите портативное устройство, которое нужно будет использовать в %AREA1% и %AREA2%, \
+		чтобы триангулировать слабое место в конструкции станции и устроить там взрыв. \
+		Внимание: Как только вы начнете сканировать одну из областей, ИИ станции будет предупрежден."
 
 	progression_minimum = 45 MINUTES
 	progression_reward = list(15 MINUTES, 20 MINUTES)

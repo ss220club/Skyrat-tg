@@ -1,7 +1,7 @@
 /datum/traitor_objective/ultimate/supermatter_cascade
-	name = "Destroy the station by causing a crystallizing resonance cascade"
-	description = "Destroy the station by causing a supermatter cascade. Go to %AREA% to retrieve the destabilizing crystal \
-		and use it on the supermatter."
+	name = "Уничтожьте станцию, вызвав каскадный резонанс суперматерии."
+	description = "Уничтожьте станцию, вызвав каскад суперматерии. Отправляйтесь в %AREA%, чтобы получить дестабилизирующий кристалл \
+		и используйте его на суперматерии."
 
 	///area type the objective owner must be in to recieve the destabilizing crystal
 	var/area/dest_crystal_area_pickup

@@ -23,8 +23,8 @@
 	)
 
 /datum/traitor_objective/target_player/assassinate
-	name = "Assassinate %TARGET% the %JOB TITLE%"
-	description = "Simply kill your target to accomplish this objective."
+	name = "Убейте %TARGET%, %JOB TITLE%."
+	description = "Чтобы выполнить эту задачу, просто убейте свою цель."
 
 	abstract_type = /datum/traitor_objective/target_player/assassinate
 
@@ -45,8 +45,8 @@
 	. += NAMEOF(src, maximum_objectives_in_period)
 
 /datum/traitor_objective/target_player/assassinate/calling_card
-	name = "Assassinate %TARGET% the %JOB TITLE%, and plant a calling card"
-	description = "Kill your target and plant a calling card in the pockets of your victim. If your calling card gets destroyed before you are able to plant it, this objective will fail."
+	name = "Убейте %TARGET%, %JOB TITLE%, и подбросьте предоставленную визитную карточку."
+	description = "Убейте свою цель и подбросьте визитную карточку в карман своей жертвы. Если визитная карточка будет уничтожена до того, как вы успеете её подложить, эта цель будет провалена."
 	progression_reward = 2 MINUTES
 	telecrystal_reward = list(1, 2)
 
@@ -59,8 +59,8 @@
 	heads_of_staff = TRUE
 
 /datum/traitor_objective/target_player/assassinate/behead
-	name = "Behead %TARGET%, the %JOB TITLE%"
-	description = "Behead and hold %TARGET%'s head to succeed this objective. If the head gets destroyed before you can do this, you will fail this objective."
+	name = "Обезглавьте %TARGET%, %JOB TITLE%."
+	description = "Отрубите голову %TARGET% и заберите её, чтобы успешно выполнить эту задачу. Если голова будет уничтожена до того, как вы сможете это сделать, вы провалите задание."
 	progression_reward = 2 MINUTES
 	telecrystal_reward = list(1, 2)
 

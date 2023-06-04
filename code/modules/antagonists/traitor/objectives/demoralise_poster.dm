@@ -1,10 +1,10 @@
 /datum/traitor_objective/demoralise/poster
-	name = "Sow doubt among the crew %VIEWS% times using Syndicate propaganda."
-	description = "Use the button below to materialize a pack of posters, \
-		which will demoralise nearby crew members (especially those in positions of authority). \
-		If your posters are destroyed before they are sufficiently upset, this objective will fail. \
-		Try hiding some broken glass behind your poster before you hang it to give  \
-		do-gooders who try to take it down a hard time!"
+	name = "Посейте сомнения среди %VIEWS% членов экипажа, используя пропаганду Синдиката."
+	description = "Используйте кнопку ниже, чтобы материализовать пачку плакатов, \
+		которые деморализуют тех кто их увидит (особенно тех, кто занимает руководящие должности). \
+		Если ваши плакаты будут уничтожены до того, как достаточное количество членов экипажа их увидит, эта цель будет провалена. \
+		Советую спрятать немного битого стекла за плакатом, прежде чем повесить его, чтобы \
+		доброжелателям, которые попытаются его снять, мало не показалось!"
 
 	progression_minimum = 0 MINUTES
 	progression_maximum = 30 MINUTES

@@ -1,7 +1,8 @@
 /datum/traitor_objective/ultimate/romerol
-	name = "Spread the experimental bioterror agent Romerol by calling a droppod down at %AREA%"
-	description = "Go to %AREA%, and recieve the bioterror agent. Spread it to the crew, \
-	and watch then raise from the dead as mindless killing machines. Warning: The undead will attack you too."
+	name = "Распространите экспериментальный биологический агент \"Ромерол\", вызвав дроппод в %AREA%."
+	description = "Отправляйтесь в %AREA% и получите экспериментальное биологическое оружие. \
+		Распространите его среди экипажа, и наблюдайте, как они восстанут из мертвых в виде бездумных машин для убийства. \
+		Внимание: Мертвецы будут нападать и на вас."
 
 	//this is a prototype so this progression is for all basic level kill objectives
 

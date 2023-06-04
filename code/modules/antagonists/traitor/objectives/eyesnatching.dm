@@ -7,8 +7,9 @@
 	weight = OBJECTIVE_WEIGHT_UNLIKELY
 
 /datum/traitor_objective/target_player/eyesnatching
-	name = "Steal the eyes of %TARGET% the %JOB TITLE%"
-	description = "%TARGET% messed with the wrong people. Steal their eyes to teach them a lesson. You will be provided an experimental eyesnatcher device to aid you in your mission."
+	name = "Украдите глаза %TARGET%, %JOB TITLE%."
+	description = "Ваша цель, %TARGET%, связалась не с теми людьми и за это вы должны забрать у неё глаза. \
+		Вам будет предоставлено прототип новейшей разработки Синдиката именно для этих целей."
 
 	progression_minimum = 10 MINUTES
 

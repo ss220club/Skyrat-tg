@@ -5,8 +5,8 @@
 	)
 
 /datum/traitor_objective/target_player/infect
-	name = "Infect %TARGET% the %JOB TITLE%"
-	description = "Infect your target with the experimental Hereditary Manifold Sickness."
+	name = "Заразите %TARGET%, %JOB TITLE%."
+	description = "Заразите свою цель с помощью EHMS."
 
 	abstract_type = /datum/traitor_objective/target_player
 	objective_period = 30 MINUTES

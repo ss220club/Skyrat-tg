@@ -1,7 +1,9 @@
 /datum/traitor_objective/ultimate/dark_matteor
-	name = "Summon a dark matter singularity to consume the station."
-	description = "Go to %AREA%, and recieve the smuggled satellites + emag. Set up and emag the satellites, \
-	after enough have been recalibrated by the emag, IT COMES. Warning: The dark matter singularity will hunt all creatures, you included."
+	name = "Вызовите сингулярность темной материи, чтобы поглотить станцию."
+	description = "Отправляйтесь в %AREA% и получите контрабандные спутники, а так же криптографический секвенсор. \
+		Настройте спутники и используйте на них секвенсор, \
+		После того как спутники будут откалиброваны, сингулярность появится. \
+		Предупреждение: сингулярность темной материи будет охотиться на всех существ, включая вас."
 
 	//this is a prototype so this progression is for all basic level kill objectives
 

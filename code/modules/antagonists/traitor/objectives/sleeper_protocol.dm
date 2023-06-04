@@ -6,8 +6,10 @@
 	)
 
 /datum/traitor_objective/sleeper_protocol
-	name = "Perform the sleeper protocol on a crewmember"
-	description = "Use the button below to materialize a surgery disk in your hand, where you'll then be able to perform the sleeper protocol on a crewmember. If the disk gets destroyed, the objective will fail. This will only work on living and sentient crewmembers."
+	name = "Выполните процедуру внедрения спящего агента над одним из членов экипажа."
+	description = "Используйте кнопку ниже, чтобы материализовать в руке хирургический диск, \
+		с помощью которого вы сможете сделать члена экипажа спящим агентом Синдиката. \
+		Если диск будет уничтожен, цель будет провалена. Это сработает только на живых и разумных членах экипажа."
 
 	progression_minimum = 0 MINUTES
 

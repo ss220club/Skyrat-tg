@@ -1,7 +1,7 @@
 /datum/traitor_objective/ultimate/infect_ai
-	name = "Infect the station AI with an experimental virus."
-	description = "Infect the station AI with an experimental virus. Go to %AREA% to receive an infected law upload board \
-		and use it on the AI core or a law upload console."
+	name = "Заразите ИИ станции экспериментальным вирусом."
+	description = "Заразите ИИ станции экспериментальным вирусом. \
+		Отправляйтесь в %AREA%, чтобы получить зараженную плату загрузки законов и используйте ее на ядре ИИ или на консоли загрузки законов."
 
 	///area type the objective owner must be in to recieve the law upload module
 	var/area/board_area_pickup

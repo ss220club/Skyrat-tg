@@ -1,10 +1,10 @@
 /datum/traitor_objective/demoralise/graffiti
-	name = "Sow doubt among the crew %VIEWS% times using Syndicate graffiti."
-	description = "Use the button below to materialize a seditious spray can, \
-		and use it to draw a 3x3 tag in a place where people will come across it. \
-		Special syndicate sealing agent ensures that it can't be removed for \
-		five minutes following application, and it's slippery too! \
-		People seeing or slipping on your graffiti grants progress towards success."
+	name = "Посейте сомнения среди %VIEWS% членов экипажа, используя граффити Синдиката."
+	description = "Воспользуйтесь кнопкой ниже, чтобы материализовать баллончик со специальным веществом \
+		и используйте его, чтобы нарисовать логотип Синдиката размером 3х3 в месте, где на него могут наткнуться. \
+		Вещество имеет адгезионный состав и гарантирует, что его нельзя будет удалить в течение \
+		5 минут после нанесения, а еще он скользкий! \
+		Члены экипажа, увидев или поскользнувшись на вашем граффити, двигают прогресс задачи."
 
 	progression_minimum = 0 MINUTES
 	progression_maximum = 30 MINUTES

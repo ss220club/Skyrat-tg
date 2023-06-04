@@ -59,8 +59,8 @@ GLOBAL_DATUM_INIT(objective_machine_handler, /datum/objective_target_machine_han
 
 // Destroy machines which are in annoying locations, are annoying when destroyed, and aren't directly interacted with
 /datum/traitor_objective/sabotage_machinery/destroy
-	name = "Destroy the %MACHINE%"
-	description = "Destroy the %MACHINE% to cause disarray and disrupt the operations of the %JOB%'s department."
+	name = "Уничтожьте %MACHINE%."
+	description = "Уничтожьте %MACHINE%, чтобы вызвать беспорядок и нарушить работу %JOB%."
 
 	progression_reward = list(5 MINUTES, 10 MINUTES)
 	telecrystal_reward = list(3, 4)
@@ -75,8 +75,10 @@ GLOBAL_DATUM_INIT(objective_machine_handler, /datum/objective_target_machine_han
 
 // Rig machines which are in public locations to explode when interacted with
 /datum/traitor_objective/sabotage_machinery/trap
-	name = "Sabotage the %MACHINE%"
-	description = "Destroy the %MACHINE% to cause disarray and disrupt the operations of the %JOB%'s department. If you can get another crew member to destroy the machine using the provided booby trap, you will be rewarded with an additional %PROGRESSION% reputation and %TC% telecrystals."
+	name = "Саботируйте %MACHINE%."
+	description = "Уничтожьте %MACHINE%, чтобы вызвать беспорядок и нарушить работу %JOB%. \
+		Если вам удастся заставить другого члена экипажа уничтожить машину с помощью мины-ловушки, \
+		вы получите дополнительную награду в качестве %PROGRESSION% репутации и %TC% телекристаллов."
 
 	progression_reward = list(2 MINUTES, 4 MINUTES)
 	telecrystal_reward = 0 // Only from completing the bonus objective

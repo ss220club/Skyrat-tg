@@ -1,8 +1,9 @@
 /datum/traitor_objective/ultimate/space_dragon
-	name = "Find a Space Carp and mutate their DNA with your own using a DNA harvester we will drop pod at %AREA%"
-	description = "Go to %AREA%, and recieve the Carp DNA scanner. Use it on any Space Carp to harvest its DNA. \
-	From there, use it on yourself, to mutate your own DNA with it and become a Space Dragon. \
-	Don't worry about finding one, I'm sure there'll have a wave of carp right when you need it."
+	name = "Мутируйте свою ДНК с помощью ДНК карпа, чтобы стать космическим драконом."
+	description = "Отправляйтесь в %AREA% и получите сканер для ДНК карпа. \
+		Используйте его на любом космическом карпе, чтобы собрать его ДНК. \
+		Затем используйте его на себе, чтобы стать космическим драконом. \
+		Не беспокойтесь о поиске карпов, я уверен, что они появятся в самый подходящий момент."
 
 	///Area type the objective owner must be in to recieve the DNA extractor.
 	var/area/dna_scanner_spawnarea_type

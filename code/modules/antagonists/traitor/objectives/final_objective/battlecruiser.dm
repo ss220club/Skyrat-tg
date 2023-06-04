@@ -1,8 +1,8 @@
 /datum/traitor_objective/ultimate/battlecruiser
-	name = "Reveal Station Coordinates to nearby Syndicate Battlecruiser"
-	description = "Use a special upload card on a communications console to send the coordinates \
-	of the station to a nearby Battlecruiser. You may want to make your syndicate status known to \
-	the battlecruiser crew when they arrive - their goal will be to destroy the station."
+	name = "Сообщите координаты станции ближайшему боевому крейсеру Синдиката."
+	description = "Используйте специальную карту загрузки на консоли связи, чтобы отправить координаты \
+		станции на ближайший крейсер. Возможно, вы захотите сообщить о своей принадлежности Синдикату \
+		экипажу крейсера, когда они прибудут - их целью будет уничтожение станции."
 
 	/// Checks whether we have sent the card to the traitor yet.
 	var/sent_accesscard = FALSE
