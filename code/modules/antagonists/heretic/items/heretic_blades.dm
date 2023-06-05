@@ -76,7 +76,7 @@
 		Несделанный, он стремится быть большим, чем он является, и срезает тупым краем раны, заполняя их сажей."
 	icon_state = "ash_blade"
 	inhand_icon_state = "ash_blade"
-	after_use_message = "Ночной наблюдатель слышит ваш зов..."
+	after_use_message = "Ночной дозорный слышит ваш зов..."
 	resistance_flags = FIRE_PROOF
 
 // Path of Flesh's blade
