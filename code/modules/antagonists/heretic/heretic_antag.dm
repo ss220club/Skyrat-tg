@@ -369,7 +369,7 @@
 
 	new /obj/item/cult_bastard(source.loc)
 	for(var/mob/living/cultist as anything in invokers)
-		to_chat(cultist, span_cultlarge("\"A follower of the forgotten gods! You must be rewarded for such a valuable sacrifice.\""))
+		to_chat(cultist, span_cultlarge("\"Последователь забытых богов! Вы должны быть вознаграждены за столь ценную жертву.\""))
 	return SILENCE_SACRIFICE_MESSAGE
 
 /**
@@ -437,46 +437,38 @@
 /datum/antagonist/heretic/proc/passive_influence_gain()
 	knowledge_points++
 	if(owner.current.stat <= SOFT_CRIT)
-		to_chat(owner.current, "[span_hear("You hear a whisper...")] [span_hypnophrase(pick(strings(HERETIC_INFLUENCE_FILE, "drain_message")))]")
+		to_chat(owner.current, "[span_hear("Вы слышите шепот...")] [span_hypnophrase(pick(strings(HERETIC_INFLUENCE_FILE, "drain_message")))]")
 	addtimer(CALLBACK(src, PROC_REF(passive_influence_gain)), passive_gain_timer)
 
 /datum/antagonist/heretic/roundend_report()
 	var/list/parts = list()
 
-	//var/succeeded = TRUE // SKYRAT EDIT REMOVAL
+	var/succeeded = TRUE
 
 	parts += printplayer(owner)
-	parts += "<b>Sacrifices Made:</b> [total_sacrifices]"
+	parts += "<b>Жертвоприношений сделано:</b> [total_sacrifices]"
 
 	if(length(objectives))
 		var/count = 1
 		for(var/datum/objective/objective as anything in objectives)
-			// SKYRAT EDIT START - No greentext
-			/*
 			if(objective.check_completion())
-				parts += "<b>Objective #[count]</b>: [objective.explanation_text] [span_greentext("Success!")]"
+				parts += "<b>Задача #[count]</b>: [objective.explanation_text] [span_greentext("Успех!")]"
 			else
-				parts += "<b>Objective #[count]</b>: [objective.explanation_text] [span_redtext("Fail.")]"
+				parts += "<b>Задача #[count]</b>: [objective.explanation_text] [span_redtext("Провал.")]"
 				succeeded = FALSE
-			*/
-			parts += "<b>Objective #[count]</b>: [objective.explanation_text]"
-			// SKYRAT EDIT END - No greentext
+			parts += "<b>Задача #[count]</b>: [objective.explanation_text]"
 			count++
 
-	// SKYRAT EDIT START - No greentext
-	/*
 	if(ascended)
 		parts += span_greentext(span_big("THE HERETIC ASCENDED!"))
 
 	else
 		if(succeeded)
-			parts += span_greentext("The heretic was successful, but did not ascend!")
+			parts += span_greentext("Еретик добился успеха, но не вознесся!")
 		else
-			parts += span_redtext("The heretic has failed.")
-	*/
-	// SKYRAT EDIT END - No greentext
+			parts += span_redtext("Еретик потерпел неудачу.")
 
-	parts += "<b>Knowledge Researched:</b> "
+	parts += "<b>Исследованные знания:</b> "
 
 	var/list/string_of_knowledge = list()
 
@@ -696,7 +688,7 @@
 
 /datum/objective/minor_sacrifice/update_explanation_text()
 	. = ..()
-	explanation_text = "Sacrifice at least [target_amount] crewmembers."
+	explanation_text = "Принесите в жертву не менее [target_amount] членов экипажа."
 
 /datum/objective/minor_sacrifice/check_completion()
 	var/datum/antagonist/heretic/heretic_datum = owner?.has_antag_datum(/datum/antagonist/heretic)
@@ -708,7 +700,7 @@
 /datum/objective/major_sacrifice
 	name = "major sacrifice"
 	target_amount = 1
-	explanation_text = "Sacrifice 1 head of staff."
+	explanation_text = "Пожертвуйте главу станции."
 
 /datum/objective/major_sacrifice/check_completion()
 	var/datum/antagonist/heretic/heretic_datum = owner?.has_antag_datum(/datum/antagonist/heretic)
@@ -745,7 +737,7 @@
 
 /datum/objective/heretic_research/update_explanation_text()
 	. = ..()
-	explanation_text = "Research at least [target_amount] knowledge from the Mansus. You start with [length(GLOB.heretic_start_knowledge)] researched."
+	explanation_text = "Изучите как минимум [target_amount] знаний Мансуса. Изначально исследовано: [length(GLOB.heretic_start_knowledge)]"
 
 /datum/objective/heretic_research/check_completion()
 	var/datum/antagonist/heretic/heretic_datum = owner?.has_antag_datum(/datum/antagonist/heretic)
@@ -756,7 +748,7 @@
 /datum/objective/heretic_summon
 	name = "summon monsters"
 	target_amount = 2
-	explanation_text = "Summon 2 monsters from the Mansus into this realm."
+	explanation_text = "Вызовите двух монстров из Мансуса в этот мир."
 	/// The total number of summons the objective owner has done
 	var/num_summoned = 0
 

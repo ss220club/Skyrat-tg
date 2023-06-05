@@ -9,21 +9,21 @@
 	var/turf/location
 
 /datum/status_effect/crucible_soul/on_apply()
-	to_chat(owner,span_notice("You phase through reality, nothing is out of bounds!"))
+	to_chat(owner,span_notice("Вы проходите через реальность, ничто не остается за гранью!"))
 	owner.alpha = 180
 	owner.pass_flags |= PASSCLOSEDTURF | PASSGLASS | PASSGRILLE | PASSMACHINE | PASSSTRUCTURE | PASSTABLE | PASSMOB | PASSDOORS | PASSVEHICLE
 	location = get_turf(owner)
 	return TRUE
 
 /datum/status_effect/crucible_soul/on_remove()
-	to_chat(owner,span_notice("You regain your physicality, returning you to your original location..."))
+	to_chat(owner,span_notice("Вы восстанавливаете свою физическую форму, возвращаясь в исходное положение..."))
 	owner.alpha = initial(owner.alpha)
 	owner.pass_flags &= ~(PASSCLOSEDTURF | PASSGLASS | PASSGRILLE | PASSMACHINE | PASSSTRUCTURE | PASSTABLE | PASSMOB | PASSDOORS | PASSVEHICLE)
 	owner.forceMove(location)
 	location = null
 
 /datum/status_effect/crucible_soul/get_examine_text()
-	return span_notice("[owner.p_they(TRUE)] [owner.p_do()]n't seem to be all here.")
+	return span_notice("Кажется не совсем собой")
 
 // DUSK AND DAWN
 /datum/status_effect/duskndawn
@@ -83,18 +83,18 @@
 
 /atom/movable/screen/alert/status_effect/crucible_soul
 	name = "Blessing of Crucible Soul"
-	desc = "You phased through reality. You are halfway to your final destination..."
+	desc = "Вы прошли сквозь реальность. Вы на полпути к конечному пункту назначения..."
 	icon_state = "crucible"
 
 /atom/movable/screen/alert/status_effect/duskndawn
 	name = "Blessing of Dusk and Dawn"
-	desc = "Many things hide beyond the horizon. With Owl's help I managed to slip past Sun's guard and Moon's watch."
+	desc = "Многие вещи скрываются за горизонтом. С помощью Совы мне удалось проскользнуть мимо стражи Солнца и дозора Луны."
 	icon_state = "duskndawn"
 
 /atom/movable/screen/alert/status_effect/marshal
 	name = "Blessing of Wounded Soldier"
-	desc = "Some people seek power through redemption. One thing many people don't know is that battle \
-		is the ultimate redemption, and wounds let you bask in eternal glory."
+	desc = "Некоторые люди ищут силу через искупление. Многие люди не знают, что битва - это высшее искупление, \
+		а раны позволяют вам утопать в вечной славе."
 	icon_state = "wounded_soldier"
 
 // BLADES
@@ -184,9 +184,9 @@
 
 	playsound(get_turf(source), 'sound/weapons/parry.ogg', 100, TRUE)
 	source.visible_message(
-		span_warning("[to_remove] orbiting [source] snaps in front of [attack_text], blocking it before vanishing!"),
-		span_warning("[to_remove] orbiting you snaps in front of [attack_text], blocking it before vanishing!"),
-		span_hear("You hear a clink."),
+		span_warning("[to_remove], кружащийся вокруг [source], выпригывает перед [attack_text], блокируя его, прежде чем исчезнуть!"),
+		span_warning("[to_remove], кружащийся вокруг вас, выпригывает перед [attack_text], блокируя его, прежде чем исчезнуть!"),
+		span_hear("Вы слышите лязг."),
 	)
 
 	qdel(to_remove)

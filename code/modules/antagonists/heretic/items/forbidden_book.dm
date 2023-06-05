@@ -1,7 +1,7 @@
 // Ye old forbidden book, the Codex Cicatrix.
 /obj/item/codex_cicatrix
 	name = "Codex Cicatrix"
-	desc = "This book describes the secrets of the veil between worlds."
+	desc = "В этой книге описаны секреты завесы между мирами."
 	icon = 'icons/obj/eldritch.dmi'
 	base_icon_state = "book"
 	icon_state = "book"
@@ -15,8 +15,8 @@
 /obj/item/codex_cicatrix/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/effect_remover, \
-		success_feedback = "You remove %THEEFFECT.", \
-		tip_text = "Clear rune", \
+		success_feedback = "Вы убираете %THEEFFECT.", \
+		tip_text = "Очистить руну", \
 		on_clear_callback = CALLBACK(src, PROC_REF(after_clear_rune)), \
 		effects_we_clear = list(/obj/effect/heretic_rune))
 
@@ -29,8 +29,8 @@
 	if(!IS_HERETIC(user))
 		return
 
-	. += span_notice("Can be used to tap influences for additional knowledge points.")
-	. += span_notice("Can also be used to draw or remove transmutation runes with ease.")
+	. += span_notice("Может быть использован на влияниях для получения дополнительных очков знаний.")
+	. += span_notice("Упрощает начертание или удаление рун трансмутации.")
 
 /obj/item/codex_cicatrix/attack_self(mob/user, modifiers)
 	. = ..()

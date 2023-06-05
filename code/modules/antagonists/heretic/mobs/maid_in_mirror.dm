@@ -2,7 +2,7 @@
 /mob/living/simple_animal/hostile/heretic_summon/maid_in_the_mirror
 	name = "Maid in the Mirror"
 	real_name = "Maid in the Mirror"
-	desc = "A floating and flowing wisp of chilled air. Glancing at it causes it to shimmer slightly."
+	desc = "Плывущий и струящийся поток холодного воздуха. При взгляде на него он слегка мерцает."
 	icon = 'icons/mob/simple/mob.dmi'
 	icon_state = "stand"
 	icon_living = "stand" // Placeholder sprite
@@ -15,7 +15,7 @@
 	melee_damage_lower = 12
 	melee_damage_upper = 16
 	sight = SEE_MOBS | SEE_OBJS | SEE_TURFS
-	death_message = "shatters and vanishes, releasing a gust of cold air."
+	death_message = "разбивается и исчезает, выпуская порыв холодного воздуха."
 	loot = list(
 		/obj/item/shard,
 		/obj/effect/decal/cleanable/ash,
@@ -55,8 +55,8 @@
 	// If we have health, we take some damage
 	if(health > (maxHealth * 0.125))
 		visible_message(
-				span_warning("[src] seems to fade in and out slightly."),
-				span_userdanger("[user]'s gaze pierces your every being!"),
+				span_warning("[src], кажется, слегка мерцает, исчезая и появляясь."),
+				span_userdanger("Взгляд [user] пронзает ваше тело!"),
 		)
 
 		recent_examiner_refs += user_ref
@@ -67,8 +67,8 @@
 	// If we're examined on low enough health we die straight up
 	else
 		visible_message(
-				span_danger("[src] vanishes from existence!"),
-				span_userdanger("[user]'s gaze shatters your form, destroying you!"),
+				span_danger("[src] исчезает из бытия!"),
+				span_userdanger("Взгляд [user] разрушает вашу форму, уничтожая вас!"),
 		)
 
 		death()

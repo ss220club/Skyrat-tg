@@ -10,7 +10,7 @@
 
 /atom/movable/screen/alert/status_effect/void_chill
 	name = "Void Chill"
-	desc = "There's something freezing you from within and without. You've never felt cold this oppressive before..."
+	desc = "Что-то замораживает вас изнутри и снаружи. Вы никогда раньше не чувствовали такого гнетущего холода..."
 	icon_state = "void_chill"
 
 /datum/status_effect/void_chill/on_apply()
@@ -45,7 +45,7 @@
 	tick_interval = 1 SECONDS
 
 /datum/status_effect/amok/on_apply(mob/living/afflicted)
-	to_chat(owner, span_boldwarning("You feel filled with a rage that is not your own!"))
+	to_chat(owner, span_boldwarning("Вы чувствуете, что вас переполняет не вашим гневом"))
 	return TRUE
 
 /datum/status_effect/amok/tick()
@@ -99,7 +99,7 @@
 	tick_interval = 1 SECONDS
 
 /datum/status_effect/corrosion_curse/on_apply()
-	to_chat(owner, span_userdanger("Your body starts to break apart!"))
+	to_chat(owner, span_userdanger("Ваше тело начинает распадаться на части!"))
 	return TRUE
 
 /datum/status_effect/corrosion_curse/tick()
@@ -154,7 +154,7 @@
 
 /atom/movable/screen/alert/status_effect/star_mark
 	name = "Star Mark"
-	desc = "A ring above your head prevents you from entering cosmic fields or teleporting through cosmic runes..."
+	desc = "Кольцо на вашей голове не позволяет вам входить в космические поля или телепортироваться через космические руны..."
 	icon_state = "star_mark"
 
 /datum/status_effect/star_mark/on_creation(mob/living/new_owner, mob/living/new_spell_caster)
