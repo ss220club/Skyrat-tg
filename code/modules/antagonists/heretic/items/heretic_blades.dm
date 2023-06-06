@@ -67,7 +67,7 @@
 		И все же он кусается, разрывая плоть и кости зазубренными гнилыми зубами."
 	icon_state = "rust_blade"
 	inhand_icon_state = "rust_blade"
-	after_use_message = "Ржавые холмы слышат ваш зов..."
+	after_use_message = "Ржавые Холмы слышат ваш зов..."
 
 // Path of Ash's blade
 /obj/item/melee/sickly_blade/ash

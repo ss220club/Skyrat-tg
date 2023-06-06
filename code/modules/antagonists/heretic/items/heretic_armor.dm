@@ -51,7 +51,7 @@
 	icon = 'icons/obj/clothing/head/helmet.dmi'
 	worn_icon = 'icons/mob/clothing/head/helmet.dmi'
 	desc = "Черный как смоль, не отражает свет. Рунические символы выстраиваются снаружи, \
-		с каждой вспышкой вы теряете понимание того, что перед вами."
+		с каждой вспышкой вы теряете понимание того, что находится перед вами."
 	icon_state = "void_cloak"
 	flags_inv = NONE
 	flags_cover = NONE
@@ -72,7 +72,7 @@
 /obj/item/clothing/suit/hooded/cultrobes/void
 	name = "void cloak"
 	desc = "Черный как смоль, не отражает свет. Рунические символы выстраиваются снаружи, \
-		с каждой вспышкой вы теряете понимание того, что перед вами."
+		с каждой вспышкой вы теряете понимание того, что находится перед вами."
 	icon_state = "void_cloak"
 	inhand_icon_state = null
 	allowed = list(/obj/item/melee/sickly_blade)
@@ -107,7 +107,7 @@
 		return
 
 	// Let examiners know this works as a focus only if the hood is down
-	. += span_notice("Позволяет произносить еретические заклинания, пока капюшон опущен.")
+	. += span_notice("Позволяет произносить заклинания еретиков, пока капюшон опущен.")
 
 /obj/item/clothing/suit/hooded/cultrobes/void/RemoveHood()
 	// This is before the hood actually goes down

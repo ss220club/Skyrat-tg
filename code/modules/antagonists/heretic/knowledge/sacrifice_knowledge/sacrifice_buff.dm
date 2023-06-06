@@ -37,7 +37,7 @@
 	// ...But reach hardcrit and you're done. You now die faster.
 	if (owner.health < owner.hardcrit_threshold)
 		if(prob(5))
-			to_chat(owner, span_big(span_hypnophrase("Вы не сможете долго держаться...")))
+			to_chat(owner, span_big(span_hypnophrase("Вы не можете больше держаться...")))
 		healing_amount *= -0.5
 
 	if(owner.health > owner.crit_threshold && prob(4))

@@ -26,7 +26,7 @@
 
 /datum/action/cooldown/spell/jaunt/ethereal_jaunt/ash/long
 	name = "Ashen Walk"
-	desc = "Заклинание большой дальности, позволяющее беспрепятственно проходить сквозь многочисленные стены."
+	desc = "Заклинание высокой дальности, позволяющее беспрепятственно проходить сквозь многочисленные стены."
 	jaunt_duration = 5 SECONDS
 
 /obj/effect/temp_visual/dir_setting/ash_shift

@@ -700,7 +700,7 @@
 /datum/objective/major_sacrifice
 	name = "major sacrifice"
 	target_amount = 1
-	explanation_text = "Пожертвуйте главу станции."
+	explanation_text = "Принесите в жертву главу станции."
 
 /datum/objective/major_sacrifice/check_completion()
 	var/datum/antagonist/heretic/heretic_datum = owner?.has_antag_datum(/datum/antagonist/heretic)
@@ -737,7 +737,7 @@
 
 /datum/objective/heretic_research/update_explanation_text()
 	. = ..()
-	explanation_text = "Изучите как минимум [target_amount] знаний Мансуса. Изначально исследовано: [length(GLOB.heretic_start_knowledge)]"
+	explanation_text = "Исследуйте как минимум [target_amount] знаний Мансуса. Начальных исследований: [length(GLOB.heretic_start_knowledge)]"
 
 /datum/objective/heretic_research/check_completion()
 	var/datum/antagonist/heretic/heretic_datum = owner?.has_antag_datum(/datum/antagonist/heretic)

@@ -67,7 +67,7 @@
  */
 /datum/action/cooldown/track_target
 	name = "Living Heartbeat"
-	desc = "ЛКМ: Выберите одну из целей для отслеживания. ПКМ: Повторяет последнюю цель, которую вы выбрали для отслеживания."
+	desc = "ЛКМ: Выберите цель для отслеживания. ПКМ: Повторяет отслеживание последней выбранной цели."
 	check_flags = AB_CHECK_CONSCIOUS
 	background_icon_state = "bg_heretic"
 	button_icon = 'icons/obj/eldritch.dmi'
@@ -107,7 +107,7 @@
 	var/datum/antagonist/heretic/heretic_datum = IS_HERETIC(owner)
 	var/datum/heretic_knowledge/sac_knowledge = heretic_datum.get_knowledge(/datum/heretic_knowledge/hunt_and_sacrifice)
 	if(!LAZYLEN(heretic_datum.sac_targets))
-		owner.balloon_alert(owner, "нет цели, посетите руну")
+		owner.balloon_alert(owner, "нет цели, посетите руну!")
 		StartCooldown(1 SECONDS)
 		return TRUE
 

@@ -228,7 +228,7 @@
 		return SECONDARY_ATTACK_CALL_NORMAL
 
 	if(being_drained)
-		balloon_alert(user, "уже добывается!")
+		balloon_alert(user, "уже иссушается!")
 	else
 		INVOKE_ASYNC(src, PROC_REF(drain_influence), user, 1)
 
@@ -256,7 +256,7 @@
 /obj/effect/heretic_influence/proc/drain_influence(mob/living/user, knowledge_to_gain)
 
 	being_drained = TRUE
-	balloon_alert(user, "добыча влияния...")
+	balloon_alert(user, "иссушение влияния...")
 	RegisterSignal(user, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
 
 	if(!do_after(user, 10 SECONDS, src))
@@ -267,7 +267,7 @@
 
 	// We don't need to set being_drained back since we delete after anyways
 	UnregisterSignal(user, COMSIG_PARENT_EXAMINE)
-	balloon_alert(user, "влияние добыто")
+	balloon_alert(user, "влияние высушено")
 
 	var/datum/antagonist/heretic/heretic_datum = IS_HERETIC(user)
 	heretic_datum.knowledge_points += knowledge_to_gain

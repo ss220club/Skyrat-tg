@@ -217,7 +217,7 @@
 			LAZYREMOVE(created_items, ref)
 
 	if(LAZYLEN(created_items) >= limit)
-		loc.balloon_alert(user, "ритуал провален, уже лимит!")
+		loc.balloon_alert(user, "ритуал провален, на лимите!")
 		return FALSE
 
 	return TRUE
@@ -442,7 +442,7 @@
 
 	var/mob/living/carbon/human/to_curse = potential_targets[chosen_mob]
 	if(QDELETED(to_curse))
-		loc.balloon_alert(user, "ритуал провален, некорректный выбор!")
+		loc.balloon_alert(user, "ритуал провален, неподходящий выбор!")
 		return FALSE
 
 	// Yes, you COULD curse yourself, not sure why but you could
@@ -514,7 +514,7 @@
 	animate(summoned, 10 SECONDS, alpha = 155)
 
 	message_admins("A [summoned.name] is being summoned by [ADMIN_LOOKUPFLW(user)] in [ADMIN_COORDJMP(summoned)].")
-	var/list/mob/dead/observer/candidates = poll_candidates_for_mob("Вы хотите играть как [summoned.real_name]?", ROLE_HERETIC, FALSE, 10 SECONDS, summoned)
+	var/list/mob/dead/observer/candidates = poll_candidates_for_mob("Вы хотите играть за [summoned.real_name]?", ROLE_HERETIC, FALSE, 10 SECONDS, summoned)
 	if(!LAZYLEN(candidates))
 		loc.balloon_alert(user, "ритуал провален, нет призраков!")
 		animate(summoned, 0.5 SECONDS, alpha = 0)
@@ -630,7 +630,7 @@
 	was_completed = TRUE
 
 	var/drain_message = pick(strings(HERETIC_INFLUENCE_FILE, "drain_message"))
-	to_chat(user, span_boldnotice("[name] завершено!"))
+	to_chat(user, span_boldnotice("[name] завершен!"))
 	to_chat(user, span_hypnophrase(span_big("[drain_message]")))
 	desc += " (Завершен!)"
 	log_heretic_knowledge("[key_name(user)] completed a [name] at [worldtime2text()].")

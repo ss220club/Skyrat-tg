@@ -1,9 +1,9 @@
 /datum/action/cooldown/spell/touch/star_touch
 	name = "Star Touch"
-	desc = "Помечает кого-то меткой звезды или усыпляет кого-то с ней на 4 секунды, снимая её. \
+	desc = "Помечает кого-то Меткой звезды или усыпляет кого-то с ней на 4 секунды, снимая её. \
 		Вы и ваша цель связаны космическим лучом, обжигающим ее на время до минуты или \
 		пока она не скроется из вашего поля зрения. Способность также может удалять космические руны или телепортировать \
-		вас к вашему Star Gazer, если вы используете его на себе."
+		вас к вашему Звездочету, если вы используете его на себе."
 	background_icon_state = "bg_heretic"
 	overlay_icon_state = "bg_heretic_border"
 	button_icon = 'icons/mob/actions/actions_ecult.dmi'
@@ -67,7 +67,7 @@
 /obj/item/melee/touch_attack/star_touch
 	name = "Star Touch"
 	desc = "Зловещая аура, искажающая течение реальности вокруг себя. \
-		Вызывает сон на 4 секунды у людей с меткой звезды и создает метку у тех, у кого ее нет."
+		Вызывает сон на 4 секунды у людей с Меткой звезды и создает метку у тех, у кого ее нет."
 	icon_state = "star"
 	inhand_icon_state = "star"
 
@@ -75,7 +75,7 @@
 	. = ..()
 	AddComponent(/datum/component/effect_remover, \
 		success_feedback = "Вы убираете %THEEFFECT.", \
-		tip_text = "Чистит руну", \
+		tip_text = "Очистить руну", \
 		on_clear_callback = CALLBACK(src, PROC_REF(after_clear_rune)), \
 		effects_we_clear = list(/obj/effect/cosmic_rune))
 
@@ -96,7 +96,7 @@
 	var/datum/action/cooldown/spell/touch/star_touch/star_touch_spell = spell_which_made_us?.resolve()
 	var/mob/living/basic/star_gazer/star_gazer_mob = star_touch_spell?.get_star_gazer()
 	if(!star_gazer_mob)
-		balloon_alert(user, "нет соединенного star gazer!")
+		balloon_alert(user, "нет соединенного Звездочета!")
 		return ..()
 	new /obj/effect/temp_visual/cosmic_explosion(get_turf(user))
 	do_teleport(

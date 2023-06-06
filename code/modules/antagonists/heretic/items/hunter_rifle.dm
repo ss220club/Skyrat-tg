@@ -136,7 +136,7 @@
 // Extra ammunition can be made with a heretic ritual.
 /obj/item/ammo_box/a762/lionhunter
 	name = "stripper clip (7.62mm hunter)"
-	desc = "Стрипперная обойма с загадочными, нетипичными патронами. Они не подходят к обычным баллистическим винтовкам."
+	desc = "Обойма с загадочными, нетипичными патронами. Они не подходят к обычным баллистическим винтовкам."
 	icon_state = "762"
 	ammo_type = /obj/item/ammo_casing/a762/lionhunter
 	max_ammo = 3
