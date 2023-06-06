@@ -33,10 +33,10 @@
  */
 /datum/heretic_knowledge/limited_amount/starting/base_flesh
 	name = "Principle of Hunger"
-	desc = "Opens up the Path of Flesh to you. \
-		Allows you to transmute a knife and a pool of blood into a Bloody Blade. \
-		You can only create twenty at a time." //SKYRAT EDIT three to twenty
-	gain_text = "Hundreds of us starved, but not me... I found strength in my greed."
+	desc = "Открывает перед вами Путь плоти. \
+		Позволяет трансмутировать нож и лужу крови в Кровавый клинок. \
+		Одновременно можно иметь только двадцать." //SKYRAT EDIT three to twenty
+	gain_text = "Сотни наших умирали от голода, но не я... Я нашел силу в своей жадности."
 	next_knowledge = list(/datum/heretic_knowledge/limited_amount/flesh_grasp)
 	required_atoms = list(
 		/obj/item/knife = 1,
@@ -52,15 +52,15 @@
 	summon_objective.owner = our_heretic.owner
 	our_heretic.objectives += summon_objective
 
-	to_chat(user, span_hierophant("Undertaking the Path of Flesh, you are given another objective."))
+	to_chat(user, span_hierophant("Пройдя Путь плоти, вы получаете еще одну цель."))
 	our_heretic.owner.announce_objectives()
 
 /datum/heretic_knowledge/limited_amount/flesh_grasp
 	name = "Grasp of Flesh"
-	desc = "Your Mansus Grasp gains the ability to create a ghoul out of corpse with a soul. \
-		Ghouls have only 25 health and look like husks to the heathens' eyes, but can use Bloody Blades effectively. \
-		You can only create one at a time by this method."
-	gain_text = "My new found desires drove me to greater and greater heights."
+	desc = "Ваша хватка Мансуса получает способность создавать гуля из трупа с душой. \
+		Гули имеют всего 25 здоровья и выглядят как хаски в глазах язычников, но могут эффективно использовать Кровавые клинки. \
+		Используя этот способ, можно иметь только одного."
+	gain_text = "Мои новообретенные желания заставляли меня достигать все больших и больших высот."
 	next_knowledge = list(/datum/heretic_knowledge/limited_amount/flesh_ghoul)
 	limit = 1
 	cost = 1
@@ -79,22 +79,22 @@
 		return
 
 	if(LAZYLEN(created_items) >= limit)
-		target.balloon_alert(source, "at ghoul limit!")
+		target.balloon_alert(source, "лимит гулей!")
 		return COMPONENT_BLOCK_HAND_USE
 
 	if(HAS_TRAIT(target, TRAIT_HUSK))
-		target.balloon_alert(source, "husked!")
+		target.balloon_alert(source, "это хаск!")
 		return COMPONENT_BLOCK_HAND_USE
 
 	if(!IS_VALID_GHOUL_MOB(target))
-		target.balloon_alert(source, "invalid body!")
+		target.balloon_alert(source, "неподходящее тело!")
 		return COMPONENT_BLOCK_HAND_USE
 
 	target.grab_ghost()
 
 	// The grab failed, so they're mindless or playerless. We can't continue
 	if(!target.mind || !target.client)
-		target.balloon_alert(source, "no soul!")
+		target.balloon_alert(source, "нет души!")
 		return COMPONENT_BLOCK_HAND_USE
 
 	make_ghoul(source, target)
@@ -122,10 +122,10 @@
 
 /datum/heretic_knowledge/limited_amount/flesh_ghoul
 	name = "Imperfect Ritual"
-	desc = "Allows you to transmute a corpse and a poppy to create a Voiceless Dead. \
-		Voiceless Dead are mute ghouls and only have 50 health, but can use Bloody Blades effectively. \
-		You can only create two at a time."
-	gain_text = "I found notes of a dark ritual, unfinished... yet still, I pushed forward."
+	desc = "Позволяет трансмутировать труп и мак, чтобы создать Безголосого мертвеца. \
+		Безголосые мертвецы - это немые гули, у них всего 50 здоровья, но они могут эффективно использовать Кровавые клинки. \
+		Одновременно можно создать только два."
+	gain_text = "Я нашел записи о темном ритуале, незаконченные... но все же я стремился вперед."
 	next_knowledge = list(
 		/datum/heretic_knowledge/mark/flesh_mark,
 		/datum/heretic_knowledge/codex_cicatrix,
@@ -149,30 +149,30 @@
 		if(body.stat != DEAD)
 			continue
 		if(!IS_VALID_GHOUL_MOB(body) || HAS_TRAIT(body, TRAIT_HUSK))
-			to_chat(user, span_hierophant_warning("[body] is not in a valid state to be made into a ghoul."))
+			to_chat(user, span_hierophant_warning("[body] не в подходящем состоянии для превращения в гуля."))
 			continue
 
 		// We'll select any valid bodies here. If they're clientless, we'll give them a new one.
 		selected_atoms += body
 		return TRUE
 
-	loc.balloon_alert(user, "ritual failed, no valid body!")
+	loc.balloon_alert(user, "ритуал провален, нет подходящего тела!")
 	return FALSE
 
 /datum/heretic_knowledge/limited_amount/flesh_ghoul/on_finished_recipe(mob/living/user, list/selected_atoms, turf/loc)
 	var/mob/living/carbon/human/soon_to_be_ghoul = locate() in selected_atoms
 	if(QDELETED(soon_to_be_ghoul)) // No body? No ritual
 		stack_trace("[type] reached on_finished_recipe without a human in selected_atoms to make a ghoul out of.")
-		loc.balloon_alert(user, "ritual failed, no valid body!")
+		loc.balloon_alert(user, "ритуал провален, нет подходящего тела!")
 		return FALSE
 
 	soon_to_be_ghoul.grab_ghost()
 
 	if(!soon_to_be_ghoul.mind || !soon_to_be_ghoul.client)
 		message_admins("[ADMIN_LOOKUPFLW(user)] is creating a voiceless dead of a body with no player.")
-		var/list/mob/dead/observer/candidates = poll_candidates_for_mob("Do you want to play as a [soon_to_be_ghoul.real_name], a voiceless dead?", ROLE_HERETIC, ROLE_HERETIC, 5 SECONDS, soon_to_be_ghoul)
+		var/list/mob/dead/observer/candidates = poll_candidates_for_mob("Вы хотите играть как [soon_to_be_ghoul.real_name], безголосый мертвец?", ROLE_HERETIC, ROLE_HERETIC, 5 SECONDS, soon_to_be_ghoul)
 		if(!LAZYLEN(candidates))
-			loc.balloon_alert(user, "ritual failed, no ghosts!")
+			loc.balloon_alert(user, "ритуал провален, нет призраков!")
 			return FALSE
 
 		var/mob/dead/observer/chosen_candidate = pick(candidates)
@@ -209,9 +209,9 @@
 
 /datum/heretic_knowledge/mark/flesh_mark
 	name = "Mark of Flesh"
-	desc = "Your Mansus Grasp now applies the Mark of Flesh. The mark is triggered from an attack with your Bloody Blade. \
-		When triggered, the victim begins to bleed significantly."
-	gain_text = "That's when I saw them, the marked ones. They were out of reach. They screamed, and screamed."
+	desc = "Ваша Хватка Мансуса теперь применяет Метку плоти. Метка срабатывает от атаки вашим Кровавым клинком. \
+		При срабатывании у жертвы начинается обильное кровотечение."
+	gain_text = "Тогда-то я и увидел их, отмеченных. Они были вне досягаемости. Они кричали и кричали."
 	next_knowledge = list(/datum/heretic_knowledge/knowledge_ritual/flesh)
 	route = PATH_FLESH
 	mark_type = /datum/status_effect/eldritch/flesh
@@ -222,11 +222,11 @@
 
 /datum/heretic_knowledge/spell/flesh_surgery
 	name = "Knitting of Flesh"
-	desc = "Grants you the spell Knit Flesh. This spell allows you to remove organs from victims \
-		without requiring a lengthy surgery. This process is much longer if the target is not dead. \
-		This spell also allows you to heal your minions and summons, or restore failing organs to acceptable status."
-	gain_text = "But they were not out of my reach for long. With every step, the screams grew, until at last \
-		I learned that they could be silenced."
+	desc = "Дарует вам заклинание Knit Flesh. Это заклинание позволяет извлекать органы из жертв \
+		без необходимости длительной операции. Этот процесс занимает гораздо больше времени, если цель жива. \
+		Это заклинание также позволяет вам исцелять ваших миньонов и призванных или восстанавливать отказавшие органы до приемлемого состояния."
+	gain_text = "Но они недолго оставались вне моей досягаемости. С каждым шагом крики усиливались, пока, наконец, \
+		я не понял, что их можно заглушить."
 	next_knowledge = list(/datum/heretic_knowledge/summon/raw_prophet)
 	spell_to_add = /datum/action/cooldown/spell/touch/flesh_surgery
 	cost = 1
@@ -234,11 +234,11 @@
 
 /datum/heretic_knowledge/summon/raw_prophet
 	name = "Raw Ritual"
-	desc = "Allows you to transmute a pair of eyes, a left arm, and a pool of blood to create a Raw Prophet. \
-		Raw Prophets have a greatly increased sight range and x-ray vision, as well as a long range jaunt and \
-		the ability to link minds to communicate with ease, but are very fragile and weak in combat."
-	gain_text = "I could not continue alone. I was able to summon The Uncanny Man to help me see more. \
-		The screams... once constant, now silenced by their wretched appearance. Nothing was out of reach."
+	desc = "Позволяет трансмутировать пару глаз, левую руку и лужу крови, чтобы создать Сырого gророка. \
+		Сырые пророки обладают значительно увеличенной дальностью зрения и рентгеновским зрением, \
+		а также джаунтом дальнего действия и способностью связывать разумы для легкого общения, но очень хрупки и слабы в бою."
+	gain_text = "Я не мог продолжать в одиночку. Я смог призвать Жуткого человека, чтобы он помог мне увидеть больше. \
+		Крики... когда-то постоянные, теперь заглушались их убогим видом. Ничто не было недосягаемо."
 	next_knowledge = list(
 		/datum/heretic_knowledge/blade_upgrade/flesh,
 		/datum/heretic_knowledge/reroll_targets,
@@ -256,9 +256,9 @@
 
 /datum/heretic_knowledge/blade_upgrade/flesh
 	name = "Bleeding Steel"
-	desc = "Your Bloody Blade now causes enemies to bleed heavily on attack."
-	gain_text = "The Uncanny Man was not alone. They led me to the Marshal. \
-		I finally began to understand. And then, blood rained from the heavens."
+	desc = "Ваш Кровавый клинок теперь вызывает у врагов сильное кровотечение при атаке."
+	gain_text = "Жудкий человек был не один. Он привел меня к Маршалу. \
+		Наконец-то я начал понимать. А потом с небес хлынул кровавый дождь."
 	next_knowledge = list(/datum/heretic_knowledge/summon/stalker)
 	route = PATH_FLESH
 
@@ -273,10 +273,10 @@
 
 /datum/heretic_knowledge/summon/stalker
 	name = "Lonely Ritual"
-	desc = "Allows you to transmute a tail of any kind, a stomach, a tongue, a pen and a piece of paper to create a Stalker. \
-		Stalkers can jaunt, release EMPs, shapeshift into animals or automatons, and are strong in combat."
-	gain_text = "I was able to combine my greed and desires to summon an eldritch beast I had never seen before. \
-		An ever shapeshifting mass of flesh, it knew well my goals. The Marshal approved."
+	desc = "Позволяет трансмутировать хвост любого вида, желудок, язык, перо и лист бумаги, чтобы создать Сталкера. \
+		Сталкеры имеют джаунт, могут выпускать ЭМИ, превращаться в животных или автоматонов и сильны в бою."
+	gain_text = "Я смог объединить свою жадность и желания, чтобы вызвать мистическое чудовище, которого я никогда раньше не видел. \
+		Постоянно меняющая форму масса плоти, она хорошо знала мои цели. Маршал одобрил."
 	next_knowledge = list(
 		/datum/heretic_knowledge/ultimate/flesh_final,
 		/datum/heretic_knowledge/summon/ashy,
@@ -295,23 +295,23 @@
 
 /datum/heretic_knowledge/ultimate/flesh_final
 	name = "Priest's Final Hymn"
-	desc = "The ascension ritual of the Path of Flesh. \
-		Bring 4 corpses to a transmutation rune to complete the ritual. \
-		When completed, you gain the ability to shed your human form \
-		and become the Lord of the Night, a supremely powerful creature. \
-		Just the act of transforming causes nearby heathens great fear and trauma. \
-		While in the Lord of the Night form, you can consume arms to heal and regain segments. \
-		Additionally, you can summon three times as many Ghouls and Voiceless Dead, \
-		and can create unlimited blades to arm them all."
-	gain_text = "With the Marshal's knowledge, my power had peaked. The throne was open to claim. \
-		Men of this world, hear me, for the time has come! The Marshal guides my army! \
-		Reality will bend to THE LORD OF THE NIGHT or be unraveled! WITNESS MY ASCENSION!"
+	desc = "Ритуал вознесения Пути плоти. \
+		Принесите 4 трупа к руне трансмутации, чтобы завершить ритуал. \
+		После завершения вы обретаете способность сбросить человеческую форму \
+		и стать Властелином ночи, сверхмощным существом. \
+		Один только акт превращения вызывает у близлежащих язычников сильный страх и травму. \
+		Находясь в форме Повелителя ночи, вы можете потреблять оружие для исцеления и восстановления сегментов. \
+		Кроме того, вы можете вызывать в три раза больше упырей и безголосых мертвецов, \
+		а также создавать неограниченное количество клинков, чтобы вооружить их всех." // оружие или руки? надо код чекнуть
+	gain_text = "С ведома Маршала моя сила достигла пика. Трон был готов к завоеванию. \
+		Люди этого мира, услышьте меня, ибо время пришло! Маршал ведет мою армию! \
+		Реальность согнется перед ВЛАДЫКОЙ НОЧИ или будет разрушена! СТАНЬТЕ СВИДЕТЕЛЯМИ МОЕГО ВОЗНЕСЕНИЯ!"
 	required_atoms = list(/mob/living/carbon/human = 4)
 	route = PATH_FLESH
 
 /datum/heretic_knowledge/ultimate/flesh_final/on_finished_recipe(mob/living/user, list/selected_atoms, turf/loc)
 	. = ..()
-	priority_announce("[generate_heretic_text()] Ever coiling vortex. Reality unfolded. ARMS OUTREACHED, THE LORD OF THE NIGHT, [user.real_name] has ascended! Fear the ever twisting hand! [generate_heretic_text()]", "[generate_heretic_text()]", ANNOUNCER_SPANOMALIES)
+	priority_announce("[generate_heretic_text()] Вечно закручивающийся вихрь. Реальность развернулась. С ВЫТЯНУТЫМИ РУКАМИ, ВЛАСТЕЛИН НОЧИ, [user.real_name] возвысился! Бойтесь вечно изгибающейся руки! [generate_heretic_text()]", "[generate_heretic_text()]", ANNOUNCER_SPANOMALIES)
 
 	var/datum/action/cooldown/spell/shapeshift/shed_human_form/worm_spell = new(user.mind)
 	worm_spell.Grant(user)
