@@ -2,9 +2,9 @@
 
 /datum/heretic_knowledge/reroll_targets
 	name = "The Relentless Heartbeat"
-	desc = "Allows you transmute a harebell, a book, and a jumpsuit while standing over a rune \
-		to reroll your sacrifice targets."
-	gain_text = "The heart is the principle that continues and preserves."
+	desc = "Позволяет трансмутировать колокольчик, книгу и джампсъют, стоя над руной, \
+		чтобы изменить цели жертвоприношения."
+	gain_text = "Сердце - это принцип, который пребывает и оберегает."
 	required_atoms = list(
 		/obj/item/food/grown/harebell = 1,
 		/obj/item/book = 1,
@@ -20,7 +20,7 @@
 	// throw a fail to show the heretic that there's no point in rerolling
 	// if you don't have a heart to track the targets in the first place.
 	if(heretic_datum.has_living_heart() != HERETIC_HAS_LIVING_HEART)
-		loc.balloon_alert(user, "ritual failed, no living heart!")
+		loc.balloon_alert(user, "ритуал провален, нет живого сердца!")
 		return FALSE
 
 	return TRUE
@@ -35,18 +35,18 @@
 		CRASH("Heretic datum didn't have a hunt_and_sacrifice knowledge learned, what?")
 
 	if(!target_finder.obtain_targets(user, heretic_datum = heretic_datum))
-		loc.balloon_alert(user, "ritual failed, no targets found!")
+		loc.balloon_alert(user, "ритуал провален, не удалось найти цели!")
 		return FALSE
 
 	return TRUE
 
 /datum/heretic_knowledge/codex_cicatrix
 	name = "Codex Cicatrix"
-	desc = "Allows you to transmute a bible, a fountain pen, and hide from an animal (or human) to create a Codex Cicatrix. \
-		The Codex Cicatrix can be used when draining influences to gain additional knowledge, but comes at greater risk of being noticed. \
-		It can also be used to draw and remove transmutation runes easier."
-	gain_text = "The occult leaves fragments of knowledge and power anywhere and everywhere. The Codex Cicatrix is one such example. \
-		Within the leather-bound faces and age old pages, a path into the Mansus is revealed."
+	desc = "Позволяет трансмутировать библию, авторучку и шкуру животного (или человека), чтобы создать Codex Cicatrix. \
+		Codex Cicatrix можно использовать при истощении влияний для получения дополнительных знаний, но при этом возрастает риск быть замеченным. \
+		Его также можно использовать для того, чтобы легче рисовать и удалять руны трансмутации."
+	gain_text = "Оккультизм оставляет фрагменты знаний и силы везде и всюду. Codex Cicatrix - один из таких примеров. \
+		В кожаном переплете и на старых страницах открывается путь к Мансусу."
 	required_atoms = list(
 		/obj/item/book/bible = 1,
 		/obj/item/pen/fountain = 1,
