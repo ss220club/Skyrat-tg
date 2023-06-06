@@ -95,7 +95,7 @@
 /// The "hand" "weapon" used by shattered risen
 /obj/item/mutant_hand/shattered_risen
 	name = "bone-shards"
-	desc = "What once appeared to be a normal human fist, now holds a maulled nest of sharp bone-shards."
+	desc = "То, что когда-то казалось обычным человеческим кулаком, теперь превратилось в гнездо острых костяных осколков."
 	color = "#001aff"
 	hitsound = SFX_SHATTER
 	force = 16
@@ -122,11 +122,11 @@
 
 /datum/heretic_knowledge/rune_carver
 	name = "Carving Knife"
-	desc = "Allows you to transmute a knife, a shard of glass, and a piece of paper to create a Carving Knife. \
-		The Carving Knife allows you to etch difficult to see traps that trigger on heathens who walk overhead. \
-		Also makes for a handy throwing weapon."
-	gain_text = "Etched, carved... eternal. There is power hidden in everything. I can unveil it! \
-		I can carve the monolith to reveal the chains!"
+	desc = "Позволяет трансмутировать нож, осколок стекла и лист бумаги, чтобы создать Резьбовой нож. \
+		Резьбовой нож позволяет вырезать трудноразличимые ловушки, которые срабатывают на язычников, проходящих над ними. \
+		Также является удобным метательным оружием."
+	gain_text = "Высеченные, вырезанные... вечные. Сила скрыта во всем. Я могу раскрыть ее! \
+		Я могу вырезать монолит, раскрывающий цепи!"
 	next_knowledge = list(
 		/datum/heretic_knowledge/spell/void_phase,
 		/datum/heretic_knowledge/duel_stance,
@@ -142,11 +142,11 @@
 
 /datum/heretic_knowledge/summon/maid_in_mirror
 	name = "Maid in the Mirror"
-	desc = "Allows you to transmute five sheets of titanium, a flash, a suit of armor, and a pair of lungs \
-		to create a Maid in the Mirror. Maid in the Mirrors are decent combatants that can become incorporeal by \
-		phasing in and out of the mirror realm, serving as powerful scouts and ambushers."
-	gain_text = "Within each reflection, lies a gateway into an unimaginable world of colors never seen and \
-		people never met. The ascent is glass, and the walls are knives. Each step is blood, if you do not have a guide."
+	desc = "Позволяет трансмутировать пять листов титана, флэш, броню и пару легких, \
+		чтобы создать Зеркальную служанку. Зеркальные служанки - достойные бойцы, которые могут становиться бесплотными, \
+		переходя в зеркальный мир и обратно, и служат мощными разведчиками и засадчиками."
+	gain_text = "Внутри каждого отражения - ворота в невообразимый мир невиданных красок и \
+		незнакомых людей. Подъем - стекло, а стены - ножи. Каждый шаг - это кровь, если у вас нет проводника."
 	next_knowledge = list(
 		/datum/heretic_knowledge/spell/void_pull,
 		/datum/heretic_knowledge/spell/furious_steel,
