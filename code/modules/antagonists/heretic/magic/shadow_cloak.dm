@@ -66,7 +66,7 @@
 	playsound(cast_on, 'sound/chemistry/ahaha.ogg', 50, TRUE, -1, extrarange = SILENCED_SOUND_EXTRARANGE, frequency = 0.5)
 	cast_on.visible_message(
 		span_warning("[cast_on] исчезают в тени!"),
-		span_notice("Вы исчезаете в тени, становясь неопознаваемым."),
+		span_notice("Вы исчезаете в тени, становясь не опознаваемым."),
 	)
 
 	active_cloak = cast_on.apply_status_effect(/datum/status_effect/shadow_cloak)

@@ -170,7 +170,7 @@
 	var/mob/living/carbon/human/human_user = user
 
 	// A very elaborate way to suicide
-	to_chat(human_user, span_userdanger("Миситческая энергия пронзает ваш хрупкий разум, разрывая его на куски!"))
+	to_chat(human_user, span_userdanger("Мистическая энергия пронзает ваш хрупкий разум, разрывая его на куски!"))
 	human_user.ghostize()
 	var/obj/item/bodypart/head/head = locate() in human_user.bodyparts
 	if(head)
