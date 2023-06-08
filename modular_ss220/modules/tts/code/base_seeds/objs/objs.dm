@@ -13,6 +13,9 @@
 /obj/machinery/autolathe
 	tts_seed = null
 
+/obj/machinery/mecha_part_fabricator
+	tts_seed = null
+
 /obj/item/modular_computer
 	tts_seed = null
 
