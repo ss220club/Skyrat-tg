@@ -7,6 +7,12 @@
 /obj/machinery/modular_computer
 	tts_seed = null
 
+/obj/machinery/rnd
+	tts_seed = null
+
+/obj/machinery/autolathe
+	tts_seed = null
+
 /obj/item/modular_computer
 	tts_seed = null
 
