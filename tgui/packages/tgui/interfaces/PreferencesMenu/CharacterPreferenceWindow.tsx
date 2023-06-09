@@ -13,6 +13,7 @@ import { QuirksPage } from './QuirksPage';
 import { LanguagesPage } from './LanguagesMenu';
 import { LimbsPage } from './LimbsPage';
 // SKYRAT EDIT END
+import { VoicePage } from './VoicePage';
 enum Page {
   Antags,
   Main,
@@ -23,6 +24,7 @@ enum Page {
   // SKYRAT EDIT END
   Species,
   Quirks,
+  Voice,
 }
 
 const CharacterProfiles = (props: {
@@ -92,6 +94,9 @@ export const CharacterPreferenceWindow = (props, context) => {
       break;
     case Page.Quirks:
       pageContents = <QuirksPage />;
+      break;
+    case Page.Voice:
+      pageContents = <VoicePage />;
       break;
     default:
       exhaustiveCheck(currentPage);
@@ -185,6 +190,17 @@ export const CharacterPreferenceWindow = (props, context) => {
                   Quirks
                 </PageButton>
               </Stack.Item>
+
+              {Boolean(data.tts_enabled) && (
+                <Stack.Item grow>
+                  <PageButton
+                    currentPage={currentPage}
+                    page={Page.Voice}
+                    setPage={setCurrentPage}>
+                    Voice
+                  </PageButton>
+                </Stack.Item>
+              )}
             </Stack>
           </Stack.Item>
 

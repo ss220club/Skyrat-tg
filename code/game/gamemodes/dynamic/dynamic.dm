@@ -396,7 +396,7 @@ GLOBAL_VAR_INIT(dynamic_forced_threat_level, -1)
 	threat_level = clamp(round(lorentz_to_amount(relative_threat), 0.1), 0, max_threat_level)
 
 	if (SSticker.totalPlayersReady < low_pop_player_threshold)
-		threat_level = min(threat_level, LERP(low_pop_maximum_threat, max_threat_level, SSticker.totalPlayersReady / low_pop_player_threshold))
+		threat_level = 0 // SS220 - force extended on lowpop
 
 	peaceful_percentage = round(LORENTZ_CUMULATIVE_DISTRIBUTION(relative_threat, threat_curve_centre, threat_curve_width), 0.01)*100
 

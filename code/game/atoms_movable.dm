@@ -1615,6 +1615,7 @@
 	VV_DROPDOWN_OPTION(VV_HK_EDIT_PARTICLES, "Edit Particles")
 	VV_DROPDOWN_OPTION(VV_HK_DEADCHAT_PLAYS, "Start/Stop Deadchat Plays")
 	VV_DROPDOWN_OPTION(VV_HK_ADD_FANTASY_AFFIX, "Add Fantasy Affix")
+	VV_DROPDOWN_OPTION(VV_HK_SELECT_TTS_VOICE, "Select TTS voice") //SS220 EDIT ADDITION - TTS220
 
 /atom/movable/vv_do_topic(list/href_list)
 	. = ..()
@@ -1642,6 +1643,13 @@
 		to_chat(usr, span_notice("Deadchat now control [src]."))
 		log_admin("[key_name(usr)] has added deadchat control to [src]")
 		message_admins(span_notice("[key_name(usr)] has added deadchat control to [src]"))
+
+	//SS220 EDIT START - TTS220
+	if(href_list[VV_HK_SELECT_TTS_VOICE] && check_rights(R_VAREDIT))
+		var/selected_tts_seed = tgui_input_list(usr, "Select a TTS voice to change to", "[src.name] TTS voice selection", SStts220.tts_seeds_names)
+		if(selected_tts_seed)
+			tts_seed = selected_tts_seed
+	//SS220 EDIT END - TTS220
 
 /**
 * A wrapper for setDir that should only be able to fail by living mobs.
