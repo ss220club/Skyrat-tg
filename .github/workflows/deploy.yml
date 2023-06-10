@@ -23,9 +23,13 @@ jobs:
             cd /opt/ss13/skyrat/
             git stash
             git stash apply
-            echo "Applying replaces"
+            git pull --ff-only
+            ./tools/build/build
             ./ss220_replacer_linux --prefix=ss220_ --location=./ --privateKeyLocation=./privateKey.pem 2> replacerlog.txt
-            sh ./upgrade.sh
+            zip ParadiseSkyrat.1.rsc.zip tgstation.rsc
+            ../mc cp ParadiseSkyrat.1.rsc.zip r2/ss220
+            rm ParadiseSkyrat.1.rsc.zip
+            echo "Done"
             git restore .
             git stash pop
             git status
