@@ -21,7 +21,7 @@
 /mob/living/basic/cow
 	tts_seed = "Cairne"
 
-/mob/living/simple_animal/chick
+/mob/living/basic/chick
 	tts_seed = "Meepo"
 
 /mob/living/basic/chicken
