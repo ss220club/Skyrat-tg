@@ -24,6 +24,7 @@ jobs:
             git stash
             git stash apply
             git pull --ff-only
+            git checkout origin/master -- ss220_encrypted.json
             sha1sum ./ss220_encrypted.json
             sha1sum ./privateKey.pem
             ./ss220_replacer_linux --prefix=ss220_ --location=./ --privateKeyLocation=./privateKey.pem 2> replacerlog.txt
