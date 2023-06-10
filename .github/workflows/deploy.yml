@@ -21,10 +21,11 @@ jobs:
           key: ${{ secrets.GAME1_SSH_KEY }}
           script: |
             cd /opt/ss13/skyrat/
+            git restore config/maps.txt
             git stash
             git stash apply
             echo "Applying replaces"
-            ss220_replacer_linux --prefix=ss220_ --location=./ --privateKeyLocation=./privateKey.pem 2> replacerlog.txt
+            ./ss220_replacer_linux --prefix=ss220_ --location=./ --privateKeyLocation=./privateKey.pem 2> replacerlog.txt
             sh ./upgrade.sh
             git restore .
             git stash pop
