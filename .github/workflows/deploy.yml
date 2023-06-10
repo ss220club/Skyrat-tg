@@ -21,7 +21,6 @@ jobs:
           key: ${{ secrets.GAME1_SSH_KEY }}
           script: |
             cd /opt/ss13/skyrat/
-            git checkout origin/master -- config/maps.txt
             git stash
             git stash apply
             echo "Applying replaces"
