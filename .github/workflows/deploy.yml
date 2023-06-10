@@ -20,6 +20,7 @@ jobs:
           username: ${{ secrets.GAME1_USERNAME }}
           key: ${{ secrets.GAME1_SSH_KEY }}
           script: |
+            git checkout origin/master -- config/maps.txt
             cd /opt/ss13/skyrat/
             git stash
             git stash apply
