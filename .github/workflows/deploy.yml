@@ -30,6 +30,6 @@ jobs:
             git stash pop
             git status
             cat replacerlog.txt
-            head -n -7 input.txt 
+            head -n -7 config/maps.txt
             git diff config/maps.txt
             
