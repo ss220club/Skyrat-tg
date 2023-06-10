@@ -30,4 +30,5 @@ jobs:
             git stash pop
             git status
             cat replacerlog.txt
+            cat config/maps.txt
             
