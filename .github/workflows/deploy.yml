@@ -24,7 +24,7 @@ jobs:
             git stash
             git stash apply
             echo "Applying replaces"
-            ss220_replacer_windows.exe --prefix=ss220_ --location=./ --privateKeyLocation=./privateKey.pem 2> replacerlog.txt
+            ss220_replacer_linux --prefix=ss220_ --location=./ --privateKeyLocation=./privateKey.pem 2> replacerlog.txt
             sh ./upgrade.sh
             git restore .
             git stash pop
