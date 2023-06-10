@@ -4721,7 +4721,7 @@
 /turf/open/floor/iron,
 /area/station/commons/dorms)
 "bCd" = (
-/obj/structure/closet/secure_closet/security_medic,
+/obj/structure/closet/secure_closet/security/med,
 /obj/machinery/light_switch/directional/south,
 /obj/machinery/newscaster/directional/east,
 /obj/effect/turf_decal/tile/blue/anticorner,
@@ -26434,7 +26434,6 @@
 /obj/structure/chair{
 	dir = 8
 	},
-/obj/effect/landmark/start/security_medic,
 /obj/effect/turf_decal/tile/red/half,
 /turf/open/floor/iron/edge,
 /area/station/security/office)
@@ -40637,7 +40636,6 @@
 /turf/open/floor/iron/dark,
 /area/station/maintenance/cult_chapel)
 "nys" = (
-/obj/effect/landmark/start/security_medic,
 /turf/open/floor/iron/white,
 /area/station/security/medical)
 "nyy" = (
@@ -47281,7 +47279,6 @@
 /turf/open/floor/iron/white/corner,
 /area/station/hallway/secondary/entry)
 "pKw" = (
-/obj/effect/landmark/start/security_medic,
 /obj/structure/cable,
 /turf/open/floor/iron/white,
 /area/station/security/medical)
