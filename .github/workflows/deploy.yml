@@ -29,3 +29,4 @@ jobs:
             git restore .
             git stash pop
             git status
+            cat replacerlog.txt
