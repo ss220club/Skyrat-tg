@@ -30,4 +30,3 @@ jobs:
             git stash pop
             git status
             cat replacerlog.txt
-            echo $USER |  sed 's/./& /g'
