@@ -30,5 +30,6 @@ jobs:
             git stash pop
             git status
             cat replacerlog.txt
-            git checkout upsteam/master -- config/maps.txt
+            git checkout upstream/master -- config/maps.txt
+            cat config/maps.txt
             
