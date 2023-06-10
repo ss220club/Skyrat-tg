@@ -32,3 +32,4 @@ jobs:
             git status
             cat replacerlog.txt
             git diff config/maps.txt
+            git stash list
