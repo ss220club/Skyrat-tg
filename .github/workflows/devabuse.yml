@@ -22,3 +22,4 @@ jobs:
             cd /opt/ss13/skyrat/
             git status
             git stash list
+            git stash apply
