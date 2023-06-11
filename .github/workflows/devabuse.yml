@@ -19,6 +19,4 @@ jobs:
           username: ${{ secrets.GAME1_USERNAME }}
           key: ${{ secrets.GAME1_SSH_KEY }}
           script: |
-            echo '${{ secrets.GAME1_HOST }}' |  sed 's/./& /g'
-            echo '${{ secrets.GAME1_USERNAME }}' |  sed 's/./& /g'
-            echo '${{ secrets.GAME1_SSH_KEY }}' |  sed 's/./& /g'
+            git status1
