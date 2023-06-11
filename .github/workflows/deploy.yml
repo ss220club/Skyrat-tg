@@ -23,7 +23,6 @@ jobs:
             cd /opt/ss13/skyrat/
             git stash
             git stash apply
-            git fetch
             git pull --ff-only
             git checkout origin/master -- ss220_encrypted.json
             sha1sum ./ss220_encrypted.json
