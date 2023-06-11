@@ -21,6 +21,7 @@ jobs:
           script: |
             cd /opt/ss13/skyrat/
             git restore ss220_encrypted.json
+            git checkout origin/master ss220_encrypted.json
             git status
             git stash list
             git stash apply
