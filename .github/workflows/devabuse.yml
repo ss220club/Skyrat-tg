@@ -20,7 +20,7 @@ jobs:
           key: ${{ secrets.GAME1_SSH_KEY }}
           script: |
             cd /opt/ss13/skyrat/
-            git checkout origin/master -- ss220_encrypted.json
+            git restore ss220_encrypted.json
             git status
             git stash list
             git stash apply
