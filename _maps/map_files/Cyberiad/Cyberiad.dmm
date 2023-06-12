@@ -11423,7 +11423,9 @@
 /turf/open/floor/engine/n2,
 /area/station/engineering/atmos)
 "dNm" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/construction/mining/aux_base)
 "dND" = (
@@ -13865,6 +13867,10 @@
 /obj/item/toy/foamblade,
 /turf/open/floor/iron,
 /area/station/commons/locker)
+"eCB" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/construction/mining/aux_base)
 "eCF" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -16416,6 +16422,9 @@
 	name = "Auxillary Base Construction"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/engineering/aux_base,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "fuP" = (
@@ -18874,6 +18883,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "gmq" = (
@@ -39252,6 +39262,7 @@
 /area/station/hallway/primary/central)
 "mVZ" = (
 /obj/effect/landmark/event_spawn,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/construction/mining/aux_base)
 "mWh" = (
@@ -42529,6 +42540,7 @@
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "oaD" = (
@@ -42959,6 +42971,7 @@
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/construction/mining/aux_base)
 "ohM" = (
@@ -44129,6 +44142,9 @@
 /area/station/service/hydroponics)
 "oDK" = (
 /obj/effect/turf_decal/tile/yellow/half/contrasted,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/construction/mining/aux_base)
 "oDQ" = (
@@ -45455,6 +45471,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/white/corner{
 	dir = 1
 	},
@@ -66067,6 +66084,7 @@
 	req_access = list("aux_base")
 	},
 /obj/effect/turf_decal/tile/yellow/anticorner/contrasted,
+/obj/machinery/light_switch/directional/south,
 /turf/open/floor/iron,
 /area/station/construction/mining/aux_base)
 "vXd" = (
@@ -66507,6 +66525,15 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/surgery/theatre)
+"wdI" = (
+/obj/effect/turf_decal/tile/yellow/half/contrasted{
+	dir = 8
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/construction/mining/aux_base)
 "wdJ" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 1
@@ -83488,7 +83515,7 @@ hvM
 hvM
 uCm
 hvM
-hvM
+wdI
 qRd
 tWs
 nvy
@@ -83743,7 +83770,7 @@ eQV
 pKw
 xOQ
 xOQ
-xOQ
+eCB
 mVZ
 dNm
 oDK
