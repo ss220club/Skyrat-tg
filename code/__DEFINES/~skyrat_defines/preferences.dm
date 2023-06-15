@@ -1,7 +1,7 @@
-#define PREVIEW_PREF_JOB "Job"
-#define PREVIEW_PREF_LOADOUT "Loadout"
-#define PREVIEW_PREF_UNDERWEAR "Underwear"
-#define PREVIEW_PREF_NAKED "Naked"
+#define PREVIEW_PREF_JOB "Профессия"
+#define PREVIEW_PREF_LOADOUT "Снаряжение"
+#define PREVIEW_PREF_UNDERWEAR "Нижнее белье"
+#define PREVIEW_PREF_NAKED "Без одежды"
 #define PREVIEW_PREF_NAKED_AROUSED "Naked - Aroused"
 
 /// for tri color prefs: doesn't check type_to_check pref
@@ -11,9 +11,9 @@
 /// checks that the value of type_to_check is associated with a factual sprite accessory (tldr not "None")
 #define TRICOLOR_CHECK_ACCESSORY 2
 
-#define ORGAN_PREF_POSI_BRAIN "Positronic Brain"
-#define ORGAN_PREF_MMI_BRAIN "Man-Machine Interface"
-#define ORGAN_PREF_CIRCUIT_BRAIN "Circuitboard"
+#define ORGAN_PREF_POSI_BRAIN "Позитронный мозг"
+#define ORGAN_PREF_MMI_BRAIN "Человеко-машинный интерфейс"
+#define ORGAN_PREF_CIRCUIT_BRAIN "Печатная плата"
 
 // Playtime is tracked in minutes
 /// Have any less hours than listed below and you get access to a pin indicating you're new
