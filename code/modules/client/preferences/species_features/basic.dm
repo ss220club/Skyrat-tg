@@ -57,7 +57,7 @@
 	savefile_key = "facial_style_name"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_FEATURES
-	main_feature_name = "Facial hair"
+	main_feature_name = "Лицевая растительность"
 	should_generate_icons = TRUE
 	relevant_species_trait = FACEHAIR
 
@@ -131,7 +131,7 @@
 	savefile_key = "hairstyle_name"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_FEATURES
-	main_feature_name = "Hairstyle"
+	main_feature_name = "Прическа"
 	should_generate_icons = TRUE
 	relevant_species_trait = HAIR
 

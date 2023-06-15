@@ -2,7 +2,7 @@
 	savefile_key = "feature_pod_hair"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_FEATURES
-	main_feature_name = "Hairstyle"
+	main_feature_name = "Прическа"
 	should_generate_icons = TRUE
 
 /datum/preference/choiced/pod_hair/init_possible_values()

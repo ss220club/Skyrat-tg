@@ -28,7 +28,7 @@
 /datum/preference/choiced/backpack
 	savefile_key = "backpack"
 	savefile_identifier = PREFERENCE_CHARACTER
-	main_feature_name = "Backpack"
+	main_feature_name = "Сумка"
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 
@@ -57,7 +57,7 @@
 /datum/preference/choiced/jumpsuit
 	savefile_key = "jumpsuit_style"
 	savefile_identifier = PREFERENCE_CHARACTER
-	main_feature_name = "Jumpsuit"
+	main_feature_name = "Комбинезон"
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 
@@ -76,7 +76,7 @@
 /datum/preference/choiced/socks
 	savefile_key = "socks"
 	savefile_identifier = PREFERENCE_CHARACTER
-	main_feature_name = "Socks"
+	main_feature_name = "Носки"
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 
@@ -90,7 +90,7 @@
 /datum/preference/choiced/undershirt
 	savefile_key = "undershirt"
 	savefile_identifier = PREFERENCE_CHARACTER
-	main_feature_name = "Undershirt"
+	main_feature_name = "Одежда"
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 
@@ -125,7 +125,7 @@
 /datum/preference/choiced/underwear
 	savefile_key = "underwear"
 	savefile_identifier = PREFERENCE_CHARACTER
-	main_feature_name = "Underwear"
+	main_feature_name = "Нижнее белье"
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 

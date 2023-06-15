@@ -127,7 +127,7 @@ const ChoicedSelection = (
                   'font-size': '14px',
                   'text-align': 'center',
                 }}>
-                Select {props.name.toLowerCase()}
+                Выбор: {props.name.toLowerCase()}
               </Box>
             </Stack.Item>
 
