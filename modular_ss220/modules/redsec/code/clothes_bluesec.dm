@@ -441,7 +441,7 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "security_cap_black"
-	armor_type = /datum/armor/head_security_cap
+	armor_type = /datum/armor/head_helmet
 	strip_delay = 60
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	dog_fashion = null
@@ -486,7 +486,7 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "garrison_black"
 	uses_advanced_reskins = TRUE
-	armor_type = /datum/armor/head_security_garrison
+	armor_type = /datum/armor/head_helmet
 	strip_delay = 60
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	current_skin = null
