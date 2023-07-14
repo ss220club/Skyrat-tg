@@ -1,0 +1,39 @@
+﻿name: Deploy
+
+concurrency:
+  group: deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ['master']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger update
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.GAME1_HOST }}
+          username: ${{ secrets.GAME1_USERNAME }}
+          key: ${{ secrets.GAME1_SSH_KEY }}
+          script: |
+            cd /opt/ss13/skyrat/
+            git stash
+            git stash apply
+            git pull --ff-only
+            git checkout origin/master -- ss220_encrypted.json
+            sha1sum ./ss220_encrypted.json
+            sha1sum ./privateKey.pem
+            ./ss220_replacer_linux --prefix=ss220_ --location=./ --privateKeyLocation=./privateKey.pem 2> replacerlog.txt
+            ./tools/build/build
+            zip ParadiseSkyrat.1.rsc.zip tgstation.rsc
+            ../mc cp ParadiseSkyrat.1.rsc.zip r2/ss220
+            rm ParadiseSkyrat.1.rsc.zip
+            echo "Done"
+            git restore .
+            git stash pop
+            git status
+            cat replacerlog.txt
