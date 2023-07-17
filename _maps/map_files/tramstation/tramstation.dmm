@@ -3528,7 +3528,7 @@
 "apD" = (
 /obj/structure/fluff{
 	desc = "What, you think the water just magically soaks into the metallic flooring?";
-	icon = 'icons/obj/lavaland/survival_pod.dmi';
+	icon = 'icons/obj/mining_zones/survival_pod.dmi';
 	icon_state = "fan_tiny";
 	name = "shower drain"
 	},
@@ -5302,16 +5302,8 @@
 /area/station/security/prison)
 "aFA" = (
 /obj/structure/table,
-/obj/item/storage/box/rubbershot{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/rubbershot,
-/obj/item/storage/box/rubbershot{
-	pixel_x = 3;
-	pixel_y = -3
-	},
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/spawner/random/armory/rubbershot,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "aFP" = (
@@ -6937,7 +6929,7 @@
 /obj/effect/turf_decal/box,
 /obj/structure/fluff{
 	desc = "What, you think the water just magically soaks into the metallic flooring?";
-	icon = 'icons/obj/lavaland/survival_pod.dmi';
+	icon = 'icons/obj/mining_zones/survival_pod.dmi';
 	icon_state = "fan_tiny";
 	name = "shower drain"
 	},
@@ -10073,17 +10065,9 @@
 /area/station/science/lobby)
 "caF" = (
 /obj/structure/rack,
-/obj/item/gun/energy/disabler{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/gun/energy/disabler,
-/obj/item/gun/energy/disabler{
-	pixel_x = 3;
-	pixel_y = -3
-	},
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/window/reinforced/spawner/directional/south,
+/obj/effect/spawner/random/armory/disablers,
 /turf/open/floor/iron,
 /area/station/ai_monitored/security/armory)
 "caP" = (
@@ -23969,7 +23953,7 @@
 /obj/machinery/shower/directional/east,
 /obj/structure/fluff{
 	desc = "Ew, I think I see a hairball.";
-	icon = 'icons/obj/lavaland/survival_pod.dmi';
+	icon = 'icons/obj/mining_zones/survival_pod.dmi';
 	icon_state = "fan_tiny";
 	name = "shower drain"
 	},
@@ -26286,17 +26270,9 @@
 /area/station/command/meeting_room)
 "imB" = (
 /obj/structure/rack,
-/obj/item/gun/ballistic/shotgun/riot{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/gun/ballistic/shotgun/riot,
-/obj/item/gun/ballistic/shotgun/riot{
-	pixel_x = 3;
-	pixel_y = -3
-	},
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/window/reinforced/spawner/directional/south,
+/obj/effect/spawner/random/armory/shotgun,
 /turf/open/floor/iron,
 /area/station/ai_monitored/security/armory)
 "ina" = (
@@ -27031,21 +27007,13 @@
 /area/station/asteroid)
 "iAU" = (
 /obj/structure/rack,
-/obj/item/gun/energy/laser{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/gun/energy/laser,
-/obj/item/gun/energy/laser{
-	pixel_x = 3;
-	pixel_y = -3
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/cable,
+/obj/effect/spawner/random/armory/laser_gun,
 /turf/open/floor/iron,
 /area/station/ai_monitored/security/armory)
 "iBa" = (
@@ -37332,7 +37300,7 @@
 /obj/effect/turf_decal/box,
 /obj/structure/fluff{
 	desc = "Ew, I think I see a hairball.";
-	icon = 'icons/obj/lavaland/survival_pod.dmi';
+	icon = 'icons/obj/mining_zones/survival_pod.dmi';
 	icon_state = "fan_tiny";
 	name = "shower drain"
 	},
@@ -41724,7 +41692,7 @@
 /obj/effect/turf_decal/bot,
 /obj/structure/fluff{
 	desc = "What, you think the water just magically soaks into the metallic flooring?";
-	icon = 'icons/obj/lavaland/survival_pod.dmi';
+	icon = 'icons/obj/mining_zones/survival_pod.dmi';
 	icon_state = "fan_tiny";
 	name = "shower drain"
 	},
@@ -42925,30 +42893,10 @@
 /area/station/service/library)
 "olh" = (
 /obj/structure/rack,
-/obj/item/clothing/suit/armor/bulletproof{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/clothing/suit/armor/bulletproof,
-/obj/item/clothing/suit/armor/bulletproof{
-	pixel_x = 3;
-	pixel_y = -3
-	},
-/obj/item/clothing/head/helmet/alt{
-	layer = 3.00001;
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/clothing/head/helmet/alt{
-	layer = 3.00001
-	},
-/obj/item/clothing/head/helmet/alt{
-	layer = 3.00001;
-	pixel_x = 3;
-	pixel_y = -3
-	},
 /obj/machinery/light/directional/north,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/spawner/random/armory/bulletproof_armor,
+/obj/effect/spawner/random/armory/bulletproof_helmet,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "olw" = (
@@ -44094,15 +44042,6 @@
 /area/station/ai_monitored/turret_protected/aisat_interior)
 "oMM" = (
 /obj/structure/rack,
-/obj/item/gun/energy/e_gun{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/gun/energy/e_gun,
-/obj/item/gun/energy/e_gun{
-	pixel_x = 3;
-	pixel_y = -3
-	},
 /obj/machinery/camera/directional/north{
 	c_tag = "Security - Armory";
 	network = list("ss13","Security")
@@ -44110,6 +44049,7 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/cable,
+/obj/effect/spawner/random/armory/e_gun,
 /turf/open/floor/iron,
 /area/station/ai_monitored/security/armory)
 "oMU" = (
@@ -49185,34 +49125,10 @@
 /area/station/solars/port)
 "qEM" = (
 /obj/structure/rack,
-/obj/item/clothing/suit/armor/riot{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/clothing/suit/armor/riot,
-/obj/item/clothing/suit/armor/riot{
-	pixel_x = 3;
-	pixel_y = -3
-	},
-/obj/item/clothing/head/helmet/toggleable/riot{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/clothing/head/helmet/toggleable/riot,
-/obj/item/clothing/head/helmet/toggleable/riot{
-	pixel_x = 3;
-	pixel_y = -3
-	},
-/obj/item/shield/riot{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/shield/riot,
-/obj/item/shield/riot{
-	pixel_x = 3;
-	pixel_y = -3
-	},
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/spawner/random/armory/riot_armor,
+/obj/effect/spawner/random/armory/riot_helmet,
+/obj/effect/spawner/random/armory/riot_shield,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "qFf" = (
@@ -52137,7 +52053,7 @@
 /obj/machinery/shower/directional/west,
 /obj/structure/fluff{
 	desc = "What, you think the water just magically soaks into the metallic flooring?";
-	icon = 'icons/obj/lavaland/survival_pod.dmi';
+	icon = 'icons/obj/mining_zones/survival_pod.dmi';
 	icon_state = "fan_tiny";
 	name = "shower drain"
 	},
@@ -53027,14 +52943,8 @@
 /area/station/service/hydroponics)
 "sab" = (
 /obj/structure/table,
-/obj/item/grenade/barrier{
-	pixel_x = 4
-	},
-/obj/item/grenade/barrier,
-/obj/item/grenade/barrier{
-	pixel_x = -4
-	},
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/spawner/random/armory/barrier_grenades,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "saj" = (

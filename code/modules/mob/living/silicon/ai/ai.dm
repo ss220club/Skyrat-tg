@@ -720,7 +720,7 @@
 			"carp" = 'icons/mob/simple/carp.dmi',
 			"chicken" = 'icons/mob/simple/animal.dmi',
 			"corgi" = 'icons/mob/simple/pets.dmi',
-			"cow" = 'icons/mob/simple/animal.dmi',
+			"cow" = 'icons/mob/simple/cows.dmi',
 			"crab" = 'icons/mob/simple/animal.dmi',
 			"fox" = 'icons/mob/simple/pets.dmi',
 			"goat" = 'icons/mob/simple/animal.dmi',
@@ -728,7 +728,7 @@
 			"cat2" = 'icons/mob/simple/pets.dmi',
 			"poly" = 'icons/mob/simple/animal.dmi',
 			"pug" = 'icons/mob/simple/pets.dmi',
-			"spider" = 'icons/mob/simple/animal.dmi'
+			"spider" = 'icons/mob/simple/arachnoid.dmi'
 			)
 
 			input = tgui_input_list(usr, "Select a hologram", "Hologram", sort_list(icon_list))
