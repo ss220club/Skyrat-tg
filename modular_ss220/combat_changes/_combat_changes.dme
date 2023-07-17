@@ -9,3 +9,4 @@
 #include "code/combat_microfusion.dm"
 #include "code/combat_projectile.dm"
 #include "code/combat_safeties.dm"
+#include "code/combat_uplink.dm"
