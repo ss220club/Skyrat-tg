@@ -210,8 +210,15 @@
 /*
 * LOCKERS
 */
+
 /obj/structure/closet/secure_closet/security
 	icon = 'icons/obj/storage/closet.dmi'
+
+/obj/structure/closet/secure_closet/security/Initialize(mapload)
+	. = ..()
+	var/obj/item/to_delete = locate(/obj/item/clothing/head/security_cap) in loc
+	if(to_delete)
+		qdel(to_delete)
 
 /obj/structure/closet/secure_closet/hos
 	icon = 'icons/obj/storage/closet.dmi'
