@@ -3285,7 +3285,6 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 6
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/open/water,
 /area/station/maintenance/pool_maintenance)
 "bgM" = (
@@ -9342,7 +9341,6 @@
 /area/station/security/checkpoint/science)
 "dbZ" = (
 /obj/effect/turf_decal/siding/white,
-/obj/effect/decal/cleanable/dirt,
 /turf/open/water,
 /area/station/maintenance/pool_maintenance)
 "dcf" = (
@@ -10979,7 +10977,6 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/broken/directional/north,
 /mob/living/basic/frog,
 /turf/open/water,
@@ -30719,7 +30716,6 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 9
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/open/water,
 /area/station/maintenance/pool_maintenance)
 "kgR" = (
@@ -42280,7 +42276,6 @@
 /obj/effect/turf_decal/siding/wideplating/corner{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/open/water,
 /area/station/maintenance/pool_maintenance)
 "nXk" = (
@@ -45395,10 +45390,6 @@
 /obj/structure/closet/crate,
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
-"oXJ" = (
-/obj/effect/decal/remains/xeno/larva,
-/turf/closed/wall/r_wall,
-/area/station/science/server)
 "oXZ" = (
 /obj/structure/table/wood,
 /obj/item/folder/red,
@@ -69176,7 +69167,6 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/open/water,
 /area/station/maintenance/pool_maintenance)
 "wZA" = (
@@ -70170,7 +70160,6 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 5
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/open/water,
 /area/station/maintenance/pool_maintenance)
 "xtq" = (
@@ -115080,7 +115069,7 @@ wNk
 iZm
 iZm
 iZm
-oXJ
+iZm
 iZm
 feq
 dPO
