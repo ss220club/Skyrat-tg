@@ -143,7 +143,6 @@
 	starting_programs = list(
 		/datum/computer_file/program/records/security,
 		/datum/computer_file/program/crew_manifest,
-		/datum/computer_file/program/budgetorders, //SS220 EDIT ADDITION - Warden allowed to use Security Budget
 		/datum/computer_file/program/robocontrol,
 	)
 

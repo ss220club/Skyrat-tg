@@ -3,9 +3,6 @@
 #TTS_ENABLED
 #TTS_CACHE
 
-## Additional slowdown when crawling
-#ADDITIONAL_CRAWL_SLOWDOWN
-
 ## CPU Affinity for FFmpeg. Check out taskset man page.
 ## Example valid values: "0-3" or "1,4-7"
 #FFMPEG_CPUAFFINITY 24-31
