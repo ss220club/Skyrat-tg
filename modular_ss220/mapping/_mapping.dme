@@ -1,0 +1,3 @@
+#include "_mapping.dm"
+
+#include "code/areas.dm"
