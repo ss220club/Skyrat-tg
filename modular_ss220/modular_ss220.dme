@@ -7,6 +7,7 @@
 #include "combat_changes/_combat_changes.dme"
 #include "crawl_speed/_crawl_speed.dme"
 #include "cyrillic_fixes/_cyrillic_fixes.dme"
+#include "discord/_discord.dme"
 #include "mapping/_mapping.dme"
 #include "redsec/_redsec.dme"
 #include "tts/_tts.dme"
