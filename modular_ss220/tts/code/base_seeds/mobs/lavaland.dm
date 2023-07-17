@@ -9,7 +9,7 @@
 /mob/living/simple_animal/hostile/asteroid/basilisk
 	tts_seed = "Antimage"
 
-/mob/living/simple_animal/hostile/asteroid/goliath
+/mob/living/basic/mining/goliath/ancient
 	tts_seed = "Bloodseeker"
 
 /mob/living/simple_animal/hostile/asteroid/hivelord

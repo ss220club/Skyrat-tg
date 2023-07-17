@@ -33,7 +33,7 @@
 /mob/living/simple_animal/hostile/retaliate/goose
 	tts_seed = "pantheon"
 
-/mob/living/simple_animal/pet/fox
+/mob/living/basic/pet/fox
 	tts_seed = "Barney"
 
 /mob/living/basic/frog
