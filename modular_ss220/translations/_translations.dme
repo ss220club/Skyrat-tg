@@ -1,3 +1,5 @@
 #include "_translations.dm"
 
-#include "code/example.dm"
+#include "code/ai_laws.dm"
+#include "code/moustache.dm"
+#include "code/restaurant_customer.dm"
