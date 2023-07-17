@@ -1614,7 +1614,6 @@
 	VV_DROPDOWN_OPTION(VV_HK_EDIT_PARTICLES, "Edit Particles")
 	VV_DROPDOWN_OPTION(VV_HK_DEADCHAT_PLAYS, "Start/Stop Deadchat Plays")
 	VV_DROPDOWN_OPTION(VV_HK_ADD_FANTASY_AFFIX, "Add Fantasy Affix")
-	VV_DROPDOWN_OPTION(VV_HK_SELECT_TTS_VOICE, "Select TTS voice") //SS220 EDIT ADDITION - TTS220
 
 /atom/movable/vv_do_topic(list/href_list)
 	. = ..()
