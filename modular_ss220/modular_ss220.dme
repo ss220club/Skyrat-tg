@@ -3,6 +3,7 @@
 
 // #include "example/_example.dme"
 
+#include "aesthetics/_aesthetics.dme"
 #include "barsigns/_barsigns.dme"
 #include "combat_changes/_combat_changes.dme"
 #include "crawl_speed/_crawl_speed.dme"

@@ -7,3 +7,12 @@
 	. = ..()
 	if(status == LIGHT_OK && low_power_mode)
 		icon_state = "[base_state]"
+
+/obj/machinery/light/dim
+	bulb_colour = "#FFDDCC"
+
+/obj/machinery/light/small
+	bulb_colour = "#FFDDCC"
+
+/obj/machinery/light/warm
+	bulb_colour = "#FFDDCC"
