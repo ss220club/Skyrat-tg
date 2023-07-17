@@ -317,7 +317,7 @@
 /area/station/maintenance/department/medical/central)
 "agj" = (
 /obj/structure/bed/dogbed/renault,
-/mob/living/simple_animal/pet/fox/renault,
+/mob/living/basic/pet/fox/renault,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/captain)
 "agz" = (
@@ -70451,9 +70451,6 @@
 /obj/item/folder/white,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/ai)
-"xyz" = (
-/turf/open/misc/beach/sand,
-/area/station/hallway/secondary/exit/departure_lounge)
 "xyG" = (
 /turf/open/floor/iron/smooth,
 /area/station/science/ordnance)
@@ -125601,9 +125598,9 @@ nkf
 hrD
 lyq
 oKZ
-xyz
+jOM
 ovI
-xyz
+jOM
 oKZ
 dMG
 hrD

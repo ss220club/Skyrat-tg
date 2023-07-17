@@ -41360,12 +41360,6 @@
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
-"oUB" = (
-/obj/effect/turf_decal/bot,
-/obj/effect/landmark/start/hangover,
-/obj/machinery/digital_clock/directional/north,
-/turf/open/floor/iron,
-/area/station/hallway/secondary/command)
 "oUE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -42352,15 +42346,6 @@
 /obj/machinery/holopad,
 /turf/open/floor/iron/white,
 /area/station/command/heads_quarters/rd)
-"pou" = (
-/obj/structure/table,
-/obj/item/stack/sheet/glass/fifty,
-/obj/item/stack/rods/fifty,
-/obj/effect/turf_decal/tile/yellow/anticorner/contrasted,
-/obj/item/wallframe/digital_clock,
-/obj/item/wallframe/digital_clock,
-/turf/open/floor/iron,
-/area/station/commons/storage/tools)
 "poJ" = (
 /obj/machinery/telecomms/hub/preset,
 /turf/open/floor/circuit/green/telecomms/mainframe,
@@ -52739,11 +52724,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/qm)
-"sXE" = (
-/obj/structure/cable,
-/obj/machinery/digital_clock/directional/south,
-/turf/open/floor/wood,
-/area/station/service/library)
 "sXF" = (
 /obj/effect/turf_decal/trimline/purple/line{
 	dir = 1
@@ -59843,16 +59823,6 @@
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/iron,
 /area/station/commons/dorms)
-"vxE" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/machinery/digital_clock/directional/north,
-/turf/open/floor/iron,
-/area/station/hallway/primary/central)
 "vxJ" = (
 /obj/machinery/power/emitter/welded{
 	dir = 1
@@ -63010,10 +62980,6 @@
 	dir = 1
 	},
 /area/station/engineering/atmos/pumproom)
-"wDH" = (
-/obj/machinery/digital_clock/directional/north,
-/turf/open/floor/wood,
-/area/station/service/library)
 "wEf" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/plasma_output{
 	dir = 1
@@ -64056,15 +64022,6 @@
 /obj/effect/spawner/random/trash/mess,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/aft)
-"wYn" = (
-/obj/machinery/chem_dispenser/drinks/beer{
-	dir = 1
-	},
-/obj/structure/table,
-/obj/effect/turf_decal/tile/bar/opposingcorners,
-/obj/machinery/digital_clock/directional/south,
-/turf/open/floor/iron,
-/area/station/service/bar)
 "wYo" = (
 /obj/machinery/airalarm/directional/east,
 /obj/machinery/light/directional/south,
@@ -88037,7 +87994,7 @@ mjr
 nxz
 ueD
 sVY
-wDH
+rhS
 rSx
 pEH
 pEH
@@ -101636,7 +101593,7 @@ wzK
 qXB
 mNj
 wlL
-pou
+aCy
 dZm
 wAA
 fRS
