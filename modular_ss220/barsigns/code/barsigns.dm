@@ -1,6 +1,3 @@
-/obj/machinery/barsign
-	var/ss220_icon = 'modular_ss220/barsigns/icons/barsigns.dmi'
-
 /obj/machinery/barsign/set_sign(datum/barsign/sign)
 	if(!istype(sign))
 		return
