@@ -1,3 +1,5 @@
 #include "_customization.dm"
 
+#include "code/borgs.dm"
 #include "code/customization.dm"
+#include "code/jobs.dm"
