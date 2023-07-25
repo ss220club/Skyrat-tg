@@ -4,7 +4,9 @@
 		return
 	. = ..()
 
-/mob/living/carbon/Login(mapload)
+/mob/living/carbon/set_body_position(new_value)
 	. = ..()
-	if(. && !GetComponent(/datum/component/crawl_speed))
+	if(isnull(.))
+		return
+	if(new_value == LYING_DOWN)
 		AddComponent(/datum/component/crawl_speed)
