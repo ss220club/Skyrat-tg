@@ -1,3 +1,5 @@
+#define VV_HK_SELECT_TTS_VOICE "select_tts_voice"
+
 #define SOUND_EFFECT_NONE 0
 #define SOUND_EFFECT_RADIO 1
 #define SOUND_EFFECT_ROBOT 2
