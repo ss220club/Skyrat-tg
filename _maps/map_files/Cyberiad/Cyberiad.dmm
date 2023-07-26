@@ -68343,7 +68343,7 @@
 /turf/open/floor/iron/cafeteria,
 /area/station/science/breakroom)
 "wLG" = (
-/mob/living/simple_animal/pet/penguin/baby,
+/mob/living/basic/pet/penguin/baby/permanent,
 /turf/open/water,
 /area/station/commons/dorms)
 "wLK" = (
