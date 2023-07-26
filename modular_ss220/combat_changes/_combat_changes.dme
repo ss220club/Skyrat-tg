@@ -1,0 +1,12 @@
+#include "_combat_changes.dm"
+
+#include "code/combat_armor.dm"
+#include "code/combat_baton.dm"
+#include "code/combat_bodyparts.dm"
+#include "code/combat_bubblegum.dm"
+#include "code/combat_human.dm"
+#include "code/combat_living.dm"
+#include "code/combat_microfusion.dm"
+#include "code/combat_projectile.dm"
+#include "code/combat_safeties.dm"
+#include "code/combat_uplink.dm"
