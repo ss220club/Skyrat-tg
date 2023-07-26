@@ -1226,13 +1226,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/supply/mining_station,
 /turf/open/floor/plating,
 /area/mine/eva)
-"auC" = (
-/obj/machinery/suit_storage_unit/ce,
-/obj/effect/turf_decal/stripes/line{
-	dir = 6
-	},
-/turf/open/floor/iron/white/textured,
-/area/station/command/heads_quarters/ce)
 "auJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -7741,14 +7734,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood,
 /area/station/maintenance/port/aft)
-"csF" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/machinery/light/directional/east,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
 "csR" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -16405,18 +16390,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/pharmacy)
-"feW" = (
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
-/obj/machinery/door/airlock/research{
-	name = "Research Division Access"
-	},
-/obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/science/general,
-/obj/effect/mapping_helpers/airlock/unres,
-/turf/open/floor/iron/white,
-/area/station/science/research)
 "ffe" = (
 /turf/closed/wall/r_wall,
 /area/station/maintenance/aft/lesser)
@@ -19791,12 +19764,6 @@
 /obj/structure/chair,
 /turf/open/floor/iron/cafeteria,
 /area/station/hallway/secondary/exit/departure_lounge)
-"gjZ" = (
-/obj/effect/turf_decal/siding/white,
-/obj/machinery/light/directional/south,
-/obj/machinery/digital_clock/directional/south,
-/turf/open/floor/iron/white/smooth_large,
-/area/station/service/kitchen/diner)
 "gka" = (
 /turf/closed/wall/r_wall,
 /area/station/engineering/supermatter/room)
@@ -20340,11 +20307,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/station/service/kitchen/coldroom)
-"gtb" = (
-/obj/machinery/light/directional/north,
-/obj/machinery/digital_clock/directional/north,
-/turf/open/floor/iron,
-/area/station/cargo/lobby)
 "gtc" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 1
@@ -21446,14 +21408,6 @@
 /obj/structure/sign/warning/biohazard,
 /turf/closed/wall/r_wall,
 /area/station/science/xenobiology)
-"gLT" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
-/obj/machinery/incident_display/delam/directional/north,
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
 "gLZ" = (
 /obj/structure/table,
 /obj/item/flashlight/lamp,
@@ -51997,6 +51951,18 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance/office)
+"qEZ" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/machinery/door/airlock/research{
+	name = "Research Division Access"
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/science/general,
+/obj/effect/mapping_helpers/airlock/unres,
+/turf/open/floor/iron/white,
+/area/station/science/research)
 "qFn" = (
 /obj/machinery/door/airlock/mining/glass{
 	name = "Mining Cabins"
@@ -59069,6 +59035,14 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
+"sRL" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/obj/machinery/incident_display/delam/directional/north,
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "sRQ" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/table/wood,
@@ -59604,10 +59578,6 @@
 /obj/structure/flora/bush/sunny/style_random,
 /turf/open/floor/grass,
 /area/station/service/hydroponics)
-"tbO" = (
-/obj/machinery/incident_display/delam,
-/turf/closed/wall/r_wall,
-/area/station/engineering/supermatter/room)
 "tbQ" = (
 /turf/open/floor/iron/grimy,
 /area/station/maintenance/aft/greater)
@@ -65385,14 +65355,6 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/icemoon/underground/explored)
-"uWG" = (
-/obj/machinery/light/warm/directional/north,
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 5
-	},
-/obj/machinery/digital_clock/directional/north,
-/turf/open/floor/iron/dark/textured,
-/area/station/security/prison/rec)
 "uWW" = (
 /obj/structure/closet/cardboard,
 /obj/effect/spawner/random/maintenance,
@@ -66225,6 +66187,13 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
+"vkz" = (
+/obj/machinery/suit_storage_unit/ce,
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/iron/white/textured,
+/area/station/command/heads_quarters/ce)
 "vkD" = (
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 1
@@ -67835,12 +67804,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/rd)
-"vKe" = (
-/obj/machinery/computer/security,
-/obj/effect/turf_decal/tile/red/half/contrasted,
-/obj/machinery/digital_clock/directional/north,
-/turf/open/floor/iron,
-/area/station/command/bridge)
 "vKn" = (
 /obj/item/radio/intercom/directional/north,
 /obj/structure/table/wood,
@@ -68112,6 +68075,11 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/mine/storage)
+"vPh" = (
+/obj/machinery/light/directional/north,
+/obj/machinery/digital_clock/directional/north,
+/turf/open/floor/iron,
+/area/station/cargo/lobby)
 "vPi" = (
 /obj/structure/table/wood,
 /obj/effect/spawner/random/maintenance/four,
@@ -68652,19 +68620,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
-"vXi" = (
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/machinery/door/airlock/research{
-	name = "Research Division Access"
-	},
-/obj/effect/landmark/navigate_destination,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/science/general,
-/obj/effect/mapping_helpers/airlock/unres,
-/turf/open/floor/iron/white,
-/area/station/science/research)
 "vXn" = (
 /obj/structure/table,
 /obj/item/food/pie/cream,
@@ -74025,6 +73980,12 @@
 "xCl" = (
 /turf/open/floor/iron,
 /area/station/science/robotics/lab)
+"xCv" = (
+/obj/machinery/computer/security,
+/obj/effect/turf_decal/tile/red/half/contrasted,
+/obj/machinery/digital_clock/directional/north,
+/turf/open/floor/iron,
+/area/station/command/bridge)
 "xCz" = (
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -230886,7 +230847,7 @@ dOw
 dOw
 nMy
 rCC
-gtb
+vPh
 vQQ
 vQQ
 sve
@@ -234212,7 +234173,7 @@ utR
 pAZ
 dYP
 qWZ
-vKe
+xCv
 vWL
 nci
 tPC
@@ -235302,7 +235263,7 @@ gTK
 gTK
 myX
 sSJ
-tbO
+xFM
 eEh
 fab
 eDC
@@ -235313,7 +235274,7 @@ agm
 fNN
 eXC
 wuo
-gLT
+sRL
 oyz
 mLV
 fDn
@@ -236578,7 +236539,7 @@ djO
 hOc
 bID
 qnC
-auC
+vkz
 uoF
 pcg
 deD
@@ -253240,11 +253201,11 @@ lZk
 dEV
 voH
 thM
-vXi
+xfd
 pJV
 mZG
 mZG
-feW
+qEZ
 axc
 dFW
 aYJ
