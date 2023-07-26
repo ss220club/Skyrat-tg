@@ -51,7 +51,7 @@
 /mob/living/basic/mouse/brown
 	tts_seed = "Clockwerk"
 
-/mob/living/simple_animal/pet/penguin
+/mob/living/basic/pet/penguin
 	tts_seed = "Narrator"
 
 /mob/living/simple_animal/sloth
