@@ -10978,7 +10978,6 @@
 	dir = 1
 	},
 /obj/machinery/light/broken/directional/north,
-/mob/living/basic/frog,
 /turf/open/water,
 /area/station/maintenance/pool_maintenance)
 "dEP" = (
@@ -17511,6 +17510,7 @@
 "fPj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/flashlight/seclite,
+/mob/living/basic/frog,
 /turf/open/floor/iron/freezer,
 /area/station/maintenance/pool_maintenance)
 "fPo" = (
