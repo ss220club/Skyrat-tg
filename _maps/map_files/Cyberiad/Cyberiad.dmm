@@ -68342,10 +68342,6 @@
 	},
 /turf/open/floor/iron/cafeteria,
 /area/station/science/breakroom)
-"wLG" = (
-/mob/living/basic/pet/penguin/baby/permanent,
-/turf/open/water,
-/area/station/commons/dorms)
 "wLK" = (
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
@@ -68904,6 +68900,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/mob/living/basic/pet/penguin/baby/permanent,
 /turf/open/floor/iron,
 /area/station/commons/dorms)
 "wUW" = (
@@ -107317,7 +107314,7 @@ elj
 irv
 oQG
 eHt
-wLG
+eHt
 eHt
 nhF
 grF
