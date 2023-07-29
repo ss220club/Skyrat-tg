@@ -193,7 +193,7 @@
 #define COLOR_PERIWINKLEE "#9999FF"
 
 /// Starlight!
-#define COLOR_STARLIGHT "#8589fa"
+#define COLOR_STARLIGHT "#DEEFFF" //SS220 EDIT CHANGE - ORIGINAL: #8589fa
 /**
  * Some defines to generalise colours used in lighting.
  *

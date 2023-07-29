@@ -285,7 +285,6 @@ function tag_pr($payload, $opened) {
 			$tags[] = $tag;
 
 	check_tag_and_replace($payload, '[dnm]', 'Do Not Merge', $tags);
-	check_tag_and_replace($payload, '[no gbp]', 'GBP: No Update', $tags);
 	check_tag_and_replace($payload, '[april fools]', 'April Fools', $tags);
 
 	return array($tags, $remove);

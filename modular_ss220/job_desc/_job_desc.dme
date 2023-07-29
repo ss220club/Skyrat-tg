@@ -1,0 +1,3 @@
+#include "_job_desc.dm"
+
+#include "code/job_desc.dm"
