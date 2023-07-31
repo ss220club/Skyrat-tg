@@ -27,7 +27,7 @@
 /mob/living/simple_animal/hostile/retaliate/snake
 	tts_seed = "Ladyvashj"
 
-/mob/living/simple_animal/hostile/bear
+/mob/living/basic/bear
 	tts_seed = "Shaker"
 
 /mob/living/basic/carp
