@@ -115,6 +115,7 @@
 /obj/item/clothing/under/rank/security/officer/skirt
 	icon = 'icons/obj/clothing/under/security.dmi'
 	worn_icon = 'icons/mob/clothing/under/security.dmi'
+	worn_icon_state = "secskirt"
 	icon_state = "secskirt"
 	current_skin = "secskirt"
 
