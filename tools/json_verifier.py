@@ -9,11 +9,11 @@ status = 0
 for file in sys.argv[1:]:
     with open(file, encoding="ISO-8859-1") as f:
         try:
-            if file.startswith("ss220"):
-                print("SS220 exception detected, passing...")
-            else:
-                json.load(f)
+            json.load(f)
         except ValueError as exception:
+            if "ss220" in file:
+                print("SS220 exception detected in {}, passing...".format(file))
+                continue
             print("JSON error in {}".format(file))
             print(exception)
             status = 1
