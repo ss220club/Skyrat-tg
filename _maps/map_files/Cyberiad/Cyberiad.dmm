@@ -6013,7 +6013,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/dark,
-/mob/living/simple_animal/crab/coffee,
+/mob/living/basic/crab/coffee,
 /turf/open/floor/iron,
 /area/station/commons/dorms)
 "bYH" = (

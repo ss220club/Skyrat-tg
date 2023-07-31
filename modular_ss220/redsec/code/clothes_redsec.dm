@@ -112,6 +112,13 @@
 	icon_state = "rsecurity"
 	current_skin = "rsecurity"
 
+/obj/item/clothing/under/rank/security/officer/skirt
+	icon = 'icons/obj/clothing/under/security.dmi'
+	worn_icon = 'icons/mob/clothing/under/security.dmi'
+	worn_icon_state = "secskirt"
+	icon_state = "secskirt"
+	current_skin = "secskirt"
+
 /obj/item/clothing/under/rank/security/skyrat/utility
 	desc = "A utility uniform worn by trained Security officers."
 	icon_state = "util_sec_old"
