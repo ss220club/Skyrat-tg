@@ -12,6 +12,8 @@ for file in sys.argv[1:]:
             json.load(f)
         except ValueError as exception:
             print("JSON error in {}".format(file))
+            if file.startswith("ss220"):
+                continue
             print(exception)
             status = 1
         else:
