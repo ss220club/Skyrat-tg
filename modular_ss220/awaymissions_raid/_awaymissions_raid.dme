@@ -1,0 +1,7 @@
+#include "_awaymissions_raid.dm"
+
+#include "code/awaymissions_raid.dm"
+#include "code/area.dm"
+#include "code/autorole.dm"
+#include "code/outfits.dm"
+#include "code/uniform.dm"

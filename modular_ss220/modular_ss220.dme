@@ -18,3 +18,4 @@
 #include "translations/_translations.dme"
 #include "tts/_tts.dme"
 #include "world_topics/_world_topics.dme"
+#include "awaymissions_raid/_awaymissions_raid.dme"
