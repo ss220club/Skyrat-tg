@@ -23,6 +23,13 @@
 	icon = 'modular_skyrat/modules/black_mesa/icons/mapping_helpers.dmi'
 	icon_state = "mobspawner"
 	var/list/possible_mobs = list(/mob/living/simple_animal/hostile/blackmesa/xen/headcrab)
+	//SS220 edit START
+	var/list/faction = list()
+	var/health
+	var/maxHealth
+	var/melee_damage_lower
+	var/melee_damage_upper
+	//SS220 edit END
 
 /obj/effect/random_mob_placer/Initialize(mapload)
 	. = ..()
@@ -39,7 +46,16 @@
 		return
 
 	var/mob/picked_mob = pick(possible_mobs)
-	new picked_mob(loc)
+	//SS220 edit START
+	var/mob/living/new_mob = new picked_mob(loc)
+	if(name != initial(src.name)) new_mob.name = name
+	if(desc != initial(src.desc)) new_mob.desc = desc
+	if(length(faction)) 	new_mob.faction = faction
+	if(health)				new_mob.health = health
+	if(maxHealth)			new_mob.maxHealth = maxHealth
+	if(melee_damage_lower) 	new_mob.melee_damage_lower = melee_damage_lower
+	if(melee_damage_upper) 	new_mob.melee_damage_upper = melee_damage_upper
+	//SS220 edit END
 	qdel(src)
 
 #undef MOB_PLACER_RANGE

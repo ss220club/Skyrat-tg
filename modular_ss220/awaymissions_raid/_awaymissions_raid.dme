@@ -5,3 +5,4 @@
 #include "code/autorole.dm"
 #include "code/outfits.dm"
 #include "code/uniform.dm"
+#include "code/mob_spawners.dm"
