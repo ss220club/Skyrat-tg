@@ -8,6 +8,26 @@
 		return FALSE
 	. = ..()
 
+/obj/structure/statue/psycho
+	name = "Маяк Мертвого Космоса"
+	desc = "Маяк с глубин мертвого космоса. Как он вообще сюда попал? Рядом с ним стоит тяжелый гул, не свойственный данным типам маяков. Вдыхая носом, ваш нос слегка и терпимо обжигается."
+	max_integrity = 1000
+	icon = 'modular_ss220/awaymissions_raid/icons/bluespace_beacon.dmi'
+	icon_state = "beacon_on"
+	var/psy_range = 3
+	var/psy_text_level_1 = "Вас заинтересовал этот маяк. Что же это такое?"
+	var/psy_text_level_2 = "Вы не хотите далеко отходить от этого маяка. Он притягивает ваше внимание..."
+	var/psy_text_level_3 = "Нельзя уничтожать этот маяк! Маяк нужно обезопасить... Он слишком ценен..."
+	var/psy_text_level_4 = "Маяк должен получить больше последователей. Маяк нуждается в новых разумных телах. Живых и мертвых."
+	var/psy_text_level_5 = "Я стану маяком. Я последняя стадия преобразования маяка. Я стану связующим звеном с мертвым космосом. Я умру и стану маяком. ((Сообщите в АХЕЛП если вы собираетесь стать маяком))"
+
+// /obj/structure/statue/psycho/proc/activate_psy
+// 	/datum/objective/custom
+// 	for(var/mob/living/carbon/human/H in range(psy_range))
+// 		//for(var/datum/objective/objective in objectives)
+// 		//switch(objective.explanation_text)
+// 			/datum/objective/
+
 //Winter objects
 /obj/machinery/vending/wardrobe/winter
 	name = "\improper Зимняя одежда"
